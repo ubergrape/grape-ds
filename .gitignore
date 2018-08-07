@@ -1,0 +1,13 @@
+# Ignore all hidden dotfiles
+.*
+
+# Whitelist useful dotfiles
+!/.gitattributes
+!/.gitignore
+!/.github
+
+# Ignore generated styles
+/assets/styles
+
+# Ignore logs
+*.log
