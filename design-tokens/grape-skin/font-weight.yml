@@ -1,0 +1,14 @@
+global:
+  category: font
+  type: font-weight
+  cssProperties:
+  - font
+  - font-weight
+
+props:
+  font-weight-base:
+    value: '400'
+    comment: ''
+  font-weight-emphasis:
+    value: '600'
+    comment: 'Headings, buttons, and words with emphasis inside paragraph text.'

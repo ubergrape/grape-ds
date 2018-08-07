@@ -1,0 +1,14 @@
+global:
+  category: font
+  type: font-family
+  cssProperties:
+  - font
+  - font-family
+
+props:
+  font-family-base:
+    value: "'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif"
+    comment: 'Base font family in all Grape products.'
+  font-family-monospaced:
+    value: "Consolas, Menlo, Monaco, Courier, monospace"
+    comment: 'Code in markdown.'

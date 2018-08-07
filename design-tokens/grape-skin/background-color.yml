@@ -1,0 +1,62 @@
+global:
+  category: background-color
+  type: color
+  cssProperties:
+  - 'background*'
+
+imports:
+- ./aliases/color.yml
+
+props:
+  ## Global
+  color-background-default:
+    value: '{!transparent}'
+    comment: ''
+  color-background-neutral:
+    value: '{!white}'
+    comment: ''
+  color-background-light:
+    value: '{!gray-lightest}'
+    comment: ''
+
+  ## Buttons
+  color-background-button-minimal:
+    value: '{!transparent}'
+    comment: 'Buttons Minimal.'
+
+  color-background-button-neutral:
+    value: '{!white}'
+    comment: 'Basic and Danger button Standard.'
+  color-background-button-intense-primary:
+    value: '{!purple-base}'
+    comment: 'Primary button Standard.'
+  color-background-button-intense-fatal:
+    value: '{!red-base}'
+    comment: 'Fatal button Standard.'
+
+  color-background-button-light-hover:
+    value: '{!gray-lightest}'
+    comment: 'Basic and Danger button Standard hover.'
+  color-background-button-intense-primary-hover:
+    value: '{!purple-darker-1}'
+    comment: 'Primary button Standard hover.'
+  color-background-button-intense-fatal-hover:
+    value: '{!red-darker-1}'
+    comment: 'Fatal button Standard hover.'
+
+  color-background-button-light-active:
+    value: '{!gray-lighter-3}'
+    comment: 'Basic and Danger button Standard pressed.'
+  color-background-button-intense-primary-active:
+    value: '{!purple-darkest}'
+    comment: 'Primary button Standard pressed.'
+  color-background-button-intense-fatal-active:
+    value: '{!red-darkest}'
+    comment: 'Fatal button Standard pressed.'
+
+  color-background-button-light-disabled:
+    value: '{!white}'
+    comment: 'Basic and Danger button Standard disabled.'
+  color-background-button-intense-disabled:
+    value: '{!gray-lightest}'
+    comment: 'Primary and Fatal button Standard disabled.'

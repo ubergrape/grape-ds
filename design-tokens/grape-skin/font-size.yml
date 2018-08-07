@@ -1,0 +1,69 @@
+global:
+  category: font
+  type: font-size
+  cssProperties:
+  - font
+  - font-size
+
+props:
+  ## Heading text web
+  font-size-heading-page-web:
+    value: '23px'
+    comment: 'Page heading web.'
+  font-size-heading-standard-web:
+    value: '15px'
+    comment: 'Base heading web.'
+
+  ## Overline text web
+  font-size-overline-web:
+    value: '11px'
+    comment: 'Section overline web.'
+
+  ## Large text web
+  font-size-large-web:
+    value: '17px'
+    comment: 'Large body text web.'
+
+  ## Standard text web
+  font-size-standard-web:
+    value: '14px'
+    comment: 'Base body text web.'
+
+  ## Label text web
+  font-size-label-web:
+    value: '11px'
+    comment: 'Label text web.'
+
+  ## Buttons web
+  font-size-button-web:
+    value: '14px'
+    comment: 'Button text web.'
+
+
+  ## Heading text mobile
+  font-size-heading-page-mobile:
+    value: '20px'
+    comment: 'Page heading mobile.'
+  font-size-heading-standard-mobile:
+    value: '15px'
+    comment: 'Base heading mobile.'
+
+  ## Overline text mobile
+  font-size-overline-mobile:
+    value: '14px'
+    comment: 'Section overline mobile.'
+
+  ## Standard text mobile
+  font-size-standard-mobile:
+    value: '16px'
+    comment: 'Base body text mobile.'
+
+  ## Label text mobile
+  font-size-label-mobile:
+    value: '14px'
+    comment: 'Label text mobile.'
+
+  ## Buttons mobile
+  font-size-button-mobile:
+    value: '14px'
+    comment: 'Button text mobile.'

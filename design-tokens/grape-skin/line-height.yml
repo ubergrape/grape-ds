@@ -1,0 +1,17 @@
+global:
+  category: font
+  type: number
+  cssProperties:
+  - font
+  - '*height'
+
+props:
+  line-height-dense:
+    value: '1'
+    comment: 'Elements that should fit into one line (Page heading, Overline, Label, Button.'
+  line-height-base:
+    value: '1.2'
+    comment: 'Base line height.'
+  line-height-padded:
+    value: '1.8'
+    comment: 'Spacing of menu items.'

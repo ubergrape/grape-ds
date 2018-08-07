@@ -1,0 +1,19 @@
+global:
+  category: radius
+  type: size
+  cssProperties:
+  - 'border*radius'
+
+imports:
+- ./aliases/space.yml
+
+props:
+  ## Buttons web
+  border-radius-button-pill-web:
+    value: '{!space-2-x}'
+    comment: 'Border radius pill web.'
+
+  ## Buttons mobile
+  border-radius-button-pill-mobile:
+    value: '{!space-2-half-x}'
+    comment: 'Border radius pill mobile.'
