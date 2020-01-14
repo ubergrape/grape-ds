@@ -10,3 +10,4 @@ imports:
 - ./grape-skin/border-color.yml
 - ./grape-skin/background-color.yml
 - ./grape-skin/icon-color.yml
+- ./grape-skin/status.yml
