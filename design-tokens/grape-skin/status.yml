@@ -1,0 +1,16 @@
+global:
+  category: status-color
+  type: color
+  cssProperties:
+  - 'background-color'
+
+imports:
+- ./aliases/color.yml
+
+props:
+  color-online:
+    value: '{!lime-base}'
+    comment: ''
+  color-reachable:
+    value: '{!blue-base}'
+    comment: ''
