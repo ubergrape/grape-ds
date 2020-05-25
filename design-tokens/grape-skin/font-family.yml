@@ -1,14 +1,29 @@
 global:
-  category: font
-  type: font-family
+  category: font-family
+  type: font
   cssProperties:
   - font
   - font-family
 
+imports:
+- ./aliases/fonts.yml
+
 props:
-  font-family-base:
-    value: "'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif"
-    comment: 'Base font family in all Grape products.'
-  font-family-monospaced:
-    value: "Consolas, Menlo, Monaco, Courier, monospace"
-    comment: 'Code in markdown.'
+  font-family:
+    value: '{!font-family-sans}'
+    comment: 'Default font family used for Grape applications.'
+  font-family-headline:
+    value: '{!font-family-sans}'
+    comment: 'Font family used for headlines.'
+  font-family-body:
+    value: '{!font-family-sans}'
+    comment: 'Font family used for body text.'
+  font-family-overline:
+    value: '{!font-family-sans}'
+    comment: 'Font family used for overline text.'
+  font-family-label:
+    value: '{!font-family-sans}'
+    comment: 'Font family used for label text.'
+  font-family-monospace:
+    value: '{!font-family-mono}'
+    comment: 'Font family used for code in markdown.'

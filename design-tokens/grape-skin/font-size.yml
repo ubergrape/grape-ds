@@ -1,69 +1,48 @@
 global:
-  category: font
+  category: font-size
   type: font-size
   cssProperties:
   - font
   - font-size
 
+imports:
+- ./aliases/fonts.yml
+
 props:
-  ## Heading text web
-  font-size-heading-page-web:
-    value: '23px'
-    comment: 'Page heading web.'
-  font-size-heading-standard-web:
-    value: '15px'
-    comment: 'Base heading web.'
+  ## Headline text
+  font-size-headline-page:
+    value: '{!font-size-1}'
+    comment: 'Headline of a page.'
+  font-size-headline-base:
+    value: '{!font-size-2}'
+    comment: 'Headline base.'
 
-  ## Overline text web
-  font-size-overline-web:
-    value: '11px'
-    comment: 'Section overline web.'
+  ## Large body text
+  font-size-body-large:
+    value: '{!font-size-2}'
+    comment: 'Large body text.'
 
-  ## Large text web
-  font-size-large-web:
-    value: '17px'
-    comment: 'Large body text web.'
+  ## Base body text
+  font-size-body-base:
+    value: '{!font-size-3}'
+    comment: 'Base body text.'
 
-  ## Standard text web
-  font-size-standard-web:
-    value: '14px'
-    comment: 'Base body text web.'
+  ## Overline text
+  font-size-overline:
+    value: '{!font-size-4}'
+    comment: 'Section overline.'
 
-  ## Label text web
-  font-size-label-web:
-    value: '11px'
-    comment: 'Label text web.'
+  ## Label text
+  font-size-label:
+    value: '{!font-size-4}'
+    comment: 'Text for labels.'
 
-  ## Buttons web
-  font-size-button-web:
-    value: '14px'
-    comment: 'Button text web.'
+  ## Button Regular text
+  font-size-button-regular:
+    value: '{!font-size-3}'
+    comment: 'Text for regular buttons.'
 
-
-  ## Heading text mobile
-  font-size-heading-page-mobile:
-    value: '20px'
-    comment: 'Page heading mobile.'
-  font-size-heading-standard-mobile:
-    value: '15px'
-    comment: 'Base heading mobile.'
-
-  ## Overline text mobile
-  font-size-overline-mobile:
-    value: '14px'
-    comment: 'Section overline mobile.'
-
-  ## Standard text mobile
-  font-size-standard-mobile:
-    value: '16px'
-    comment: 'Base body text mobile.'
-
-  ## Label text mobile
-  font-size-label-mobile:
-    value: '14px'
-    comment: 'Label text mobile.'
-
-  ## Buttons mobile
-  font-size-button-mobile:
-    value: '14px'
-    comment: 'Button text mobile.'
+  ## Button Small text
+  font-size-button-small:
+    value: '{!font-size-4}'
+    comment: 'Text for small buttons.'

@@ -1,14 +1,41 @@
 global:
-  category: font
+  category: font-weight
   type: font-weight
   cssProperties:
   - font
   - font-weight
 
+imports:
+- ./aliases/fonts.yml
+
 props:
-  font-weight-base:
-    value: '400'
-    comment: ''
-  font-weight-emphasis:
-    value: '600'
-    comment: 'Headings, buttons, and words with emphasis inside paragraph text.'
+  ## Headline text
+  font-weight-headline:
+    value: '{!font-weight-emphasis}'
+    comment: 'Used for headlines.'
+
+  ## Body text
+  font-weight-body-regular:
+    value: '{!font-weight-regular}'
+    comment: 'Most all body copy.'
+  font-weight-body-emphasis:
+    value: '{!font-weight-emphasis}'
+    comment: 'Used sparingly for emphasized text within regular body copy.'
+
+  ## Overline text
+  font-weight-overline:
+    value: '{!font-weight-regular}'
+    comment: 'Used for overlines.'
+
+  ## Label text
+  font-weight-label-regular:
+    value: '{!font-weight-regular}'
+    comment: 'Used for regular label text.'
+  font-weight-label-emphasis:
+    value: '{!font-weight-emphasis}'
+    comment: 'Used for emphasized label text.'
+
+  ## Button text
+  font-weight-button:
+    value: '{!font-weight-emphasis}'
+    comment: 'Used for buttons.'
