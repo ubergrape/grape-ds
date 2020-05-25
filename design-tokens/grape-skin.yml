@@ -7,3 +7,5 @@ imports:
 - ./grape-skin/border-radius.yml
 - ./grape-skin/text-color.yml
 - ./grape-skin/background-color.yml
+- ./grape-skin/outline-color.yml
+- ./grape-skin/outline-width.yml
