@@ -1,0 +1,25 @@
+global:
+  category: border-style
+  type: size
+  cssProperties:
+  - top
+  - right
+  - bottom
+  - left
+  - 'margin*'
+  - 'padding*'
+  - 'border*'
+  - '*width'
+  - '*height'
+  - box-shadow
+  - stroke
+  - stroke-width
+  - outline-width
+
+imports:
+- ./aliases/space.yml
+
+props:
+  border-width-focus:
+    value: '{!stroke-medium}'
+    comment: 'Outline width for focus state.'
