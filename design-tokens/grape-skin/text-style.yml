@@ -1,13 +1,15 @@
 global:
   category: font
-  type: text-transform
   cssProperties:
   - text-transform
 
 props:
-  text-transform-base:
+  ## Uppercase and lowercase
+  text-basecase:
     value: 'none'
+    type: string
     comment: 'Default value for text-transform.'
-  text-transform-overline:
+  text-uppercase:
     value: 'uppercase'
-    comment: 'Section overlines.'
+    type: string
+    comment: 'Uppercase text.'
