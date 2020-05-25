@@ -5,58 +5,80 @@ global:
   - 'background*'
 
 imports:
-- ./aliases/color.yml
+- ./aliases/colors.yml
 
 props:
   ## Global
-  color-background-default:
+  color-background-none:
     value: '{!transparent}'
-    comment: ''
-  color-background-neutral:
-    value: '{!white}'
-    comment: ''
-  color-background-light:
-    value: '{!gray-lightest}'
-    comment: ''
+    comment: 'No background color.'
+  color-background-primary:
+    value: '{!base-bw-white}'
+    comment: 'Primary background color.'
+  color-background-secondary:
+    value: '{!base-ghost}'
+    comment: 'Secondary background color for light theme used to distinguish elements.'
 
-  ## Buttons
-  color-background-button-minimal:
+  ## Buttons Standard
+  color-background-button-standard-primary--default:
+    value: '{!primary-base}'
+    comment: 'Standard primary button default.'
+  color-background-button-standard-primary--hover:
+    value: '{!primary-dark}'
+    comment: 'Standard primary button hover.'
+  color-background-button-standard-primary--active:
+    value: '{!primary-darker}'
+    comment: 'Standard primary button active.'
+  color-background-button-standard-basic--default:
+    value: '{!base-lightest}'
+    comment: 'Standard basic button default.'
+  color-background-button-standard-basic--hover:
+    value: '{!base-lighter}'
+    comment: 'Standard basic button hover.'
+  color-background-button-standard-basic--active:
+    value: '{!base-light}'
+    comment: 'Standard basic button active.'
+  color-background-button-standard-danger--default:
+    value: '{!negative-base}'
+    comment: 'Standard danger button default.'
+  color-background-button-standard-danger--hover:
+    value: '{!negative-dark}'
+    comment: 'Standard danger button hover.'
+  color-background-button-standard-danger--active:
+    value: '{!negative-darker}'
+    comment: 'Standard danger button active.'
+  color-background-button-standard-disabled:
+    value: '{!disabled-ghost}'
+    comment: 'Standard disabled button.'
+
+  ## Buttons Minimal
+  color-background-button-minimal-primary--default:
     value: '{!transparent}'
-    comment: 'Buttons Minimal.'
-
-  color-background-button-neutral:
-    value: '{!white}'
-    comment: 'Basic and Danger button Standard.'
-  color-background-button-intense-primary:
-    value: '{!purple-base}'
-    comment: 'Primary button Standard.'
-  color-background-button-intense-fatal:
-    value: '{!red-base}'
-    comment: 'Fatal button Standard.'
-
-  color-background-button-light-hover:
-    value: '{!gray-lightest}'
-    comment: 'Basic and Danger button Standard hover.'
-  color-background-button-intense-primary-hover:
-    value: '{!purple-darker-1}'
-    comment: 'Primary button Standard hover.'
-  color-background-button-intense-fatal-hover:
-    value: '{!red-darker-1}'
-    comment: 'Fatal button Standard hover.'
-
-  color-background-button-light-active:
-    value: '{!gray-lighter-3}'
-    comment: 'Basic and Danger button Standard pressed.'
-  color-background-button-intense-primary-active:
-    value: '{!purple-darkest}'
-    comment: 'Primary button Standard pressed.'
-  color-background-button-intense-fatal-active:
-    value: '{!red-darkest}'
-    comment: 'Fatal button Standard pressed.'
-
-  color-background-button-light-disabled:
-    value: '{!white}'
-    comment: 'Basic and Danger button Standard disabled.'
-  color-background-button-intense-disabled:
-    value: '{!gray-lightest}'
-    comment: 'Primary and Fatal button Standard disabled.'
+    comment: 'Minimal primary button default.'
+  color-background-button-minimal-primary--hover:
+    value: '{!primary-lightest}'
+    comment: 'Minimal primary button hover.'
+  color-background-button-minimal-primary--active:
+    value: '{!primary-lighter}'
+    comment: 'Minimal primary button active.'
+  color-background-button-minimal-basic--default:
+    value: '{!transparent}'
+    comment: 'Minimal basic button default.'
+  color-background-button-minimal-basic--hover:
+    value: '{!base-ghost}'
+    comment: 'Minimal basic button hover.'
+  color-background-button-minimal-basic--active:
+    value: '{!base-lightest}'
+    comment: 'Minimal basic button active.'
+  color-background-button-minimal-danger--default:
+    value: '{!transparent}'
+    comment: 'Minimal danger button default.'
+  color-background-button-minimal-danger--hover:
+    value: '{!negative-lightest}'
+    comment: 'Minimal danger button hover.'
+  color-background-button-minimal-danger--active:
+    value: '{!negative-lighter}'
+    comment: 'Minimal danger button active.'
+  color-background-button-minimal-disabled:
+    value: '{!transparent}'
+    comment: 'Minimal disabled button.'
