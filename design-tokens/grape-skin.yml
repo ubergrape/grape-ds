@@ -3,11 +3,9 @@ imports:
 - ./grape-skin/font-size.yml
 - ./grape-skin/font-weight.yml
 - ./grape-skin/line-height.yml
+- ./grape-skin/text-style.yml
+- ./grape-skin/border-radius.yml
 - ./grape-skin/text-color.yml
-- ./grape-skin/text-transform.yml
-- ./grape-skin/sizing.yml
-- ./grape-skin/radius.yml
-- ./grape-skin/border-color.yml
 - ./grape-skin/background-color.yml
-- ./grape-skin/icon-color.yml
-- ./grape-skin/status.yml
+- ./grape-skin/outline-color.yml
+- ./grape-skin/outline-width.yml

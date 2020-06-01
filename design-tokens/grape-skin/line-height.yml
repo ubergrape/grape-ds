@@ -1,17 +1,48 @@
 global:
-  category: font
+  category: line-height
   type: number
   cssProperties:
   - font
   - '*height'
 
+imports:
+- ./aliases/fonts.yml
+
 props:
-  line-height-dense:
-    value: '1'
-    comment: 'Elements that should fit into one line (Page heading, Overline, Label, Button.'
-  line-height-base:
-    value: '1.2'
-    comment: 'Base line height.'
-  line-height-padded:
-    value: '1.8'
-    comment: 'Spacing of menu items.'
+  ## Headline text
+  line-height-headline-page:
+    value: '{!line-height-cozy}'
+    comment: 'Headline of a page.'
+  line-height-headline-base:
+    value: '{!line-height-base}'
+    comment: 'Headline base.'
+
+  ## Large body text
+  line-height-body-large:
+    value: '{!line-height-cozy}'
+    comment: 'Large body text.'
+
+  ## Base body text
+  line-height-body-base:
+    value: '{!line-height-base}'
+    comment: 'Base body text.'
+
+  ## Overline text
+  line-height-overline:
+    value: '{!line-height-cozy}'
+    comment: 'Section overline.'
+
+  ## Label text
+  line-height-label:
+    value: '{!line-height-cozy}'
+    comment: 'Text for labels.'
+
+  ## Button Regular text
+  line-height-button-regular:
+    value: '{!line-height-base}'
+    comment: 'Text for regular buttons.'
+
+  ## Button Small text
+  line-height-button-small:
+    value: '{!line-height-cozy}'
+    comment: 'Text for small buttons.'

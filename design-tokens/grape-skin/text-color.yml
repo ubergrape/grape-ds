@@ -1,82 +1,58 @@
 global:
-  category: font
+  category: text-color
   type: color
   cssProperties:
   - color
+  - fill
 
 imports:
-- ./aliases/color.yml
+- ./aliases/colors.yml
 
 props:
-  ## Global
-  color-text-base:
-    value: '{!gray-darkest}'
-    comment: 'Base text.'
-  color-text-hint:
-    value: '{!gray-base}'
-    comment: 'Hint.'
+  ## Global text color
+  color-text-primary:
+    value: '{!base-darker}'
+    comment: 'Primary text.'
+  color-text-secondary:
+    value: '{!base-base}'
+    comment: 'Secondary information, helper text, icon labels.'
   color-text-personal:
-    value: '{!pink-base}'
+    value: '{!personal-base}'
     comment: 'Personal items.'
-  color-text-active:
-    value: '{!blue-base}'
-    comment: 'Active items.'
   color-text-danger:
-    value: '{!red-darkest}'
+    value: '{!negative-base}'
     comment: 'Danger on light background.'
   color-text-success:
-    value: '{!lime-darkest}'
+    value: '{!positive-dark}'
     comment: 'Success on light background.'
   color-text-link:
-    value: '{!blue-darker-1}'
+    value: '{!info-dark}'
     comment: 'Link.'
 
-  ## Buttons: Standard
-  color-text-button-standard-basic:
-    value: '{!gray-base}'
-    comment: 'Basic button Standard'
+  ## Buttons Standard
   color-text-button-standard-primary:
-    value: '{!white}'
-    comment: 'Primary button Standard.'
+    value: '{!base-bw-white}'
+    comment: 'Standard primary button text.'
+  color-text-button-standard-basic:
+    value: '{!base-dark}'
+    comment: 'Standard basic button text.'
   color-text-button-standard-danger:
-    value: '{!red-base}'
-    comment: 'Danger button Standard.'
-  color-text-button-standard-fatal:
-    value: '{!white}'
-    comment: 'Fatal button Standard.'
+    value: '{!base-bw-white}'
+    comment: 'Standard danger button text.'
+  color-text-button-standard-disabled:
+    value: '{!disabled-base}'
+    comment: 'Standard disabled button text.'
 
-  ## Buttons: Minimal
-  color-text-button-minimal-basic:
-    value: '{!gray-base}'
-    comment: 'Basic button Minimal.'
+  ## Buttons Minimal
   color-text-button-minimal-primary:
-    value: '{!purple-base}'
-    comment: 'Primary button Minimal.'
+    value: '{!primary-base}'
+    comment: 'Minimal primary button text.'
+  color-text-button-minimal-basic:
+    value: '{!base-dark}'
+    comment: 'Minimal basic button text.'
   color-text-button-minimal-danger:
-    value: '{!red-base}'
-    comment: 'Danger button Minimal.'
-
-  color-text-button-minimal-basic-hover:
-    value: '{!gray-darker-1}'
-    comment: 'Basic button Minimal hover.'
-  color-text-button-minimal-primary-hover:
-    value: '{!purple-darker-1}'
-    comment: 'Primary button Minimal hover.'
-  color-text-button-minimal-danger-hover:
-    value: '{!red-darker-1}'
-    comment: 'Danger button Minimal hover.'
-
-  color-text-button-minimal-basic-active:
-    value: '{!gray-darkest}'
-    comment: 'Basic button Minimal active.'
-  color-text-button-minimal-primary-active:
-    value: '{!purple-darkest}'
-    comment: 'Primary button Minimal active.'
-  color-text-button-minimal-danger-active:
-    value: '{!red-darkest}'
-    comment: 'Danger button Minimal active.'
-
-  ## Buttons: Disabled
-  color-text-button-disabled:
-    value: '{!gray-lighter-2}'
-    comment: 'Disabled button.'
+    value: '{!negative-base}'
+    comment: 'Minimal danger button text.'
+  color-text-button-minimal-disabled:
+    value: '{!disabled-base}'
+    comment: 'Minimal disabled button text.'

@@ -1,0 +1,13 @@
+global:
+  category: radius
+  type: size
+  cssProperties:
+  - 'border*radius'
+
+imports:
+- ./aliases/space.yml
+
+props:
+  border-radius-pill:
+    value: '{!border-radius-pill}'
+    comment: 'Pill for button, icon, tag, badge, input shape.'
