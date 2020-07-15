@@ -7,7 +7,10 @@ import expand from 'jss-plugin-expand'
 import camel from 'jss-plugin-camel-case'
 import unit from 'jss-plugin-default-unit'
 import functions from 'jss-plugin-rule-value-function'
-import { JssProvider } from 'react-jss'
+// eslint-disable-next-line import/no-named-default
+import { default as withStylesJss, JssProvider } from 'react-jss'
+
+import fonts from '../fonts'
 
 const jss = create()
 
@@ -23,4 +26,11 @@ const injectJss = <P extends Record<string, any>>(
   </JssProvider>
 )
 
-export default injectJss
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const withStyles = (styles: Record<string, any>) => (Component: any) =>
+  withStylesJss({
+    ...styles,
+    ...fonts,
+  })(Component)
+
+export { injectJss, withStyles }

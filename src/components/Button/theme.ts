@@ -1,17 +1,7 @@
 import tokens from '../../tokens'
-import constants from '../../constants'
 import { ButtonProps } from './index'
 
 export default {
-  '@global': {
-    '@font-face': {
-      'font-family': 'Noto Sans',
-      'font-style': 'normal',
-      'font-weight': 400,
-      'font-display': 'swap',
-      src: `local('Noto Sans'), local('NotoSans'), url('${constants.staticPath}/src/fonts/NotoSans/NotoSans-Regular.woff2') format('woff2')`,
-    },
-  },
   button: {
     fontFamily: "'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif",
     backgroundColor: ({ color, variant }: ButtonProps): string => {
