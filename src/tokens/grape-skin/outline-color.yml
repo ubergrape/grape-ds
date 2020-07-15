@@ -6,7 +6,7 @@ global:
   - 'outline-color'
 
 imports:
-- ./aliases/color.yml
+- ./aliases/colors.yml
 
 props:
   color-outline-focus-default:

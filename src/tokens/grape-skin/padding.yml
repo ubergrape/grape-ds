@@ -1,0 +1,9 @@
+global:
+  category: spacing
+  type: size
+  cssProperties:
+  - 'padding'
+  - 'margin'
+
+imports:
+- ./aliases/space.yml
