@@ -7,8 +7,7 @@ import expand from 'jss-plugin-expand'
 import camel from 'jss-plugin-camel-case'
 import unit from 'jss-plugin-default-unit'
 import functions from 'jss-plugin-rule-value-function'
-// eslint-disable-next-line import/no-named-default
-import { default as withStylesJss, JssProvider } from 'react-jss'
+import withStylesJss, { JssProvider } from 'react-jss'
 
 import fonts from '../fonts'
 
