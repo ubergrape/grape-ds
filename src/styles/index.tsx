@@ -15,7 +15,6 @@ const jss = create()
 
 jss.use(functions(), global(), extend(), nested(), camel(), unit(), expand())
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const injectJss = <P extends Record<string, any>>(
   WrappedComponent: React.ComponentType<P>,
 ) => (props: P): JSX.Element => (
@@ -25,7 +24,6 @@ const injectJss = <P extends Record<string, any>>(
   </JssProvider>
 )
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const withStyles = (styles: Record<string, any>) => (Component: any) =>
   withStylesJss({
     ...styles,
