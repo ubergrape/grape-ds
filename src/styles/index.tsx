@@ -7,13 +7,21 @@ import expand from 'jss-plugin-expand'
 import camel from 'jss-plugin-camel-case'
 import unit from 'jss-plugin-default-unit'
 import functions from 'jss-plugin-rule-value-function'
-import withStylesJss, { JssProvider } from 'react-jss'
+import { JssProvider } from 'react-jss'
 
 import fonts from '../fonts'
 
 const jss = create()
 
 jss.use(functions(), global(), extend(), nested(), camel(), unit(), expand())
+
+jss
+  .createStyleSheet({
+    '@global': {
+      ...fonts,
+    },
+  })
+  .attach()
 
 const injectJss = <P extends Record<string, any>>(
   WrappedComponent: React.ComponentType<P>,
@@ -24,10 +32,4 @@ const injectJss = <P extends Record<string, any>>(
   </JssProvider>
 )
 
-const withStyles = (styles: Record<string, any>) => (Component: any) =>
-  withStylesJss({
-    ...styles,
-    ...fonts,
-  })(Component)
-
-export { injectJss, withStyles }
+export { injectJss }

@@ -1,7 +1,7 @@
 import React from 'react'
-import { WithStylesProps } from 'react-jss'
+import withStyles, { WithStylesProps } from 'react-jss'
 
-import { withStyles, injectJss } from '../../styles'
+import { injectJss } from '../../styles'
 
 import theme from './theme'
 
