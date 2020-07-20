@@ -1,0 +1,152 @@
+{
+  "name": "grape-ds",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ubergrape/grape-ds.git",
+  "author": "Oleh Aloshkin <olegaleshkin@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "storybook": "yarn tokens:import && NODE_ENV=development yarn tokens:import && start-storybook -s ./ --port=55555",
+    "test": "jest",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
+    "tokens:import": "node src/tokens/theo-import.js"
+  },
+  "dependencies": {
+    "jss": "^10.3.0",
+    "jss-plugin-camel-case": "^10.3.0",
+    "jss-plugin-default-unit": "^10.3.0",
+    "jss-plugin-expand": "^10.3.0",
+    "jss-plugin-extend": "^10.3.0",
+    "jss-plugin-global": "^10.3.0",
+    "jss-plugin-nested": "^10.3.0",
+    "jss-plugin-rule-value-function": "^10.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-jss": "^10.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@storybook/addon-a11y": "^5.3.19",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-jest": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-storyshots": "^5.3.19",
+    "@storybook/addon-storyshots-puppeteer": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "@types/jest": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.5.1",
+    "babel-loader": "^8.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-ubergrape": "^5.4.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "expect": "^26.1.0",
+    "husky": "^4.2.5",
+    "jest": "^25.5.4",
+    "json": "^9.0.6",
+    "lint-staged": "^10.2.11",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.mapkeys": "^4.6.0",
+    "prettier": "^2.0.5",
+    "puppeteer": "^5.0.0",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-is": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "storybook-addon-designs": "^5.4.0",
+    "storybook-addon-specifications": "^2.1.5",
+    "theo": "^8.1.5",
+    "ts-jest": "^25.5.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.6"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[j]sx?$": "babel-jest",
+      "^.+\\.[t]sx?$": "ts-jest",
+      "^.+\\.mdx$": "@storybook/addon-docs/jest-transform-mdx"
+    }
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "ignorePatterns": [
+      "!.storybook"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      }
+    },
+    "extends": [
+      "eslint-config-ubergrape"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts",
+          "**/*.tsx"
+        ],
+        "extends": [
+          "plugin:@typescript-eslint/eslint-recommended",
+          "plugin:@typescript-eslint/recommended"
+        ]
+      }
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "trailingComma": "all"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

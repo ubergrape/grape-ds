@@ -18,7 +18,7 @@ export default {
   },
 }
 
-export const defaultView = (): React.FC => (
+export const defaultView = (): JSX.Element => (
   <Button
     color={text('Color', 'primary')}
     variant={text('Variant', 'standard')}

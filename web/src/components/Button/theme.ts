@@ -1,4 +1,4 @@
-import tokens from '../../../tokens/web'
+import tokens from '../../tokens'
 import { ButtonProps } from './index'
 
 export default {

@@ -4,7 +4,9 @@ export default {
   title: 'Storybook Tests',
 }
 
-export const defaultView = (): React.FC => <div>Jest results in storybook</div>
+export const defaultView = (): JSX.Element => (
+  <div>Jest results in storybook</div>
+)
 
 defaultView.story = {
   parameters: {
