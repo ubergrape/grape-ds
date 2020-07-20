@@ -8,8 +8,8 @@
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDirs": ["src", "stories"],
-    "baseUrl": "src",
+    "rootDirs": ["web", "stories"],
+    "baseUrl": "web",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -23,6 +23,6 @@
     "emitDecoratorMetadata": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*"],
+  "include": ["web/**/*"],
   "exclude": ["node_modules"]
 }

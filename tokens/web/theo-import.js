@@ -10,7 +10,7 @@ theo
   .convert({
     transform: {
       type: 'web',
-      file: './src/tokens/grape-skin.yml',
+      file: './tokens/grape-skin.yml',
     },
     format: {
       type: 'json',
@@ -22,7 +22,7 @@ theo
       theme[camelCase(k)] = v
     })
     fs.writeFile(
-      './src/tokens/tokens.json',
+      './tokens/web/tokens.json',
       JSON.stringify(theme, null, ' '),
       'utf8',
       () => {},

@@ -6,6 +6,6 @@ export default {
     'font-style': 'normal',
     'font-weight': 400,
     'font-display': 'swap',
-    src: `local('Noto Sans'), local('NotoSans'), url('${constants.staticPath}/src/fonts/NotoSans/NotoSans-Regular.woff2') format('woff2')`,
+    src: `local('Noto Sans'), local('NotoSans'), url('${constants.staticPath}/web/fonts/NotoSans/NotoSans-Regular.woff2') format('woff2')`,
   },
 }

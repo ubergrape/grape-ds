@@ -6,10 +6,10 @@
   "author": "Oleh Aloshkin <olegaleshkin@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "storybook": "NODE_ENV=development start-storybook -s ./ --port=55555",
+    "storybook": "NODE_ENV=development yarn tokens:import && start-storybook -s ./ --port=55555",
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
-    "tokens:import": "node src/tokens/theo-import.js"
+    "tokens:import": "node tokens/web/theo-import.js"
   },
   "dependencies": {
     "jss": "^10.3.0",

@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import Button from '../../components/Button'
+
+<Meta title="Button" component={Button} />
+
+# Button
+
+With `MDX` we can define a story for `Button` right in the middle of our
+markdown documentation.
+
+### Primary button
+
+<Button
+  color="primary"
+  variant="standard"
+  size="regular"
+  disabled={false}
+  onClick={() => { console.log('Button click') }}
+>
+  Primary
+</Button>
+
+### Basic button
+
+<Button
+  color="basic"
+  variant="standard"
+  size="regular"
+  disabled={false}
+  onClick={() => { console.log('Button click') }}
+>
+  Basic
+</Button>
+
+### Danger button
+
+<Button
+  color="danger"
+  variant="standard"
+  size="regular"
+  disabled={false}
+  onClick={() => { console.log('Button click') }}
+>
+  Danger
+</Button>
