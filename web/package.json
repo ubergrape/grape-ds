@@ -58,7 +58,6 @@
     "expect": "^26.1.0",
     "husky": "^4.2.5",
     "jest": "^25.5.4",
-    "json": "^9.0.6",
     "lint-staged": "^10.2.11",
     "lodash.camelcase": "^4.3.0",
     "lodash.mapkeys": "^4.6.0",
