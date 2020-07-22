@@ -15,9 +15,7 @@ jss.use(functions(), global(), extend(), nested(), camel(), unit(), expand())
 
 jss
   .createStyleSheet({
-    '@global': {
-      ...fonts,
-    },
+    ...fonts,
   })
   .attach()
 

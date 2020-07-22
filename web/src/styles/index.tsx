@@ -1,5 +1,6 @@
 import React from 'react'
 import { JssProvider } from 'react-jss'
+
 import jss from './jssConfig'
 
 const injectJss = <P extends Record<string, any>>(

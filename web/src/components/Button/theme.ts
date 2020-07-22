@@ -4,6 +4,7 @@ import { ButtonProps } from './index'
 export default {
   button: {
     fontFamily: "'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif",
+    fontWeight: 600,
     backgroundColor: ({ color, variant }: ButtonProps): string => {
       if (variant === 'minimal') return 'transparent'
 
