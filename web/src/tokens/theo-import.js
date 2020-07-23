@@ -21,7 +21,7 @@ theo
     })
     fs.writeFile(
       './src/tokens/tokens.json',
-      JSON.stringify(theme, null, ' '),
+      JSON.stringify(theme, null, '  '),
       'utf8',
       () => {},
     )
