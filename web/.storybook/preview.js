@@ -12,12 +12,12 @@ import results from '../.jest-test-results.json'
 // https://github.com/mthuret/storybook-addon-specifications/issues/119
 configure({ adapter: new Adapter() })
 
+addDecorator(story => <ThemeProvider>{story()}</ThemeProvider>)
 addDecorator(
   withA11y(),
   withTests({
     results,
   }),
-  story => <ThemeProvider>{story()}</ThemeProvider>,
 )
 
 addParameters({

@@ -1,25 +1,25 @@
-import tokens from '../../tokens'
+import { JssStyle } from 'jss'
 import { ButtonProps } from './index'
 
-export default {
+export default (theme: Record<string, string>): Record<string, JssStyle> => ({
   button: {
     fontFamily: "'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif",
     fontWeight: 600,
-    backgroundColor: ({ color, variant }: ButtonProps): string => {
+    backgroundColor: ({ variant, color }: ButtonProps): string => {
       if (variant === 'minimal') return 'transparent'
 
       switch (color) {
         case 'primary':
-          return tokens.colorBackgroundButtonStandardPrimaryDefault
+          return theme.colorBackgroundButtonStandardPrimaryDefault
           break
         case 'basic':
-          return tokens.colorBackgroundButtonStandardBasicDefault
+          return theme.colorBackgroundButtonStandardBasicDefault
           break
         case 'danger':
-          return tokens.colorBackgroundButtonStandardDangerDefault
+          return theme.colorBackgroundButtonStandardDangerDefault
           break
         default:
-          return tokens.colorBackgroundButtonStandardPrimaryDefault
+          return theme.colorBackgroundButtonStandardPrimaryDefault
       }
     },
     height: ({ size }: ButtonProps): number => {
@@ -29,31 +29,31 @@ export default {
       if (variant === 'minimal') {
         switch (color) {
           case 'primary':
-            return tokens.colorTextButtonMinimalPrimary
+            return theme.colorTextButtonMinimalPrimary
             break
           case 'basic':
-            return tokens.colorTextButtonMinimalBasic
+            return theme.colorTextButtonMinimalBasic
             break
           case 'danger':
-            return tokens.colorTextButtonMinimalDanger
+            return theme.colorTextButtonMinimalDanger
             break
           default:
-            return tokens.colorTextButtonMinimalPrimary
+            return theme.colorTextButtonMinimalPrimary
         }
       }
 
       switch (color) {
         case 'primary':
-          return tokens.colorTextButtonStandardPrimary
+          return theme.colorTextButtonStandardPrimary
           break
         case 'basic':
-          return tokens.colorTextButtonStandardBasic
+          return theme.colorTextButtonStandardBasic
           break
         case 'danger':
-          return tokens.colorTextButtonStandardDanger
+          return theme.colorTextButtonStandardDanger
           break
         default:
-          return tokens.colorTextButtonStandardPrimary
+          return theme.colorTextButtonStandardPrimary
       }
     },
     padding: [0, 16],
@@ -64,31 +64,31 @@ export default {
         if (variant === 'minimal') {
           switch (color) {
             case 'primary':
-              return tokens.colorBackgroundButtonMinimalPrimaryHover
+              return theme.colorBackgroundButtonMinimalPrimaryHover
               break
             case 'basic':
-              return tokens.colorBackgroundButtonMinimalBasicHover
+              return theme.colorBackgroundButtonMinimalBasicHover
               break
             case 'danger':
-              return tokens.colorBackgroundButtonMinimalDangerHover
+              return theme.colorBackgroundButtonMinimalDangerHover
               break
             default:
-              return tokens.colorBackgroundButtonMinimalPrimaryHover
+              return theme.colorBackgroundButtonMinimalPrimaryHover
           }
         }
 
         switch (color) {
           case 'primary':
-            return tokens.colorBackgroundButtonStandardPrimaryHover
+            return theme.colorBackgroundButtonStandardPrimaryHover
             break
           case 'basic':
-            return tokens.colorBackgroundButtonStandardBasicHover
+            return theme.colorBackgroundButtonStandardBasicHover
             break
           case 'danger':
-            return tokens.colorBackgroundButtonStandardDangerHover
+            return theme.colorBackgroundButtonStandardDangerHover
             break
           default:
-            return tokens.colorBackgroundButtonStandardPrimaryHover
+            return theme.colorBackgroundButtonStandardPrimaryHover
         }
       },
     },
@@ -97,31 +97,31 @@ export default {
         if (variant === 'minimal') {
           switch (color) {
             case 'primary':
-              return tokens.colorBackgroundButtonMinimalPrimaryActive
+              return theme.colorBackgroundButtonMinimalPrimaryActive
               break
             case 'basic':
-              return tokens.colorBackgroundButtonMinimalBasicActive
+              return theme.colorBackgroundButtonMinimalBasicActive
               break
             case 'danger':
-              return tokens.colorBackgroundButtonMinimalDangerActive
+              return theme.colorBackgroundButtonMinimalDangerActive
               break
             default:
-              return tokens.colorBackgroundButtonMinimalPrimaryActive
+              return theme.colorBackgroundButtonMinimalPrimaryActive
           }
         }
 
         switch (color) {
           case 'primary':
-            return tokens.colorBackgroundButtonStandardPrimaryActive
+            return theme.colorBackgroundButtonStandardPrimaryActive
             break
           case 'basic':
-            return tokens.colorBackgroundButtonStandardBasicActive
+            return theme.colorBackgroundButtonStandardBasicActive
             break
           case 'danger':
-            return tokens.colorBackgroundButtonStandardDangerActive
+            return theme.colorBackgroundButtonStandardDangerActive
             break
           default:
-            return tokens.colorBackgroundButtonStandardPrimaryActive
+            return theme.colorBackgroundButtonStandardPrimaryActive
         }
       },
     },
@@ -130,15 +130,15 @@ export default {
       backgroundColor: ({ variant }: ButtonProps): string => {
         if (variant === 'minimal') return 'transparent'
 
-        return tokens.colorBackgroundButtonStandardDisabled
+        return theme.colorBackgroundButtonStandardDisabled
       },
       color: ({ variant }: ButtonProps): string => {
         if (variant === 'minimal') {
-          return tokens.colorTextButtonMinimalDisabled
+          return theme.colorTextButtonMinimalDisabled
         }
 
-        return tokens.colorTextButtonStandardDisabled
+        return theme.colorTextButtonStandardDisabled
       },
     },
   },
-}
+})
