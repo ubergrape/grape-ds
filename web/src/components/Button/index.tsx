@@ -1,8 +1,6 @@
 import React, { ReactChildren, ReactChild } from 'react'
 import withStyles, { WithStylesProps } from 'react-jss'
 
-import { injectJss } from '../../styles'
-
 import theme from './theme'
 
 export interface ButtonProps {
@@ -30,4 +28,4 @@ const Button: React.FC<ButtonProps & WithStylesProps<typeof theme>> = ({
   </button>
 )
 
-export default withStyles(theme)(injectJss(Button))
+export default withStyles(theme)(Button)

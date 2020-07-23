@@ -93,6 +93,7 @@
         "error",
         {
           "devDependencies": [
+            "!.storybook/**/*.js",
             "**/*.tsx",
             "**/*.js"
           ]
