@@ -1,7 +1,7 @@
 import React, { ReactChildren, ReactChild } from 'react'
-import { createUseStyles, useTheme } from 'react-jss'
+import { useTheme } from 'react-jss'
 
-import styles from './styles'
+import useStyles from './styles'
 
 export interface ButtonProps {
   onClick: () => void
@@ -11,8 +11,6 @@ export interface ButtonProps {
   variant: string
   size: string
 }
-
-const useStyles = createUseStyles(styles)
 
 const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
