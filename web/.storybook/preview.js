@@ -1,16 +1,18 @@
-/* eslint-disable import/no-extraneous-dependencies */
+import React from 'react'
 import { addParameters, addDecorator } from '@storybook/react'
 import { withA11y } from '@storybook/addon-a11y'
 import { withTests } from '@storybook/addon-jest'
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-/* eslint-enable import/no-extraneous-dependencies */
+
+import ThemeProvider from '../src/styles'
 
 import results from '../.jest-test-results.json'
 
 // https://github.com/mthuret/storybook-addon-specifications/issues/119
 configure({ adapter: new Adapter() })
 
+addDecorator(story => <ThemeProvider>{story()}</ThemeProvider>)
 addDecorator(withA11y())
 addDecorator(
   withTests({

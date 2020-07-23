@@ -1,9 +1,7 @@
 import React, { ReactChildren, ReactChild } from 'react'
-import withStyles, { WithStylesProps } from 'react-jss'
+import { useTheme } from 'react-jss'
 
-import { injectJss } from '../../styles'
-
-import theme from './theme'
+import useStyles from './styles'
 
 export interface ButtonProps {
   onClick: () => void
@@ -14,20 +12,21 @@ export interface ButtonProps {
   size: string
 }
 
-const Button: React.FC<ButtonProps & WithStylesProps<typeof theme>> = ({
-  onClick,
-  disabled,
-  children,
-  classes,
-}) => (
-  <button
-    className={classes.button}
-    disabled={disabled}
-    type="button"
-    onClick={onClick}
-  >
-    {children}
-  </button>
-)
+const Button: React.FC<ButtonProps> = props => {
+  const theme = useTheme()
+  const classes = useStyles({ ...props, theme })
+  const { disabled, onClick, children } = props
 
-export default withStyles(theme)(injectJss(Button))
+  return (
+    <button
+      className={classes.button}
+      disabled={disabled}
+      type="button"
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  )
+}
+
+export default Button
