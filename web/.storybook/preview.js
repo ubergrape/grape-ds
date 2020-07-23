@@ -13,8 +13,8 @@ import results from '../.jest-test-results.json'
 configure({ adapter: new Adapter() })
 
 addDecorator(story => <ThemeProvider>{story()}</ThemeProvider>)
+addDecorator(withA11y())
 addDecorator(
-  withA11y(),
   withTests({
     results,
   }),
