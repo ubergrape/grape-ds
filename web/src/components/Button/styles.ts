@@ -25,7 +25,7 @@ export default (theme: Record<string, string>): Record<string, JssStyle> => ({
     height: ({ size }: ButtonProps): number => {
       return size === 'small' ? 24 : 32
     },
-    color: ({ color, variant }: ButtonProps): string => {
+    color: ({ variant, color }: ButtonProps): string => {
       if (variant === 'minimal') {
         switch (color) {
           case 'primary':
@@ -60,7 +60,7 @@ export default (theme: Record<string, string>): Record<string, JssStyle> => ({
     border: 0,
     borderRadius: 8,
     '&:hover': {
-      backgroundColor: ({ color, variant }: ButtonProps): string => {
+      backgroundColor: ({ variant, color }: ButtonProps): string => {
         if (variant === 'minimal') {
           switch (color) {
             case 'primary':
@@ -93,7 +93,7 @@ export default (theme: Record<string, string>): Record<string, JssStyle> => ({
       },
     },
     '&:active': {
-      backgroundColor: ({ color, variant }: ButtonProps): string => {
+      backgroundColor: ({ variant, color }: ButtonProps): string => {
         if (variant === 'minimal') {
           switch (color) {
             case 'primary':
