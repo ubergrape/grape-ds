@@ -1,9 +1,7 @@
 import React from 'react'
-/* eslint-disable import/no-extraneous-dependencies */
 import { action } from '@storybook/addon-actions'
 import { withDesign } from 'storybook-addon-designs'
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
-/* eslint-enable import/no-extraneous-dependencies */
 
 import Button from '../../components/Button'
 import docs from './Button.mdx'

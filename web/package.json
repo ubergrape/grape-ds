@@ -88,6 +88,17 @@
     "ignorePatterns": [
       "!.storybook"
     ],
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "**/*.tsx",
+            "**/*.js"
+          ]
+        }
+      ]
+    },
     "settings": {
       "import/resolver": {
         "node": {

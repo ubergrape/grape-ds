@@ -1,5 +1,4 @@
 import React from 'react'
-/* eslint-disable import/no-extraneous-dependencies */
 import { withA11y } from '@storybook/addon-a11y'
 
 export default {
