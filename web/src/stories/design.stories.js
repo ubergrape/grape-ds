@@ -1,8 +1,6 @@
 import React from 'react'
-/* eslint-disable import/no-extraneous-dependencies */
 import { withDesign } from 'storybook-addon-designs'
 import { Button } from '@storybook/react/demo'
-/* eslint-enable import/no-extraneous-dependencies */
 
 export default {
   title: 'Storybook Designs',

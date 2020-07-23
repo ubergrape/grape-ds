@@ -1,7 +1,5 @@
 import React from 'react'
-/* eslint-disable import/no-extraneous-dependencies */
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
-/* eslint-enable import/no-extraneous-dependencies */
 
 export default {
   title: 'Storybook Knobs',
