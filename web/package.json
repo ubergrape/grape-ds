@@ -93,8 +93,8 @@
         "error",
         {
           "devDependencies": [
-            "**/*.stories.tsx",
-            "**/*.stories.js"
+            "**/*.tsx",
+            "**/*.js"
           ]
         }
       ]

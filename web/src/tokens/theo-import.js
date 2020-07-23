@@ -1,9 +1,7 @@
 const fs = require('fs')
-/* eslint-disable import/no-extraneous-dependencies */
 const theo = require('theo')
 const camelCase = require('lodash.camelcase')
 const mapKeys = require('lodash.mapkeys')
-/* eslint-enable import/no-extraneous-dependencies */
 
 theo.registerTransform('web', ['color/hex'])
 theo
