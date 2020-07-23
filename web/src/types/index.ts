@@ -1,3 +1,3 @@
 declare module '*.mdx' {
-  export default string
+  export default String
 }
