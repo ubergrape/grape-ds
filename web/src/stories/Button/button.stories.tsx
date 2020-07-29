@@ -1,8 +1,10 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
+import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { withDesign } from 'storybook-addon-designs'
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 
+import ThemeProvider from '../../styles'
 import Button from '../../components/Button'
 import docs from './Button.mdx'
 
@@ -12,7 +14,20 @@ export default {
   decorators: [withDesign, withKnobs],
   parameters: {
     component: Button,
-    docs: { page: docs },
+    docs: {
+      page: docs,
+      container: ({
+        children,
+        context,
+      }: {
+        children: ReactChild | ReactChildren
+        context: Context<Record<string, unknown>>
+      }): JSX.Element => (
+        <DocsContainer context={context}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </DocsContainer>
+      ),
+    },
   },
 }
 

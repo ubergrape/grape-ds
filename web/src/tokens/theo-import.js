@@ -8,7 +8,7 @@ theo
   .convert({
     transform: {
       type: 'web',
-      file: '../tokens/grape-skin.yml',
+      file: '../design-tokens/grape-skin.yml',
     },
     format: {
       type: 'json',
