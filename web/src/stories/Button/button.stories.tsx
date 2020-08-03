@@ -12,7 +12,9 @@ export default {
   decorators: [withDesign, withKnobs],
   parameters: {
     component: Button,
-    docs: { page: docs },
+    docs: {
+      page: docs,
+    },
   },
 }
 

@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "storybook": "yarn tokens:import && NODE_ENV=development yarn tokens:import && start-storybook -s ./ --port=55555",
+    "start": "yarn storybook",
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "tokens:import": "node src/tokens/theo-import.js"
