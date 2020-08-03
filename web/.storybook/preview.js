@@ -4,6 +4,7 @@ import { withA11y } from '@storybook/addon-a11y'
 import { withTests } from '@storybook/addon-jest'
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks'
 
 import ThemeProvider from '../src/styles'
 
@@ -28,5 +29,16 @@ addParameters({
         ? 0
         : a[1].id.localeCompare(b[1].id, undefined, { numeric: true })
     },
+  },
+})
+
+addParameters({
+  docs: {
+    page: DocsPage,
+    container: ({ children, context }) => (
+      <DocsContainer context={context}>
+        <ThemeProvider>{children}</ThemeProvider>
+      </DocsContainer>
+    ),
   },
 })
