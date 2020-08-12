@@ -1,9 +1,7 @@
 import React from 'react'
-import { withA11y } from '@storybook/addon-a11y'
 
 export default {
   title: 'Storybook Accessibility',
-  decorators: [withA11y],
 }
 
 export const accessible = () => <button type="button">Accessible button</button>
