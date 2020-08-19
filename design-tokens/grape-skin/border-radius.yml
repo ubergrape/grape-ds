@@ -8,6 +8,6 @@ imports:
 - ./aliases/space.yml
 
 props:
-  border-radius-pill:
+  border-radius-button:
     value: '{!border-radius-pill}'
-    comment: 'Pill for button, icon, tag, badge, input shape.'
+    comment: 'Border radius for buttons.'

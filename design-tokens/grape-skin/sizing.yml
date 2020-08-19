@@ -1,0 +1,40 @@
+global:
+  category: spacing
+  type: size
+  cssProperties:
+  - 'height'
+  - 'max-height'
+  - 'min-height'
+  - 'width'
+  - 'max-width'
+  - 'min-width'
+
+imports:
+- ./aliases/space.yml
+
+props:
+  ## Buttons
+  height-button-regular:
+    value: '{!space-4-x}'
+    comment: 'Button height for regular size.'
+  height-button-small:
+    value: '{!space-3-x}'
+    comment: 'Button height for small size.'
+  space-button-group:
+    value: '{!space-2-x}'
+    comment: 'Space between 2 button elements inside a button group.'
+
+  ## Icons
+  size-icon-small:
+    value: '{!space-2-x}'
+    comment: 'Small icon size.'
+  size-icon-medium:
+    value: '{!space-2-half-x}'
+    comment: 'Medium icon size.'
+  size-icon-large:
+    value: '{!space-3-x}'
+    comment: 'Large icon size.'
+  size-icon-button:
+    value: '{!space-2-x}'
+    comment: 'Icon size inside a button.'
+

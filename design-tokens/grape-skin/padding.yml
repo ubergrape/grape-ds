@@ -7,3 +7,11 @@ global:
 
 imports:
 - ./aliases/space.yml
+
+props:
+  padding-button-right-left:
+    value: '{!space-2-x}'
+    comment: 'Padding between button border and text/icon on the right and on the left side.'
+  padding-button-icon-text:
+    value: '{!space-half-x}'
+    comment: 'Padding between icon and text inside the button.'
