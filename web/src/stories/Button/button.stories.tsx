@@ -30,13 +30,11 @@ export const defaultView = (): JSX.Element => (
   </Button>
 )
 
-defaultView.story = {
-  name: 'Default',
-  parameters: {
-    design: {
-      type: 'figma',
-      url:
-        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=1%3A2',
-    },
+Basic.storyName = 'Default'
+defaultView.parameters = {
+  design: {
+    type: 'figma',
+    url:
+      'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=1%3A2',
   },
 }

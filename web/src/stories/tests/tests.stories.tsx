@@ -8,8 +8,6 @@ export const defaultView = (): JSX.Element => (
   <div>Jest results in storybook</div>
 )
 
-defaultView.story = {
-  parameters: {
-    jest: ['tests.test.js'],
-  },
+defaultView.parameters = {
+  jest: ['tests.test.js'],
 }

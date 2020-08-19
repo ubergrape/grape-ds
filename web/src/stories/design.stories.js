@@ -9,13 +9,11 @@ export default {
 
 export const myStory = () => <Button>Hello Button</Button>
 
-myStory.story = {
-  name: 'Button',
-  parameters: {
-    design: {
-      type: 'figma',
-      url:
-        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=1%3A2',
-    },
+myStory.storyName = 'Button'
+myStory.parameters = {
+  design: {
+    type: 'figma',
+    url:
+      'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=1%3A2',
   },
 }
