@@ -1,7 +1,7 @@
 module.exports = {
   stories: ['../src//**/*.stories.!(tjm)?(ds)?(x)'],
   addons: [
-    '@storybook/addon-knobs',
+    '@storybook/addon-controls',
     '@storybook/addon-actions',
     '@storybook/addon-storysource',
     '@storybook/addon-a11y',
