@@ -1,16 +1,20 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react'
+import React, { SVGAttributes } from 'react'
 import { DOMProps } from '@react-types/shared'
 import * as icons from '../../icons'
 
+// type iconsVariants = keyof typeof icons
 type IconSize = 'small' | 'medium' | 'large'
-type GenericIconProps = DOMProps & {
-  name: 'arrowLeft' | 'close' | 'people' | 'person'
-  size: IconSize
-  color?: string
-  'aria-label'?: string
-  'aria-hidden'?: boolean
-}
+
+export type IconTypes = 'arrowLeft' | 'close' | 'people' | 'person'
+type GenericIconProps = DOMProps &
+  SVGAttributes<SVGElement> & {
+    name: 'arrowLeft' | 'close' | 'people' | 'person'
+    size: IconSize
+    color?: string
+    'aria-label'?: string
+    'aria-hidden'?: boolean
+  }
 
 const getFromSize = (name: string, size: IconSize) => {
   switch (size) {

@@ -1,44 +1,62 @@
 import { JssStyle } from 'jss'
 import { createUseStyles } from 'react-jss'
-import { ButtonProps } from './index'
+
+import { ButtonProps } from '.'
+import tokens from '../../tokens'
 
 export default createUseStyles(
-  (theme: Record<string, string>): Record<string, JssStyle> => ({
+  (theme: typeof tokens): Record<string, JssStyle> => ({
     button: {
-      fontFamily: "'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif",
-      fontWeight: 600,
+      fontFamily: theme.fontFamily,
+      fontWeight: theme.fontWeightButton,
+      transition: 'all 0.25s ease-in-out',
       backgroundColor: ({ variant, color }: ButtonProps): string => {
         if (variant === 'minimal') return 'transparent'
-
         switch (color) {
           case 'primary':
             return theme.colorBackgroundButtonStandardPrimaryDefault
-            break
           case 'basic':
             return theme.colorBackgroundButtonStandardBasicDefault
-            break
           case 'danger':
             return theme.colorBackgroundButtonStandardDangerDefault
-            break
           default:
             return theme.colorBackgroundButtonStandardPrimaryDefault
         }
       },
-      height: ({ size }: ButtonProps): number => {
-        return size === 'small' ? 24 : 32
+      height: ({ size }: ButtonProps) => {
+        return size === 'small'
+          ? theme.heightButtonSmall
+          : theme.heightButtonRegular
+      },
+      width: ({ iconOnly, size }) => {
+        if (!iconOnly) return 'auto'
+        return size === 'small'
+          ? theme.heightButtonSmall
+          : theme.heightButtonRegular
+      },
+      // lineHeight: ({ size }: ButtonProps) => {
+      //   return size === 'small'
+      //     ? theme.lineHeightButtonSmall
+      //     : theme.lineHeightButtonRegular
+      // },
+      lineHeight: '16px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: ({ size }: ButtonProps) => {
+        return size === 'small'
+          ? theme.fontSizeButtonSmall
+          : theme.fontSizeButtonRegular
       },
       color: ({ variant, color }: ButtonProps): string => {
         if (variant === 'minimal') {
           switch (color) {
             case 'primary':
               return theme.colorTextButtonMinimalPrimary
-              break
             case 'basic':
               return theme.colorTextButtonMinimalBasic
-              break
             case 'danger':
               return theme.colorTextButtonMinimalDanger
-              break
             default:
               return theme.colorTextButtonMinimalPrimary
           }
@@ -47,33 +65,29 @@ export default createUseStyles(
         switch (color) {
           case 'primary':
             return theme.colorTextButtonStandardPrimary
-            break
           case 'basic':
             return theme.colorTextButtonStandardBasic
-            break
           case 'danger':
             return theme.colorTextButtonStandardDanger
-            break
           default:
             return theme.colorTextButtonStandardPrimary
         }
       },
-      padding: [0, 16],
+      padding: p => {
+        return !p.iconOnly ? `0px ${theme.paddingButtonRightLeft}` : 0
+      },
       border: 0,
-      borderRadius: 8,
+      borderRadius: theme.borderRadiusButton,
       '&:hover': {
         backgroundColor: ({ variant, color }: ButtonProps): string => {
           if (variant === 'minimal') {
             switch (color) {
               case 'primary':
                 return theme.colorBackgroundButtonMinimalPrimaryHover
-                break
               case 'basic':
                 return theme.colorBackgroundButtonMinimalBasicHover
-                break
               case 'danger':
                 return theme.colorBackgroundButtonMinimalDangerHover
-                break
               default:
                 return theme.colorBackgroundButtonMinimalPrimaryHover
             }
@@ -82,13 +96,10 @@ export default createUseStyles(
           switch (color) {
             case 'primary':
               return theme.colorBackgroundButtonStandardPrimaryHover
-              break
             case 'basic':
               return theme.colorBackgroundButtonStandardBasicHover
-              break
             case 'danger':
               return theme.colorBackgroundButtonStandardDangerHover
-              break
             default:
               return theme.colorBackgroundButtonStandardPrimaryHover
           }
@@ -100,13 +111,10 @@ export default createUseStyles(
             switch (color) {
               case 'primary':
                 return theme.colorBackgroundButtonMinimalPrimaryActive
-                break
               case 'basic':
                 return theme.colorBackgroundButtonMinimalBasicActive
-                break
               case 'danger':
                 return theme.colorBackgroundButtonMinimalDangerActive
-                break
               default:
                 return theme.colorBackgroundButtonMinimalPrimaryActive
             }
@@ -115,13 +123,10 @@ export default createUseStyles(
           switch (color) {
             case 'primary':
               return theme.colorBackgroundButtonStandardPrimaryActive
-              break
             case 'basic':
               return theme.colorBackgroundButtonStandardBasicActive
-              break
             case 'danger':
               return theme.colorBackgroundButtonStandardDangerActive
-              break
             default:
               return theme.colorBackgroundButtonStandardPrimaryActive
           }
@@ -141,6 +146,10 @@ export default createUseStyles(
 
           return theme.colorTextButtonStandardDisabled
         },
+      },
+      '&:focus': {
+        outline: 0,
+        boxShadow: `0 0 0 ${theme.outlineWidthFocus} ${theme.colorOutlineFocusDefault}`,
       },
     },
   }),
