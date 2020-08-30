@@ -40,9 +40,10 @@ export default createUseStyles(
       //     : theme.lineHeightButtonRegular
       // },
       lineHeight: '16px',
-      display: 'flex',
+      display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
+      verticalAlign: 'middle',
       fontSize: ({ size }: ButtonProps) => {
         return size === 'small'
           ? theme.fontSizeButtonSmall

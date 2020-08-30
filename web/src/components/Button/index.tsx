@@ -44,7 +44,7 @@ export const Button: React.FC<ButtonProps> = props => {
       onClick={onClick}
     >
       {iconPosition === 'left' && iconComponent}
-      <span>{children}</span>
+      {children && <span>{children}</span>}
       {iconPosition === 'right' && iconComponent}
     </button>
   )
