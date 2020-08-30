@@ -30,94 +30,33 @@ export const Template = args => <Button {...args} />
 ## Primary Button
 
 <Canvas>
-  <Story
-    name="primary"
-    args={{
-      color: 'primary',
-      children: 'Primary',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="primary-minimal"
-    args={{
-      color: 'primary',
-      variant: 'minimal',
-      children: 'Primary',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
+  <Button>Basic</Button>
+  <Button variant="minimal">Basic</Button>
+  <Button size="small">Basic</Button>
 </Canvas>
 
 ## Basic Button
 
 <Canvas>
-  <Story
-    name="basic"
-    args={{
-      color: 'basic',
-      children: 'Basic',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="basic-minimal"
-    args={{
-      color: 'basic',
-      variant: 'minimal',
-      children: 'Basic',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="basic-minimal-sm"
-    args={{
-      color: 'basic',
-      variant: 'minimal',
-      children: 'Basic',
-      size: 'small',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
+  <Button color="basic">Basic</Button>
+  <Button color="basic" variant="minimal">
+    Basic
+  </Button>
+  <Button color="basic" size="small">
+    Basic
+  </Button>
 </Canvas>
 
 ## Danger Button
 
 <Canvas>
-  <Story
-    name="danger"
-    args={{
-      color: 'danger',
-      children: 'Basic',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="danger-minimal"
-    args={{
-      color: 'danger',
-      variant: 'minimal',
-      children: 'Basic',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="danger-sm"
-    args={{
-      color: 'danger',
-      children: 'Basic',
-      size: 'small',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
+  <Button color="danger">Danger</Button>
+  <Button color="danger" variant="minimal">
+    Danger
+  </Button>
+  <Button color="danger" size="small">
+    Danger
+  </Button>
 </Canvas>
 
 ## Icon Button

@@ -17,7 +17,7 @@ export type ButtonProps = {
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
   const { disabled, onClick, icon, children, iconPosition = 'left' } = props
-  const iconOnly = children === undefined && icon
+  const iconOnly = (children === undefined || children === '') && icon
 
   const classes = useStyles({
     ...props,
@@ -35,6 +35,7 @@ export const Button: React.FC<ButtonProps> = props => {
       size="small"
     />
   )
+  console.log({ children })
 
   return (
     <button
