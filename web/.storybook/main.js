@@ -9,6 +9,5 @@ module.exports = {
     '@storybook/addon-jest',
     '@storybook/addon-links',
     'storybook-addon-designs',
-    '@storybook/preset-typescript',
   ],
 }
