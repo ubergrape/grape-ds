@@ -1,21 +1,41 @@
-import React, { ReactChildren, ReactChild } from 'react'
+import React from 'react'
 import { useTheme } from 'react-jss'
 
 import useStyles from './styles'
+import { Icon, IconTypes } from '../icon'
 
-export interface ButtonProps {
+export type ButtonProps = {
   onClick: () => void
-  children: ReactChild | ReactChildren
   disabled: boolean
-  color: string
-  variant: string
-  size: string
+  color: 'primary' | 'basic' | 'danger'
+  variant: 'standard' | 'minimal'
+  size: 'regular' | 'small'
+  icon?: IconTypes
+  iconPosition?: 'left' | 'right'
 }
 
-const Button: React.FC<ButtonProps> = props => {
+export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
-  const classes = useStyles({ ...props, theme })
-  const { disabled, onClick, children } = props
+  const { disabled, onClick, icon, children, iconPosition = 'left' } = props
+  const iconOnly = (children === undefined || children === '') && icon
+
+  const classes = useStyles({
+    ...props,
+    theme,
+    iconOnly,
+  })
+
+  const iconComponent = icon && (
+    <Icon
+      name={icon}
+      {...(!iconOnly && {
+        style: iconPosition === 'left' ? { marginRight: 5 } : { marginLeft: 5 },
+      })}
+      aria-label="Label"
+      size="small"
+    />
+  )
+  console.log({ children })
 
   return (
     <button
@@ -24,7 +44,9 @@ const Button: React.FC<ButtonProps> = props => {
       type="button"
       onClick={onClick}
     >
-      {children}
+      {iconPosition === 'left' && iconComponent}
+      {children && <span>{children}</span>}
+      {iconPosition === 'right' && iconComponent}
     </button>
   )
 }
