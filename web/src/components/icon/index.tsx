@@ -9,7 +9,7 @@ type IconSize = 'small' | 'medium' | 'large'
 export type IconTypes = 'arrowLeft' | 'close' | 'people' | 'person'
 type GenericIconProps = DOMProps &
   SVGAttributes<SVGElement> & {
-    name: 'arrowLeft' | 'close' | 'people' | 'person'
+    name: IconTypes
     size: IconSize
     color?: string
     'aria-label'?: string

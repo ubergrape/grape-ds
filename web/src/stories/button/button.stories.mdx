@@ -30,9 +30,25 @@ export const Template = args => <Button {...args} />
 ## Primary Button
 
 <Canvas>
-  <Button>Basic</Button>
-  <Button variant="minimal">Basic</Button>
-  <Button size="small">Basic</Button>
+  <Story
+    name="primary"
+    args={{
+      color: 'primary',
+      children: 'Primary',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="primary-minimal"
+    args={{
+      color: 'primary',
+      variant: 'minimal',
+      children: 'Primary',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ## Basic Button
