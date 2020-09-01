@@ -1,0 +1,68 @@
+import Button from '../../components/Button'
+import {
+  Meta,
+  Story,
+  Canvas,
+  Preview,
+  Props,
+} from '@storybook/addon-docs/blocks'
+
+# Button
+
+With `MDX` we can define a story for `Button` right in the middle of our
+markdown documentation.
+
+<Meta
+  title="Button"
+  component={Button}
+  argTypes={{ background: { control: 'color' } }}
+  parameters={{
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=1%3A2',
+    },
+  }}
+/>
+
+### Primary button
+
+<Button
+  color="primary"
+  variant="standard"
+  size="regular"
+  disabled={false}
+  onClick={() => {
+    console.log('Button click')
+  }}
+>
+  Primary
+</Button>
+
+### Basic button
+
+<Button
+  color="basic"
+  variant="standard"
+  size="regular"
+  disabled={false}
+  onClick={() => {
+    console.log('Button click')
+  }}
+>
+  Basic
+</Button>
+
+### Danger button
+
+<Button
+  color="danger"
+  variant="standard"
+  size="regular"
+  disabled={false}
+  onClick={() => {
+    console.log('Button click')
+  }}
+>
+  Danger
+</Button>
