@@ -7,14 +7,13 @@ import * as icons from '../../icons'
 type IconSize = 'small' | 'medium' | 'large'
 
 export type IconTypes = 'arrowLeft' | 'close' | 'people' | 'person'
-type GenericIconProps = DOMProps &
-  SVGAttributes<SVGElement> & {
-    name: IconTypes
-    size: IconSize
-    color?: string
-    'aria-label'?: string
-    'aria-hidden'?: boolean
-  }
+type GenericIconProps = Omit<DOMProps & SVGAttributes<SVGElement>, 'name'> & {
+  name: IconTypes
+  size: IconSize
+  color?: string
+  'aria-label'?: string
+  'aria-hidden'?: boolean
+}
 
 const getFromSize = (name: string, size: IconSize) => {
   switch (size) {
