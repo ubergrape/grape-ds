@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function SvgPerson24(props: React.SVGProps<SVGSVGElement>) {
+const SvgPerson24 = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
   return (
     <svg width={24} height={24} fill="none" {...props}>
       <path

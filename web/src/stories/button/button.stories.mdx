@@ -5,13 +5,7 @@ import {
   Preview,
   Props,
 } from '@storybook/addon-docs/blocks'
-import { Button } from '../../components/button'
-import { Icon } from '../../components/icon'
-
-# Button
-
-With `MDX` we can define a story for `Button` right in the middle of our
-markdown documentation.
+import { Button } from '../../components/Button'
 
 export const Template = args => <Button {...args} />
 
@@ -27,23 +21,15 @@ export const Template = args => <Button {...args} />
   }}
 />
 
+# Button
+
 ## Primary Button
 
 <Canvas>
   <Story
-    name="primary"
+    name="Default"
     args={{
       color: 'primary',
-      children: 'Primary',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-  <Story
-    name="primary-minimal"
-    args={{
-      color: 'primary',
-      variant: 'minimal',
       children: 'Primary',
     }}
   >

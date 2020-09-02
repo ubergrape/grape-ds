@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function SvgClose16(props: React.SVGProps<SVGSVGElement>) {
+const SvgClose16 = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
   return (
     <svg width={16} height={16} fill="none" {...props}>
       <path

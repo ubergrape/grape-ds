@@ -2,7 +2,7 @@ import React from 'react'
 import { useTheme } from 'react-jss'
 
 import useStyles from './styles'
-import { Icon, IconTypes } from '../icon'
+import { Icon, IconTypes } from '../Icon'
 
 export type ButtonProps = {
   onClick: () => void
@@ -35,7 +35,6 @@ export const Button: React.FC<ButtonProps> = props => {
       size="small"
     />
   )
-  console.log({ children })
 
   return (
     <button

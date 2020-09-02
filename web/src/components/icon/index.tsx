@@ -3,10 +3,9 @@ import React, { SVGAttributes } from 'react'
 import { DOMProps } from '@react-types/shared'
 import * as icons from '../../icons'
 
-// type iconsVariants = keyof typeof icons
 type IconSize = 'small' | 'medium' | 'large'
-
 export type IconTypes = 'arrowLeft' | 'close' | 'people' | 'person'
+
 type GenericIconProps = DOMProps &
   SVGAttributes<SVGElement> & {
     name: IconTypes
