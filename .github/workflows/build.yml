@@ -1,0 +1,26 @@
+on:
+  pull_request:
+    types: ['opened', 'edited', 'synchronize']
+
+jobs:     
+  deployPRDraft:
+    name: Deploy draft to Netlify
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
+    steps:
+        - uses: actions/checkout@v2
+        - uses: borales/actions-yarn@v2.0.0
+            with:
+                cmd: install # will run `yarn install` command
+        - uses: borales/actions-yarn@v2.0.0
+            with:
+                cmd: build # will run `yarn build` command
+        - name: Deploy draft to Netlify
+        - uses: South-Paw/action-netlify-deploy@v1.0.4
+            with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+                netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+                build-dir: './build'
+                draft: true
+                comment-on-pull-request: true
