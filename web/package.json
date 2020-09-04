@@ -1,5 +1,5 @@
 {
-  "name": "grape-ds",
+  "name": "aurora-ui",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:ubergrape/grape-ds.git",
@@ -11,7 +11,8 @@
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "tokens:import": "node src/tokens/theo-import.js",
-    "svgr": "svgr -d src/icons/ node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\""
+    "svgr": "svgr -d src/icons/ node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
+    "build": "yarn build-storybook -o ../build/storybook"
   },
   "dependencies": {
     "@react-types/shared": "^3.2.0",
@@ -24,10 +25,7 @@
     "jss-plugin-global": "^10.3.0",
     "jss-plugin-nested": "^10.3.0",
     "jss-plugin-rule-value-function": "^10.3.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-jss": "^10.3.0",
-    "typescript": "^3.9.7"
+    "react-jss": "^10.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
@@ -74,8 +72,10 @@
     "storybook-addon-designs": "^5.4.1",
     "theo": "^8.1.5",
     "ts-jest": "^25.5.1",
-    "ts-loader": "^7.0.5"
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.7"
   },
+  "peerDependencies": {},
   "jest": {
     "transform": {
       "^.+\\.[j]sx?$": "babel-jest",

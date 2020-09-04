@@ -35,7 +35,6 @@ export const Button: React.FC<ButtonProps> = props => {
       size="small"
     />
   )
-  console.log({ children })
 
   return (
     <button
