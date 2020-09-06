@@ -9,12 +9,9 @@ jobs:
     if: github.event_name == 'pull_request' && github.ref != 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
+      - uses: actions/setup-node@v1
+      - run: yarn install
+      - run: yarn build
       - uses: South-Paw/action-netlify-deploy@v1.0.4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
