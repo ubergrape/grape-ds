@@ -1,0 +1,18 @@
+{
+  "name": "aurora",
+  "version": "1.0.0",
+  "repository": "https://github.com/ubergrape/grape-ds.git",
+  "author": "Tobias Lins <me@tobi.sh>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "web"
+  ],
+  "scripts": {
+    "dev": "yarn --cwd docs dev",
+    "build:storybook": "yarn --cwd web build",
+    "build:docs": "yarn --cwd docs build",
+    "build": "yarn --cwd web build && mkdir -p build/docs",
+    "clean": "rm -rf build && rm -rf docs/node_modules && rm -rf web/node_modules"
+  }
+}

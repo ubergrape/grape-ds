@@ -1,2 +1,7 @@
 # web
 node_modules
+web/storybook-static
+.DS_Store
+docs/.docz/
+build/*
+.doc

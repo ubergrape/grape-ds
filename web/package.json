@@ -1,5 +1,5 @@
 {
-  "name": "grape-ds",
+  "name": "aurora-ui",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:ubergrape/grape-ds.git",
@@ -11,7 +11,8 @@
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "tokens:import": "node src/tokens/theo-import.js",
-    "svgr": "svgr -d src/icons/ node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\""
+    "svgr": "svgr -d src/icons/ node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --no-dll --debug-webpack -o ../build/storybook"
   },
   "dependencies": {
     "@react-types/shared": "^3.2.0",
@@ -24,26 +25,21 @@
     "jss-plugin-global": "^10.3.0",
     "jss-plugin-nested": "^10.3.0",
     "jss-plugin-rule-value-function": "^10.3.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-jss": "^10.3.0",
-    "typescript": "^3.9.7"
+    "react-jss": "^10.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
-    "@storybook/addon-a11y": "^6.0.20",
-    "@storybook/addon-actions": "^6.0.20",
-    "@storybook/addon-controls": "^6.0.20",
-    "@storybook/addon-docs": "^6.0.20",
-    "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-jest": "^6.0.20",
-    "@storybook/addon-links": "^6.0.20",
-    "@storybook/addon-storyshots": "^6.0.20",
-    "@storybook/addon-storyshots-puppeteer": "^6.0.20",
-    "@storybook/addon-storysource": "^6.0.20",
-    "@storybook/react": "^6.0.20",
+    "@storybook/addon-a11y": "^6.0.21",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-controls": "^6.0.21",
+    "@storybook/addon-docs": "^6.0.21",
+    "@storybook/addon-jest": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/addon-storysource": "^6.0.21",
+    "@storybook/core": "^6.0.21",
+    "@storybook/react": "^6.0.21",
     "@svgr/cli": "^5.4.0",
     "@types/jest": "^25.2.3",
     "@typescript-eslint/eslint-plugin": "^3.6.0",
@@ -74,8 +70,10 @@
     "storybook-addon-designs": "^5.4.1",
     "theo": "^8.1.5",
     "ts-jest": "^25.5.1",
-    "ts-loader": "^7.0.5"
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.7"
   },
+  "peerDependencies": {},
   "jest": {
     "transform": {
       "^.+\\.[j]sx?$": "babel-jest",
