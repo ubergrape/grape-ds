@@ -20,5 +20,7 @@ A new directory called `build` is generated in the current directory which shoul
 
 It includes two folders that should be available under following URLs
 
+```
 build/storybook -> aurora.ubergrape.com/storybook
 build/docs -> aurora.ubergrape.com
+```
