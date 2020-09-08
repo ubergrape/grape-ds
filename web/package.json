@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:ubergrape/grape-ds.git",
-  "author": "Oleh Aloshkin <olegaleshkin@gmail.com>",
+  "author": "UberGrape Gmbh <support@grape.io>",
   "license": "MIT",
   "scripts": {
     "storybook": "yarn tokens:import && NODE_ENV=development yarn tokens:import && start-storybook -s ./ --port=55555",
