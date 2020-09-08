@@ -2,7 +2,7 @@
   "name": "aurora",
   "version": "1.0.0",
   "repository": "https://github.com/ubergrape/grape-ds.git",
-  "author": "Tobias Lins <me@tobi.sh>",
+  "author": "UberGrape Gmbh <support@grape.io>",
   "license": "MIT",
   "private": true,
   "workspaces": [
