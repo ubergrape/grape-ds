@@ -6,8 +6,9 @@
   "author": "UberGrape Gmbh <support@grape.io>",
   "license": "MIT",
   "scripts": {
-    "storybook": "yarn tokens:import && NODE_ENV=development yarn tokens:import && start-storybook -s ./ --port=55555",
+    "storybook": "NODE_ENV=development yarn tokens:import && start-storybook -s ./ --port=55555",
     "start": "yarn storybook",
+    "dev": "yarn storybook",
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "tokens:import": "node src/tokens/theo-import.js",
@@ -15,6 +16,7 @@
     "build": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook"
   },
   "dependencies": {
+    "@react-aria/focus": "^3.2.1",
     "@react-types/shared": "^3.2.0",
     "grape-icons": "ubergrape/grape-icons",
     "jss": "^10.3.0",
@@ -25,6 +27,7 @@
     "jss-plugin-global": "^10.3.0",
     "jss-plugin-nested": "^10.3.0",
     "jss-plugin-rule-value-function": "^10.3.0",
+    "react": "^16.13.1",
     "react-jss": "^10.3.0"
   },
   "devDependencies": {

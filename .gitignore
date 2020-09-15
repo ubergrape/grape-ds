@@ -5,3 +5,4 @@ web/storybook-static
 docs/.docz/
 build/*
 .doc
+deploy/

@@ -31,10 +31,11 @@ export const Template = args => <Button {...args} />
 
 <Canvas>
   <Story
-    name="primary"
+    name="base"
     args={{
       color: 'primary',
       children: 'Primary',
+      onClick: () => alert('Button pressed'),
     }}
   >
     {Template.bind({})}

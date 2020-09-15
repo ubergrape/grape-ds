@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTheme } from 'react-jss'
+import { FocusRing } from '@react-aria/focus'
 
 import useStyles from './styles'
 import { Icon, IconTypes } from '../icon'
@@ -12,6 +13,7 @@ export type ButtonProps = {
   size: 'regular' | 'small'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'
+  children?: string
 }
 
 export const Button: React.FC<ButtonProps> = props => {
@@ -31,22 +33,26 @@ export const Button: React.FC<ButtonProps> = props => {
       {...(!iconOnly && {
         style: iconPosition === 'left' ? { marginRight: 5 } : { marginLeft: 5 },
       })}
-      aria-label="Label"
+      aria-hidden
+      focusable={false}
       size="small"
     />
   )
 
   return (
-    <button
-      className={classes.button}
-      disabled={disabled}
-      type="button"
-      onClick={onClick}
-    >
-      {iconPosition === 'left' && iconComponent}
-      {children && <span>{children}</span>}
-      {iconPosition === 'right' && iconComponent}
-    </button>
+    <FocusRing focusRingClass={classes.focusRing}>
+      <button
+        className={classes.button}
+        disabled={disabled}
+        type="button"
+        onClick={onClick}
+        aria-label={children}
+      >
+        {iconPosition === 'left' && iconComponent}
+        {children && <span>{children}</span>}
+        {iconPosition === 'right' && iconComponent}
+      </button>
+    </FocusRing>
   )
 }
 

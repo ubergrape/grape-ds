@@ -150,8 +150,10 @@ export default createUseStyles(
       },
       '&:focus': {
         outline: 0,
-        boxShadow: `0 0 0 ${theme.outlineWidthFocus} ${theme.colorOutlineFocusDefault}`,
       },
+    },
+    focusRing: {
+      boxShadow: `0 0 0 ${theme.outlineWidthFocus} ${theme.colorOutlineFocusDefault}`,
     },
   }),
 )
