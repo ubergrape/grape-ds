@@ -33,7 +33,7 @@ export const Template = args => <Button {...args} />
   <Story
     name="base"
     args={{
-      color: 'primary',
+      type: 'primary',
       children: 'Primary',
       onClick: () => alert('Button pressed'),
     }}
@@ -43,8 +43,8 @@ export const Template = args => <Button {...args} />
   <Story
     name="primary-minimal"
     args={{
-      color: 'primary',
-      variant: 'minimal',
+      type: 'primary',
+      style: 'minimal',
       children: 'Primary',
     }}
   >
@@ -55,11 +55,11 @@ export const Template = args => <Button {...args} />
 ## Basic Button
 
 <Canvas>
-  <Button color="basic">Basic</Button>
-  <Button color="basic" variant="minimal">
+  <Button type="basic">Basic</Button>
+  <Button type="basic" style="minimal">
     Basic
   </Button>
-  <Button color="basic" size="small">
+  <Button type="basic" size="small">
     Basic
   </Button>
 </Canvas>
@@ -67,11 +67,11 @@ export const Template = args => <Button {...args} />
 ## Danger Button
 
 <Canvas>
-  <Button color="danger">Danger</Button>
-  <Button color="danger" variant="minimal">
+  <Button type="danger">Danger</Button>
+  <Button type="danger" style="minimal">
     Danger
   </Button>
-  <Button color="danger" size="small">
+  <Button type="danger" size="small">
     Danger
   </Button>
 </Canvas>
@@ -79,19 +79,19 @@ export const Template = args => <Button {...args} />
 ## Icon Button
 
 <Canvas>
-  <Button color="primary" variant="standard" size="regular" icon="close" />
-  <Button color="primary" variant="standard" size="regular" icon="people" />
+  <Button type="primary" style="standard" size="regular" icon="close" />
+  <Button type="primary" style="standard" size="regular" icon="people" />
 </Canvas>
 
 ## Icon Button
 
 <Canvas>
-  <Button color="primary" variant="standard" size="regular" icon="close">
+  <Button type="primary" style="standard" size="regular" icon="close">
     Left
   </Button>
   <Button
-    color="primary"
-    variant="standard"
+    type="primary"
+    style="standard"
     size="regular"
     icon="close"
     iconPosition="right"

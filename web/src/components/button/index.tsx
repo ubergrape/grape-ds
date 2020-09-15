@@ -8,8 +8,8 @@ import { Icon, IconTypes } from '../icon'
 export type ButtonProps = {
   onClick: () => void
   disabled: boolean
-  color: 'primary' | 'basic' | 'danger'
-  variant: 'standard' | 'minimal'
+  type: 'primary' | 'basic' | 'danger'
+  style: 'standard' | 'minimal'
   size: 'regular' | 'small'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'

@@ -10,9 +10,9 @@ export default createUseStyles(
       fontFamily: theme.fontFamily,
       fontWeight: theme.fontWeightButton,
       transition: 'all 0.25s ease-in-out',
-      backgroundColor: ({ variant, color }: ButtonProps): string => {
-        if (variant === 'minimal') return 'transparent'
-        switch (color) {
+      backgroundColor: ({ style, type }: ButtonProps): string => {
+        if (style === 'minimal') return 'transparent'
+        switch (type) {
           case 'primary':
             return theme.colorBackgroundButtonStandardPrimaryDefault
           case 'basic':
@@ -49,9 +49,9 @@ export default createUseStyles(
           ? theme.fontSizeButtonSmall
           : theme.fontSizeButtonRegular
       },
-      color: ({ variant, color }: ButtonProps): string => {
-        if (variant === 'minimal') {
-          switch (color) {
+      color: ({ style, type }: ButtonProps): string => {
+        if (style === 'minimal') {
+          switch (type) {
             case 'primary':
               return theme.colorTextButtonMinimalPrimary
             case 'basic':
@@ -63,7 +63,7 @@ export default createUseStyles(
           }
         }
 
-        switch (color) {
+        switch (type) {
           case 'primary':
             return theme.colorTextButtonStandardPrimary
           case 'basic':
@@ -80,9 +80,9 @@ export default createUseStyles(
       border: 0,
       borderRadius: theme.borderRadiusButton,
       '&:hover': {
-        backgroundColor: ({ variant, color }: ButtonProps): string => {
-          if (variant === 'minimal') {
-            switch (color) {
+        backgroundColor: ({ style, type }: ButtonProps): string => {
+          if (style === 'minimal') {
+            switch (type) {
               case 'primary':
                 return theme.colorBackgroundButtonMinimalPrimaryHover
               case 'basic':
@@ -94,7 +94,7 @@ export default createUseStyles(
             }
           }
 
-          switch (color) {
+          switch (type) {
             case 'primary':
               return theme.colorBackgroundButtonStandardPrimaryHover
             case 'basic':
@@ -107,9 +107,9 @@ export default createUseStyles(
         },
       },
       '&:active': {
-        backgroundColor: ({ variant, color }: ButtonProps): string => {
-          if (variant === 'minimal') {
-            switch (color) {
+        backgroundColor: ({ style, type }: ButtonProps): string => {
+          if (style === 'minimal') {
+            switch (type) {
               case 'primary':
                 return theme.colorBackgroundButtonMinimalPrimaryActive
               case 'basic':
@@ -121,7 +121,7 @@ export default createUseStyles(
             }
           }
 
-          switch (color) {
+          switch (type) {
             case 'primary':
               return theme.colorBackgroundButtonStandardPrimaryActive
             case 'basic':
@@ -135,13 +135,13 @@ export default createUseStyles(
       },
       '&:disabled': {
         cursor: 'not-allowed',
-        backgroundColor: ({ variant }: ButtonProps): string => {
-          if (variant === 'minimal') return 'transparent'
+        backgroundColor: ({ style }: ButtonProps): string => {
+          if (style === 'minimal') return 'transparent'
 
           return theme.colorBackgroundButtonStandardDisabled
         },
-        color: ({ variant }: ButtonProps): string => {
-          if (variant === 'minimal') {
+        color: ({ style }: ButtonProps): string => {
+          if (style === 'minimal') {
             return theme.colorTextButtonMinimalDisabled
           }
 
