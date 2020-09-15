@@ -7,10 +7,10 @@ import { Icon, IconTypes } from '../icon'
 
 export type ButtonProps = {
   onClick: () => void
-  disabled: boolean
-  type: 'primary' | 'basic' | 'danger'
-  style: 'standard' | 'minimal'
-  size: 'regular' | 'small'
+  disabled?: boolean
+  type?: 'primary' | 'basic' | 'danger'
+  style?: 'standard' | 'minimal'
+  size?: 'regular' | 'small'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'
   children?: string
@@ -18,7 +18,7 @@ export type ButtonProps = {
 
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
-  const { disabled, onClick, icon, children, iconPosition = 'left' } = props
+  const { disabled, onClick, icon, children, iconPosition } = props
   const iconOnly = (children === undefined || children === '') && icon
 
   const classes = useStyles({
@@ -54,6 +54,13 @@ export const Button: React.FC<ButtonProps> = props => {
       </button>
     </FocusRing>
   )
+}
+
+Button.defaultProps = {
+  disabled: false,
+  iconPosition: 'left',
+  type: 'primary',
+  size: 'regular',
 }
 
 export default Button

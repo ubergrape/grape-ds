@@ -1,10 +1,11 @@
 {
   "name": "aurora-ui",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "git@github.com:ubergrape/grape-ds.git",
   "author": "UberGrape Gmbh <support@grape.io>",
   "license": "MIT",
+  "main": "./build/index.js",
+  "types": "./build/components/index.d.ts",
   "scripts": {
     "storybook": "NODE_ENV=development yarn tokens:import && start-storybook -s ./ --port=55555",
     "start": "yarn storybook",
@@ -13,7 +14,8 @@
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "tokens:import": "node src/tokens/theo-import.js",
     "svgr": "svgr -d src/icons/ node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
-    "build": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook"
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
+    "build-c": "rollup -c "
   },
   "dependencies": {
     "@react-aria/focus": "^3.2.1",
@@ -27,13 +29,17 @@
     "jss-plugin-global": "^10.3.0",
     "jss-plugin-nested": "^10.3.0",
     "jss-plugin-rule-value-function": "^10.3.0",
-    "react": "^16.13.1",
     "react-jss": "^10.3.0"
   },
   "devDependencies": {
+    "react": "^16.13.1",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-typescript": "^6.0.0",
     "@storybook/addon-a11y": "^6.0.21",
     "@storybook/addon-actions": "^6.0.21",
     "@storybook/addon-controls": "^6.0.21",
@@ -42,6 +48,7 @@
     "@storybook/addon-links": "^6.0.21",
     "@storybook/addon-storysource": "^6.0.21",
     "@storybook/core": "^6.0.21",
+    "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^6.0.21",
     "@svgr/cli": "^5.4.0",
     "@types/jest": "^25.2.3",
@@ -61,6 +68,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
     "expect": "^26.1.0",
+    "fork-ts-checker-webpack-plugin": "^5.2.0",
     "husky": "^4.2.5",
     "jest": "^25.5.4",
     "lint-staged": "^10.2.11",
@@ -70,11 +78,14 @@
     "puppeteer": "^5.0.0",
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1",
+    "rollup": "^2.26.11",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup-plugin-typescript2": "^0.27.2",
     "storybook-addon-designs": "^5.4.1",
     "theo": "^8.1.5",
     "ts-jest": "^25.5.1",
-    "ts-loader": "^7.0.5",
-    "typescript": "^3.9.7"
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2"
   },
   "peerDependencies": {},
   "jest": {
