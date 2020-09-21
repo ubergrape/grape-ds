@@ -8,7 +8,9 @@ export interface ThemeProviderProps {
   children: ReactChild | ReactChildren
 }
 
-const ThemeProvider = ({ children }: ThemeProviderProps): JSX.Element => (
+export const ThemeProvider = ({
+  children,
+}: ThemeProviderProps): JSX.Element => (
   <JssProvider jss={jss}>
     <JssThemeProvider theme={theme}>{children}</JssThemeProvider>
   </JssProvider>

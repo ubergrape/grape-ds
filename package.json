@@ -6,7 +6,9 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "web"
+    "web",
+    "test-aurora",
+    "docs"
   ],
   "scripts": {
     "dev": "yarn --cwd web dev",
