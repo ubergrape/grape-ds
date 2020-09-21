@@ -6,10 +6,10 @@ import useStyles from './styles'
 import { Icon, IconTypes } from '../icon'
 
 export type ButtonProps = {
-  onClick: () => void
+  onClick?: () => void
   disabled?: boolean
-  type?: 'primary' | 'basic' | 'danger'
-  style?: 'standard' | 'minimal'
+  variant?: 'primary' | 'basic' | 'danger'
+  appearance?: 'standard' | 'minimal'
   size?: 'regular' | 'small'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'
@@ -59,8 +59,9 @@ export const Button: React.FC<ButtonProps> = props => {
 Button.defaultProps = {
   disabled: false,
   iconPosition: 'left',
-  type: 'primary',
+  variant: 'primary',
   size: 'regular',
+  appearance: 'standard',
 }
 
 export default Button

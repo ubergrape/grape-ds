@@ -7,12 +7,13 @@ import * as icons from '../../icons'
 type IconSize = 'small' | 'medium' | 'large'
 
 export type IconTypes = 'arrowLeft' | 'close' | 'people' | 'person'
-type GenericIconProps = Omit<DOMProps & SVGAttributes<SVGElement>, 'name'> & {
+export type GenericIconProps = Omit<DOMProps, 'name'> & {
   name: IconTypes
-  size: IconSize
+  size?: IconSize
   color?: string
   'aria-label'?: string
   'aria-hidden'?: boolean
+  focusable?: boolean
 }
 
 const getFromSize = (name: string, size: IconSize) => {
@@ -40,4 +41,5 @@ export const Icon: React.FC<GenericIconProps> = ({
 
 Icon.defaultProps = {
   'aria-hidden': true,
+  size: 'large',
 }
