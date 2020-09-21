@@ -1,14 +1,18 @@
 import React from 'react'
-import Button from '../../components/button'
+import { Button, ButtonProps } from '../../components/button'
 
 export default {
   title: 'Button',
   component: Button,
-  argTypes: { onClick: { action: 'clicked' } },
+  argTypes: { onClick: { action: 'clicked' }, children: { control: 'text' } },
 }
 
-export const Base: React.FC = props => {
-  return <Button {...props}>Button</Button>
+const Template = props => {
+  return <Button {...props} />
+}
+export const Base = Template.bind({})
+Base.args = {
+  children: 'Button',
 }
 
 export const Types: React.FC = () => (
@@ -52,8 +56,12 @@ export const WithIcon: React.FC = () => (
 
 export const IconButton: React.FC = () => (
   <div>
-    <Button icon="person" />
-    <Button icon="person" appearance="minimal" />
+    <Button icon="person" ariaLabel="Person Icon" />
+    <Button
+      icon="person"
+      appearance="minimal"
+      ariaLabel="Minimal Person Icon"
+    />
   </div>
 )
 

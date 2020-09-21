@@ -10,6 +10,13 @@ export default createUseStyles(
       fontFamily: theme.fontFamily,
       fontWeight: theme.fontWeightButton,
       transition: 'all 0.25s ease-in-out',
+      cursor: ({ disabled }: ButtonProps) => {
+        return disabled ? 'not-allowed' : 'pointer'
+      },
+      minWidth: ({ iconOnly }) => {
+        if (!iconOnly) return 64
+        return 0
+      },
       backgroundColor: ({ appearance, variant }: ButtonProps): string => {
         if (appearance === 'minimal') return 'transparent'
         switch (variant) {
@@ -74,11 +81,14 @@ export default createUseStyles(
             return theme.colorTextButtonStandardPrimary
         }
       },
-      padding: p => {
-        return !p.iconOnly ? `0px ${theme.paddingButtonRightLeft}` : 0
+      padding: (p: ButtonProps & { iconOnly?: boolean }) => {
+        return !p.iconOnly ? `0px ${p.size === 'small' ? 12 : 16}px` : 0
       },
       border: 0,
       borderRadius: theme.borderRadiusButton,
+      '& > svg': {
+        transition: 'all 0.25s ease-in-out',
+      },
       '&:hover': {
         backgroundColor: ({ appearance, variant }: ButtonProps): string => {
           if (appearance === 'minimal') {
@@ -104,6 +114,9 @@ export default createUseStyles(
             default:
               return theme.colorBackgroundButtonStandardPrimaryHover
           }
+        },
+        '& > svg': {
+          transform: 'scale(1.15)',
         },
       },
       '&:active': {

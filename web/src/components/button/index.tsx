@@ -13,12 +13,13 @@ export type ButtonProps = {
   size?: 'regular' | 'small'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'
+  ariaLabel?: string
   children?: string
 }
 
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
-  const { disabled, onClick, icon, children, iconPosition } = props
+  const { disabled, onClick, icon, children, iconPosition, ariaLabel } = props
   const iconOnly = (children === undefined || children === '') && icon
 
   const classes = useStyles({
@@ -46,7 +47,7 @@ export const Button: React.FC<ButtonProps> = props => {
         disabled={disabled}
         type="button"
         onClick={onClick}
-        aria-label={children}
+        {...(ariaLabel && { 'aria-label': ariaLabel })}
       >
         {iconPosition === 'left' && iconComponent}
         {children && <span>{children}</span>}
