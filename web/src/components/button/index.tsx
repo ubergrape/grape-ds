@@ -59,7 +59,7 @@ export const Button: React.FC<ButtonProps> = props => {
 Button.defaultProps = {
   disabled: false,
   iconPosition: 'left',
-  variant: 'primary',
+  variant: 'basic',
   size: 'regular',
   appearance: 'standard',
 }
