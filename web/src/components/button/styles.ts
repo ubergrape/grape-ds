@@ -82,7 +82,13 @@ export default createUseStyles(
         }
       },
       padding: (p: ButtonProps & { iconOnly?: boolean }) => {
-        return !p.iconOnly ? `0px ${p.size === 'small' ? 12 : 16}px` : 0
+        return !p.iconOnly
+          ? `0px ${
+              p.size === 'small'
+                ? theme.paddingButtonSmallRightLeft
+                : theme.paddingButtonRegularRightLeft
+            }`
+          : 0
       },
       border: 0,
       borderRadius: theme.borderRadiusButton,
