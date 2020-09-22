@@ -47,12 +47,14 @@ export const Button: React.FC<ButtonProps> = props => {
   return (
     <FocusRing focusRingClass={classes.focusRing} within>
       <button
-        className={`${classes.button} ${isPressed ? `active` : ''}`}
-        disabled={disabled}
+        className={`${classes.button} ${
+          isPressed && !disabled ? `active` : ''
+        }`}
         type="button"
         ref={ref}
         {...(ariaLabel && { 'aria-label': ariaLabel })}
         {...buttonProps}
+        disabled={disabled}
       >
         {iconPosition === 'left' && iconComponent}
         {children && <span>{children}</span>}
