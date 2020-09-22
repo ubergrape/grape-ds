@@ -18,3 +18,11 @@ export const Types: React.FC = () => (
     <Icon name="people" size="medium" />
   </div>
 )
+
+export const Sizes: React.FC = () => (
+  <div>
+    <Icon name="person" size="small" />
+    <Icon name="person" size="medium" />
+    <Icon name="person" size="large" />
+  </div>
+)

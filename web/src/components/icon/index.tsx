@@ -36,7 +36,13 @@ export const Icon: React.FC<GenericIconProps> = ({
   ...rest
 }) => {
   const IconComponent = getFromSize(name, size)
-  return <IconComponent style={{ color }} {...rest} />
+  return (
+    <IconComponent
+      style={{ color }}
+      {...rest}
+      {...(rest['aria-label'] ? { 'aria-hidden': false } : {})}
+    />
+  )
 }
 
 Icon.defaultProps = {
