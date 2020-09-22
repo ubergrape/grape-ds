@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button, ButtonProps } from '../../components/button'
+import { Button } from '../../components/button'
 
 export default {
   title: 'Button',
   component: Button,
-  argTypes: { onClick: { action: 'clicked' }, children: { control: 'text' } },
+  argTypes: { onPress: { action: 'clicked' }, children: { control: 'text' } },
 }
 
 const Template = props => {
@@ -19,12 +19,13 @@ export const Types: React.FC = () => (
   <div>
     <Button>Button</Button>
     <Button appearance="minimal">Button</Button>
-    <Button variant="danger">Button</Button>
-    <Button appearance="minimal" variant="danger">
+
+    <Button variant="primary">Button</Button>
+    <Button appearance="minimal" variant="primary">
       Button
     </Button>
-    <Button variant="basic">Button</Button>
-    <Button appearance="minimal" variant="basic">
+    <Button variant="danger">Button</Button>
+    <Button appearance="minimal" variant="danger">
       Button
     </Button>
   </div>
@@ -68,10 +69,10 @@ export const IconButton: React.FC = () => (
 export const Sizes: React.FC = () => (
   <div>
     <Button size="regular">Button</Button>
-    <Button size="small">Button</Button>
     <Button size="regular" appearance="minimal">
       Button
     </Button>
+    <Button size="small">Button</Button>
     <Button size="small" appearance="minimal">
       Button
     </Button>

@@ -125,7 +125,25 @@ export default createUseStyles(
           transform: 'scale(1.15)',
         },
       },
-      '&:active': {
+      '&:disabled': {
+        cursor: 'not-allowed',
+        backgroundColor: ({ appearance }: ButtonProps): string => {
+          if (appearance === 'minimal') return 'transparent'
+
+          return theme.colorBackgroundButtonStandardDisabled
+        },
+        color: ({ appearance }: ButtonProps): string => {
+          if (appearance === 'minimal') {
+            return theme.colorTextButtonMinimalDisabled
+          }
+
+          return theme.colorTextButtonStandardDisabled
+        },
+      },
+      '&:focus': {
+        outline: 0,
+      },
+      '&.active': {
         backgroundColor: ({ appearance, variant }: ButtonProps): string => {
           if (appearance === 'minimal') {
             switch (variant) {
@@ -151,24 +169,6 @@ export default createUseStyles(
               return theme.colorBackgroundButtonStandardPrimaryActive
           }
         },
-      },
-      '&:disabled': {
-        cursor: 'not-allowed',
-        backgroundColor: ({ appearance }: ButtonProps): string => {
-          if (appearance === 'minimal') return 'transparent'
-
-          return theme.colorBackgroundButtonStandardDisabled
-        },
-        color: ({ appearance }: ButtonProps): string => {
-          if (appearance === 'minimal') {
-            return theme.colorTextButtonMinimalDisabled
-          }
-
-          return theme.colorTextButtonStandardDisabled
-        },
-      },
-      '&:focus': {
-        outline: 0,
       },
     },
     focusRing: {

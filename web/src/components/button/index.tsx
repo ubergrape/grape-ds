@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useTheme } from 'react-jss'
 import { FocusRing } from '@react-aria/focus'
+import { useButton } from '@react-aria/button'
 
 import useStyles from './styles'
 import { Icon, IconTypes } from '../icon'
 
 export type ButtonProps = {
-  onClick?: () => void
+  onPress?: () => void
   disabled?: boolean
   variant?: 'primary' | 'basic' | 'danger'
   appearance?: 'standard' | 'minimal'
@@ -19,8 +20,11 @@ export type ButtonProps = {
 
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
-  const { disabled, onClick, icon, children, iconPosition, ariaLabel } = props
+  const ref = useRef()
+  const { disabled, icon, children, iconPosition, ariaLabel } = props
   const iconOnly = (children === undefined || children === '') && icon
+
+  const { buttonProps, isPressed } = useButton(props, ref)
 
   const classes = useStyles({
     ...props,
@@ -41,13 +45,14 @@ export const Button: React.FC<ButtonProps> = props => {
   )
 
   return (
-    <FocusRing focusRingClass={classes.focusRing}>
+    <FocusRing focusRingClass={classes.focusRing} within>
       <button
-        className={classes.button}
+        className={`${classes.button} ${isPressed ? `active` : ''}`}
         disabled={disabled}
         type="button"
-        onClick={onClick}
+        ref={ref}
         {...(ariaLabel && { 'aria-label': ariaLabel })}
+        {...buttonProps}
       >
         {iconPosition === 'left' && iconComponent}
         {children && <span>{children}</span>}
