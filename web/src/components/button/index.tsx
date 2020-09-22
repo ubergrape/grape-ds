@@ -21,10 +21,18 @@ export type ButtonProps = {
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
   const ref = useRef()
-  const { disabled, icon, children, iconPosition, ariaLabel } = props
+  const { disabled, icon, children, iconPosition, ariaLabel, onPress } = props
   const iconOnly = (children === undefined || children === '') && icon
 
-  const { buttonProps, isPressed } = useButton(props, ref)
+  const { buttonProps, isPressed } = useButton(
+    {
+      ...props,
+      onPress: () => {
+        if (!disabled) onPress()
+      },
+    },
+    ref,
+  )
 
   const classes = useStyles({
     ...props,
