@@ -26,8 +26,14 @@ props:
     value: '{!positive-dark}'
     comment: 'Success on light background.'
   color-text-link:
-    value: '{!info-dark}'
+    value: '{!secondary-dark}'
     comment: 'Link.'
+  color-text-active:
+    value: '{!secondary-dark}'
+    comment: 'Active text elements.'
+  color-text-invers:
+    value: '{!base-ghost}'
+    comment: 'Invers text color.'
 
   ## Buttons Standard
   color-text-button-standard-primary:
