@@ -10,5 +10,5 @@ imports:
 
 props:
   outline-width-focus:
-    value: '{!stroke-medium}'
-    comment: 'Outline width for focus state.'
+    value: '{!focus-ring}'
+    comment: 'Outline width for focus ring.'
