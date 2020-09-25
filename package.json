@@ -14,7 +14,7 @@
     "build:storybook": "yarn --cwd web build:storybook",
     "build:components": "yarn --cwd web build:lib",
     "build:docs": "yarn --cwd docs build",
-    "build": "yarn build:storybook && yarn build:components && cd ./docs && yarn && yarn build:docs && cd .. && cp _redirects build/_redirects",
+    "build": "yarn build:storybook && yarn build:components && cd ./docs && yarn &&  cd ..  && yarn build:docs && cp _redirects build/_redirects",
     "clean": "rm -rf build && rm -rf docs/node_modules && rm -rf web/node_modules"
   }
 }
