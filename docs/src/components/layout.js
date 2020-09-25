@@ -3,7 +3,7 @@ import DocsPage from "@theme/DocPage";
 
 import { ThemeProvider } from "aurora-ui";
 
-export default (props, test) => {
+export default (props) => {
   return (
     <ThemeProvider>
       <DocsPage {...props}></DocsPage>

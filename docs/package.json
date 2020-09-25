@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build --no-minify",
+    "build": "docusaurus build --out-dir ../build/docs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve"
@@ -15,7 +15,9 @@
     "@docusaurus/preset-classic": "2.0.0-alpha.64",
     "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.64",
     "@mdx-js/react": "^1.5.8",
+    "aurora-ui": "../web",
     "clsx": "^1.1.1",
+    "git": "^0.1.5",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },

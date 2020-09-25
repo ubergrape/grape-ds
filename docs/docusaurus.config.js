@@ -81,11 +81,10 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          //      docLayoutComponent: require.resolve("./src/components/layout.js"),
+          docLayoutComponent: require.resolve("./src/components/layout.js"),
 
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
+          editUrl: "https://github.com/ubergrape/grape-ds/tree/main/docs/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
