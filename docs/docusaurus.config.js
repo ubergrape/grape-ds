@@ -2,7 +2,7 @@ module.exports = {
   title: "Aurora",
   tagline: "Aurora Design Guidelines by Grape",
   url: "https://aurora.grape.io",
-  baseUrl: "/",
+  baseUrl: "./",
   onBrokenLinks: "throw",
   favicon: "img/favicon.ico",
   organizationName: "ubergrape",
