@@ -2,7 +2,7 @@ import React from 'react'
 import { GenericIconProps, Icon } from '../../components/icon'
 
 export default {
-  title: 'Icon',
+  title: 'Components/Icon',
   component: Icon,
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from '../../components/button'
 
 export default {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: { onPress: { action: 'clicked' }, children: { control: 'text' } },
 }
