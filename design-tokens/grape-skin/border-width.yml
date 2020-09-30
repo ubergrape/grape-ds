@@ -1,0 +1,14 @@
+global:
+  category: border-width
+  type: size
+  cssProperties:
+  - 'border'
+  - 'border-width'
+
+imports:
+- ./aliases/space.yml
+
+props:
+  border-width-tab:
+    value: '{!stroke-medium}'
+    comment: 'Border width for tab indicator and tab group line.'

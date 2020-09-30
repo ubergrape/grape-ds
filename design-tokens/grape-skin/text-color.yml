@@ -62,3 +62,11 @@ props:
   color-text-button-minimal-disabled:
     value: '{!disabled-base}'
     comment: 'Minimal disabled button text.'
+
+  ## Form controls
+  color-text-formcontrol-label:
+    value: '{!base-darker}'
+    comment: 'Label text for form controls.'
+  color-text-formcontrol-explanation:
+    value: '{!base-base}'
+    comment: 'Explanation text for form controls.'
