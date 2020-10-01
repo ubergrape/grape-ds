@@ -4,13 +4,20 @@ import { IconProps, Icon } from '../../components/icon'
 export default {
   title: 'Components/Icon',
   component: Icon,
+  parameters: {
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=78%3A3331',
+    },
+  },
 }
 
 export const Base: React.FC<IconProps> = props => {
   return <Icon name="person" size="medium" {...props} />
 }
 
-export const Types: React.FC = () => (
+export const Types = (): JSX.Element => (
   <div>
     <Icon name="arrowLeft" size="medium" />
     <Icon name="close" size="medium" />
@@ -19,7 +26,7 @@ export const Types: React.FC = () => (
   </div>
 )
 
-export const Sizes: React.FC = () => (
+export const Sizes = (): JSX.Element => (
   <div>
     <Icon name="person" size="small" />
     <Icon name="person" size="medium" />
