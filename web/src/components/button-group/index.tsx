@@ -7,6 +7,7 @@ export type ButtonGroupProps = {
   align?: 'left' | 'right'
   verticalAlign?: 'top' | 'bottom'
   width?: string | number
+  margin?: number
   inline?: boolean
   vertical?: boolean
   children: Array<ReactElement>
@@ -29,6 +30,7 @@ ButtonGroup.defaultProps = {
   align: 'left',
   verticalAlign: 'top',
   width: 'auto',
+  margin: 0,
   inline: false,
   vertical: false,
 }

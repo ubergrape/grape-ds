@@ -27,7 +27,7 @@ Base.parameters = {
 
 export const Alignment: React.FC<ButtonGroupProps> = () => (
   <div>
-    <ButtonGroup>
+    <ButtonGroup margin={16}>
       <Button variant="primary" onPress={action('clicked')}>
         Button
       </Button>
@@ -36,7 +36,7 @@ export const Alignment: React.FC<ButtonGroupProps> = () => (
         Button
       </Button>
     </ButtonGroup>
-    <ButtonGroup align="right">
+    <ButtonGroup margin={16} align="right">
       <Button variant="primary" onPress={action('clicked')}>
         Button
       </Button>
@@ -45,7 +45,7 @@ export const Alignment: React.FC<ButtonGroupProps> = () => (
         Button
       </Button>
     </ButtonGroup>
-    <ButtonGroup width={80} inline vertical>
+    <ButtonGroup margin={16} width={79.25} inline vertical>
       <Button variant="primary" onPress={action('clicked')}>
         Button
       </Button>
@@ -54,7 +54,13 @@ export const Alignment: React.FC<ButtonGroupProps> = () => (
         Button
       </Button>
     </ButtonGroup>
-    <ButtonGroup vertical width={80} inline verticalAlign="bottom">
+    <ButtonGroup
+      margin={16}
+      vertical
+      width={79.25}
+      inline
+      verticalAlign="bottom"
+    >
       <Button variant="primary" onPress={action('clicked')}>
         Button
       </Button>

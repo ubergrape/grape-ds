@@ -9,7 +9,7 @@ export default createUseStyles(
       display: ({ inline }) => (inline ? 'inline-flex' : 'flex'),
       verticalAlign: 'top', // https://stackoverflow.com/a/37753656
       width: ({ width }) => width,
-      margin: theme.spaceButtonGroup,
+      margin: ({ margin }) => margin,
       flexDirection: ({ align, vertical, verticalAlign }) => {
         if (vertical) {
           if (verticalAlign === 'top') return 'column'
