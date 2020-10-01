@@ -1,12 +1,12 @@
 import React from 'react'
-import { GenericIconProps, Icon } from '../../components/icon'
+import { IconProps, Icon } from '../../components/icon'
 
 export default {
   title: 'Components/Icon',
   component: Icon,
 }
 
-export const Base: React.FC<GenericIconProps> = props => {
+export const Base: React.FC<IconProps> = props => {
   return <Icon name="person" size="medium" {...props} />
 }
 

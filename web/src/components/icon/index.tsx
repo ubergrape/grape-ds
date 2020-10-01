@@ -7,7 +7,7 @@ import * as icons from '../../icons'
 type IconSize = 'small' | 'medium' | 'large'
 
 export type IconTypes = 'arrowLeft' | 'close' | 'people' | 'person'
-export type GenericIconProps = Omit<DOMProps, 'name'> & {
+export type IconProps = Omit<DOMProps, 'name'> & {
   name: IconTypes
   size?: IconSize
   color?: string
@@ -29,7 +29,7 @@ const getFromSize = (name: string, size: IconSize) => {
   }
 }
 
-export const Icon: React.FC<GenericIconProps> = ({
+export const Icon: React.FC<IconProps> = ({
   name,
   size,
   color,
