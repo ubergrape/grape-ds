@@ -57,13 +57,7 @@ export const WithIcon: React.FC = () => (
 
 export const IconButton: React.FC = () => (
   <div>
-    <Button
-      icon="person"
-      onClick={() => {
-        alert(1)
-      }}
-      ariaLabel="Person Icon"
-    />
+    <Button icon="person" ariaLabel="Person Icon" />
     <Button
       icon="person"
       appearance="minimal"
