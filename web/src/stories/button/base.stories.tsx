@@ -4,7 +4,7 @@ import { Button } from '../../components/button'
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: { onPress: { action: 'clicked' }, children: { control: 'text' } },
+  argTypes: { onClick: { action: 'clicked' }, children: { control: 'text' } },
 }
 
 const Template = props => {
@@ -57,7 +57,13 @@ export const WithIcon: React.FC = () => (
 
 export const IconButton: React.FC = () => (
   <div>
-    <Button icon="person" ariaLabel="Person Icon" />
+    <Button
+      icon="person"
+      onClick={() => {
+        alert(1)
+      }}
+      ariaLabel="Person Icon"
+    />
     <Button
       icon="person"
       appearance="minimal"

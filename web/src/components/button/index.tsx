@@ -7,7 +7,7 @@ import useStyles from './styles'
 import { Icon, IconTypes } from '../icon'
 
 export type ButtonProps = {
-  onPress?: () => void
+  onClick?: () => void
   disabled?: boolean
   variant?: 'primary' | 'basic' | 'danger'
   appearance?: 'standard' | 'minimal'
@@ -21,18 +21,10 @@ export type ButtonProps = {
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
   const ref = useRef()
-  const { disabled, icon, children, iconPosition, ariaLabel, onPress } = props
+  const { disabled, icon, children, iconPosition, ariaLabel } = props
   const iconOnly = (children === undefined || children === '') && icon
 
-  const { buttonProps, isPressed } = useButton(
-    {
-      ...props,
-      onPress: () => {
-        if (!disabled) onPress()
-      },
-    },
-    ref,
-  )
+  const { buttonProps, isPressed } = useButton(props, ref)
 
   const classes = useStyles({
     ...props,
