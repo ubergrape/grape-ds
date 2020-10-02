@@ -12,3 +12,6 @@ props:
   color-outline-focus-default:
     value: '{!info-light}'
     comment: 'Outline color for default focus state.'
+  color-outline-focus-invalid:
+    value: '{!negative-light}'
+    comment: 'Outline color for invalid focus state.'
