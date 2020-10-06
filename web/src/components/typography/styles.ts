@@ -1,12 +1,17 @@
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
+import { getColorFromType } from './helper'
 import { TextProps } from './text'
+
+const getColorFromProp = ({ color }) =>
+  getColorFromType(color) || tokens.colorTextPrimary
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   headline: {
     fontFamily: theme.fontFamilyHeadline,
     fontWeight: theme.fontWeightHeadline,
+    color: getColorFromProp,
     lineHeight: ({ size }) => {
       return size === 'page'
         ? theme.lineHeightHeadlinePage
@@ -19,6 +24,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     },
   },
   text: {
+    color: getColorFromProp,
     fontFamily: ({ size }: TextProps) => {
       switch (size) {
         case 'body-base':
@@ -68,6 +74,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     },
   },
   monospace: {
+    color: getColorFromProp,
     fontFamily: theme.fontFamilyMonospace,
     fontSize: theme.fontSizeBodyBase,
     lineHeight: theme.lineHeightBodyBase,
