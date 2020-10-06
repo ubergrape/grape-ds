@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTheme } from 'react-jss'
+import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
 
@@ -9,6 +10,7 @@ export type TextProps = {
   emphasis?: boolean
   italic?: boolean
   strike?: boolean
+  color?: TextColorType
 }
 
 export const Text: React.FC<TextProps> = props => {

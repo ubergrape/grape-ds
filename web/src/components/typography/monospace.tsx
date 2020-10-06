@@ -1,10 +1,12 @@
 import React from 'react'
 import { useTheme } from 'react-jss'
+import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
 
 export type MonospaceProps = {
   children: string
+  color?: TextColorType
 }
 
 export const Monospace: React.FC<MonospaceProps> = props => {
