@@ -31,9 +31,9 @@ props:
   color-text-active:
     value: '{!secondary-dark}'
     comment: 'Active text elements.'
-  color-text-invers:
+  color-text-inverse:
     value: '{!base-ghost}'
-    comment: 'Invers text color.'
+    comment: 'Inverse text color.'
 
   ## Buttons Standard
   color-text-button-standard-primary:

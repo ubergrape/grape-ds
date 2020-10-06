@@ -8,7 +8,9 @@ imports:
 - ./grape-skin/background-color.yml
 - ./grape-skin/outline-color.yml
 - ./grape-skin/outline-width.yml
+- ./grape-skin/border-color.yml
 - ./grape-skin/border-radius.yml
+- ./grape-skin/border-width.yml
 - ./grape-skin/padding.yml
 - ./grape-skin/sizing.yml
 - ./grape-skin/aliases/space.yml
