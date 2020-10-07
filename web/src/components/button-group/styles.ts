@@ -7,7 +7,6 @@ export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
       display: 'flex',
-      width: ({ width }) => width,
       margin: ({ margin }) => margin,
       flexDirection: ({ align }) => {
         if (align === 'left') return 'row'
@@ -20,6 +19,9 @@ export default createUseStyles(
           }
           return `0 ${theme.spaceButtonGroup} 0 0`
         },
+      },
+      '& > button': {
+        flex: '0 0 auto',
       },
     },
   }),
