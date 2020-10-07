@@ -4,7 +4,14 @@ import { Button } from '../../components/button'
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: { onPress: { action: 'clicked' }, children: { control: 'text' } },
+  argTypes: { onClick: { action: 'clicked' }, children: { control: 'text' } },
+  parameters: {
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=1%3A2',
+    },
+  },
 }
 
 const Template = props => {
