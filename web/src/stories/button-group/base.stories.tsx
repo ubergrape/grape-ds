@@ -45,30 +45,6 @@ export const Alignment: React.FC<ButtonGroupProps> = () => (
         Button
       </Button>
     </ButtonGroup>
-    <ButtonGroup margin={16} width={79.25} inline vertical>
-      <Button variant="primary" onPress={action('clicked')}>
-        Button
-      </Button>
-      <Button onPress={action('clicked')}>Button</Button>
-      <Button appearance="minimal" onPress={action('clicked')}>
-        Button
-      </Button>
-    </ButtonGroup>
-    <ButtonGroup
-      margin={16}
-      vertical
-      width={79.25}
-      inline
-      verticalAlign="bottom"
-    >
-      <Button variant="primary" onPress={action('clicked')}>
-        Button
-      </Button>
-      <Button onPress={action('clicked')}>Button</Button>
-      <Button appearance="minimal" onPress={action('clicked')}>
-        Button
-      </Button>
-    </ButtonGroup>
   </div>
 )
 
