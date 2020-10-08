@@ -1514,7 +1514,20 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@react-aria/focus@^3.2.1":
+"@react-aria/button@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/button/-/button-3.2.1.tgz#d1c65ddbd47a7a7349321a72f013b98034812a40"
+  integrity sha512-mdfRw1MK0B+ue3AxLbwegcwH7HKTjGDrKrQ9R4J56fKq8S4RkQApUwYwVFxvQI4Hrlsod5e7SCDClYgQhTEHUA==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.2.0"
+    "@react-aria/i18n" "^3.1.0"
+    "@react-aria/interactions" "^3.2.0"
+    "@react-aria/utils" "^3.2.0"
+    "@react-stately/toggle" "^3.2.0"
+    "@react-types/button" "^3.2.0"
+
+"@react-aria/focus@^3.2.0", "@react-aria/focus@^3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.2.1.tgz#c51c91472737468a0633e34aaa76459f6df1aa8a"
   integrity sha512-tceyh8DZOV79KSoE/c/Hm/HAf3ezoaUL0cd8M8e4G+SWxO+bE2EIB0MEH2CzAIgeQ79cvexKv4T/Gms8PgnMIw==
@@ -1524,6 +1537,16 @@
     "@react-aria/utils" "^3.2.1"
     "@react-types/shared" "^3.2.0"
     clsx "^1.1.1"
+
+"@react-aria/i18n@^3.1.0":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.1.1.tgz#f92d9d2577ed4d7993b6ac3553b7c9da8dcdfa73"
+  integrity sha512-O38pZF2uFjU7bOce8+zWMrNw1RQa4FXsUd/D9VKOB+qKZUqYcfGlecZoXzDjiSym7zCBzX9ABK0e3AgbbLbugQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/ssr" "^3.0.0"
+    "@react-types/shared" "^3.1.0"
+    intl-messageformat "^2.2.0"
 
 "@react-aria/interactions@^3.2.0":
   version "3.2.0"
@@ -1551,7 +1574,38 @@
     "@react-types/shared" "^3.2.0"
     clsx "^1.1.1"
 
-"@react-types/shared@^3.2.0":
+"@react-stately/toggle@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/toggle/-/toggle-3.2.0.tgz#35a9edcd1c47bfb9d2744d9fb08cfd6d7cb14b9b"
+  integrity sha512-NQUP1WrIxQcB466PueZNJLcNoN1RJ42k/RjZRVvNyeSmnqJ6EwCylT5ZR3rUR/8T4Uggu+99laNkERFifnSlyQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/utils" "^3.1.0"
+    "@react-types/checkbox" "^3.1.0"
+    "@react-types/shared" "^3.2.0"
+
+"@react-stately/utils@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/utils/-/utils-3.1.0.tgz#16cade0ec299241e261f6b9cca81a15e2eada23c"
+  integrity sha512-0I89fBhhcLGGD9YCdWrUW7KcOIxD2XT0JMhElghytMvKatIDj8Ugmw5wkBy0FKVqHoJbTJ1PtoQ9cxhZMdJ0FQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+
+"@react-types/button@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@react-types/button/-/button-3.2.0.tgz#797d9fd00b4b3d8066d38833b80cce2298e554c3"
+  integrity sha512-KwNE33u13nMq1c5At9clr4Hcl+UkL1wUWWGeMl3Q2t19TI7z7nDjb02wJdxs2uKXBgc4FT2ln53i0K1AQ1JZ0w==
+  dependencies:
+    "@react-types/shared" "^3.2.0"
+
+"@react-types/checkbox@^3.1.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.2.0.tgz#a77dd9378449760494ce7cf56492aa61b6357bc3"
+  integrity sha512-XTuB7xEy+PaKkKNRcPRc4fIbmH212ryoiaa5qnp7nyJnUuiYwEi/QWTDdLUcP/tf36Mi3jY+0CcvtlGKLH11mA==
+  dependencies:
+    "@react-types/shared" "^3.1.0"
+
+"@react-types/shared@^3.1.0", "@react-types/shared@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.2.0.tgz#531c320e6b8f01f614336c14cee50ecf9fca4a4d"
   integrity sha512-0oVULza+qc8+j7I9OB74FVjbrH6JzUAYDAkTYXbsaPt/w4quAlgd4ADy9yxIVYyN1GCXp/z0AUuocaYDHA8O6Q==
@@ -7690,6 +7744,18 @@ interpret@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-2.2.0.tgz#1a78a0b5965c40a5416d007ad6f50ad27c417df9"
   integrity sha512-Ju0Bz/cEia55xDwUWEa8+olFpCiQoypjnQySseKtmjNrnps3P+xfpUmGr90T7yjlVJmOtybRvPXhKMbHr+fWnw==
+
+intl-messageformat-parser@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.4.0.tgz#b43d45a97468cadbe44331d74bb1e8dea44fc075"
+  integrity sha1-tD1FqXRoytvkQzHXS7Ho3qRPwHU=
+
+intl-messageformat@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-2.2.0.tgz#345bcd46de630b7683330c2e52177ff5eab484fc"
+  integrity sha1-NFvNRt5jC3aDMwwuUhd/9eq0hPw=
+  dependencies:
+    intl-messageformat-parser "1.4.0"
 
 invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
   version "2.2.4"

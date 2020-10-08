@@ -82,3 +82,20 @@ props:
   color-background-button-minimal-disabled:
     value: '{!transparent}'
     comment: 'Minimal disabled button.'
+
+  ## Form controls
+  color-background-formcontrol--default:
+    value: '{!base-bw-white}'
+    comment: 'Background color of form controls like checkbox, toggle, radio.'
+  color-background-formcontrol--hover:
+    value: '{!base-bw-white}'
+    comment: 'Background color for hover state of form controls.'
+  color-background-formcontrol--focus:
+    value: '{!base-bw-white}'
+    comment: 'Background color for focus state of form controls.'
+  color-background-formcontrol--disabled:
+    value: '{!disabled-ghost}'
+    comment: 'Background color for disabled state of form controls.'
+  color-background-formcontrol-icon:
+    value: '{!secondary-dark}'
+    comment: 'Icon color in form controls in on/selected state.'

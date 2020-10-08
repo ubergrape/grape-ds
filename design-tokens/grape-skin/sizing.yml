@@ -24,6 +24,11 @@ props:
     value: '{!space-2-x}'
     comment: 'Space between 2 button elements inside a button group.'
 
+  ## Tabs
+  space-tab-group:
+    value: '{!space-2-x}'
+    comment: 'Space between 2 tab elements inside a tab group.'
+
   ## Icons
   size-icon-small:
     value: '{!space-2-x}'
@@ -38,3 +43,7 @@ props:
     value: '{!space-2-x}'
     comment: 'Icon size inside a button.'
 
+  ## Form controls
+  space-formcontrol-label:
+      value: '{!space-x}'
+      comment: 'Space between a form control and the label/explanation.'

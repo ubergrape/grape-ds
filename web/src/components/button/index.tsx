@@ -1,25 +1,30 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useTheme } from 'react-jss'
 import { FocusRing } from '@react-aria/focus'
+import { useButton } from '@react-aria/button'
 
 import useStyles from './styles'
 import { Icon, IconTypes } from '../icon'
 
 export type ButtonProps = {
-  onClick: () => void
+  onClick?: () => void
   disabled?: boolean
-  type?: 'primary' | 'basic' | 'danger'
-  style?: 'standard' | 'minimal'
+  variant?: 'primary' | 'basic' | 'danger'
+  appearance?: 'standard' | 'minimal'
   size?: 'regular' | 'small'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'
+  ariaLabel?: string
   children?: string
 }
 
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
-  const { disabled, onClick, icon, children, iconPosition } = props
+  const ref = useRef()
+  const { disabled, icon, children, iconPosition, ariaLabel } = props
   const iconOnly = (children === undefined || children === '') && icon
+
+  const { buttonProps, isPressed } = useButton(props, ref)
 
   const classes = useStyles({
     ...props,
@@ -40,13 +45,16 @@ export const Button: React.FC<ButtonProps> = props => {
   )
 
   return (
-    <FocusRing focusRingClass={classes.focusRing}>
+    <FocusRing focusRingClass={classes.focusRing} within>
       <button
-        className={classes.button}
-        disabled={disabled}
+        className={`${classes.button} ${
+          isPressed && !disabled ? `active` : ''
+        }`}
         type="button"
-        onClick={onClick}
-        aria-label={children}
+        ref={ref}
+        {...(ariaLabel && { 'aria-label': ariaLabel })}
+        {...buttonProps}
+        disabled={disabled}
       >
         {iconPosition === 'left' && iconComponent}
         {children && <span>{children}</span>}
@@ -59,8 +67,9 @@ export const Button: React.FC<ButtonProps> = props => {
 Button.defaultProps = {
   disabled: false,
   iconPosition: 'left',
-  type: 'primary',
+  variant: 'basic',
   size: 'regular',
+  appearance: 'standard',
 }
 
 export default Button

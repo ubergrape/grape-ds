@@ -26,8 +26,14 @@ props:
     value: '{!positive-dark}'
     comment: 'Success on light background.'
   color-text-link:
-    value: '{!info-dark}'
+    value: '{!secondary-dark}'
     comment: 'Link.'
+  color-text-active:
+    value: '{!secondary-dark}'
+    comment: 'Active text elements.'
+  color-text-inverse:
+    value: '{!base-ghost}'
+    comment: 'Inverse text color.'
 
   ## Buttons Standard
   color-text-button-standard-primary:
@@ -56,3 +62,11 @@ props:
   color-text-button-minimal-disabled:
     value: '{!disabled-base}'
     comment: 'Minimal disabled button text.'
+
+  ## Form controls
+  color-text-formcontrol-label:
+    value: '{!base-darker}'
+    comment: 'Label text for form controls.'
+  color-text-formcontrol-explanation:
+    value: '{!base-base}'
+    comment: 'Explanation text for form controls.'

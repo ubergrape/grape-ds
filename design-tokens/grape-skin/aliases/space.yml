@@ -18,3 +18,6 @@ aliases:
   stroke-thin: '1px'
   stroke-medium: '2px'
   stroke-thick: '3px'
+
+  ## Focus
+  focus-ring: '2.5px'
