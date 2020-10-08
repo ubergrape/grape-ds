@@ -1,18 +1,16 @@
-/* eslint-disable import/no-unresolved */
-import React, { SVGAttributes } from 'react'
-import { DOMProps } from '@react-types/shared'
+import React from 'react'
 import * as icons from '../../icons'
 
-// type iconsVariants = keyof typeof icons
 type IconSize = 'small' | 'medium' | 'large'
 
 export type IconTypes = 'arrowLeft' | 'close' | 'people' | 'person'
-type GenericIconProps = Omit<DOMProps & SVGAttributes<SVGElement>, 'name'> & {
+export type IconProps = {
   name: IconTypes
-  size: IconSize
+  size?: IconSize
   color?: string
-  'aria-label'?: string
-  'aria-hidden'?: boolean
+  ariaLabel?: string
+  ariaHidden?: boolean
+  focusable?: boolean
 }
 
 const getFromSize = (name: string, size: IconSize) => {
@@ -28,16 +26,26 @@ const getFromSize = (name: string, size: IconSize) => {
   }
 }
 
-export const Icon: React.FC<GenericIconProps> = ({
+export const Icon: React.FC<IconProps> = ({
   name,
   size,
   color,
+  ariaLabel,
+  ariaHidden,
   ...rest
 }) => {
   const IconComponent = getFromSize(name, size)
-  return <IconComponent style={{ color }} {...rest} />
+  return (
+    <IconComponent
+      style={{ color }}
+      {...rest}
+      aria-label={ariaLabel}
+      aria-hidden={ariaLabel ? false : ariaHidden}
+    />
+  )
 }
 
 Icon.defaultProps = {
-  'aria-hidden': true,
+  ariaHidden: true,
+  size: 'large',
 }

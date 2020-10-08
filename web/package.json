@@ -14,10 +14,11 @@
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "tokens:import": "node src/tokens/theo-import.js",
     "svgr": "svgr -d src/icons/ node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
-    "build": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
+    "build": "yarn tokens:import && NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
     "build-c": "rollup -c "
   },
   "dependencies": {
+    "@react-aria/button": "^3.2.1",
     "@react-aria/focus": "^3.2.1",
     "@react-types/shared": "^3.2.0",
     "grape-icons": "ubergrape/grape-icons",
@@ -32,7 +33,6 @@
     "react-jss": "^10.3.0"
   },
   "devDependencies": {
-    "react": "^16.13.1",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
@@ -76,6 +76,7 @@
     "lodash.mapkeys": "^4.6.0",
     "prettier": "^2.0.5",
     "puppeteer": "^5.0.0",
+    "react": "^16.13.1",
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "rollup": "^2.26.11",

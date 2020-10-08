@@ -10,9 +10,16 @@ export default createUseStyles(
       fontFamily: theme.fontFamily,
       fontWeight: theme.fontWeightButton,
       transition: 'all 0.25s ease-in-out',
-      backgroundColor: ({ style, type }: ButtonProps): string => {
-        if (style === 'minimal') return 'transparent'
-        switch (type) {
+      cursor: ({ disabled }: ButtonProps) => {
+        return disabled ? 'not-allowed' : 'pointer'
+      },
+      minWidth: ({ iconOnly }) => {
+        if (!iconOnly) return 64
+        return 0
+      },
+      backgroundColor: ({ appearance, variant }: ButtonProps): string => {
+        if (appearance === 'minimal') return 'transparent'
+        switch (variant) {
           case 'primary':
             return theme.colorBackgroundButtonStandardPrimaryDefault
           case 'basic':
@@ -49,9 +56,9 @@ export default createUseStyles(
           ? theme.fontSizeButtonSmall
           : theme.fontSizeButtonRegular
       },
-      color: ({ style, type }: ButtonProps): string => {
-        if (style === 'minimal') {
-          switch (type) {
+      color: ({ appearance, variant }: ButtonProps): string => {
+        if (appearance === 'minimal') {
+          switch (variant) {
             case 'primary':
               return theme.colorTextButtonMinimalPrimary
             case 'basic':
@@ -63,7 +70,7 @@ export default createUseStyles(
           }
         }
 
-        switch (type) {
+        switch (variant) {
           case 'primary':
             return theme.colorTextButtonStandardPrimary
           case 'basic':
@@ -74,15 +81,24 @@ export default createUseStyles(
             return theme.colorTextButtonStandardPrimary
         }
       },
-      padding: p => {
-        return !p.iconOnly ? `0px ${theme.paddingButtonRightLeft}` : 0
+      padding: (p: ButtonProps & { iconOnly?: boolean }) => {
+        return !p.iconOnly
+          ? `0px ${
+              p.size === 'small'
+                ? theme.paddingButtonSmallRightLeft
+                : theme.paddingButtonRegularRightLeft
+            }`
+          : 0
       },
       border: 0,
       borderRadius: theme.borderRadiusButton,
+      '& > svg': {
+        transition: 'all 0.25s ease-in-out',
+      },
       '&:hover': {
-        backgroundColor: ({ style, type }: ButtonProps): string => {
-          if (style === 'minimal') {
-            switch (type) {
+        backgroundColor: ({ appearance, variant }: ButtonProps): string => {
+          if (appearance === 'minimal') {
+            switch (variant) {
               case 'primary':
                 return theme.colorBackgroundButtonMinimalPrimaryHover
               case 'basic':
@@ -94,7 +110,7 @@ export default createUseStyles(
             }
           }
 
-          switch (type) {
+          switch (variant) {
             case 'primary':
               return theme.colorBackgroundButtonStandardPrimaryHover
             case 'basic':
@@ -105,11 +121,32 @@ export default createUseStyles(
               return theme.colorBackgroundButtonStandardPrimaryHover
           }
         },
+        '& > svg': {
+          transform: 'scale(1.15)',
+        },
       },
-      '&:active': {
-        backgroundColor: ({ style, type }: ButtonProps): string => {
-          if (style === 'minimal') {
-            switch (type) {
+      '&:disabled': {
+        cursor: 'not-allowed',
+        backgroundColor: ({ appearance }: ButtonProps): string => {
+          if (appearance === 'minimal') return 'transparent'
+
+          return theme.colorBackgroundButtonStandardDisabled
+        },
+        color: ({ appearance }: ButtonProps): string => {
+          if (appearance === 'minimal') {
+            return theme.colorTextButtonMinimalDisabled
+          }
+
+          return theme.colorTextButtonStandardDisabled
+        },
+      },
+      '&:focus': {
+        outline: 0,
+      },
+      '&.active': {
+        backgroundColor: ({ appearance, variant }: ButtonProps): string => {
+          if (appearance === 'minimal') {
+            switch (variant) {
               case 'primary':
                 return theme.colorBackgroundButtonMinimalPrimaryActive
               case 'basic':
@@ -121,7 +158,7 @@ export default createUseStyles(
             }
           }
 
-          switch (type) {
+          switch (variant) {
             case 'primary':
               return theme.colorBackgroundButtonStandardPrimaryActive
             case 'basic':
@@ -132,24 +169,6 @@ export default createUseStyles(
               return theme.colorBackgroundButtonStandardPrimaryActive
           }
         },
-      },
-      '&:disabled': {
-        cursor: 'not-allowed',
-        backgroundColor: ({ style }: ButtonProps): string => {
-          if (style === 'minimal') return 'transparent'
-
-          return theme.colorBackgroundButtonStandardDisabled
-        },
-        color: ({ style }: ButtonProps): string => {
-          if (style === 'minimal') {
-            return theme.colorTextButtonMinimalDisabled
-          }
-
-          return theme.colorTextButtonStandardDisabled
-        },
-      },
-      '&:focus': {
-        outline: 0,
       },
     },
     focusRing: {
