@@ -13,9 +13,9 @@
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "tokens:import": "node src/tokens/theo-import.js",
-    "svgr": "svgr -d src/icons/ ../node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
-    "build": "yarn tokens:import && NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
-    "build-c": "rollup -c "
+    "svgr": "svgr -d src/icons/ node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
+    "build:storybook": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
+    "build:lib": "rollup -c "
   },
   "dependencies": {
     "@react-aria/button": "^3.2.1",

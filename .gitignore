@@ -6,3 +6,4 @@ docs/.docz/
 build/*
 .doc
 deploy/
+web/build
