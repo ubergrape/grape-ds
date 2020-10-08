@@ -4,6 +4,7 @@ import { CheckboxProps, Checkbox } from '../../components/checkbox'
 export default {
   title: 'Components/Checkbox',
   component: Checkbox,
+  argTypes: { onChange: { action: 'clicked' }, children: { control: 'text' } },
   parameters: {
     // design: {
     //   type: 'figma',
@@ -19,7 +20,7 @@ const Template = props => {
 export const Base = Template.bind({})
 
 Base.args = {
-  children: 'Test',
+  children: 'Label',
 }
 
 export const Types = (): JSX.Element => (
@@ -32,11 +33,3 @@ export const Types = (): JSX.Element => (
     <Checkbox invalid />
   </div>
 )
-
-// export const Sizes = (): JSX.Element => (
-//   <div>
-//     <Icon name="person" size="small" />
-//     <Icon name="person" size="medium" />
-//     <Icon name="person" size="large" />
-//   </div>
-// )
