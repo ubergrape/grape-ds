@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function SvgClose20(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -8,7 +8,7 @@ function SvgClose20(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
-export default SvgClose20
+export default SvgClose20;
