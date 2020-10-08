@@ -11,3 +11,6 @@ props:
   border-radius-button:
     value: '{!border-radius-pill}'
     comment: 'Border radius for buttons.'
+  border-radius-checkbox:
+    value: '{!space-half-x}'
+    comment: 'Border radius for checkbox.'
