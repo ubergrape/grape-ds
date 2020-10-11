@@ -1,5 +1,6 @@
 import React from 'react'
 import { addParameters, addDecorator } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
 import { withTests } from '@storybook/addon-jest'
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
@@ -18,6 +19,7 @@ addDecorator(
     results,
   }),
 )
+addDecorator(withDesign())
 
 addParameters({
   options: {

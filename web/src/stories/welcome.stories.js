@@ -4,4 +4,4 @@ import { linkTo } from '@storybook/addon-links'
 
 export default { title: 'Welcome' }
 
-export const welcome = () => <Welcome showApp={linkTo('Button')} />
+export const welcome = () => <Welcome showApp={linkTo('Components/Button')} />
