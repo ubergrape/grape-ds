@@ -6,7 +6,7 @@ import { useStyles } from './styles'
 
 export type TextProps = {
   size: 'body-large' | 'body-base' | 'label'
-  children: string
+  children: string | JSX.Element
   emphasis?: boolean
   italic?: boolean
   strike?: boolean
@@ -15,14 +15,16 @@ export type TextProps = {
 
 export const Text: React.FC<TextProps> = props => {
   const theme = useTheme()
-  const { children } = props
+  const { children, size } = props
 
   const classes = useStyles({
     ...props,
     theme,
   })
 
-  return <div className={classes.text}>{children}</div>
+  const Element = size === 'label' ? 'label' : 'div'
+
+  return <Element className={classes.text}>{children}</Element>
 }
 
 Text.defaultProps = {

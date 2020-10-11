@@ -4,14 +4,14 @@ import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
 
-export type ButtonProps = React.FC<{
+export type HeadlineProps = React.FC<{
   size: 'page' | 'base'
   children: string
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'span' | 'div'
   color?: TextColorType
 }>
 
-export const Headline: ButtonProps = props => {
+export const Headline: HeadlineProps = props => {
   const theme = useTheme()
   const { size, children, as } = props
 
