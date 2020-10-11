@@ -9,20 +9,31 @@ import { useCheckbox } from '@react-aria/checkbox'
 import { genUid } from '../../utils'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/global'
+import { Text } from '../typography'
 
 export type CheckboxProps = {
-  children?: string
+  label?: string
+  helpText?: string
   checked?: boolean
   invalid?: boolean
   disabled?: boolean
+  required?: boolean
+  indeterminate?: boolean
 }
 
 export const Checkbox: React.FC<CheckboxProps> = props => {
-  const { children, checked } = props
-  const state = useToggleState({ ...props, isSelected: checked })
+  const { label, helpText, checked, disabled, indeterminate } = props
+  const state = useToggleState({
+    ...props,
+    isSelected: checked,
+  })
   const ref = useRef()
   const [id] = useState(genUid())
-  const { inputProps } = useCheckbox(props, state, ref)
+  const { inputProps } = useCheckbox(
+    { ...props, isDisabled: disabled, isIndeterminate: indeterminate },
+    state,
+    ref,
+  )
   const { isFocusVisible, focusProps } = useFocusRing()
   const theme = useTheme()
   const focusClass = useFocusStyle(props)
@@ -34,31 +45,55 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
   })
 
   return (
-    <label className={classes.label} htmlFor={id}>
+    <Text
+      size="body-base"
+      as="label"
+      color={disabled ? 'secondary' : 'primary'}
+      htmlFor={id}
+    >
       <VisuallyHidden>
         <input {...inputProps} {...focusProps} ref={ref} id={id} />
       </VisuallyHidden>
-      <div
-        className={clsx(classes.checkbox, isFocusVisible && focusClass.focus)}
-        style={{ marginRight: 5 }}
-      >
-        {state.isSelected && (
-          <svg
-            width="12"
-            height="10"
-            viewBox="0 0 12 10"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1.5 5.5L4.5 8L10.5 1.5"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-          </svg>
-        )}
+      <div className={classes.label}>
+        <div
+          className={clsx(classes.checkbox, isFocusVisible && focusClass.focus)}
+          style={{ marginRight: 8 }}
+        >
+          {state.isSelected && (
+            <svg
+              width="12"
+              height="10"
+              viewBox="0 0 12 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.5 5.5L4.5 8L10.5 1.5"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+            </svg>
+          )}
+          {indeterminate && !state.isSelected && (
+            <svg
+              width="8"
+              height="2"
+              viewBox="0 0 8 2"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="8" height="2" fill="currentColor" />
+            </svg>
+          )}
+        </div>
+        {label}
       </div>
-      {children}
-    </label>
+
+      {helpText && (
+        <Text size="label" color="secondary" className={classes.helpText}>
+          {helpText}
+        </Text>
+      )}
+    </Text>
   )
 }

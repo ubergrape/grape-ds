@@ -1,30 +1,46 @@
+import clsx from 'clsx'
 import React from 'react'
 import { useTheme } from 'react-jss'
 import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
 
-export type TextProps = {
+export type Props = {
   size: 'body-large' | 'body-base' | 'label'
-  children: string | JSX.Element
   emphasis?: boolean
   italic?: boolean
   strike?: boolean
   color?: TextColorType
+  className?: string
 }
+
+export type DefaultTextProps = {
+  children: string
+  as?: 'div' | 'span'
+}
+
+export type LabelProps = {
+  children: Array<React.ReactNode> | React.ReactNode
+  as: 'label'
+  htmlFor?: string
+}
+
+export type TextProps = Props & (DefaultTextProps | LabelProps)
 
 export const Text: React.FC<TextProps> = props => {
   const theme = useTheme()
-  const { children, size } = props
+  const { children, as = 'div', className } = props
 
   const classes = useStyles({
     ...props,
     theme,
   })
 
-  const Element = size === 'label' ? 'label' : 'div'
+  const Component = as
 
-  return <Element className={classes.text}>{children}</Element>
+  return (
+    <Component className={clsx(classes.text, className)}>{children}</Component>
+  )
 }
 
 Text.defaultProps = {

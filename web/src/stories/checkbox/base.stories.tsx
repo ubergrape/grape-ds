@@ -20,16 +20,17 @@ const Template = props => {
 export const Base = Template.bind({})
 
 Base.args = {
-  children: 'Label',
+  label: 'Label',
 }
 
 export const Types = (): JSX.Element => (
   <div>
-    <Checkbox>Label</Checkbox>
-    <Checkbox checked>Label</Checkbox>
-    <Checkbox invalid>Label</Checkbox>
+    <Checkbox label="Label" />
+    <Checkbox label="Label" checked />
+    <Checkbox label="Label" invalid />
     <Checkbox />
     <Checkbox checked />
     <Checkbox invalid />
+    <Checkbox label="Label" helpText="with help text" />
   </div>
 )
