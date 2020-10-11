@@ -45,5 +45,5 @@ props:
 
   ## Form controls
   space-formcontrol-label:
-      value: '{!space-x}'
+      value: '{!space-1-x}'
       comment: 'Space between a form control and the label/explanation.'
