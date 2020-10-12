@@ -102,9 +102,12 @@ props:
     comment: 'Icon color in form controls in on/selected state.'
 
   ## Avatar
-  color-background-avatar:
+  color-background-avatar-user:
     value: '{!base-lightest}'
-    comment: 'Background color of avatar user and group.'
+    comment: 'Background color of user avatar.'
+  color-background-avatar-group:
+    value: '{!base-lightest}'
+    comment: 'Background color of group avatar.'
   color-background-avatar-group-color01:
     value: '{!gray-50}'
     comment: 'Avatar group color 01.'
