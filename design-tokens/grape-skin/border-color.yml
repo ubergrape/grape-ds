@@ -54,3 +54,8 @@ props:
   color-border-formcontrol-invalid--focus:
     value: '{!negative-base}'
     comment: 'Border color for focus state of form controls in invalid state.'
+
+  ## Avatar
+  color-border-presence-indicator:
+    value: '{!base-bw-white}'
+    comment: 'Border color for presence indicator.'

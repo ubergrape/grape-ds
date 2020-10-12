@@ -70,3 +70,14 @@ props:
   color-text-formcontrol-explanation:
     value: '{!base-base}'
     comment: 'Explanation text for form controls.'
+
+  ## Avatar
+  color-text-avatar-item-primary:
+    value: '{!text-primary}'
+    comment: 'Primary text in avatar item.'
+  color-text-avatar-item-primary--inactive:
+    value: '{!text-secondary}'
+    comment: 'Primary text in avatar item in inactive state.'
+  color-text-avatar-item-secondary:
+    value: '{!text-secondary}'
+    comment: 'Secondary text in avatar item and members count and icon in avatar group item.'
