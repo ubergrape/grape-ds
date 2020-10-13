@@ -74,11 +74,11 @@ props:
     value: '{!space-2-x}'
     comment: 'Group color area for medium avatar size.'
   space-avatar-item:
-      value: '{!space-x}'
+      value: '{!space-1-x}'
       comment: 'Space between avatar and text in avatar item.'
   space-members-count:
       value: '{!space-half-x}'
       comment: 'Space between members icon and members count text.'
   space-members-secondary:
-      value: '{!space-x}'
+      value: '{!space-1-x}'
       comment: 'Space between members count and secondary text.'

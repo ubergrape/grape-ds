@@ -7,6 +7,7 @@ global:
 
 imports:
 - ./aliases/colors.yml
+- ./aliases/color-palettes.yml
 
 props:
   ## Global text color
@@ -34,6 +35,9 @@ props:
   color-text-inverse:
     value: '{!base-ghost}'
     comment: 'Inverse text color.'
+  color-text-placeholder:
+    value: '{!gray-40}'
+    comment: 'Placeholder text color.'
 
   ## Buttons Standard
   color-text-button-standard-primary:
