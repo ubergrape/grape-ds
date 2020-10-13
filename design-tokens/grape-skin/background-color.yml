@@ -142,7 +142,7 @@ props:
     value: '{!secondary-dark}'
     comment: 'Background color for selected avatar.'
   color-background-avatar-selected-icon:
-    value: '{!text-invers}'
+    value: '{!base-ghost}'
     comment: 'Icon color in selected avatar.'
   color-background-avatar-inactive:
     value: '{!base-bw-white}'
@@ -154,5 +154,5 @@ props:
     value: '{!base-bw-white}'
     comment: 'Background color for grouptype indicator.'
   color-background-grouptype-icon:
-    value: '{!text-primary}'
+    value: '{!base-darker}'
     comment: 'Icon color in avatar grouptype.'
