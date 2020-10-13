@@ -6,6 +6,7 @@ global:
 
 imports:
 - ./aliases/colors.yml
+- ./aliases/color-palettes.yml
 
 props:
   ## Global
@@ -99,3 +100,59 @@ props:
   color-background-formcontrol-icon:
     value: '{!secondary-dark}'
     comment: 'Icon color in form controls in on/selected state.'
+
+  ## Avatar
+  color-background-avatar-user:
+    value: '{!base-lightest}'
+    comment: 'Background color of user avatar.'
+  color-background-avatar-group:
+    value: '{!base-lightest}'
+    comment: 'Background color of group avatar.'
+  color-background-avatar-group-color01:
+    value: '{!gray-50}'
+    comment: 'Avatar group color 01.'
+  color-background-avatar-group-color02:
+    value: '{!gray-warm-30}'
+    comment: 'Avatar group color 02.'
+  color-background-avatar-group-color03:
+    value: '{!gold-20}'
+    comment: 'Avatar group color 03.'
+  color-background-avatar-group-color04:
+    value: '{!orange-40}'
+    comment: 'Avatar group color 04.'
+  color-background-avatar-group-color05:
+    value: '{!pink-60}'
+    comment: 'Avatar group color 05.'
+  color-background-avatar-group-color06:
+    value: '{!purple-70}'
+    comment: 'Avatar group color 06.'
+  color-background-avatar-group-color07:
+    value: '{!blue-60}'
+    comment: 'Avatar group color 07.'
+  color-background-avatar-group-color08:
+    value: '{!blue-30}'
+    comment: 'Avatar group color 08.'
+  color-background-avatar-group-color09:
+    value: '{!lime-50}'
+    comment: 'Avatar group color 09.'
+  color-background-avatar-group-color10:
+    value: '{!lime-30}'
+    comment: 'Avatar group color 10.'
+  color-background-avatar-selected:
+    value: '{!secondary-dark}'
+    comment: 'Background color for selected avatar.'
+  color-background-avatar-selected-icon:
+    value: '{!text-invers}'
+    comment: 'Icon color in selected avatar.'
+  color-background-avatar-inactive:
+    value: '{!base-bw-white}'
+    comment: 'Overlay for inactive avatar, to be used with transparency.'
+  color-background-presence-indicator--online:
+    value: '{!lime-40}'
+    comment: 'Color for presence online.'
+  color-background-grouptype-indicator:
+    value: '{!base-bw-white}'
+    comment: 'Background color for grouptype indicator.'
+  color-background-grouptype-icon:
+    value: '{!text-primary}'
+    comment: 'Icon color in avatar grouptype.'

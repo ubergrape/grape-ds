@@ -17,7 +17,7 @@ props:
   ## Body text
   font-weight-body-regular:
     value: '{!font-weight-regular}'
-    comment: 'Most all body copy.'
+    comment: 'Most body copy.'
   font-weight-body-emphasis:
     value: '{!font-weight-emphasis}'
     comment: 'Used sparingly for emphasized text within regular body copy.'
@@ -26,14 +26,6 @@ props:
   font-weight-overline:
     value: '{!font-weight-regular}'
     comment: 'Used for overlines.'
-
-  ## Label text
-  font-weight-label-regular:
-    value: '{!font-weight-regular}'
-    comment: 'Used for regular label text.'
-  font-weight-label-emphasis:
-    value: '{!font-weight-emphasis}'
-    comment: 'Used for emphasized label text.'
 
   ## Button text
   font-weight-button:
