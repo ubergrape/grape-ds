@@ -77,11 +77,11 @@ props:
 
   ## Avatar
   color-text-avatar-item-primary:
-    value: '{!text-primary}'
+    value: '{!base-darker}'
     comment: 'Primary text in avatar item.'
   color-text-avatar-item-primary--inactive:
-    value: '{!text-secondary}'
+    value: '{!base-base}'
     comment: 'Primary text in avatar item in inactive state.'
   color-text-avatar-item-secondary:
-    value: '{!text-secondary}'
+    value: '{!base-base}'
     comment: 'Secondary text in avatar item and members count and icon in avatar group item.'
