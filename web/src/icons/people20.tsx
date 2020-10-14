@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function SvgPeople20(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -10,7 +10,7 @@ function SvgPeople20(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
-export default SvgPeople20
+export default SvgPeople20;

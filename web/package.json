@@ -13,7 +13,7 @@
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "tokens:import": "node src/tokens/theo-import.js",
-    "svgr": "svgr -d src/icons/ node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
+    "svgr": "svgr -d src/icons/ ../node_modules/grape-icons/icons --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
     "build:storybook": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
     "build:lib": "rollup -c "
   },
@@ -21,7 +21,7 @@
     "@react-aria/button": "^3.2.1",
     "@react-aria/focus": "^3.2.1",
     "@react-types/shared": "^3.2.0",
-    "grape-icons": "ubergrape/grape-icons",
+    "grape-icons": "https://github.com/ubergrape/grape-icons.git",
     "jss": "^10.3.0",
     "jss-plugin-camel-case": "^10.3.0",
     "jss-plugin-default-unit": "^10.3.0",
