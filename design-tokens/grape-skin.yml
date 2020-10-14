@@ -13,4 +13,3 @@ imports:
 - ./grape-skin/border-width.yml
 - ./grape-skin/padding.yml
 - ./grape-skin/sizing.yml
-- ./grape-skin/aliases/space.yml

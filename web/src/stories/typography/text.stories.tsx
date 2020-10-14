@@ -20,6 +20,6 @@ export const Sizes: React.FC = () => (
   <div>
     <Text size="body-large">Body large</Text>
     <Text size="body-base">Body Base</Text>
-    <Text size="label">Label</Text>
+    <Text size="body-small">Body Small</Text>
   </div>
 )

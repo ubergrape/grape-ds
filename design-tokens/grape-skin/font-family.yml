@@ -21,9 +21,6 @@ props:
   font-family-overline:
     value: '{!font-family-sans}'
     comment: 'Font family used for overline text.'
-  font-family-label:
-    value: '{!font-family-sans}'
-    comment: 'Font family used for label text.'
   font-family-monospace:
     value: '{!font-family-mono}'
     comment: 'Font family used for code in markdown.'
