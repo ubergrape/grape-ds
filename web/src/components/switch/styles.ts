@@ -1,38 +1,25 @@
 import { createUseStyles } from 'react-jss'
 
-import { CheckboxProps } from '.'
 import tokens from '../../tokens'
 
-const getColorDefault = ({
-  checked,
-  invalid,
-  disabled,
-  indeterminate,
-}): string => {
+const getColorDefault = ({ checked, disabled, indeterminate }): string => {
   if (disabled) {
     return checked
       ? tokens.colorBorderFormcontrolOnDisabled
       : tokens.colorBorderFormcontrolOffDisabled
   }
-  if (invalid) return tokens.colorBorderFormcontrolInvalidDefault
   if (checked) return tokens.colorBorderFormcontrolOnDefault
   if (!checked && indeterminate) return tokens.colorBorderFormcontrolOnDefault
 
   return tokens.colorBorderFormcontrolOffDefault
 }
 
-const getColorHover = ({
-  checked,
-  invalid,
-  disabled,
-  indeterminate,
-}): string => {
+const getColorHover = ({ checked, disabled, indeterminate }): string => {
   if (disabled) {
     return checked
       ? tokens.colorBorderFormcontrolOnDisabled
       : tokens.colorBorderFormcontrolOffDisabled
   }
-  if (invalid) return tokens.colorBorderFormcontrolInvalidHover
   if (checked || indeterminate) return tokens.colorBorderFormcontrolOnHover
 
   return tokens.colorBorderFormcontrolOffHover
@@ -40,14 +27,13 @@ const getColorHover = ({
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   spacing: { marginRight: theme.size1X },
-  checkbox: {
-    width: theme.size2X,
+  switch: {
+    width: theme.size4X,
     height: theme.size2X,
-    borderRadius: theme.borderRadiusCheckbox,
+    borderRadius: theme.borderRadiusButton,
     borderWidth: '1px',
     borderStyle: 'solid',
-    display: 'flex',
-    justifyContent: 'center',
+    position: 'relative',
     alignItems: 'center',
     cursor: ({ disabled }) => (disabled ? 'not-allowed' : 'pointer'),
     '&:hover': {
@@ -56,5 +42,23 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     },
     color: getColorDefault,
     borderColor: getColorDefault,
+  },
+  helpText: {
+    marginLeft: '43px',
+  },
+  dot: {
+    width: '10px',
+    height: '10px',
+    backgroundColor: 'currentColor',
+    position: 'absolute',
+    top: '3px',
+    transition: 'all 0.1s ease-in-out',
+    borderRadius: theme.borderRadiusButton,
+  },
+  dotOff: {
+    left: '3px',
+  },
+  dotOn: {
+    left: '19px',
   },
 }))

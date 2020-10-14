@@ -3,47 +3,33 @@ import { useTheme } from 'react-jss'
 import clsx from 'clsx'
 import { useFocusRing } from '@react-aria/focus'
 import { useToggleState } from '@react-stately/toggle'
-import { useCheckbox } from '@react-aria/checkbox'
+import { useSwitch, SwitchAria } from '@react-aria/switch'
 
 import { genUid } from '../../utils'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/global'
-import { CheckmarkIcon, IndeterminateIcon } from './icons'
 import { InputLabel } from '../input-label'
 
 export interface Props {
   id?: string
-  name?: string
-  checked?: boolean
-  invalid?: boolean
-  disabled?: boolean
-  required?: boolean
-  indeterminate?: boolean
-}
-
-export interface WithLabel extends Props {
   label: string
   helpText?: string
+  name?: string
+  checked?: boolean
+  disabled?: boolean
+  required?: boolean
 }
-export interface CheckboxOnly extends Props {
-  ariaLabel: string
-}
 
-export type CheckboxProps = CheckboxOnly | WithLabel
-
-const isLabelCheckbox = (va): va is WithLabel =>
-  va.label !== undefined && va.label !== ''
-
-export const Checkbox: React.FC<CheckboxProps> = props => {
-  const { checked, disabled, indeterminate, invalid, id } = props
+export const Switch: React.FC<Props> = props => {
+  const { checked, disabled, id } = props
   const state = useToggleState({
     ...props,
     isSelected: checked,
   })
   const ref = useRef()
   const [_id] = useState(id || genUid())
-  const { inputProps } = useCheckbox(
-    { ...props, isDisabled: disabled, isIndeterminate: indeterminate },
+  const { inputProps } = useSwitch(
+    { ...props, isDisabled: disabled },
     state,
     ref,
   )
@@ -56,33 +42,38 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     isFocusVisible,
     checked: state.isSelected,
   })
-  const hasLabel = isLabelCheckbox(props)
 
   return (
     <InputLabel
       disabled={disabled}
-      id={_id}
       {...props}
+      id={_id}
+      helpTextClass={classes.helpText}
       renderHiddenInput={() => (
         <input
           {...inputProps}
           {...focusProps}
           ref={ref}
           id={_id}
-          {...(!isLabelCheckbox(props) && { 'aria-label': props.ariaLabel })}
-          {...(invalid && { 'aria-invalid': 'true' })}
+          // {...(!isLabelCheckbox(props) && { 'aria-label': props.ariaLabel })}
         />
       )}
       renderInput={() => (
         <div
           className={clsx(
-            classes.checkbox,
+            classes.switch,
             isFocusVisible && focusClass.focus,
-            hasLabel && classes.spacing,
+            classes.spacing,
           )}
         >
-          {state.isSelected && <CheckmarkIcon />}
-          {indeterminate && !state.isSelected && <IndeterminateIcon />}
+          <div
+            className={clsx(
+              classes.dot,
+              state.isSelected ? classes.dotOn : classes.dotOff,
+            )}
+          />
+          {/* {state.isSelected && <CheckmarkIcon />}
+          {indeterminate && !state.isSelected && <IndeterminateIcon />} */}
         </div>
       )}
     />

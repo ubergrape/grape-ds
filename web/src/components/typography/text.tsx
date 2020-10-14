@@ -5,7 +5,7 @@ import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
 
-export type Props = {
+export interface Props {
   size: 'body-large' | 'body-base' | 'body-small'
   children: string | JSX.Element | Element[] | Array<JSX.Element>
   emphasis?: boolean
@@ -15,16 +15,18 @@ export type Props = {
   className?: string
 }
 
-export type DefaultTextProps = {
+export interface DefaultTextProps extends Props {
   as?: 'div' | 'span'
 }
 
-export type LabelProps = {
+export interface LabelProps extends Props {
   as: 'label'
   htmlFor?: string
 }
 
-export type TextProps = Props & (DefaultTextProps | LabelProps)
+export type TextProps = DefaultTextProps | LabelProps
+
+const isLabel = (va): va is LabelProps => va.as === 'label'
 
 export const Text: React.FC<TextProps> = props => {
   const theme = useTheme()
@@ -38,7 +40,12 @@ export const Text: React.FC<TextProps> = props => {
   const Component = as
 
   return (
-    <Component className={clsx(classes.text, className)}>{children}</Component>
+    <Component
+      className={clsx(classes.text, className)}
+      {...(isLabel(props) && { htmlFor: props.htmlFor })}
+    >
+      {children}
+    </Component>
   )
 }
 
