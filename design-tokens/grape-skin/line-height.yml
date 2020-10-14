@@ -33,9 +33,9 @@ props:
     comment: 'Section overline.'
 
   ## Label text
-  line-height-label:
+  line-height-body-small:
     value: '{!line-height-cozy}'
-    comment: 'Text for labels.'
+    comment: 'Text for labels, help, additional information.'
 
   ## Button Regular text
   line-height-button-regular:

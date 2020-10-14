@@ -47,3 +47,38 @@ props:
   space-formcontrol-label:
       value: '{!space-1-x}'
       comment: 'Space between a form control and the label/explanation.'
+
+## Avatar
+  size-avatar-small:
+    value: '{!space-3-x}'
+    comment: 'Small avatar size.'
+  size-avatar-medium:
+    value: '{!space-4-x}'
+    comment: 'Medium avatar size.'
+  size-presence-indicator-small:
+    value: '{!space-1-half-x}'
+    comment: 'Presence indicator size for small avatar size.'
+  size-presence-indicator-medium:
+    value: '{!space-1-half-x}'
+    comment: 'Presence indicator size for medium avatar size.'
+  size-grouptype-indicator-small:
+    value: '{!space-1-half-x}'
+    comment: 'Group-type indicator size for small avatar size.'
+  size-grouptype-indicator-medium:
+    value: '{!space-2-x}'
+    comment: 'Group-type indicator size for medium avatar size.'
+  size-groupcolor-small:
+    value: '{!space-1-half-x}'
+    comment: 'Group color area for small avatar size.'
+  size-groupcolor-medium:
+    value: '{!space-2-x}'
+    comment: 'Group color area for medium avatar size.'
+  space-avatar-item:
+      value: '{!space-1-x}'
+      comment: 'Space between avatar and text in avatar item.'
+  space-members-count:
+      value: '{!space-half-x}'
+      comment: 'Space between members icon and members count text.'
+  space-members-secondary:
+      value: '{!space-1-x}'
+      comment: 'Space between members count and secondary text.'

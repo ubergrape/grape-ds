@@ -7,6 +7,7 @@ global:
 
 imports:
 - ./aliases/colors.yml
+- ./aliases/color-palettes.yml
 
 props:
   ## Global text color
@@ -34,6 +35,9 @@ props:
   color-text-inverse:
     value: '{!base-ghost}'
     comment: 'Inverse text color.'
+  color-text-placeholder:
+    value: '{!gray-40}'
+    comment: 'Placeholder text color.'
 
   ## Buttons Standard
   color-text-button-standard-primary:
@@ -70,3 +74,14 @@ props:
   color-text-formcontrol-explanation:
     value: '{!base-base}'
     comment: 'Explanation text for form controls.'
+
+  ## Avatar
+  color-text-avatar-item-primary:
+    value: '{!base-darker}'
+    comment: 'Primary text in avatar item.'
+  color-text-avatar-item-primary--inactive:
+    value: '{!base-base}'
+    comment: 'Primary text in avatar item in inactive state.'
+  color-text-avatar-item-secondary:
+    value: '{!base-base}'
+    comment: 'Secondary text in avatar item and members count and icon in avatar group item.'

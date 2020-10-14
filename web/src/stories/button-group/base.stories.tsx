@@ -21,7 +21,7 @@ Base.parameters = {
   design: {
     type: 'figma',
     url:
-      'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=385%3A6',
+      'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=51%3A4438',
   },
 }
 
@@ -52,6 +52,6 @@ Alignment.parameters = {
   design: {
     type: 'figma',
     url:
-      'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=385%3A6',
+      'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=51%3A4438',
   },
 }
