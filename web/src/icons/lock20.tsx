@@ -3,14 +3,11 @@ import * as React from "react";
 function SvgLock20(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width={20} height={20} fill="none" {...props}>
-      <path
-        d="M11.5 12.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
-        fill="currentColor"
-      />
+      <path d="M10 14a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="currentColor" />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M6 7V6a4 4 0 118 0v1h.5A2.5 2.5 0 0117 9.5v6a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 15.5v-6A2.5 2.5 0 015.5 7H6zm2-1a2 2 0 114 0v1H8V6zM5.5 9a.5.5 0 00-.5.5v6a.5.5 0 00.5.5h9a.5.5 0 00.5-.5v-6a.5.5 0 00-.5-.5h-9z"
+        d="M17 10a3 3 0 00-3-3V5a4 4 0 00-8 0v2a3 3 0 00-3 3v5a3 3 0 003 3h8a3 3 0 003-3v-5zm-7-7a2 2 0 00-2 2v2h4V5a2 2 0 00-2-2zM6 9a1 1 0 00-1 1v5a1 1 0 001 1h8a1 1 0 001-1v-5a1 1 0 00-1-1H6z"
         fill="currentColor"
       />
     </svg>
