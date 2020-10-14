@@ -8,11 +8,33 @@ global:
   - 'width'
   - 'max-width'
   - 'min-width'
+  - 'padding'
+  - 'margin'
 
 imports:
 - ./aliases/space.yml
 
 props:
+  ## General sizes
+  size-half-x:
+    value: '{!space-half-x}'
+  size-1-x:
+    value: '{!space-1-x}'
+  size-1-half-x:
+    value: '{!space-1-half-x}'
+  size-2-x:
+    value: '{!space-2-x}'
+  size-2-half-x:
+    value: '{!space-2-half-x}'
+  size-3-x:
+    value: '{!space-3-x}'
+  size-4-x:
+    value: '{!space-4-x}'
+  size-5-x:
+    value: '{!space-5-x}'
+  size-6-x:
+    value: '{!space-6-x}'
+
   ## Buttons
   height-button-regular:
     value: '{!space-4-x}'
