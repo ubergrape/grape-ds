@@ -6,11 +6,11 @@ export default {
   component: Switch,
   argTypes: { onChange: { action: 'clicked' } },
   parameters: {
-    // design: {
-    //   type: 'figma',
-    //   url:
-    //     'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=432%3A0',
-    // },
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=451%3A5',
+    },
   },
 }
 

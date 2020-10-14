@@ -17,7 +17,6 @@ export interface Props {
   name?: string
   checked?: boolean
   disabled?: boolean
-  required?: boolean
 }
 
 export const Switch: React.FC<Props> = props => {
@@ -50,13 +49,7 @@ export const Switch: React.FC<Props> = props => {
       id={_id}
       helpTextClass={classes.helpText}
       renderHiddenInput={() => (
-        <input
-          {...inputProps}
-          {...focusProps}
-          ref={ref}
-          id={_id}
-          // {...(!isLabelCheckbox(props) && { 'aria-label': props.ariaLabel })}
-        />
+        <input {...inputProps} {...focusProps} ref={ref} id={_id} />
       )}
       renderInput={() => (
         <div
