@@ -3,7 +3,12 @@ import { createUseStyles } from 'react-jss'
 import { CheckboxProps } from '.'
 import tokens from '../../tokens'
 
-const getColorDefault = ({ checked, invalid, disabled }): string => {
+const getColorDefault = ({
+  checked,
+  invalid,
+  disabled,
+  indeterminate,
+}): string => {
   if (disabled) {
     return checked
       ? tokens.colorBorderFormcontrolOnDisabled
@@ -11,18 +16,25 @@ const getColorDefault = ({ checked, invalid, disabled }): string => {
   }
   if (invalid) return tokens.colorBorderFormcontrolInvalidDefault
   if (checked) return tokens.colorBorderFormcontrolOnDefault
+  if (!checked && indeterminate) return tokens.colorBorderFormcontrolOnDefault
 
   return tokens.colorBorderFormcontrolOffDefault
 }
 
-const getColorHover = ({ checked, invalid, disabled }): string => {
+const getColorHover = ({
+  checked,
+  invalid,
+  disabled,
+  indeterminate,
+}): string => {
   if (disabled) {
     return checked
       ? tokens.colorBorderFormcontrolOnDisabled
       : tokens.colorBorderFormcontrolOffDisabled
   }
   if (invalid) return tokens.colorBorderFormcontrolInvalidHover
-  if (checked) return tokens.colorBorderFormcontrolOnHover
+  if (checked || indeterminate) return tokens.colorBorderFormcontrolOnHover
+
   return tokens.colorBorderFormcontrolOffHover
 }
 
@@ -31,10 +43,11 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     display: 'flex',
     alignItems: 'center',
   },
+  spacing: { marginRight: theme.size1X },
   checkbox: {
-    width: '16px',
-    height: '16px',
-    borderRadius: '4px',
+    width: theme.size2X,
+    height: theme.size2X,
+    borderRadius: theme.borderRadiusCheckbox,
     borderWidth: '1px',
     borderStyle: 'solid',
     display: 'flex',

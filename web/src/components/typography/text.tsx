@@ -7,7 +7,7 @@ import { useStyles } from './styles'
 
 export type Props = {
   size: 'body-large' | 'body-base' | 'body-small'
-  children: string | JSX.Element
+  children: string | JSX.Element | Element[] | Array<JSX.Element>
   emphasis?: boolean
   italic?: boolean
   strike?: boolean
@@ -16,12 +16,10 @@ export type Props = {
 }
 
 export type DefaultTextProps = {
-  children: string
   as?: 'div' | 'span'
 }
 
 export type LabelProps = {
-  children: Array<React.ReactNode> | React.ReactNode
   as: 'label'
   htmlFor?: string
 }
