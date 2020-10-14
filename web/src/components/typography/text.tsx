@@ -5,7 +5,7 @@ import { TextColorType } from './helper'
 import { useStyles } from './styles'
 
 export type TextProps = {
-  size: 'body-large' | 'body-base' | 'label'
+  size: 'body-large' | 'body-base' | 'body-small'
   children: string | JSX.Element
   emphasis?: boolean
   italic?: boolean
@@ -22,7 +22,7 @@ export const Text: React.FC<TextProps> = props => {
     theme,
   })
 
-  const Element = size === 'label' ? 'label' : 'div'
+  const Element = size === 'body-small' ? 'label' : 'div'
 
   return <Element className={classes.text}>{children}</Element>
 }

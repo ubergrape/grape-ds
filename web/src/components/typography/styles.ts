@@ -31,8 +31,8 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
           return theme.fontFamilyBody
         case 'body-large':
           return theme.fontFamilyBody
-        case 'label':
-          return theme.fontFamilyBody
+        case 'body-small':
+          return theme.fontFamilyLabel
         default:
           return theme.fontFamily
       }
@@ -43,7 +43,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
           return theme.lineHeightBodyBase
         case 'body-large':
           return theme.lineHeightBodyLarge
-        case 'label':
+        case 'body-small':
           return theme.lineHeightBodySmall
         default:
           return theme.lineHeightBodySmall
@@ -55,7 +55,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
           return theme.fontSizeBodyBase
         case 'body-large':
           return theme.fontSizeBodyLarge
-        case 'label':
+        case 'body-small':
           return theme.fontSizeBodySmall
         default:
           return theme.fontSizeBodyBase
