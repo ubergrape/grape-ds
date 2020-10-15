@@ -24,5 +24,4 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = props => {
 
 ButtonGroup.defaultProps = {
   align: 'left',
-  margin: 0,
 }
