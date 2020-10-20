@@ -18,3 +18,32 @@ props:
   padding-button-icon-text:
     value: '{!space-half-x}'
     comment: 'Padding between icon and text inside the button.'
+
+  ## Form fields
+  padding-formfield-inputtext-leftright:
+    value: '{!space-2-x}'
+    comment: 'Padding between text inside the form field and the left and right side of the form field.'
+  padding-formfield-prefixicon-side:
+    value: '{!space-1-half-x}'
+    comment: 'Padding between the prefix icon and the left side of the form field.'
+  padding-formfield-suffixbutton-side:
+    value: '{!space-1-x}'
+    comment: 'Padding between the suffix button and the right side of the form field.'
+  padding-formfield-textarea-inputtext-topbottom:
+    value: '{!space-1-x}'
+    comment: 'Padding between text inside the text area and top and bottom side of the text area.'
+  padding-formfield-inputtext-counter:
+    value: '{!space-1-x}'
+    comment: 'Padding between text inside the form field and the character counter.'
+  padding-formfield-inputtext-icon:
+    value: '{!space-1-x}'
+    comment: 'Padding between the text inside the form field and the prefix/suffic element.'
+  padding-formfield-icon-validationtext:
+    value: '{!space-half-x}'
+    comment: 'Padding between icon and text of the validation hint.'
+  padding-formfield-label-required:
+    value: '{!space-half-x}'
+    comment: 'Padding between the label text and the required/optional indicator.'
+  padding-formfield-text-field-text:
+    value: '{!space-half-x}'
+    comment: 'Padding between label, validation hint, form field and help text.'

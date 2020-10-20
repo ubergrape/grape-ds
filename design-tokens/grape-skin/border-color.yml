@@ -59,3 +59,29 @@ props:
   color-border-presence-indicator:
     value: '{!base-bw-white}'
     comment: 'Border color for presence indicator.'
+
+  ## Form fields
+  color-border-formfield--default:
+    value: '{!base-base}'
+    comment: 'Border color for form fields.'
+  color-border-formfield--hover:
+    value: '{!base-dark}'
+    comment: 'Border color for hover state of form fields.'
+  color-border-formfield--focus:
+    value: '{!secondary-dark}'
+    comment: 'Border color for focus state of form fields.'
+  color-border-formfield--readonly:
+    value: '{!base-base}'
+    comment: 'Border color for readonly state of form fields.'
+  color-border-formfield--disabled:
+    value: '{!disabled-base}'
+    comment: 'Border color for disabled state of form fields.'
+  color-border-formfield-invalid--default:
+    value: '{!negative-base}'
+    comment: 'Border color for form fields in invalid state.'
+  color-border-formfield-invalid--hover:
+    value: '{!negative-dark}'
+    comment: 'Border color for hover state of form fields in invalid state.'
+  color-border-formfield-invalid--focus:
+    value: '{!negative-base}'
+    comment: 'Border color for focus state of form fields in invalid state.'

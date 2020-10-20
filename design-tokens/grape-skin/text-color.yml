@@ -85,3 +85,29 @@ props:
   color-text-avatar-item-secondary:
     value: '{!base-base}'
     comment: 'Secondary text in avatar item and members count and icon in avatar group item.'
+
+  ## Form field
+  color-text-formfield-label:
+    value: '{!base-darker}'
+    comment: 'Label text for form fields.'
+  color-text-formfield-label--disabled:
+    value: '{!base-base}'
+    comment: 'Label text for disabled state of form fields.'
+  color-text-formfield-explanation:
+    value: '{!base-base}'
+    comment: 'Explanation text for form fields.'
+  color-text-formfield-validationerror:
+    value: '{!negative-base}'
+    comment: 'Validation hint text for error messages in form fields.'
+  color-text-formfield-value:
+    value: '{!base-darker}'
+    comment: 'Text inside form fields.'
+  color-text-formfield-placeholder:
+    value: '{!gray-40}'
+    comment: 'Text inside form fields.'
+  color-text-formfield-counter:
+    value: '{!base-darker}'
+    comment: 'Counter text inside form fields.'
+  color-text-formfield--invalid:
+    value: '{!negative-base}'
+    comment: 'Counter text for negative values inside form fields.'
