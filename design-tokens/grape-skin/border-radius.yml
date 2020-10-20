@@ -14,3 +14,9 @@ props:
   border-radius-checkbox:
     value: '{!space-half-x}'
     comment: 'Border radius for checkbox.'
+  border-radius-formfield-input:
+    value: '{!border-radius-pill}'
+    comment: 'Border radius for text field.'
+  border-radius-formfield-textarea:
+    value: '{!space-2-x}'
+    comment: 'Border radius for text area.'

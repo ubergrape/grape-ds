@@ -18,3 +18,8 @@ props:
   border-width-presence-indicator:
     value: '{!stroke-thin}'
     comment: 'Border width for presence indicator.'
+
+  ## Form fields
+  border-width-formfield:
+    value: '{!stroke-thin}'
+    comment: 'Border width for form fields.'
