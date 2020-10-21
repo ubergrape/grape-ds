@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CheckmarkIcon = () => (
+export const CheckmarkIcon = (): JSX.Element => (
   <svg
     width="12"
     height="10"
@@ -12,7 +12,7 @@ export const CheckmarkIcon = () => (
   </svg>
 )
 
-export const IndeterminateIcon = () => (
+export const IndeterminateIcon = (): JSX.Element => (
   <svg
     width="8"
     height="2"
