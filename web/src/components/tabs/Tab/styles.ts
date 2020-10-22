@@ -7,9 +7,11 @@ export default createUseStyles((theme: typeof tokens) => ({
     background: 'none',
     zIndex: 1,
     position: 'relative',
+    paddingBottom: theme.sizeHalfX,
     border: 0,
     flexBasis: align === 'justify' ? '100%' : 'auto',
     cursor: 'pointer',
+    textDecoration: 'none',
     borderBottom: active
       ? [theme.borderWidthTab, 'solid', theme.colorBorderTabIndicatorActive]
       : [theme.borderWidthTab, 'solid', 'transparent'],
@@ -20,6 +22,16 @@ export default createUseStyles((theme: typeof tokens) => ({
       borderBottom: active
         ? [theme.borderWidthTab, 'solid', theme.colorBorderTabIndicatorActive]
         : [theme.borderWidthTab, 'solid', theme.colorBorderTabIndicatorHover],
+    },
+    '&:focus': {
+      outline: 'none',
+      outlineOffset: 0,
+    },
+    '&:focus-visible': {
+      outline: `${theme.outlineWidthFocus} solid ${theme.colorOutlineFocusDefault}`,
+    },
+    ':focus:not(:focus-visible)': {
+      outline: 'none',
     },
   }),
 }))

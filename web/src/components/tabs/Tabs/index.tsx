@@ -25,6 +25,11 @@ export const Tabs: React.FC<TabsProps> = props => {
 
   const [active, setActiveTab] = useState(0)
 
+  const onChangeTab = (tab: number) => {
+    if (tab < 0 || tab > children.length - 1) return
+    setActiveTab(tab)
+  }
+
   return (
     <div>
       <div className={classes.wrapper}>
@@ -36,8 +41,8 @@ export const Tabs: React.FC<TabsProps> = props => {
           return (
             <Tab
               size={size}
-              active={active === i}
-              onClick={setActiveTab}
+              onChangeTab={onChangeTab}
+              activeTab={active}
               tab={i}
               align={align}
               key={text}

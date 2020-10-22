@@ -15,16 +15,13 @@ export default createUseStyles((theme: typeof tokens) => ({
           return 'flex'
       }
     },
-    margin: ({ margin }) => {
-      console.log(margin)
-      return margin
-    },
+    margin: ({ margin }) => margin,
     width: ({ width }) => width,
     position: 'relative',
     '&::after': {
       content: '""',
       position: 'absolute',
-      bottom: 0,
+      bottom: -1,
       width: '100%',
       height: theme.borderWidthTab,
       backgroundColor: theme.colorBorderTabDivider,
