@@ -19,8 +19,12 @@
   },
   "dependencies": {
     "@react-aria/button": "^3.2.1",
+    "@react-aria/checkbox": "^3.2.1",
     "@react-aria/focus": "^3.2.1",
+    "@react-aria/visually-hidden": "^3.2.1",
+    "@react-stately/toggle": "^3.2.1",
     "@react-types/shared": "^3.2.0",
+    "clsx": "^1.1.1",
     "grape-icons": "https://github.com/ubergrape/grape-icons.git",
     "jss": "^10.3.0",
     "jss-plugin-camel-case": "^10.3.0",
@@ -106,6 +110,7 @@
     ],
     "rules": {
       "react/jsx-props-no-spreading": 0,
+      "react/destructuring-assignment": 0,
       "import/no-extraneous-dependencies": [
         "error",
         {

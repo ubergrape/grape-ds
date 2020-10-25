@@ -3,7 +3,13 @@ import * as icons from '../../icons'
 
 type IconSize = 'small' | 'medium' | 'large'
 
-export type IconTypes = 'arrowLeft' | 'close' | 'people' | 'person'
+export type IconTypes =
+  | 'arrowLeft'
+  | 'close'
+  | 'people'
+  | 'person'
+  | 'checkmark'
+  | 'lock'
 export type IconProps = {
   name: IconTypes
   size?: IconSize
