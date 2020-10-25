@@ -156,3 +156,36 @@ props:
   color-background-grouptype-icon:
     value: '{!base-darker}'
     comment: 'Icon color in avatar grouptype.'
+
+
+  ## Form fields
+  color-background-formfield--default:
+    value: '{!base-bw-white}'
+    comment: 'Border color for form fields.'
+  color-background-formfield--hover:
+    value: '{!base-bw-white}'
+    comment: 'Border color for hover state of form fields.'
+  color-background-formfield--focus:
+    value: '{!base-bw-white}'
+    comment: 'Border color for focus state of form fields.'
+  color-background-formfield--readonly:
+    value: '{!base-lightest}'
+    comment: 'Border color for readonly state of form fields.'
+  color-background-formfield--disabled:
+    value: '{!disabled-ghost}'
+    comment: 'Border color for disabled state of form fields.'
+  color-background-formfield-invalid--default:
+    value: '{!base-bw-white}'
+    comment: 'Border color for form fields in invalid state.'
+  color-background-formfield-invalid--hover:
+    value: '{!base-bw-white}'
+    comment: 'Border color for hover state of form fields in invalid state.'
+  color-background-formfield-invalid--focus:
+    value: '{!base-bw-white}'
+    comment: 'Border color for focus state of form fields in invalid state.'
+  color-background-formfield-icon:
+    value: '{!base-base}'
+    comment: 'Icon color in form fields.'
+  color-background-formfield-icon-validationerror:
+    value: '{!negative-base}'
+    comment: 'Icon color for validation hint error in form fields.'
