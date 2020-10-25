@@ -32,7 +32,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
         case 'body-large':
           return theme.fontFamilyBody
         case 'body-small':
-          return theme.fontFamilyLabel
+          return theme.fontFamilyBody
         default:
           return theme.fontFamily
       }
