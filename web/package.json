@@ -20,8 +20,9 @@
   "dependencies": {
     "@react-aria/button": "^3.2.1",
     "@react-aria/focus": "^3.2.1",
+    "@react-aria/textfield": "^3.2.1",
     "@react-types/shared": "^3.2.0",
-    "grape-icons": "https://github.com/ubergrape/grape-icons.git",
+    "grape-icons": "ubergrape/grape-icons",
     "jss": "^10.3.0",
     "jss-plugin-camel-case": "^10.3.0",
     "jss-plugin-default-unit": "^10.3.0",
