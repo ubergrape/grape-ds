@@ -1,0 +1,158 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 2,
+  "numPassedTests": 13,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 2,
+  "numTotalTests": 13,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 13,
+    "total": 13,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1595272706955,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "failureMessages": [],
+          "fullName": "render correctly text component",
+          "location": null,
+          "status": "passed",
+          "title": "render correctly text component"
+        }
+      ],
+      "endTime": 1595272712623,
+      "message": "",
+      "name": "/Users/aleshaoleg/Documents/Projects/grape-ds/web/src/stories/tests/tests.test.js",
+      "startTime": 1595272709273,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Specifications"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Specifications Default View",
+          "location": null,
+          "status": "passed",
+          "title": "Default View"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Button"],
+          "failureMessages": [],
+          "fullName": "Storyshots Button Default",
+          "location": null,
+          "status": "passed",
+          "title": "Default"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Accessibility"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Accessibility Accessible",
+          "location": null,
+          "status": "passed",
+          "title": "Accessible"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Accessibility"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Accessibility Inaccessible",
+          "location": null,
+          "status": "passed",
+          "title": "Inaccessible"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Actions"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Actions Default View",
+          "location": null,
+          "status": "passed",
+          "title": "Default View"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Designs"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Designs Button",
+          "location": null,
+          "status": "passed",
+          "title": "Button"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Docs"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Docs Button",
+          "location": null,
+          "status": "passed",
+          "title": "Button"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Knobs"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Knobs With A Button",
+          "location": null,
+          "status": "passed",
+          "title": "With A Button"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Knobs"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Knobs As Dynamic Variables",
+          "location": null,
+          "status": "passed",
+          "title": "As Dynamic Variables"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Storybook Tests"],
+          "failureMessages": [],
+          "fullName": "Storyshots Storybook Tests Default View",
+          "location": null,
+          "status": "passed",
+          "title": "Default View"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Typescript"],
+          "failureMessages": [],
+          "fullName": "Storyshots Typescript Default View",
+          "location": null,
+          "status": "passed",
+          "title": "Default View"
+        },
+        {
+          "ancestorTitles": ["Storyshots", "Welcome"],
+          "failureMessages": [],
+          "fullName": "Storyshots Welcome Welcome",
+          "location": null,
+          "status": "passed",
+          "title": "Welcome"
+        }
+      ],
+      "endTime": 1595272747816,
+      "message": "",
+      "name": "/Users/aleshaoleg/Documents/Projects/grape-ds/web/__tests__/storyshots.test.js",
+      "startTime": 1595272709188,
+      "status": "passed",
+      "summary": ""
+    }
+  ],
+  "wasInterrupted": false
+}
