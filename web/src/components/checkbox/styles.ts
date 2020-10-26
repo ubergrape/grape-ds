@@ -1,6 +1,5 @@
 import { createUseStyles } from 'react-jss'
 
-import { CheckboxProps } from '.'
 import tokens from '../../tokens'
 
 const getColorDefault = ({
