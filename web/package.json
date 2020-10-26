@@ -19,10 +19,14 @@
   },
   "dependencies": {
     "@react-aria/button": "^3.2.1",
+    "@react-aria/checkbox": "^3.2.1",
     "@react-aria/focus": "^3.2.1",
     "@react-aria/textfield": "^3.2.1",
-    "@react-types/shared": "^3.2.0",
     "grape-icons": "ubergrape/grape-icons",
+    "@react-aria/visually-hidden": "^3.2.1",
+    "@react-stately/toggle": "^3.2.1",
+    "@react-types/shared": "^3.2.0",
+    "clsx": "^1.1.1",
     "jss": "^10.3.0",
     "jss-plugin-camel-case": "^10.3.0",
     "jss-plugin-default-unit": "^10.3.0",
@@ -107,6 +111,7 @@
     ],
     "rules": {
       "react/jsx-props-no-spreading": 0,
+      "react/destructuring-assignment": 0,
       "import/no-extraneous-dependencies": [
         "error",
         {
