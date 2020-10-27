@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
 
-const getColorDefault = ({
+export const getColorDefault = ({
   checked,
   invalid,
   disabled,
@@ -20,7 +20,7 @@ const getColorDefault = ({
   return tokens.colorBorderFormcontrolOffDefault
 }
 
-const getColorHover = ({
+export const getColorHover = ({
   checked,
   invalid,
   disabled,
