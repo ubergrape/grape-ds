@@ -1,3 +1,6 @@
+export { default as alert16 } from './alert16'
+export { default as alert20 } from './alert20'
+export { default as alert24 } from './alert24'
 export { default as arrowLeft16 } from './arrowLeft16'
 export { default as arrowLeft20 } from './arrowLeft20'
 export { default as arrowLeft24 } from './arrowLeft24'

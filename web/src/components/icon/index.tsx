@@ -10,6 +10,7 @@ export type IconTypes =
   | 'person'
   | 'checkmark'
   | 'lock'
+  | 'alert'
 export type IconProps = {
   name: IconTypes
   size?: IconSize
