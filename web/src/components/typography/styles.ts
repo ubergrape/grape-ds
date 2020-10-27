@@ -4,7 +4,7 @@ import tokens from '../../tokens'
 import { getColorFromType } from './helper'
 import { TextProps } from './text'
 
-const getColorFromProp = ({ color }) =>
+export const getColorFromProp = ({ color }) =>
   getColorFromType(color) || tokens.colorTextPrimary
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({

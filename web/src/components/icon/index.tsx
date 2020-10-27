@@ -1,5 +1,8 @@
 import React from 'react'
+import { createUseStyles } from 'react-jss'
 import * as icons from '../../icons'
+import { TextColorType } from '../typography/helper'
+import { getColorFromProp } from '../typography/styles'
 
 type IconSize = 'small' | 'medium' | 'large'
 
@@ -14,7 +17,7 @@ export type IconTypes =
 export type IconProps = {
   name: IconTypes
   size?: IconSize
-  color?: string
+  color?: TextColorType
   ariaLabel?: string
   ariaHidden?: boolean
   focusable?: boolean
@@ -33,6 +36,12 @@ const getFromSize = (name: string, size: IconSize) => {
   }
 }
 
+const useStyles = createUseStyles(() => ({
+  icon: {
+    color: getColorFromProp,
+  },
+}))
+
 export const Icon: React.FC<IconProps> = ({
   name,
   size,
@@ -42,9 +51,10 @@ export const Icon: React.FC<IconProps> = ({
   ...rest
 }) => {
   const IconComponent = getFromSize(name, size)
+  const classes = useStyles({ color })
   return (
     <IconComponent
-      style={{ color }}
+      className={classes.icon}
       {...rest}
       aria-label={ariaLabel}
       aria-hidden={ariaLabel ? false : ariaHidden}
