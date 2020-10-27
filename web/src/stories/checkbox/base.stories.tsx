@@ -4,7 +4,7 @@ import { Checkbox } from '../../components/checkbox'
 export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
-  argTypes: { onChange: { action: 'clicked' }, children: { control: 'text' } },
+  argTypes: { onChange: { action: 'clicked' } },
   parameters: {
     design: {
       type: 'figma',
@@ -25,7 +25,7 @@ Base.args = {
 
 export const WithLabel = (): JSX.Element => (
   <div>
-    <Checkbox label="Label" />
+    <Checkbox label="Label" name="form-name" />
     <Checkbox label="Label" checked />
     <Checkbox label="Label" invalid />
     <Checkbox label="Label" indeterminate />
@@ -35,7 +35,7 @@ export const WithLabel = (): JSX.Element => (
 
 export const WithoutLabel = (): JSX.Element => (
   <div>
-    <Checkbox ariaLabel="My aria" />
+    <Checkbox ariaLabel="My aria" id="random-id" />
     <Checkbox ariaLabel="Checkbox checked" checked />
     <Checkbox ariaLabel="Checkbox invalid" invalid />
     <Checkbox ariaLabel="Checkbox indeterminate" indeterminate />

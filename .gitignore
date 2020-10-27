@@ -7,3 +7,4 @@ build/*
 .doc
 deploy/
 web/build
+web/yarn-error.log

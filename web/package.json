@@ -21,6 +21,7 @@
     "@react-aria/button": "^3.2.1",
     "@react-aria/checkbox": "^3.2.1",
     "@react-aria/focus": "^3.2.1",
+    "@react-aria/switch": "^3.1.1",
     "@react-aria/visually-hidden": "^3.2.1",
     "@react-stately/toggle": "^3.2.1",
     "@react-types/shared": "^3.2.0",
