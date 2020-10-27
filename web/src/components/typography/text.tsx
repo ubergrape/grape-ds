@@ -7,7 +7,7 @@ import { useStyles } from './styles'
 
 export interface Props {
   size: 'body-large' | 'body-base' | 'body-small'
-  children: string | JSX.Element | Element[] | Array<JSX.Element>
+  children: string | string[] | JSX.Element | Element[] | Array<JSX.Element>
   emphasis?: boolean
   italic?: boolean
   strike?: boolean
