@@ -43,7 +43,7 @@ export const TextField: TextFieldProps = props => {
       )}
       {validationHelp && (
         <div className={clsx(classes.validationWrapper)}>
-          <Flex gap={5}>
+          <Flex gap={1}>
             <ValidationIcon />
             <Text as="span" size="body-small" color="danger">
               {validationHelp}
