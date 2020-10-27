@@ -27,10 +27,6 @@ export default createUseStyles((theme: typeof tokens) => ({
     color: theme.colorTextFormfieldLabel,
     fontSize: theme.fontSizeBodySmall,
     fontWeight: theme.fontWeightBodyEmphasis,
-    marginBottom: 5,
-  },
-  marginTop: {
-    marginTop: 5,
   },
   validationWrapper: {
     display: 'flex',

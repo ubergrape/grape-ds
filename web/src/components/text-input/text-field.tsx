@@ -35,7 +35,7 @@ export const TextField: TextFieldProps = props => {
   })
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Flex direction="column" gap={1}>
       {label && (
         <label className={classes.label} {...labelProps}>
           {label}
@@ -52,17 +52,17 @@ export const TextField: TextFieldProps = props => {
         </div>
       )}
       <input
-        className={clsx(classes.textField, onFocus, classes.marginTop)}
+        className={clsx(classes.textField, onFocus)}
         {...inputProps}
         {...(invalid && { 'aria-invalid': true })}
         ref={ref}
       />
       {description && (
-        <Text color="secondary" size="body-small" className={classes.marginTop}>
+        <Text color="secondary" size="body-small">
           {description}
         </Text>
       )}
-    </div>
+    </Flex>
   )
 }
 

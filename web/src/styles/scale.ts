@@ -13,6 +13,7 @@ const {
 } = tokens
 
 export const scale = [
+  '0px',
   sizeHalfX,
   size1X,
   size1HalfX,

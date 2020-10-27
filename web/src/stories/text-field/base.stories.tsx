@@ -1,4 +1,5 @@
 import React from 'react'
+import { Flex } from '../../components/layout'
 import { TextField } from '../../components/text-input'
 
 export default {
@@ -24,7 +25,7 @@ Base.args = {
 }
 
 export const WithLabel = (): JSX.Element => (
-  <div style={{ display: 'flex' }}>
+  <Flex gap={4} direction="row" wrap>
     <TextField label="Label" name="testing" autoFocus />
     <TextField placeholder="Placeholder" />
     <TextField placeholder="Placeholder" description="Additional Information" />
@@ -43,7 +44,7 @@ export const WithLabel = (): JSX.Element => (
       placeholder="Placeholder"
       description="Additional Information"
     />
-  </div>
+  </Flex>
 )
 
 export const Invalid = (): JSX.Element => (
