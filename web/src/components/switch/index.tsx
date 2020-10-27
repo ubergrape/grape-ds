@@ -3,7 +3,7 @@ import { useTheme } from 'react-jss'
 import clsx from 'clsx'
 import { useFocusRing } from '@react-aria/focus'
 import { useToggleState } from '@react-stately/toggle'
-import { useSwitch, SwitchAria } from '@react-aria/switch'
+import { useSwitch } from '@react-aria/switch'
 
 import { genUid } from '../../utils'
 import { useStyles } from './styles'
@@ -65,8 +65,6 @@ export const Switch: React.FC<Props> = props => {
               state.isSelected ? classes.dotOn : classes.dotOff,
             )}
           />
-          {/* {state.isSelected && <CheckmarkIcon />}
-          {indeterminate && !state.isSelected && <IndeterminateIcon />} */}
         </div>
       )}
     />
