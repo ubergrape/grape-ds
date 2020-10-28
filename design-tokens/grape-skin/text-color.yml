@@ -111,3 +111,11 @@ props:
   color-text-formfield--invalid:
     value: '{!negative-base}'
     comment: 'Counter text for negative values inside form fields.'
+
+## Action-Link
+  color-text-actionlink:
+    value: '{!base-darker}'
+    comment: 'Link text for action-link.'
+  color-text-actionlink--disabled:
+    value: '{!base-base}'
+    comment: 'Link text for disabled state of action-link.'
