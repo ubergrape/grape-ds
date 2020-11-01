@@ -15,6 +15,15 @@ export default createUseStyles({
     borderStyle: 'solid',
     color: tokens.colorTextPrimary,
     resize: 'none',
+    backgroundColor: ({ isDisabled, isReadOnly }) => {
+      if (isDisabled) return tokens.colorBackgroundSecondary
+      if (isReadOnly) return tokens.colorBackgroundFormfieldReadonly
+      return undefined
+    },
+    cursor: ({ isDisabled }) => {
+      if (isDisabled) return 'not-allowed'
+      return undefined
+    },
     height: ({ component, maxLength }) => {
       if (component === 'input') return tokens.sizeFormfieldInput
       if (maxLength) {
@@ -30,6 +39,10 @@ export default createUseStyles({
       if (maxLength && component === 'input')
         return `calc(${tokens.paddingFormfieldInputtextCounter} + 50px)`
 
+      return null
+    },
+    paddingLeft: ({ renderLeft }) => {
+      if (renderLeft) return `calc(${tokens.size4X} + ${tokens.sizeHalfX})`
       return null
     },
     '&:placeholder': {

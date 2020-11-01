@@ -19,6 +19,8 @@ export interface TextInputProps extends AriaTextFieldOptions {
   placeholder?: string
   description?: string
   validationHelp?: string
+  renderLeft?: () => JSX.Element
+  renderRight?: (props: { onClear: () => void; dirty?: boolean }) => JSX.Element
 }
 
 export interface WithoutLabel extends TextInputProps {
@@ -42,16 +44,21 @@ export const GenericField: React.FC<
     maxLength,
     component,
     isRequired,
+    renderLeft,
+    renderRight,
   } = props
-  const ref = React.useRef()
+  const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
   const [allowedChars, setAllowedChars] = useState(
     maxLength - (props.value?.length ?? 0),
   )
+  const [dirty, setDirty] = useState(false)
+
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
       maxLength: undefined,
       onChange: p => {
+        setDirty(p.length > 0)
         props.onChange?.(p)
         setAllowedChars(maxLength - p.length)
       },
@@ -91,6 +98,8 @@ export const GenericField: React.FC<
         </Flex>
       )}
       <div style={{ position: 'relative' }}>
+        {renderLeft?.()}
+
         <Component
           className={clsx(classes.textField, onFocus)}
           {...inputProps}
@@ -104,6 +113,18 @@ export const GenericField: React.FC<
             </Text>
           </div>
         )}
+        {renderRight?.({
+          onClear: () => {
+            props.onChange?.('')
+            setAllowedChars(maxLength)
+            setDirty(false)
+            if (ref.current) {
+              ref.current.value = ''
+              ref.current.focus()
+            }
+          },
+          dirty,
+        })}
       </div>
 
       {description && (

@@ -5,13 +5,13 @@ import { TextField } from '../../components/text-input'
 export default {
   title: 'Forms/TextField',
   component: TextField,
-  argTypes: { onChange: { action: 'typed' }, children: { control: 'text' } },
+  argTypes: { onChange: { action: 'typed' } },
   parameters: {
-    // design: {
-    //   type: 'figma',
-    //   url:
-    //     'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=432%3A0',
-    // },
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=586%3A5',
+    },
   },
 }
 
@@ -74,7 +74,7 @@ export const MaxLength = (): JSX.Element => (
 
 export const ReadOnly = (): JSX.Element => (
   <Flex gap={3}>
-    <TextField label="Read only" value="Some value" />
+    <TextField label="Read only" value="Some value" isReadOnly />
   </Flex>
 )
 
