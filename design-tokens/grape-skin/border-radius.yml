@@ -20,3 +20,6 @@ props:
   border-radius-formfield-textarea:
     value: '{!space-2-x}'
     comment: 'Border radius for text area.'
+  border-radius-actionlink:
+    value: '{!border-radius-pill}'
+    comment: 'Border radius for action-link background.'

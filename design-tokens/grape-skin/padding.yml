@@ -47,3 +47,17 @@ props:
   padding-formfield-text-field-text:
     value: '{!space-half-x}'
     comment: 'Padding between label, validation hint, form field and help text.'
+
+## Action-Link
+  padding-actionlink-regular-icon-shape:
+    value: '{!space-1-x}'
+    comment: 'Padding between the icon and the surrounding circualr icon background shape for regular size.'
+  padding-actionlink-small-icon-shape:
+    value: '{!space-half-x}'
+    comment: 'Padding between the icon and the surrounding circualr icon background shape for small size.'
+  padding-actionlink-regular-iconshape-linktext:
+    value: '{!space-1-x}'
+    comment: 'Padding between the icon background shape and the link text for regular size.'
+  padding-actionlink-small-iconshape-linktext:
+    value: '{!space-half-x}'
+    comment: 'Padding between the icon background shape and the link text for regular size.'
