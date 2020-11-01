@@ -14,6 +14,8 @@ export type IconTypes =
   | 'checkmark'
   | 'lock'
   | 'alert'
+  | 'search'
+
 export type IconProps = {
   name: IconTypes
   size?: IconSize
