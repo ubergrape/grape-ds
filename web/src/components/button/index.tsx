@@ -24,10 +24,11 @@ export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
   const ref = useRef()
   const { disabled, icon, children, iconPosition, ariaLabel, className } = props
+  const { onClick, ...rest } = props
   const iconOnly = (children === undefined || children === '') && icon
 
   const { buttonProps, isPressed } = useButton(
-    { ...props, onPress: props.onClick },
+    { ...rest, onPress: onClick },
     ref,
   )
 
