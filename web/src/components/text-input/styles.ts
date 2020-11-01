@@ -6,20 +6,28 @@ import { getColorDefault, getColorHover } from '../checkbox/styles'
 export default createUseStyles({
   textField: {
     fontFamily: tokens.fontFamily,
-    borderRadius: ({ type }) =>
-      type === 'input'
+    borderRadius: ({ component }) => {
+      return component === 'input'
         ? tokens.borderRadiusFormfieldInput
-        : tokens.borderRadiusFormfieldTextarea,
+        : tokens.borderRadiusFormfieldTextarea
+    },
     borderWidth: tokens.borderWidthFormfield,
     borderStyle: 'solid',
     color: tokens.colorTextPrimary,
-    padding: props => {
-      // if (props.maxLength)
-      //   return `${tokens.paddingFormfieldTextareaInputtextTopbottom} calc(${tokens.paddingFormfieldInputtextCounter})`
+    resize: 'none',
+    height: ({ component, maxLength }) => {
+      if (component === 'input') return tokens.sizeFormfieldInput
+      if (maxLength) {
+        return '92px'
+      }
+      return '60px'
+    },
+    boxSizing: 'border-box',
+    padding: () => {
       return `${tokens.paddingFormfieldTextareaInputtextTopbottom} ${tokens.paddingFormfieldInputtextLeftright}`
     },
-    paddingRight: ({ maxLength }) => {
-      if (maxLength)
+    paddingRight: ({ maxLength, component }) => {
+      if (maxLength && component === 'input')
         return `calc(${tokens.paddingFormfieldInputtextCounter} + 50px)`
 
       return null
@@ -56,7 +64,7 @@ export default createUseStyles({
     pointerEvents: 'none',
     top: ({ component }) => (component === 'textarea' ? undefined : 0),
     bottom: ({ component }) =>
-      component === 'textarea' ? tokens.paddingFormfieldInputtextLeftright : 0,
+      component === 'textarea' ? tokens.size1HalfX : 0,
   },
   suffix: {
     marginLeft: tokens.sizeHalfX,

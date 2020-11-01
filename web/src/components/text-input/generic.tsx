@@ -50,6 +50,7 @@ export const GenericField: React.FC<
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
+      maxLength: undefined,
       onChange: p => {
         props.onChange?.(p)
         setAllowedChars(maxLength - p.length)
@@ -57,8 +58,10 @@ export const GenericField: React.FC<
     },
     ref,
   )
-  const { onFocus } = useFocusStyle(props)
-  const classes = useStyles(props)
+  const invalid = isInvalid || allowedChars < 0
+  const customProps = { ...props, isInvalid: invalid }
+  const { onFocus } = useFocusStyle(customProps)
+  const classes = useStyles(customProps)
 
   const Component = component
 
@@ -91,12 +94,14 @@ export const GenericField: React.FC<
         <Component
           className={clsx(classes.textField, onFocus)}
           {...inputProps}
-          {...((isInvalid || allowedChars < 0) && { 'aria-invalid': true })}
+          {...((invalid || allowedChars < 0) && { 'aria-invalid': true })}
           ref={ref}
         />
         {maxLength && (
           <div className={classes.counter}>
-            <span>{allowedChars}</span>
+            <Text size="body-base" color={invalid ? 'danger' : 'primary'}>
+              {allowedChars}
+            </Text>
           </div>
         )}
       </div>
