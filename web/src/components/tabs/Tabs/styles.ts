@@ -5,6 +5,7 @@ import tokens from '../../../tokens'
 export default createUseStyles((theme: typeof tokens) => ({
   wrapper: {
     display: 'flex',
+    height: ({ size }) => (size === 'small' ? theme.size3X : theme.size4X),
     justifyContent: ({ align }) => {
       switch (align) {
         case 'left':
@@ -19,7 +20,7 @@ export default createUseStyles((theme: typeof tokens) => ({
     '&::after': {
       content: '""',
       position: 'absolute',
-      bottom: -1,
+      bottom: 0,
       width: '100%',
       height: theme.borderWidthTab,
       backgroundColor: theme.colorBorderTabDivider,
