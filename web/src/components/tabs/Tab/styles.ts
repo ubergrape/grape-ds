@@ -10,7 +10,7 @@ export default createUseStyles((theme: typeof tokens) => ({
       background: 'none',
       zIndex: 1,
       position: 'relative',
-      paddingBottom: theme.sizeHalfX,
+      padding: [0, 0, theme.sizeHalfX, 0],
       border: 0,
       flexBasis: align === 'justify' ? '100%' : 'auto',
       cursor: 'pointer',
