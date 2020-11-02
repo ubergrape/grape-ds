@@ -2,7 +2,6 @@ import React from 'react'
 import { useTheme } from 'react-jss'
 
 import { Text } from '../../typography'
-import { genUid } from '../../../utils'
 
 import useStyles from './styles'
 
@@ -59,10 +58,9 @@ export const Tab: React.FC<TabProps> = props => {
   if (isActive) tabRef.current?.focus()
 
   return (
-    <a
-      href={`#${genUid()}${tab}`}
+    <button
+      type="button"
       ref={tabRef}
-      role="tab"
       onClick={() => onChangeTab(tab)}
       onKeyDown={e => onKeyDown(e)}
       className={classes.tab}
@@ -72,7 +70,7 @@ export const Tab: React.FC<TabProps> = props => {
       <Text color={isActive ? 'active' : 'primary'} size={getTextSize(size)}>
         {children}
       </Text>
-    </a>
+    </button>
   )
 }
 

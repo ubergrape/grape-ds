@@ -31,27 +31,25 @@ export const Tabs: React.FC<TabsProps> = props => {
   }
 
   return (
-    <div>
-      <div className={classes.wrapper}>
-        {children.map((tab, i) => {
-          const {
-            props: { children: text },
-          } = tab
+    <div className={classes.wrapper}>
+      {children.map((tab, i) => {
+        const {
+          props: { children: text },
+        } = tab
 
-          return (
-            <Tab
-              size={size}
-              onChangeTab={onChangeTab}
-              activeTab={active}
-              tab={i}
-              align={align}
-              key={text}
-            >
-              {text}
-            </Tab>
-          )
-        })}
-      </div>
+        return (
+          <Tab
+            size={size}
+            onChangeTab={onChangeTab}
+            activeTab={active}
+            tab={i}
+            align={align}
+            key={text}
+          >
+            {text}
+          </Tab>
+        )
+      })}
     </div>
   )
 }

@@ -44,6 +44,7 @@ export const Alignment: React.FC<TabsProps> = () => (
 )
 
 Alignment.parameters = {
+  layout: 'fullscreen',
   design: {
     type: 'figma',
     url:

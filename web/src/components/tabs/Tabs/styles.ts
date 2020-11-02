@@ -4,7 +4,7 @@ import tokens from '../../../tokens'
 
 export default createUseStyles((theme: typeof tokens) => ({
   wrapper: {
-    display: 'inline-flex',
+    display: 'flex',
     justifyContent: ({ align }) => {
       switch (align) {
         case 'left':
@@ -15,8 +15,6 @@ export default createUseStyles((theme: typeof tokens) => ({
           return 'flex'
       }
     },
-    margin: ({ margin }) => margin,
-    width: ({ width }) => width,
     position: 'relative',
     '&::after': {
       content: '""',
