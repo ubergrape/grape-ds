@@ -8,8 +8,6 @@ import useStyles from './styles'
 export type TabsProps = {
   size?: 'large' | 'regular' | 'small'
   align?: 'left' | 'right' | 'justify'
-  margin?: number
-  width?: number
   children: Array<ReactElement>
 }
 
@@ -57,5 +55,4 @@ export const Tabs: React.FC<TabsProps> = props => {
 Tabs.defaultProps = {
   size: 'regular',
   align: 'left',
-  margin: 0,
 }

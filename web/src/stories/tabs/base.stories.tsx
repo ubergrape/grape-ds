@@ -25,17 +25,17 @@ Base.parameters = {
 
 export const Alignment: React.FC<TabsProps> = () => (
   <div>
-    <Tabs width={500} align="left" margin="16px 0">
+    <Tabs align="left">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
     </Tabs>
-    <Tabs width={500} align="right" margin="16px 0">
+    <Tabs align="right">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
     </Tabs>
-    <Tabs width={500} align="justify" margin="16px 0">
+    <Tabs align="justify">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
@@ -54,17 +54,17 @@ Alignment.parameters = {
 
 export const Size: React.FC<TabsProps> = () => (
   <div>
-    <Tabs size="small" margin="16px 0">
+    <Tabs size="small">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
     </Tabs>
-    <Tabs size="regular" margin="16px 0">
+    <Tabs size="regular">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
     </Tabs>
-    <Tabs size="large" margin="16px 0">
+    <Tabs size="large">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>

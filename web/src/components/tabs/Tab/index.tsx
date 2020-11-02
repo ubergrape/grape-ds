@@ -63,13 +63,15 @@ export const Tab: React.FC<TabProps> = props => {
       ref={tabRef}
       onClick={() => onChangeTab(tab)}
       onKeyDown={e => onKeyDown(e)}
-      className={classes.tab}
+      className={classes.button}
       {...(isActive && { 'aria-selected': true })}
       {...(!isActive && { tabIndex: -1 })}
     >
-      <Text color={isActive ? 'active' : 'primary'} size={getTextSize(size)}>
-        {children}
-      </Text>
+      <div className={classes.tab}>
+        <Text color={isActive ? 'active' : 'primary'} size={getTextSize(size)}>
+          {children}
+        </Text>
+      </div>
     </button>
   )
 }
