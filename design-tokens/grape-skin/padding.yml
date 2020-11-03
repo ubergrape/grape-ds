@@ -61,3 +61,17 @@ props:
   padding-actionlink-small-iconshape-linktext:
     value: '{!space-half-x}'
     comment: 'Padding between the icon background shape and the link text for regular size.'
+
+## Tag
+  padding-tag-avatar-text-remove:
+    value: '{!space-half-x}'
+    comment: 'Padding between avatar, tag text and remove button.'
+  padding-tag-avatar-side:
+    value: '{!space-half-x}'
+    comment: 'Padding between the avatar and the left side of the tag.'
+  padding-tag-remove-side:
+    value: '{!space-half-x}'
+    comment: 'Padding between the remove button and the right side of the tag.'
+  padding-tag-text-side:
+    value: '{!space-1-x}'
+    comment: 'Padding between the tag text and the left/right side of the tag.'

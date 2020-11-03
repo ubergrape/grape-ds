@@ -119,3 +119,8 @@ props:
   color-text-actionlink--disabled:
     value: '{!base-base}'
     comment: 'Link text for disabled state of action-link.'
+
+## Tag
+  color-text-tag-basic:
+    value: '{!base-dark}'
+    comment: 'Text for basic tag.'
