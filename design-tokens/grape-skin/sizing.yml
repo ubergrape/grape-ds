@@ -117,3 +117,8 @@ props:
   size-actionlink-small:
       value: '{!space-3-x}'
       comment: 'Height of an action-link in small size.'
+
+## Tag
+  size-tag:
+      value: '{!space-3-x}'
+      comment: 'Height of a tag.'
