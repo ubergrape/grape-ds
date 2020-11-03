@@ -60,6 +60,7 @@ export const Tab: React.FC<TabProps> = props => {
   return (
     <button
       type="button"
+      role="tab"
       ref={tabRef}
       onClick={() => onChangeTab(tab)}
       onKeyDown={e => onKeyDown(e)}

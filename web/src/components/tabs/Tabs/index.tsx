@@ -29,7 +29,7 @@ export const Tabs: React.FC<TabsProps> = props => {
   }
 
   return (
-    <div className={classes.wrapper}>
+    <div role="tablist" className={classes.wrapper}>
       {children.map((tab, i) => {
         const {
           props: { children: text },

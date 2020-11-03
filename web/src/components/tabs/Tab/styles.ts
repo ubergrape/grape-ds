@@ -31,6 +31,7 @@ export default createUseStyles((theme: typeof tokens) => ({
 
     return {
       border: 0,
+      width: '100%',
       alignSelf: 'flex-end',
       paddingBottom: theme.sizeHalfX,
       borderBottom: isActive
