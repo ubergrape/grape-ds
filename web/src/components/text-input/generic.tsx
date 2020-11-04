@@ -1,10 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
-import {
-  AriaTextFieldOptions,
-  TextFieldAria,
-  useTextField,
-} from '@react-aria/textfield'
+import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
 import clsx from 'clsx'
 
 import { Text } from '../typography'
