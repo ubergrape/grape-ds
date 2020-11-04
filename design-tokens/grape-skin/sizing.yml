@@ -48,7 +48,7 @@ props:
 
   ## Tabs
   space-tab-group:
-    value: '{!space-2-x}'
+    value: '{!space-1-x}'
     comment: 'Space between 2 tab elements inside a tab group.'
 
   ## Icons
