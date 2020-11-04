@@ -102,7 +102,7 @@ export const GenericField: React.FC<
         <Component
           className={clsx(classes.textField, onFocus)}
           {...inputProps}
-          {...((invalid || allowedChars < 0) && { 'aria-invalid': true })}
+          {...(invalid && { 'aria-invalid': true })}
           ref={ref}
         />
         {maxLength && (
