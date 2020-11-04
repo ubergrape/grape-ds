@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react'
 import { createUseStyles } from 'react-jss'
 import tokens from '../../tokens'
@@ -35,8 +34,8 @@ export const SearchField: React.FC<InputProps> = props => {
           <Icon name="search" size="small" />
         </div>
       )}
-      renderRight={({ onClear, dirty }) => {
-        return dirty ? (
+      renderRight={({ onClear, isDirty }) => {
+        return isDirty ? (
           <div className={classes.rightIcon}>
             <Button
               onClick={onClear}
