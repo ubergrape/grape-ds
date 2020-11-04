@@ -5,19 +5,6 @@ import { Text } from '../../typography'
 
 import useStyles from './styles'
 
-const getTextSize = (size): 'body-large' | 'body-base' | 'body-small' => {
-  switch (size) {
-    case 'large':
-      return 'body-large'
-    case 'regular':
-      return 'body-base'
-    case 'small':
-      return 'body-small'
-    default:
-      return 'body-base'
-  }
-}
-
 export type TabProps = {
   onChangeTab: (tab: number) => void
   tab: number
@@ -69,7 +56,7 @@ export const Tab: React.FC<TabProps> = props => {
       {...(!isActive && { tabIndex: -1 })}
     >
       <div className={classes.tab}>
-        <Text color={isActive ? 'active' : 'primary'} size={getTextSize(size)}>
+        <Text color={isActive ? 'active' : 'primary'} size={size}>
           {children}
         </Text>
       </div>

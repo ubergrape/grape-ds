@@ -9,14 +9,13 @@ export default createUseStyles((theme: typeof tokens) => ({
     display: 'flex',
     alignItems: 'stretch',
     position: 'relative',
-    padding: [0, '8px', 0, '8px'],
+    padding: [0, theme.size1X, 0, theme.size1X],
     border: 0,
     flexBasis: ({ align }) => (align === 'justify' ? '100%' : 'auto'),
     cursor: 'pointer',
     textDecoration: 'none',
     '&:focus': {
       outline: 'none',
-      outlineOffset: 0,
     },
     '&:focus-visible': {
       outlineOffset: -2,
