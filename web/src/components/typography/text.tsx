@@ -1,12 +1,13 @@
 import clsx from 'clsx'
 import React from 'react'
 import { useTheme } from 'react-jss'
+import { sizes } from '../../types'
 import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
 
 export interface Props {
-  size: 'body-large' | 'body-base' | 'body-small'
+  size: sizes // 'body-large' | 'body-base' | 'body-small'
   children: string | JSX.Element | Element[] | Array<JSX.Element>
   emphasis?: boolean
   italic?: boolean
@@ -50,7 +51,7 @@ export const Text: React.FC<TextProps> = props => {
 }
 
 Text.defaultProps = {
-  size: 'body-large',
+  size: 'regular',
   children: 'My Text',
   emphasis: false,
   italic: false,

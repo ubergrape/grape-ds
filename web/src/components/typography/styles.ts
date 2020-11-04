@@ -25,25 +25,16 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
   },
   text: {
     color: getColorFromProp,
-    fontFamily: ({ size }: TextProps) => {
-      switch (size) {
-        case 'body-base':
-          return theme.fontFamilyBody
-        case 'body-large':
-          return theme.fontFamilyBody
-        case 'body-small':
-          return theme.fontFamilyBody
-        default:
-          return theme.fontFamily
-      }
+    fontFamily: () => {
+      return theme.fontFamilyBody
     },
     lineHeight: ({ size }: TextProps) => {
       switch (size) {
-        case 'body-base':
+        case 'regular':
           return theme.lineHeightBodyBase
-        case 'body-large':
+        case 'large':
           return theme.lineHeightBodyLarge
-        case 'body-small':
+        case 'small':
           return theme.lineHeightBodySmall
         default:
           return theme.lineHeightBodySmall
@@ -51,11 +42,11 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     },
     fontSize: ({ size }: TextProps) => {
       switch (size) {
-        case 'body-base':
+        case 'regular':
           return theme.fontSizeBodyBase
-        case 'body-large':
+        case 'large':
           return theme.fontSizeBodyLarge
-        case 'body-small':
+        case 'small':
           return theme.fontSizeBodySmall
         default:
           return theme.fontSizeBodyBase
