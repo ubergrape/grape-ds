@@ -16,7 +16,7 @@ export default createUseStyles({
     color: tokens.colorTextPrimary,
     resize: 'none',
     backgroundColor: ({ isDisabled, isReadOnly }) => {
-      if (isDisabled) return tokens.colorBackgroundSecondary
+      if (isDisabled) return tokens.colorBackgroundFormfieldDisabled
       if (isReadOnly) return tokens.colorBackgroundFormfieldReadonly
       return tokens.colorBackgroundFormcontrolDefault
     },

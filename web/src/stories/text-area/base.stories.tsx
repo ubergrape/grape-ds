@@ -61,12 +61,6 @@ export const MaxLength = (): JSX.Element => (
   </Flex>
 )
 
-export const ReadOnly = (): JSX.Element => (
-  <Flex gap={3}>
-    <TextArea label="Read only" value="Some value" />
-  </Flex>
-)
-
 export const Invalid = (): JSX.Element => (
   <Flex>
     <TextArea
@@ -76,6 +70,12 @@ export const Invalid = (): JSX.Element => (
       placeholder="Placeholder"
       description="Additional Information"
     />
+  </Flex>
+)
+
+export const ReadOnly = (): JSX.Element => (
+  <Flex gap={3}>
+    <TextArea isReadOnly label="Read only" value="Some value" />
   </Flex>
 )
 
