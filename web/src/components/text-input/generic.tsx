@@ -16,7 +16,10 @@ export interface TextInputProps extends AriaTextFieldOptions {
   description?: string
   validationHelp?: string
   renderLeft?: () => JSX.Element
-  renderRight?: (props: { onClear: () => void; dirty?: boolean }) => JSX.Element
+  renderRight?: (props: {
+    onClear: () => void
+    isDirty?: boolean
+  }) => JSX.Element
 }
 
 export interface WithoutLabel extends TextInputProps {
@@ -47,7 +50,7 @@ export const GenericField: React.FC<
   const [allowedChars, setAllowedChars] = useState(
     maxLength - (props.value?.length ?? 0),
   )
-  const [dirty, setDirty] = useState(false)
+  const [isDirty, setDirty] = useState(false)
 
   const { labelProps, inputProps } = useTextField(
     {
@@ -119,7 +122,7 @@ export const GenericField: React.FC<
               ref.current.focus()
             }
           },
-          dirty,
+          isDirty,
         })}
       </div>
 
