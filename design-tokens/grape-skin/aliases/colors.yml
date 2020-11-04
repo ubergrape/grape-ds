@@ -106,7 +106,7 @@ aliases:
   info-darkest: '{!blue-90}'
 
   ## Disabled
-  disabled-ghost: '{!gray-5}'
+  disabled-ghost: '{!gray-2}'
   disabled-light: '{!gray-10}'
   disabled-base: '{!gray-20}'
   disabled-dark: '{!gray-30}'
