@@ -28,7 +28,7 @@ Base.parameters = {
 
 export const Alignment: React.FC<ButtonGroupProps> = () => (
   <div>
-    <Flex gap="2x">
+    <Flex direction="column" gap="2x">
       <ButtonGroup>
         <Button variant="primary" onPress={action('clicked')}>
           Button
