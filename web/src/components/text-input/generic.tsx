@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
 import clsx from 'clsx'
 
@@ -21,6 +21,8 @@ export interface TextInputProps extends AriaTextFieldOptions {
     required?: string
     optional?: string
   }
+  value?: string
+  defaultValue?: string
   renderLeft?: () => JSX.Element
   renderRight?: (props: {
     onClear: () => void
@@ -56,24 +58,34 @@ export const GenericField: React.FC<
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
-  const [allowedChars, setAllowedChars] = useState(
-    maxLength - (props.value?.length ?? 0),
-  )
   const [isDirty, setDirty] = useState(false)
+  const [value, setValue] = useState(props.value || props.defaultValue || '')
+
+  const allowedChars = maxLength - value.length
 
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
       maxLength: undefined,
       onChange: p => {
+        setValue(p)
         setDirty(p.length > 0)
         props.onChange?.(p)
-        setAllowedChars(maxLength - p.length)
       },
     },
     ref,
   )
-  const invalid = isInvalid || allowedChars < 0
+
+  const numberValid = useMemo(() => {
+    if (props.type !== 'number') return true
+    if (value.length === 0) return true
+    const val = Number(value)
+    if (min !== undefined && val < min) return false
+    if (max !== undefined && val > max) return false
+    return true
+  }, [value, min, max])
+
+  const invalid = isInvalid || allowedChars < 0 || !numberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
   const classes = useStyles(customProps)
@@ -127,7 +139,7 @@ export const GenericField: React.FC<
           {renderRight?.({
             onClear: () => {
               props.onChange?.('')
-              setAllowedChars(maxLength)
+              setValue('')
               setDirty(false)
               if (ref.current) {
                 ref.current.value = ''
