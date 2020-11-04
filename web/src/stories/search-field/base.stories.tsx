@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex } from '../../components/layout'
-import { SearchField } from '../../components/text-input/search-field'
+import { SearchField } from '../../components/text-input'
 
 export default {
   title: 'Forms/SearchField',
