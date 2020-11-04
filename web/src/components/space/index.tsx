@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { useTheme } from 'react-jss'
 
 import useStyles from './styles'
 
@@ -22,12 +21,7 @@ export type SpaceProps = {
 }
 
 export const Space: React.FC<SpaceProps> = props => {
-  const theme = useTheme()
-
-  const classes = useStyles({
-    ...props,
-    theme,
-  })
+  const classes = useStyles(props)
 
   const { children } = props
 
