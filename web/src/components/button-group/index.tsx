@@ -5,7 +5,6 @@ import useStyles from './styles'
 
 export type ButtonGroupProps = {
   align?: 'left' | 'right'
-  margin?: number
   children: Array<ReactElement>
 }
 
@@ -24,5 +23,4 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = props => {
 
 ButtonGroup.defaultProps = {
   align: 'left',
-  margin: 0,
 }

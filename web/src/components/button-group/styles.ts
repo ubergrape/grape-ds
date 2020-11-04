@@ -7,7 +7,6 @@ export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
       display: 'flex',
-      margin: ({ margin }) => margin,
       flexDirection: ({ align }) => {
         if (align === 'left') return 'row'
         return 'row-reverse'
