@@ -36,7 +36,7 @@ export const InputLabel: React.FC<Props> = props => {
   return (
     <Wrapper
       {...(hasLabel && {
-        size: 'body-base',
+        size: 'regular',
         as: 'label',
         color: disabled ? 'secondary' : 'primary',
         htmlFor: id,
@@ -51,7 +51,7 @@ export const InputLabel: React.FC<Props> = props => {
 
       {hasLabel && props.helpText && (
         <Text
-          size="body-small"
+          size="small"
           color="secondary"
           className={clsx(helpTextClass || classes.helpText)}
         >

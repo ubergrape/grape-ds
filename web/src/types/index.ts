@@ -1,4 +1,1 @@
-declare module '*.mdx' {
-  const MDXComponent: (props: any) => JSX.Element
-  export default MDXComponent
-}
+export type sizes = 'small' | 'regular' | 'large'

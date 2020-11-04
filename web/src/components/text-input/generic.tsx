@@ -79,7 +79,7 @@ export const GenericField: React.FC<
           {isRequired !== undefined && (
             <Text
               color="secondary"
-              size="body-small"
+              size="small"
               as="span"
               className={classes.suffix}
             >
@@ -91,7 +91,7 @@ export const GenericField: React.FC<
       {validationHelp && (
         <Flex gap={1}>
           <Icon name="alert" color="danger" size="small" />
-          <Text as="span" size="body-small" color="danger">
+          <Text as="span" size="small" color="danger">
             {validationHelp}
           </Text>
         </Flex>
@@ -107,7 +107,7 @@ export const GenericField: React.FC<
         />
         {maxLength && (
           <div className={classes.counter}>
-            <Text size="body-base" color={invalid ? 'danger' : 'primary'}>
+            <Text size="regular" color={invalid ? 'danger' : 'primary'}>
               {allowedChars}
             </Text>
           </div>
@@ -127,7 +127,7 @@ export const GenericField: React.FC<
       </div>
 
       {description && (
-        <Text color="secondary" size="body-small">
+        <Text color="secondary" size="small">
           {description}
         </Text>
       )}

@@ -157,35 +157,89 @@ props:
     value: '{!base-darker}'
     comment: 'Icon color in avatar grouptype.'
 
-
   ## Form fields
   color-background-formfield--default:
     value: '{!base-bw-white}'
-    comment: 'Border color for form fields.'
+    comment: 'Background color for form fields.'
   color-background-formfield--hover:
     value: '{!base-bw-white}'
-    comment: 'Border color for hover state of form fields.'
+    comment: 'Background color for hover state of form fields.'
   color-background-formfield--focus:
     value: '{!base-bw-white}'
-    comment: 'Border color for focus state of form fields.'
+    comment: 'Background color for focus state of form fields.'
   color-background-formfield--readonly:
     value: '{!base-lightest}'
-    comment: 'Border color for readonly state of form fields.'
+    comment: 'Background color for readonly state of form fields.'
   color-background-formfield--disabled:
     value: '{!disabled-ghost}'
-    comment: 'Border color for disabled state of form fields.'
+    comment: 'Background color for disabled state of form fields.'
   color-background-formfield-invalid--default:
     value: '{!base-bw-white}'
-    comment: 'Border color for form fields in invalid state.'
+    comment: 'Background color for form fields in invalid state.'
   color-background-formfield-invalid--hover:
     value: '{!base-bw-white}'
-    comment: 'Border color for hover state of form fields in invalid state.'
+    comment: 'Background color for hover state of form fields in invalid state.'
   color-background-formfield-invalid--focus:
     value: '{!base-bw-white}'
-    comment: 'Border color for focus state of form fields in invalid state.'
+    comment: 'Background color for focus state of form fields in invalid state.'
   color-background-formfield-icon:
     value: '{!base-base}'
     comment: 'Icon color in form fields.'
   color-background-formfield-icon-validationerror:
     value: '{!negative-base}'
     comment: 'Icon color for validation hint error in form fields.'
+
+## Action-Link
+  color-background-actionlink-primary-icon:
+    value: '{!primary-base}'
+    comment: 'Icon color in Primary action-link.'
+  color-background-actionlink-basic-icon:
+    value: '{!base-base}'
+    comment: 'Icon color in basic action-link.'
+  color-background-actionlink-danger-icon:
+    value: '{!negative-base}'
+    comment: 'Icon color in danger action-link.'
+  color-background-actionlink-icon--disabled:
+    value: '{!disabled-base}'
+    comment: 'Icon color for disabled state of action-link.'
+  color-background-actionlink-primary-icon-shape:
+    value: '{!primary-lightest}'
+    comment: 'Icon background in primary action-link.'
+  color-background-actionlink-basic-icon-shape:
+    value: '{!base-lightest}'
+    comment: 'Icon background in basic action-link.'
+  color-background-actionlink-danger-icon-shape:
+    value: '{!negative-lightest}'
+    comment: 'Icon background in danger action-link.'
+  color-background-actionlink-icon-shape--disabled:
+    value: '{!disabled-ghost}'
+    comment: 'Icon background for disabled state of action-link.'
+  color-background-actionlink-primary--default:
+    value: '{!transparent}'
+    comment: 'Primary action-link background.'
+  color-background-actionlink-basic--default:
+    value: '{!transparent}'
+    comment: 'Basic action-link background.'
+  color-background-actionlink-danger--default:
+    value: '{!transparent}'
+    comment: 'Danger action-link background.'
+  color-background-actionlink-primary--hover:
+    value: '{!primary-lightest}'
+    comment: 'Primary action-link background on hover.'
+  color-background-actionlink-basic--hover:
+    value: '{!base-lightest}'
+    comment: 'Basic action-link background on hover.'
+  color-background-actionlink-danger--hover:
+    value: '{!negative-lightest}'
+    comment: 'Danger action-link background on hover.'
+
+## Tag
+  color-background-tag-basic:
+    value: '{!base-lightest}'
+    comment: 'Background color for tag basic.'
+  color-background-tag-basic-remove-icon:
+    value: '{!base-dark}'
+    comment: 'Icon color for remove button of tag basic.'
+  color-background-tag-basic-remove--hover:
+    value: '{!base-lighter}'
+    comment: 'Background color for remove button in hover state.'

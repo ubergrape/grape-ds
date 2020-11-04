@@ -109,3 +109,16 @@ props:
   size-formfield-input:
       value: '{!space-4-x}'
       comment: 'Height of a single line input field.'
+
+## Action-Link
+  size-actionlink-regular:
+      value: '{!space-4-x}'
+      comment: 'Height of an action-link in regular size.'
+  size-actionlink-small:
+      value: '{!space-3-x}'
+      comment: 'Height of an action-link in small size.'
+
+## Tag
+  size-tag:
+      value: '{!space-3-x}'
+      comment: 'Height of a tag.'
