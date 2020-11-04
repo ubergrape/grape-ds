@@ -96,7 +96,7 @@ export const GenericField: React.FC<
           </Text>
         </Flex>
       )}
-      <div style={{ position: 'relative' }}>
+      <div className={classes.inputWrapper}>
         {renderLeft?.()}
 
         <Component

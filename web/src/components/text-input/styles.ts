@@ -82,4 +82,7 @@ export default createUseStyles({
   suffix: {
     marginLeft: tokens.sizeHalfX,
   },
+  inputWrapper: {
+    position: 'relative',
+  },
 })
