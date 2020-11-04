@@ -18,8 +18,8 @@ Base.args = {
 
 export const Sizes: React.FC = () => (
   <div>
-    <Text size="body-large">Body large</Text>
-    <Text size="body-base">Body Base</Text>
-    <Text size="body-small">Body Small</Text>
+    <Text size="large">Body large</Text>
+    <Text size="regular">Body Base</Text>
+    <Text size="small">Body Small</Text>
   </div>
 )
