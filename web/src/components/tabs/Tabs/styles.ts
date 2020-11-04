@@ -17,14 +17,6 @@ export default createUseStyles((theme: typeof tokens) => ({
       }
     },
     position: 'relative',
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      bottom: 0,
-      left: theme.size1X,
-      width: `calc(100% - ${theme.size2X})`,
-      height: theme.borderWidthTab,
-      backgroundColor: theme.colorBorderTabDivider,
-    },
+    boxShadow: 'inset 0px -2px 0px rgb(241, 241, 241)',
   },
 }))

@@ -1,7 +1,9 @@
 import React from 'react'
 import { useTheme } from 'react-jss'
+import clsx from 'clsx'
 
 import { Text } from '../../typography'
+import { useFocusStyle } from '../../../styles/global'
 
 import useStyles from './styles'
 
@@ -21,6 +23,7 @@ export const Tab: React.FC<TabProps> = props => {
 
   const theme = useTheme()
 
+  const { onFocusVisible } = useFocusStyle(props)
   const classes = useStyles({
     ...props,
     theme,
@@ -51,15 +54,17 @@ export const Tab: React.FC<TabProps> = props => {
       ref={tabRef}
       onClick={() => onChangeTab(tab)}
       onKeyDown={e => onKeyDown(e)}
-      className={classes.button}
+      className={clsx(classes.button, onFocusVisible)}
       {...(isActive && { 'aria-selected': true })}
       {...(!isActive && { tabIndex: -1 })}
     >
-      <div className={classes.tab}>
-        <Text color={isActive ? 'active' : 'primary'} size={size}>
-          {children}
-        </Text>
-      </div>
+      <Text
+        color={isActive ? 'active' : 'primary'}
+        className={classes.text}
+        size={size}
+      >
+        {children}
+      </Text>
     </button>
   )
 }
