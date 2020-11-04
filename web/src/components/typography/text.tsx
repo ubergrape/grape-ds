@@ -7,7 +7,7 @@ import { TextColorType } from './helper'
 import { useStyles } from './styles'
 
 export interface Props {
-  size: sizes // 'body-large' | 'body-base' | 'body-small'
+  size: sizes
   children: string | JSX.Element | Element[] | Array<JSX.Element>
   emphasis?: boolean
   italic?: boolean
