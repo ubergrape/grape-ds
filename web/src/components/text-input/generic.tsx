@@ -15,6 +15,12 @@ export interface TextInputProps extends AriaTextFieldOptions {
   placeholder?: string
   description?: string
   validationHelp?: string
+  min?: number
+  max?: number
+  customLabels?: {
+    required?: string
+    optional?: string
+  }
   renderLeft?: () => JSX.Element
   renderRight?: (props: {
     onClear: () => void
@@ -45,6 +51,9 @@ export const GenericField: React.FC<
     isRequired,
     renderLeft,
     renderRight,
+    min,
+    max,
+    customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
   const [allowedChars, setAllowedChars] = useState(
@@ -84,7 +93,7 @@ export const GenericField: React.FC<
                 as="span"
                 className={classes.suffix}
               >
-                ({isRequired ? 'required' : 'optional'})
+                ({isRequired ? customLabels.required : customLabels.optional})
               </Text>
             )}
           </label>
@@ -104,6 +113,8 @@ export const GenericField: React.FC<
             className={clsx(classes.textField, onFocus)}
             {...inputProps}
             {...(invalid && { 'aria-invalid': true })}
+            {...(min !== undefined && { min })}
+            {...(max !== undefined && { max })}
             ref={ref}
           />
           {maxLength && (
