@@ -15,6 +15,7 @@ export default createUseStyles({
     borderStyle: 'solid',
     color: tokens.colorTextPrimary,
     resize: 'none',
+    width: '100%',
     backgroundColor: ({ isDisabled, isReadOnly }) => {
       if (isDisabled) return tokens.colorBackgroundFormfieldDisabled
       if (isReadOnly) return tokens.colorBackgroundFormfieldReadonly

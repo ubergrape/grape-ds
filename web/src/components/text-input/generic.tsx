@@ -72,65 +72,67 @@ export const GenericField: React.FC<
   const Component = component
 
   return (
-    <Flex direction="column" gap={1}>
-      {label && (
-        <label className={classes.label} {...labelProps}>
-          {label}
-          {isRequired !== undefined && (
-            <Text
-              color="secondary"
-              size="small"
-              as="span"
-              className={classes.suffix}
-            >
-              ({isRequired ? 'required' : 'optional'})
-            </Text>
-          )}
-        </label>
-      )}
-      {validationHelp && (
-        <Flex gap={1}>
-          <Icon name="alert" color="danger" size="small" />
-          <Text as="span" size="small" color="danger">
-            {validationHelp}
-          </Text>
-        </Flex>
-      )}
-      <div className={classes.inputWrapper}>
-        {renderLeft?.()}
-
-        <Component
-          className={clsx(classes.textField, onFocus)}
-          {...inputProps}
-          {...(invalid && { 'aria-invalid': true })}
-          ref={ref}
-        />
-        {maxLength && (
-          <div className={classes.counter}>
-            <Text size="regular" color={invalid ? 'danger' : 'primary'}>
-              {allowedChars}
-            </Text>
-          </div>
+    <div style={{ width: '100%' }}>
+      <Flex direction="column" gap={1}>
+        {label && (
+          <label className={classes.label} {...labelProps}>
+            {label}
+            {isRequired !== undefined && (
+              <Text
+                color="secondary"
+                size="small"
+                as="span"
+                className={classes.suffix}
+              >
+                ({isRequired ? 'required' : 'optional'})
+              </Text>
+            )}
+          </label>
         )}
-        {renderRight?.({
-          onClear: () => {
-            props.onChange?.('')
-            setAllowedChars(maxLength)
-            setDirty(false)
-            if (ref.current) {
-              ref.current.value = ''
-              ref.current.focus()
-            }
-          },
-          isDirty,
-        })}
-      </div>
+        {validationHelp && (
+          <Flex gap={1}>
+            <Icon name="alert" color="danger" size="small" />
+            <Text as="span" size="small" color="danger">
+              {validationHelp}
+            </Text>
+          </Flex>
+        )}
+        <div className={classes.inputWrapper}>
+          {renderLeft?.()}
 
-      {description && (
-        <Text color="secondary" size="small">
-          {description}
-        </Text>
-      )}
-    </Flex>
+          <Component
+            className={clsx(classes.textField, onFocus)}
+            {...inputProps}
+            {...(invalid && { 'aria-invalid': true })}
+            ref={ref}
+          />
+          {maxLength && (
+            <div className={classes.counter}>
+              <Text size="regular" color={invalid ? 'danger' : 'primary'}>
+                {allowedChars}
+              </Text>
+            </div>
+          )}
+          {renderRight?.({
+            onClear: () => {
+              props.onChange?.('')
+              setAllowedChars(maxLength)
+              setDirty(false)
+              if (ref.current) {
+                ref.current.value = ''
+                ref.current.focus()
+              }
+            },
+            isDirty,
+          })}
+        </div>
+
+        {description && (
+          <Text color="secondary" size="small">
+            {description}
+          </Text>
+        )}
+      </Flex>
+    </div>
   )
 }

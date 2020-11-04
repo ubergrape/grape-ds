@@ -15,6 +15,7 @@ const useStyles = createUseStyles(() => ({
     bottom: 0,
     top: 0,
     left: tokens.size1HalfX,
+    color: tokens.colorBackgroundFormfieldIcon,
   },
   rightIcon: {
     position: 'absolute',
@@ -29,6 +30,7 @@ export const SearchField: React.FC<InputProps> = props => {
     <GenericField
       {...props}
       component="input"
+      type="search"
       renderLeft={() => (
         <div className={classes.leftIcon}>
           <Icon name="search" size="small" />
@@ -42,6 +44,7 @@ export const SearchField: React.FC<InputProps> = props => {
               icon="close"
               size="small"
               appearance="minimal"
+              variant="basic"
             />
           </div>
         ) : null

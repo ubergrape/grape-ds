@@ -21,18 +21,19 @@ const useStyles = createUseStyles(() => ({
 }))
 
 interface FlexProps {
+  gap?: number
   direction?: CSSProperties['flexDirection']
   wrap?: boolean | CSSProperties['flexWrap']
-  gap?: number
   items?: CSSProperties['alignItems']
   justify?: CSSProperties['justifyContent']
+  className?: string
 }
 
 export const Flex: React.FC<FlexProps> = props => {
-  const { children, ...rest } = props
+  const { children, className, ...rest } = props
   const classes = useStyles(rest)
   return (
-    <div>
+    <div {...(className && { className })}>
       <div className={classes.flex}>{children}</div>
     </div>
   )
