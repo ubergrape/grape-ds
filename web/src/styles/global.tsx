@@ -21,8 +21,6 @@ export const useFocusStyle = createUseStyles({
     },
   },
   onFocusVisible: {
-    transition: 'all 0.25s ease-in-out',
-    transitionProperty: 'box-shadow, border-color',
     '&:focus': {
       outline: 0,
     },
