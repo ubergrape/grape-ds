@@ -18,7 +18,7 @@ export default createUseStyles({
     backgroundColor: ({ isDisabled, isReadOnly }) => {
       if (isDisabled) return tokens.colorBackgroundSecondary
       if (isReadOnly) return tokens.colorBackgroundFormfieldReadonly
-      return undefined
+      return tokens.colorBackgroundFormcontrolDefault
     },
     cursor: ({ isDisabled }) => {
       if (isDisabled) return 'not-allowed'
