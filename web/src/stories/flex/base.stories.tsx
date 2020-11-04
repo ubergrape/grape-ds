@@ -8,8 +8,9 @@ export default {
 }
 
 export const Base: React.FC<FlexProps> = props => (
-  <Flex size={0} {...props}>
+  <Flex gap="0.5x" {...props}>
     <div>Space component</div>
+    <div>Space component 2</div>
   </Flex>
 )
 
