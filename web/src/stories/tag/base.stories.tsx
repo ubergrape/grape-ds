@@ -3,13 +3,13 @@ import { Flex } from '../../components/layout'
 import { Tag } from '../../components/tag'
 
 export default {
-  title: 'Test/Tag',
+  title: 'Components/Tag',
   component: Tag,
   parameters: {
     design: {
       type: 'figma',
       url:
-        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=451%3A5',
+        'https://www.figma.com/file/Mc03kFcaFlcMOA7afjaZmF/Grape-DS-Components-Web?node-id=709%3A0',
     },
   },
 }
