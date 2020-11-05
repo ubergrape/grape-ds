@@ -1,6 +1,7 @@
+import clsx from 'clsx'
 import React, { CSSProperties } from 'react'
-import { GapTypes } from '../../../styles/scale'
 
+import { GapTypes } from '../../../styles/scale'
 import useStyles from './styles'
 
 export interface FlexProps {
@@ -10,13 +11,14 @@ export interface FlexProps {
   items?: CSSProperties['alignItems']
   justify?: CSSProperties['justifyContent']
   className?: string
+  style?: CSSProperties
 }
 
 export const Flex: React.FC<FlexProps> = props => {
-  const { children, className, ...rest } = props
+  const { children, className, style, ...rest } = props
   const classes = useStyles(rest)
   return (
-    <div {...(className && { className })}>
+    <div style={style} className={clsx(classes.wrapper, className)}>
       <div className={classes.flex}>{children}</div>
     </div>
   )
