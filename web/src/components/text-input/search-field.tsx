@@ -2,7 +2,7 @@ import React from 'react'
 import { createUseStyles } from 'react-jss'
 import tokens from '../../tokens'
 import Button from '../button'
-import { Icon } from '../icon'
+import { Icon, IconTypes } from '../icon'
 
 import { GenericField, InputProps } from './generic'
 
@@ -12,6 +12,7 @@ const useStyles = createUseStyles(() => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    pointerEvents: 'none',
     bottom: 0,
     top: 0,
     left: tokens.size1HalfX,
@@ -24,7 +25,9 @@ const useStyles = createUseStyles(() => ({
   },
 }))
 
-export const SearchField: React.FC<InputProps> = props => {
+export const SearchField: React.FC<
+  InputProps & { icon?: IconTypes }
+> = props => {
   const classes = useStyles(props)
   return (
     <GenericField
@@ -33,7 +36,7 @@ export const SearchField: React.FC<InputProps> = props => {
       type="search"
       renderLeft={() => (
         <div className={classes.leftIcon}>
-          <Icon name="search" size="small" />
+          <Icon name={props.icon || 'search'} size="small" />
         </div>
       )}
       renderRight={({ onClear, isDirty }) => {

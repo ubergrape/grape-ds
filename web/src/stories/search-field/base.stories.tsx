@@ -72,3 +72,9 @@ export const Disabled = (): JSX.Element => (
     <SearchField isDisabled label="Disabled" value="Some value" />
   </Flex>
 )
+
+export const CustomIcon = (): JSX.Element => (
+  <Flex gap="2x">
+    <SearchField label="Custom" icon="people" />
+  </Flex>
+)
