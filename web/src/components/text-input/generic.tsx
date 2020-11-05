@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
 import clsx from 'clsx'
 
@@ -93,69 +93,67 @@ export const GenericField: React.FC<
   const Component = component
 
   return (
-    <div style={{ width: '100%' }}>
-      <Flex direction="column" gap="1x">
-        {label && (
-          <label className={classes.label} {...labelProps}>
-            {label}
-            {isRequired !== undefined && (
-              <Text
-                color="secondary"
-                size="small"
-                as="span"
-                className={classes.suffix}
-              >
-                ({isRequired ? customLabels.required : customLabels.optional})
-              </Text>
-            )}
-          </label>
-        )}
-        {validationHelp && (
-          <Flex gap="1x">
-            <Icon name="alert" color="danger" size="small" />
-            <Text as="span" size="small" color="danger">
-              {validationHelp}
+    <Flex direction="column" gap="1x">
+      {label && (
+        <label className={classes.label} {...labelProps}>
+          {label}
+          {isRequired !== undefined && (
+            <Text
+              color="secondary"
+              size="small"
+              as="span"
+              className={classes.suffix}
+            >
+              ({isRequired ? customLabels.required : customLabels.optional})
             </Text>
-          </Flex>
-        )}
-        <div className={classes.inputWrapper}>
-          {renderLeft?.()}
-
-          <Component
-            className={clsx(classes.textField, onFocus)}
-            {...inputProps}
-            {...(invalid && { 'aria-invalid': true })}
-            {...(min !== undefined && { min })}
-            {...(max !== undefined && { max })}
-            ref={ref}
-          />
-          {maxLength && (
-            <div className={classes.counter}>
-              <Text size="regular" color={invalid ? 'danger' : 'primary'}>
-                {allowedChars}
-              </Text>
-            </div>
           )}
-          {renderRight?.({
-            onClear: () => {
-              props.onChange?.('')
-              setValue('')
-              setDirty(false)
-              if (ref.current) {
-                ref.current.value = ''
-                ref.current.focus()
-              }
-            },
-            isDirty,
-          })}
-        </div>
-
-        {description && (
-          <Text color="secondary" size="small">
-            {description}
+        </label>
+      )}
+      {validationHelp && (
+        <Flex gap="1x">
+          <Icon name="alert" color="danger" size="small" />
+          <Text as="span" size="small" color="danger">
+            {validationHelp}
           </Text>
+        </Flex>
+      )}
+      <div className={classes.inputWrapper}>
+        {renderLeft?.()}
+
+        <Component
+          className={clsx(classes.textField, onFocus)}
+          {...inputProps}
+          {...(invalid && { 'aria-invalid': true })}
+          {...(min !== undefined && { min })}
+          {...(max !== undefined && { max })}
+          ref={ref}
+        />
+        {maxLength && (
+          <div className={classes.counter}>
+            <Text size="regular" color={invalid ? 'danger' : 'primary'}>
+              {allowedChars}
+            </Text>
+          </div>
         )}
-      </Flex>
-    </div>
+        {renderRight?.({
+          onClear: () => {
+            props.onChange?.('')
+            setValue('')
+            setDirty(false)
+            if (ref.current) {
+              ref.current.value = ''
+              ref.current.focus()
+            }
+          },
+          isDirty,
+        })}
+      </div>
+
+      {description && (
+        <Text color="secondary" size="small">
+          {description}
+        </Text>
+      )}
+    </Flex>
   )
 }
