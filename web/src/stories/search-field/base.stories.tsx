@@ -25,32 +25,32 @@ Base.args = {
 }
 
 export const Default = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <SearchField label="Label" placeholder="Placeholder" />
     <SearchField label="Label" />
   </Flex>
 )
 
 export const WithoutLabel = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <SearchField aria-label="Label" placeholder="Placeholder" />
   </Flex>
 )
 
 export const Required = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <SearchField isRequired label="Label" />
   </Flex>
 )
 
 export const WithHelp = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <SearchField label="Label" description="Help Text" />
   </Flex>
 )
 
 export const MinLength = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <SearchField label="Has Min Length" minLength={1} />
   </Flex>
 )
@@ -68,7 +68,7 @@ export const Invalid = (): JSX.Element => (
 )
 
 export const Disabled = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <SearchField isDisabled label="Disabled" value="Some value" />
   </Flex>
 )

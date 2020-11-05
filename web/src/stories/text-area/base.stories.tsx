@@ -24,39 +24,39 @@ Base.args = {
   label: 'Label',
 }
 export const Default = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextArea label="Label" placeholder="Placeholder" rows={100} />
     <TextArea label="Label" />
   </Flex>
 )
 
 export const WithoutLabel = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextArea aria-label="Label" placeholder="Placeholder" />
   </Flex>
 )
 
 export const Required = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextArea isRequired label="Label" />
   </Flex>
 )
 
 export const Optional = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextArea label="Label" />
     <TextArea isRequired={false} label="Label" />
   </Flex>
 )
 
 export const WithHelp = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextArea label="Label" description="Help Text" />
   </Flex>
 )
 
 export const MaxLength = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <TextArea label="Has Max Length" maxLength={30} />
   </Flex>
 )
@@ -74,13 +74,13 @@ export const Invalid = (): JSX.Element => (
 )
 
 export const ReadOnly = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <TextArea isReadOnly label="Read only" value="Some value" />
   </Flex>
 )
 
 export const Disabled = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <TextArea isDisabled label="Disabled" value="Some value" />
   </Flex>
 )

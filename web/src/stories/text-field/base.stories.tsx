@@ -25,14 +25,14 @@ Base.args = {
 }
 
 export const Default = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextField label="Label" placeholder="Placeholder" />
     <TextField label="Label" />
   </Flex>
 )
 
 export const InputTypes = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextField label="Email" type="email" />
     <TextField label="Number between 1-10" type="number" min={1} max={10} />
     <TextField label="Password" type="password" />
@@ -42,32 +42,32 @@ export const InputTypes = (): JSX.Element => (
 )
 
 export const WithoutLabel = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextField aria-label="Label" placeholder="Placeholder" />
   </Flex>
 )
 
 export const Required = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextField isRequired label="Label" />
   </Flex>
 )
 
 export const Optional = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextField label="Label" />
     <TextField isRequired={false} label="Label" />
   </Flex>
 )
 
 export const WithHelp = (): JSX.Element => (
-  <Flex gap={4} direction="column" wrap>
+  <Flex gap="2x" direction="column" wrap>
     <TextField label="Label" description="Help Text" />
   </Flex>
 )
 
 export const MaxLength = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <TextField label="Has Max Length" maxLength={30} />
   </Flex>
 )
@@ -85,19 +85,19 @@ export const Invalid = (): JSX.Element => (
 )
 
 export const ReadOnly = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <TextField label="Read only" value="Some value" isReadOnly />
   </Flex>
 )
 
 export const Disabled = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <TextField isDisabled label="Disabled" value="Some value" />
   </Flex>
 )
 
 export const CustomLabels = (): JSX.Element => (
-  <Flex gap={3}>
+  <Flex gap="2x">
     <TextField
       isRequired
       label="Adresse"
