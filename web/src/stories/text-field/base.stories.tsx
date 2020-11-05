@@ -110,3 +110,10 @@ export const CustomLabels = (): JSX.Element => (
     />
   </Flex>
 )
+
+export const Long = (): JSX.Element => (
+  <Flex gap="2x" direction="column" style={{ width: 500 }}>
+    <TextField label="Adresse" />
+    <TextField label="Adresse" />
+  </Flex>
+)
