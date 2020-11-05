@@ -1,18 +1,7 @@
 import React, { CSSProperties } from 'react'
+import { GapTypes } from '../../../styles/scale'
 
 import useStyles from './styles'
-
-export type GapTypes =
-  | '0x'
-  | '0.5x'
-  | '1x'
-  | '1.5x'
-  | '2x'
-  | '2.5x'
-  | '3x'
-  | '4x'
-  | '5x'
-  | '6x'
 
 export interface FlexProps {
   gap?: GapTypes
