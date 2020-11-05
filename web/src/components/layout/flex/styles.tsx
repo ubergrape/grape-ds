@@ -4,8 +4,12 @@ import { scale } from '../../../styles/scale'
 
 export default createUseStyles(() => {
   return {
+    wrapper: {
+      display: 'flex',
+    },
     flex: {
       display: 'flex',
+      flex: 1,
       flexDirection: ({ direction }) => direction,
       justifyContent: ({ justify }) => justify,
       alignItems: ({ items }) => items,
