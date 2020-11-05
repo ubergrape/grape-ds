@@ -24,3 +24,5 @@ export const scale = {
   '5x': size5X,
   '6x': size6X,
 }
+
+export type GapTypes = keyof typeof scale
