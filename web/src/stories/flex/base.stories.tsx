@@ -7,54 +7,121 @@ export default {
   component: Flex,
 }
 
+const Box = () => (
+  <div style={{ backgroundColor: 'lightgray', height: 20, width: 20 }} />
+)
+
 export const Base: React.FC<FlexProps> = props => (
   <Flex gap="0.5x" {...props}>
-    <div>Space component</div>
-    <div>Space component 2</div>
+    <Box />
+    <Box />
   </Flex>
 )
 
-export const Sizes: React.FC<FlexProps> = () => (
-  <div>
-    <Flex gap="0">
-      <div>Space component</div>
-      <div>Space component 2</div>
+export const Column: React.FC<FlexProps> = () => (
+  <Flex direction="row">
+    <Flex direction="column" gap="0x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="0.5x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="0.5x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="1x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="1x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="1.5x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="1.5x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="2x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="2x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="2.5x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="2.5x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="3x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="3x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="4x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="4x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="5x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="5x">
+      <Box />
+      <Box />
     </Flex>
-    <Flex gap="6x">
-      <div>Space component</div>
-      <div>Space component 2</div>
+    <Flex direction="column" gap="6x">
+      <Box />
+      <Box />
+    </Flex>
+  </Flex>
+)
+
+export const Row: React.FC<FlexProps> = () => (
+  <Flex direction="column">
+    <Flex direction="row" gap="0x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="0.5x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="1x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="1.5x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="2x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="2.5x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="3x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="4x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="5x">
+      <Box />
+      <Box />
+    </Flex>
+    <Flex direction="row" gap="6x">
+      <Box />
+      <Box />
+    </Flex>
+  </Flex>
+)
+
+export const FlexWrap: React.FC<FlexProps> = () => (
+  <div style={{ maxWidth: 20 * 4 + 8 * 3 }}>
+    <Flex gap="1x" wrap="wrap">
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <Box />
     </Flex>
   </div>
 )
