@@ -14,7 +14,7 @@ export default createUseStyles({
     borderWidth: tokens.borderWidthFormfield,
     borderStyle: 'solid',
     color: tokens.colorTextPrimary,
-    resize: 'none',
+    resize: ({ allowResize }) => (allowResize ? 'vertical' : 'none'),
     width: '100%',
     backgroundColor: ({ isDisabled, isReadOnly }) => {
       if (isDisabled) return tokens.colorBackgroundFormfieldDisabled
@@ -32,6 +32,8 @@ export default createUseStyles({
       }
       return '60px'
     },
+    minHeight: ({ minHeight }) => minHeight,
+    maxHeight: ({ maxHeight }) => maxHeight,
     boxSizing: 'border-box',
     padding: () => {
       return `${tokens.paddingFormfieldTextareaInputtextTopbottom} ${tokens.paddingFormfieldInputtextLeftright}`

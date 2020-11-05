@@ -84,3 +84,15 @@ export const Disabled = (): JSX.Element => (
     <TextArea isDisabled label="Disabled" value="Some value" />
   </Flex>
 )
+
+export const Resizeable = (): JSX.Element => (
+  <Flex gap="2x">
+    <TextArea
+      minHeight={100}
+      maxHeight={200}
+      allowResize
+      label="Resize"
+      maxLength={100}
+    />
+  </Flex>
+)
