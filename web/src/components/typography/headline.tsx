@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTheme } from 'react-jss'
 import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
@@ -12,13 +11,9 @@ export type HeadlineProps = React.FC<{
 }>
 
 export const Headline: HeadlineProps = props => {
-  const theme = useTheme()
   const { size, children, as } = props
 
-  const classes = useStyles({
-    ...props,
-    theme,
-  })
+  const classes = useStyles(props)
 
   const sizedElement = size === 'page' ? 'h1' : 'h2'
   const Component = as || sizedElement

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useTheme } from 'react-jss'
+import clsx from 'clsx'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
@@ -11,24 +11,34 @@ export type ButtonProps = {
   disabled?: boolean
   variant?: 'primary' | 'basic' | 'danger'
   appearance?: 'standard' | 'minimal'
-  size?: 'regular' | 'small'
+  size?: 'regular' | 'small' | 'xs'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'
   ariaLabel?: string
   children?: string
+  className?: string
 }
 
 export const Button: React.FC<ButtonProps> = props => {
-  const theme = useTheme()
   const ref = useRef()
-  const { disabled, icon, children, iconPosition, ariaLabel } = props
+  const {
+    disabled,
+    icon,
+    children,
+    iconPosition,
+    ariaLabel,
+    className,
+    onClick,
+  } = props
   const iconOnly = (children === undefined || children === '') && icon
 
-  const { buttonProps, isPressed } = useButton(props, ref)
+  const { buttonProps, isPressed } = useButton(
+    { ...props, onPress: onClick },
+    ref,
+  )
 
   const classes = useStyles({
     ...props,
-    theme,
     iconOnly,
   })
 
@@ -47,9 +57,11 @@ export const Button: React.FC<ButtonProps> = props => {
   return (
     <FocusRing focusRingClass={classes.focusRing} within>
       <button
-        className={`${classes.button} ${
-          isPressed && !disabled ? `active` : ''
-        }`}
+        className={clsx(
+          classes.button,
+          isPressed && !disabled && `active`,
+          className,
+        )}
         type="button"
         ref={ref}
         {...(ariaLabel && { 'aria-label': ariaLabel })}

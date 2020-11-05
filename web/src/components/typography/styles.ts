@@ -63,6 +63,10 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     textDecoration: ({ strike }: TextProps) => {
       return strike ? 'line-through' : 'none'
     },
+    maxWidth: ({ maxWidth }) => maxWidth,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
   },
   monospace: {
     color: getColorFromProp,

@@ -31,21 +31,18 @@ export default createUseStyles(
         }
       },
       height: ({ size }: ButtonProps) => {
+        if (size === 'xs') return 16
         return size === 'small'
           ? theme.heightButtonSmall
           : theme.heightButtonRegular
       },
       width: ({ iconOnly, size }) => {
+        if (size === 'xs') return 16
         if (!iconOnly) return 'auto'
         return size === 'small'
           ? theme.heightButtonSmall
           : theme.heightButtonRegular
       },
-      // lineHeight: ({ size }: ButtonProps) => {
-      //   return size === 'small'
-      //     ? theme.lineHeightButtonSmall
-      //     : theme.lineHeightButtonRegular
-      // },
       lineHeight: '16px',
       display: 'inline-flex',
       alignItems: 'center',
@@ -122,7 +119,7 @@ export default createUseStyles(
           }
         },
         '& > svg': {
-          transform: 'scale(1.15)',
+          transform: ({ size }) => (size !== 'xs' ? 'scale(1.15)' : null),
         },
       },
       '&:disabled': {

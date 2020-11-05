@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTheme } from 'react-jss'
 import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
@@ -10,13 +9,9 @@ export type MonospaceProps = {
 }
 
 export const Monospace: React.FC<MonospaceProps> = props => {
-  const theme = useTheme()
   const { children } = props
 
-  const classes = useStyles({
-    ...props,
-    theme,
-  })
+  const classes = useStyles(props)
 
   return <div className={classes.monospace}>{children}</div>
 }
