@@ -1,7 +1,7 @@
 import { JssStyle } from 'jss'
 import { createUseStyles } from 'react-jss'
 
-import tokens from '../../tokens'
+import tokens from '../../../tokens'
 
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
@@ -11,12 +11,12 @@ export default createUseStyles(
     },
     avatar: {
       height: ({ size }) => {
-        if (size === 'regular') return theme.size4X
-        return theme.size3X
+        if (size === 'regular') return theme.sizeAvatarMedium
+        return theme.sizeAvatarSmall
       },
       width: ({ size }) => {
-        if (size === 'regular') return theme.size4X
-        return theme.size3X
+        if (size === 'regular') return theme.sizeAvatarMedium
+        return theme.sizeAvatarSmall
       },
       borderRadius: '50%',
       backgroundColor: ({ isSelected }) => {
@@ -24,6 +24,15 @@ export default createUseStyles(
         return theme.colorBackgroundAvatarUser
       },
       opacity: ({ isInactive }) => (isInactive ? '0.5' : 1),
+    },
+    selected: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    icon: {
+      display: 'flex',
+      color: theme.colorBackgroundAvatarSelectedIcon,
     },
     status: {
       width: theme.sizePresenceIndicatorSmall,
