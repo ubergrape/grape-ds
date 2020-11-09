@@ -20,7 +20,7 @@ export const Tag: React.FC<Props> = props => {
       <Text
         maxWidth={props.maxWidth}
         as="div"
-        size="regular"
+        size="base"
         title={children}
         className={classes.text}
       >

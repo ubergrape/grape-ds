@@ -30,7 +30,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     },
     lineHeight: ({ size }: TextProps) => {
       switch (size) {
-        case 'regular':
+        case 'base':
           return theme.lineHeightBodyBase
         case 'large':
           return theme.lineHeightBodyLarge
@@ -42,7 +42,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     },
     fontSize: ({ size }: TextProps) => {
       switch (size) {
-        case 'regular':
+        case 'base':
           return theme.fontSizeBodyBase
         case 'large':
           return theme.fontSizeBodyLarge

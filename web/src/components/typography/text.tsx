@@ -1,15 +1,16 @@
 import clsx from 'clsx'
 import React from 'react'
-import { sizes } from '../../types'
+import { textSizes } from '../../types'
 import { TextColorType } from './helper'
 
 import { useStyles } from './styles'
 
 export interface Props {
-  size?: sizes
+  size: textSizes
   children:
     | string
-    | React.ReactNode
+    | string[]
+    | number
     | JSX.Element
     | Element[]
     | Array<JSX.Element>
@@ -54,7 +55,7 @@ export const Text: React.FC<TextProps> = props => {
 }
 
 Text.defaultProps = {
-  size: 'regular',
+  size: 'base',
   children: 'My Text',
   emphasis: false,
   italic: false,
