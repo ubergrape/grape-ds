@@ -8,7 +8,13 @@ import { useStyles } from './styles'
 
 export interface Props {
   size: textSizes
-  children: string | JSX.Element | Element[] | Array<JSX.Element>
+  children:
+    | string
+    | string[]
+    | number
+    | JSX.Element
+    | Element[]
+    | Array<JSX.Element>
   emphasis?: boolean
   italic?: boolean
   strike?: boolean

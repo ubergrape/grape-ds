@@ -130,7 +130,7 @@ export const GenericField: React.FC<
         />
         {maxLength && (
           <div className={classes.counter}>
-            <Text size="regular" color={invalid ? 'danger' : 'primary'}>
+            <Text size="base" color={invalid ? 'danger' : 'primary'}>
               {allowedChars}
             </Text>
           </div>
