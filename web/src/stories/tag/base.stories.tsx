@@ -33,7 +33,9 @@ export const Tags = (): JSX.Element => (
 )
 
 export const Removeable = (): JSX.Element => (
-  <Tag onRemove={() => alert('Remove')}>Remove me</Tag>
+  <Tag onRemove={() => alert('Remove')} removeAriaLabel="Remove Label">
+    Remove me
+  </Tag>
 )
 
 export const Avatar = (): JSX.Element => (

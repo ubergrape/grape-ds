@@ -9,6 +9,7 @@ export interface Props {
   maxWidth?: number
   children: string
   avatar?: string
+  removeAriaLabel?: string
 }
 
 export const Tag: React.FC<Props> = props => {
@@ -34,6 +35,7 @@ export const Tag: React.FC<Props> = props => {
           icon="close"
           size="xs"
           className={classes.button}
+          ariaLabel={props.removeAriaLabel}
         />
       )}
     </Flex>
