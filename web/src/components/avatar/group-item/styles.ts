@@ -25,5 +25,11 @@ export default createUseStyles(
       color: theme.colorTextAvatarItemSecondary,
       marginLeft: ({ size }) => (size === 'small' ? theme.spaceAvatarItem : 0),
     },
+    members: {
+      display: 'flex',
+    },
+    membersCount: {
+      marginLeft: theme.spaceMembersCount,
+    },
   }),
 )

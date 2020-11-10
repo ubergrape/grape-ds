@@ -1,9 +1,9 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import useStyles from './styles'
-
 import { Icon } from '../../icon'
+
+import useStyles from './styles'
 
 export type AvatarProps = {
   src?: string

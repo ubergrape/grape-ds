@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { AvatarItem, AvatarItemProps } from '../../components/avatar'
+import { GroupItem, AvatarItemProps } from '../../components/avatar'
 
 export default {
-  title: 'Components/AvatarItem',
-  component: AvatarItem,
+  title: 'Components/GroupItem',
+  component: GroupItem,
 }
 
 export const Base: React.FC<AvatarItemProps> = props => (
-  <AvatarItem name="First-name Last-name" {...props} />
+  <GroupItem name="Group name" {...props} />
 )
 
 Base.parameters = {

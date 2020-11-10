@@ -11,12 +11,12 @@ export default createUseStyles(
     },
     avatar: {
       height: ({ size }) => {
-        if (size === 'regular') return theme.sizeAvatarMedium
-        return theme.sizeAvatarSmall
+        if (size === 'small') return theme.sizeAvatarSmall
+        return theme.sizeAvatarMedium
       },
       width: ({ size }) => {
-        if (size === 'regular') return theme.sizeAvatarMedium
-        return theme.sizeAvatarSmall
+        if (size === 'small') return theme.sizeAvatarSmall
+        return theme.sizeAvatarMedium
       },
       borderRadius: '50%',
       backgroundColor: ({ isSelected }) => {
@@ -35,8 +35,14 @@ export default createUseStyles(
       color: theme.colorBackgroundAvatarSelectedIcon,
     },
     status: {
-      width: theme.sizePresenceIndicatorSmall,
-      height: theme.sizePresenceIndicatorSmall,
+      width: ({ size }) => {
+        if (size === 'small') return theme.sizePresenceIndicatorSmall
+        return theme.sizePresenceIndicatorMedium
+      },
+      height: ({ size }) => {
+        if (size === 'small') return theme.sizePresenceIndicatorSmall
+        return theme.sizePresenceIndicatorMedium
+      },
       border: `${theme.borderWidthPresenceIndicator} solid ${theme.colorBorderPresenceIndicator}`,
       borderRadius: '50%',
       position: 'absolute',

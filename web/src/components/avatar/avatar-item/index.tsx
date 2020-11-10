@@ -7,7 +7,7 @@ import { Avatar, AvatarProps } from '..'
 
 export interface AvatarItemProps extends AvatarProps {
   name: string
-  description: string
+  description?: string
 }
 
 export const AvatarItem: React.FC<AvatarItemProps> = props => {
@@ -22,14 +22,14 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
         <Text emphasis size="small" className={classes.name}>
           {name}
         </Text>
-        <Text size="small" className={classes.description}>
-          {description}
-        </Text>
+        {description && (
+          <Text size="small" className={classes.description}>
+            {description}
+          </Text>
+        )}
       </div>
     </div>
   )
 }
-
-AvatarItem.defaultProps = {}
 
 export default AvatarItem
