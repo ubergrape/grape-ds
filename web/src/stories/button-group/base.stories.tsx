@@ -2,6 +2,7 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 
 import { Button } from '../../components/button'
+import { Flex } from '../../components/layout'
 import { ButtonGroupProps, ButtonGroup } from '../../components/button-group'
 
 export default {
@@ -27,24 +28,26 @@ Base.parameters = {
 
 export const Alignment: React.FC<ButtonGroupProps> = () => (
   <div>
-    <ButtonGroup margin={16}>
-      <Button variant="primary" onPress={action('clicked')}>
-        Button
-      </Button>
-      <Button onPress={action('clicked')}>Button</Button>
-      <Button appearance="minimal" onPress={action('clicked')}>
-        Button
-      </Button>
-    </ButtonGroup>
-    <ButtonGroup margin={16} align="right">
-      <Button variant="primary" onPress={action('clicked')}>
-        Button
-      </Button>
-      <Button onPress={action('clicked')}>Button</Button>
-      <Button appearance="minimal" onPress={action('clicked')}>
-        Button
-      </Button>
-    </ButtonGroup>
+    <Flex direction="column" gap="2x">
+      <ButtonGroup>
+        <Button variant="primary" onPress={action('clicked')}>
+          Button
+        </Button>
+        <Button onPress={action('clicked')}>Button</Button>
+        <Button appearance="minimal" onPress={action('clicked')}>
+          Button
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup align="right">
+        <Button variant="primary" onPress={action('clicked')}>
+          Button
+        </Button>
+        <Button onPress={action('clicked')}>Button</Button>
+        <Button appearance="minimal" onPress={action('clicked')}>
+          Button
+        </Button>
+      </ButtonGroup>
+    </Flex>
   </div>
 )
 

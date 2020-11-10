@@ -36,7 +36,7 @@ export const InputLabel: React.FC<Props> = props => {
   return (
     <Wrapper
       {...(hasLabel && {
-        size: 'regular',
+        size: 'base',
         as: 'label',
         color: disabled ? 'secondary' : 'primary',
         htmlFor: id,

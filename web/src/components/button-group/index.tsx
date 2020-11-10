@@ -5,7 +5,6 @@ import useStyles from './styles'
 
 export type ButtonGroupProps = {
   align?: 'left' | 'right'
-  margin?: number
   children: Array<ReactElement>
 }
 
