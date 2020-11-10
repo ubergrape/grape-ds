@@ -4,6 +4,9 @@ import tokens from '../../../tokens'
 
 export default createUseStyles((theme: typeof tokens) => ({
   wrapper: {
+
+  },
+  tabs: {
     display: 'flex',
     height: ({ size }) => (size === 'small' ? theme.size3X : theme.size4X),
     justifyContent: ({ align }) => {

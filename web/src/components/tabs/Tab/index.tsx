@@ -2,6 +2,7 @@ import React from 'react'
 import { useTheme } from 'react-jss'
 import clsx from 'clsx'
 
+import { textSizes } from '../../../types'
 import { Text } from '../../typography'
 import { useFocusStyle } from '../../../styles/global'
 
@@ -11,7 +12,7 @@ export type TabProps = {
   onChangeTab: (tab: number) => void
   tab: number
   activeTab: number
-  size: 'large' | 'regular' | 'small'
+  size: textSizes
   align?: 'left' | 'right' | 'justify'
   children: string
 }
@@ -68,5 +69,3 @@ export const Tab: React.FC<TabProps> = props => {
     </button>
   )
 }
-
-Tab.defaultProps = {}

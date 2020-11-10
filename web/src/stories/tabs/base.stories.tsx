@@ -1,6 +1,11 @@
 import React from 'react'
 
-import { Tabs, Tab, TabsProps } from '../../components/tabs/index.tsx'
+import {
+  Tabs,
+  TabPanels,
+  Tab,
+  TabsProps,
+} from '../../components/tabs/index.tsx'
 
 export default {
   title: 'Components/Tabs',
@@ -12,6 +17,11 @@ export const Base: React.FC<TabsProps> = props => (
     <Tab>Tab name 1</Tab>
     <Tab>Tab name 2 </Tab>
     <Tab>Tab name 3</Tab>
+    <TabPanels>
+      <div>Tab 1 content</div>
+      <div>Tab 2 content</div>
+      <div>Tab 3 content</div>
+    </TabPanels>
   </Tabs>
 )
 
@@ -29,16 +39,31 @@ export const Alignment: React.FC<TabsProps> = () => (
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
+      <TabPanels>
+        <div>Tab 1 content</div>
+        <div>Tab 2 content</div>
+        <div>Tab 3 content</div>
+      </TabPanels>
     </Tabs>
     <Tabs align="right">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
+      <TabPanels>
+        <div>Tab 1 content</div>
+        <div>Tab 2 content</div>
+        <div>Tab 3 content</div>
+      </TabPanels>
     </Tabs>
     <Tabs align="justify">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
+      <TabPanels>
+        <div>Tab 1 content</div>
+        <div>Tab 2 content</div>
+        <div>Tab 3 content</div>
+      </TabPanels>
     </Tabs>
   </div>
 )
@@ -58,16 +83,31 @@ export const Size: React.FC<TabsProps> = () => (
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
+      <TabPanels>
+        <div>Tab 1 content</div>
+        <div>Tab 2 content</div>
+        <div>Tab 3 content</div>
+      </TabPanels>
     </Tabs>
     <Tabs size="regular">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
+      <TabPanels>
+        <div>Tab 1 content</div>
+        <div>Tab 2 content</div>
+        <div>Tab 3 content</div>
+      </TabPanels>
     </Tabs>
     <Tabs size="large">
       <Tab>Tab name 1</Tab>
       <Tab>Tab name 2 </Tab>
       <Tab>Tab name 3</Tab>
+      <TabPanels>
+        <div>Tab 1 content</div>
+        <div>Tab 2 content</div>
+        <div>Tab 3 content</div>
+      </TabPanels>
     </Tabs>
   </div>
 )
