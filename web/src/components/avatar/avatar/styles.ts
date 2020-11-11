@@ -3,7 +3,7 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
 
-import AvatarProps from '.'
+import { AvatarProps } from '.'
 
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({

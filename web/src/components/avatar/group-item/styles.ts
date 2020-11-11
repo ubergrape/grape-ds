@@ -3,7 +3,7 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
 
-import GroupItemProps from '.'
+import { GroupItemProps } from '.'
 
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
@@ -20,10 +20,7 @@ export default createUseStyles(
       marginLeft: theme.spaceAvatarItem,
     },
     name: {
-      color: ({ isInactive }: GroupItemProps) =>
-        isInactive
-          ? theme.colorTextAvatarItemPrimaryInactive
-          : theme.colorTextAvatarItemPrimary,
+      color: theme.colorTextAvatarItemPrimary,
     },
     description: {
       color: theme.colorTextAvatarItemSecondary,
