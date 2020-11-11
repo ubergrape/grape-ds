@@ -11,7 +11,7 @@ export type ButtonProps = {
   disabled?: boolean
   variant?: 'primary' | 'basic' | 'danger'
   appearance?: 'standard' | 'minimal'
-  size?: 'regular' | 'small' | 'xs'
+  size?: 'regular' | 'small'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'
   ariaLabel?: string

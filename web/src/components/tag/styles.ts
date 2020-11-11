@@ -20,6 +20,11 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     '&:hover': {
       backgroundColor: theme.colorBackgroundTagBasicRemoveHover,
     },
+    width: theme.size2X,
+    height: theme.size2X,
+    '& > svg': {
+      transform: 'none !important',
+    },
   },
   avatar: {
     width: theme.size2X,

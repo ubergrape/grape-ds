@@ -33,7 +33,6 @@ export const Tag: React.FC<Props> = props => {
           variant="basic"
           appearance="minimal"
           icon="close"
-          size="xs"
           className={classes.button}
           ariaLabel={props.removeAriaLabel}
         />

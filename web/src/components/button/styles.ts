@@ -31,13 +31,11 @@ export default createUseStyles(
         }
       },
       height: ({ size }: ButtonProps) => {
-        if (size === 'xs') return 16
         return size === 'small'
           ? theme.heightButtonSmall
           : theme.heightButtonRegular
       },
       width: ({ iconOnly, size }) => {
-        if (size === 'xs') return 16
         if (!iconOnly) return 'auto'
         return size === 'small'
           ? theme.heightButtonSmall
@@ -119,7 +117,7 @@ export default createUseStyles(
           }
         },
         '& > svg': {
-          transform: ({ size }) => (size !== 'xs' ? 'scale(1.15)' : null),
+          transform: 'scale(1.15)',
         },
       },
       '&:disabled': {
