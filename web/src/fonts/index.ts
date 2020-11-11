@@ -1,6 +1,7 @@
 import { JssStyle } from 'jss'
 
 import constants from '../constants'
+import tokens from '../tokens/tokens.json'
 
 const getFontFace = ({
   family,
@@ -44,6 +45,9 @@ const fonts: Record<string, any> = {
         style: 'SemiBold',
       }),
     ],
+    html: {
+      fontFamily: tokens.fontFamily,
+    },
   },
 }
 

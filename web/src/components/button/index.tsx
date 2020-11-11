@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { useTheme } from 'react-jss'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
+import clsx from 'clsx'
 
 import useStyles from './styles'
 import { Icon, IconTypes } from '../icon'
@@ -16,15 +17,20 @@ export type ButtonProps = {
   iconPosition?: 'left' | 'right'
   ariaLabel?: string
   children?: string
+  className?: string
 }
 
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
   const ref = useRef()
-  const { disabled, icon, children, iconPosition, ariaLabel } = props
+  const { disabled, icon, children, iconPosition, ariaLabel, className } = props
+  const { onClick, ...rest } = props
   const iconOnly = (children === undefined || children === '') && icon
 
-  const { buttonProps, isPressed } = useButton(props, ref)
+  const { buttonProps, isPressed } = useButton(
+    { ...rest, onPress: onClick },
+    ref,
+  )
 
   const classes = useStyles({
     ...props,
@@ -47,9 +53,11 @@ export const Button: React.FC<ButtonProps> = props => {
   return (
     <FocusRing focusRingClass={classes.focusRing} within>
       <button
-        className={`${classes.button} ${
-          isPressed && !disabled ? `active` : ''
-        }`}
+        className={clsx(
+          classes.button,
+          isPressed && !disabled && 'active',
+          className,
+        )}
         type="button"
         ref={ref}
         {...(ariaLabel && { 'aria-label': ariaLabel })}
