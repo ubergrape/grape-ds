@@ -2,7 +2,6 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
 import { getColorFromType } from './helper'
-import { TextProps } from './text'
 
 const maxWithDefaultValues = ['none', 'initial']
 
@@ -34,39 +33,47 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
   text: ({ maxWidth, emphasis, italic, strike, size }) => {
     const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
 
+    let fontSize = theme.fontSizeBodyBase
+    switch (size) {
+      case 'base':
+        fontSize = theme.fontSizeBodyBase
+        break
+      case 'large':
+        fontSize = theme.fontSizeBodyLarge
+        break
+      case 'small':
+        fontSize = theme.fontSizeBodySmall
+        break
+      default:
+        fontSize = theme.fontSizeBodyBase
+        break
+    }
+
+    let lineHeight = theme.lineHeightBodySmall
+    switch (size) {
+      case 'base':
+        lineHeight = theme.lineHeightBodyBase
+        break
+      case 'large':
+        lineHeight = theme.lineHeightBodyLarge
+        break
+      case 'small':
+        lineHeight = theme.lineHeightBodySmall
+        break
+      default:
+        lineHeight = theme.lineHeightBodySmall
+        break
+    }
+
     return {
       color: getColorFromProp,
       maxWidth,
       whiteSpace: isMaxWidthNonDefault ? 'nowrap' : 'normal',
       overflow: isMaxWidthNonDefault ? 'hidden' : 'visible',
       textOverflow: isMaxWidthNonDefault ? 'ellipsis' : 'clip',
-      fontFamily: () => {
-        return theme.fontFamilyBody
-      },
-      lineHeight: () => {
-        switch (size) {
-          case 'base':
-            return theme.lineHeightBodyBase
-          case 'large':
-            return theme.lineHeightBodyLarge
-          case 'small':
-            return theme.lineHeightBodySmall
-          default:
-            return theme.lineHeightBodySmall
-        }
-      },
-      fontSize: () => {
-        switch (size) {
-          case 'base':
-            return theme.fontSizeBodyBase
-          case 'large':
-            return theme.fontSizeBodyLarge
-          case 'small':
-            return theme.fontSizeBodySmall
-          default:
-            return theme.fontSizeBodyBase
-        }
-      },
+      fontFamily: theme.fontFamilyBody,
+      lineHeight,
+      fontSize,
       fontWeight: emphasis
         ? theme.fontWeightBodyEmphasis
         : theme.fontWeightBodyRegular,
@@ -74,10 +81,18 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
       textDecoration: strike ? 'line-through' : 'none',
     }
   },
-  monospace: {
-    color: getColorFromProp,
-    fontFamily: theme.fontFamilyMonospace,
-    fontSize: theme.fontSizeBodyBase,
-    lineHeight: theme.lineHeightBodyBase,
+  monospace: ({ maxWidth }) => {
+    const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+
+    return {
+      maxWidth,
+      whiteSpace: isMaxWidthNonDefault ? 'nowrap' : 'normal',
+      overflow: isMaxWidthNonDefault ? 'hidden' : 'visible',
+      textOverflow: isMaxWidthNonDefault ? 'ellipsis' : 'clip',
+      color: getColorFromProp,
+      fontFamily: theme.fontFamilyMonospace,
+      fontSize: theme.fontSizeBodyBase,
+      lineHeight: theme.lineHeightBodyBase,
+    }
   },
 }))
