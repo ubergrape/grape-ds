@@ -1,9 +1,10 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import { textSizes } from '../../../types'
+import { sizes, flexAlignments } from '../../../types'
 import { Text } from '../../typography'
 import { useFocusStyle } from '../../../styles/global'
+import { getTextSize } from '../../../utils'
 
 import useStyles from './styles'
 
@@ -11,8 +12,8 @@ export type TabProps = {
   onChangeTab: (tab: number) => void
   tab: number
   activeTab: number
-  size: textSizes
-  align?: 'left' | 'right' | 'justify'
+  size: sizes
+  align?: flexAlignments
   children: string
 }
 
@@ -56,7 +57,7 @@ export const Tab: React.FC<TabProps> = props => {
       <Text
         color={isActive ? 'active' : 'primary'}
         className={classes.text}
-        size={size}
+        size={getTextSize(size)}
       >
         {children}
       </Text>

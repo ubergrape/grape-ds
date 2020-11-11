@@ -1,14 +1,14 @@
 import React, { ReactElement, useState } from 'react'
 
-import { textSizes } from '../../../types'
+import { sizes, flexAlignments } from '../../../types'
 import { TabPanels } from '../TabPanels'
 import { Tab } from '../Tab'
 
 import useStyles from './styles'
 
 export type TabsProps = {
-  size?: textSizes
-  align?: 'left' | 'right' | 'justify'
+  size?: sizes
+  align?: flexAlignments
   children: Array<ReactElement>
 }
 
@@ -59,6 +59,6 @@ export const Tabs: React.FC<TabsProps> = props => {
 }
 
 Tabs.defaultProps = {
-  size: 'base',
+  size: 'regular',
   align: 'left',
 }
