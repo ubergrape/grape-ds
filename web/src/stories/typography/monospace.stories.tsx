@@ -15,3 +15,11 @@ export const Base = Template.bind({})
 Base.args = {
   children: 'Monospace',
 }
+
+export const Truncated: React.FC = () => (
+  <div>
+    <Monospace maxWidth={150}>
+      Monospace Monospace Monospace Monospace Monospace
+    </Monospace>
+  </div>
+)
