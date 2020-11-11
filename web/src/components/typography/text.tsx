@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import React from 'react'
-import { useTheme } from 'react-jss'
 import { textSizes } from '../../types'
 import { TextColorType } from './helper'
 
@@ -20,6 +19,7 @@ export interface Props {
   strike?: boolean
   color?: TextColorType
   className?: string
+  maxWidth?: number | string
 }
 
 export interface DefaultTextProps extends Props {
@@ -36,13 +36,9 @@ export type TextProps = DefaultTextProps | LabelProps
 const isLabel = (va): va is LabelProps => va.as === 'label'
 
 export const Text: React.FC<TextProps> = props => {
-  const theme = useTheme()
   const { children, as = 'div', className } = props
 
-  const classes = useStyles({
-    ...props,
-    theme,
-  })
+  const classes = useStyles(props)
 
   const Component = as
 
@@ -59,6 +55,7 @@ export const Text: React.FC<TextProps> = props => {
 Text.defaultProps = {
   size: 'base',
   children: 'My Text',
+  maxWidth: 'none',
   emphasis: false,
   italic: false,
   strike: false,

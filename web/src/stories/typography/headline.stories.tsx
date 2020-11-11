@@ -16,6 +16,14 @@ Base.args = {
   children: 'Headline',
 }
 
+export const Truncated: React.FC = () => (
+  <div>
+    <Headline maxWidth={150}>
+      Headline Headline Headline Headline Headline
+    </Headline>
+  </div>
+)
+
 export const Sizes: React.FC = () => (
   <div>
     <Headline size="page">Headline Page</Headline>
