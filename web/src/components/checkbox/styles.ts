@@ -2,37 +2,45 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
 
-const getColorDefault = ({
-  checked,
-  invalid,
-  disabled,
-  indeterminate,
-}): string => {
-  if (disabled) {
-    return checked
+type InputProps = {
+  isChecked?: boolean
+  isInvalid?: boolean
+  isDisabled?: boolean
+  isIndeterminate?: boolean
+}
+
+export const getColorDefault = ({
+  isChecked,
+  isInvalid,
+  isDisabled,
+  isIndeterminate,
+}: InputProps): string => {
+  if (isDisabled) {
+    return isChecked
       ? tokens.colorBorderFormcontrolOnDisabled
       : tokens.colorBorderFormcontrolOffDisabled
   }
-  if (invalid) return tokens.colorBorderFormcontrolInvalidDefault
-  if (checked) return tokens.colorBorderFormcontrolOnDefault
-  if (!checked && indeterminate) return tokens.colorBorderFormcontrolOnDefault
+  if (isInvalid) return tokens.colorBorderFormcontrolInvalidDefault
+  if (isChecked) return tokens.colorBorderFormcontrolOnDefault
+  if (!isChecked && isIndeterminate)
+    return tokens.colorBorderFormcontrolOnDefault
 
   return tokens.colorBorderFormcontrolOffDefault
 }
 
-const getColorHover = ({
-  checked,
-  invalid,
-  disabled,
-  indeterminate,
-}): string => {
-  if (disabled) {
-    return checked
+export const getColorHover = ({
+  isChecked,
+  isInvalid,
+  isDisabled,
+  isIndeterminate,
+}: InputProps): string => {
+  if (isDisabled) {
+    return isChecked
       ? tokens.colorBorderFormcontrolOnDisabled
       : tokens.colorBorderFormcontrolOffDisabled
   }
-  if (invalid) return tokens.colorBorderFormcontrolInvalidHover
-  if (checked || indeterminate) return tokens.colorBorderFormcontrolOnHover
+  if (isInvalid) return tokens.colorBorderFormcontrolInvalidHover
+  if (isChecked || isIndeterminate) return tokens.colorBorderFormcontrolOnHover
 
   return tokens.colorBorderFormcontrolOffHover
 }
@@ -48,7 +56,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    cursor: ({ disabled }) => (disabled ? 'not-allowed' : 'pointer'),
+    cursor: ({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer'),
     '&:hover': {
       borderColor: getColorHover,
       color: getColorHover,
