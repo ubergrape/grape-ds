@@ -56,6 +56,4 @@ export const SearchField: React.FC<
   )
 }
 
-SearchField.defaultProps = {}
-
 export default SearchField

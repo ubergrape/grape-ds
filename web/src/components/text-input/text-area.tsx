@@ -13,6 +13,4 @@ export const TextArea: React.FC<
   return <GenericField {...props} component="textarea" />
 }
 
-TextArea.defaultProps = {}
-
 export default TextArea
