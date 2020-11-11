@@ -2,14 +2,14 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
 
-export default createUseStyles((theme: typeof tokens) => ({
-  wrapper: {
+import { TabsProps } from '.'
 
-  },
+export default createUseStyles((theme: typeof tokens) => ({
   tabs: {
     display: 'flex',
-    height: ({ size }) => (size === 'small' ? theme.size3X : theme.size4X),
-    justifyContent: ({ align }) => {
+    height: ({ size }: TabsProps) =>
+      size === 'small' ? theme.size3X : theme.size4X,
+    justifyContent: ({ align }: TabsProps) => {
       switch (align) {
         case 'left':
           return 'flex'

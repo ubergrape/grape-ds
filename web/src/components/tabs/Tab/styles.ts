@@ -2,8 +2,10 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
 
+import { TabProps } from '.'
+
 export default createUseStyles((theme: typeof tokens) => ({
-  button: ({ activeTab, tab, align }) => {
+  button: ({ activeTab, tab, align }: TabProps) => {
     const isActive = activeTab === tab
 
     return {

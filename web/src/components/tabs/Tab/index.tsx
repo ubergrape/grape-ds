@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTheme } from 'react-jss'
 import clsx from 'clsx'
 
 import { textSizes } from '../../../types'
@@ -22,13 +21,8 @@ export const Tab: React.FC<TabProps> = props => {
 
   const tabRef = React.useRef(null)
 
-  const theme = useTheme()
-
   const { onFocusVisible } = useFocusStyle(props)
-  const classes = useStyles({
-    ...props,
-    theme,
-  })
+  const classes = useStyles(props)
 
   const isActive = activeTab === tab
 

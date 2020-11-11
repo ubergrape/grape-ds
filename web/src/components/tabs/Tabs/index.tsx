@@ -1,5 +1,4 @@
 import React, { ReactElement, useState } from 'react'
-import { useTheme } from 'react-jss'
 
 import { textSizes } from '../../../types'
 import { TabPanels } from '../TabPanels'
@@ -14,12 +13,7 @@ export type TabsProps = {
 }
 
 export const Tabs: React.FC<TabsProps> = props => {
-  const theme = useTheme()
-
-  const classes = useStyles({
-    ...props,
-    theme,
-  })
+  const classes = useStyles(props)
 
   const { children, size, align } = props
 
@@ -35,8 +29,8 @@ export const Tabs: React.FC<TabsProps> = props => {
   ).props.children
 
   return (
-    <div role="tablist" className={classes.wrapper}>
-      <div className={classes.tabs}>
+    <div>
+      <div role="tablist" className={classes.tabs}>
         {children.map((tab: any, i) => {
           const {
             props: { children: text },
