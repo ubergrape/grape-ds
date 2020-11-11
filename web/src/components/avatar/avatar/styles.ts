@@ -3,6 +3,8 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
 
+import AvatarProps from '.'
+
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
@@ -10,20 +12,20 @@ export default createUseStyles(
       position: 'relative',
     },
     avatar: {
-      height: ({ size }) => {
+      height: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizeAvatarSmall
         return theme.sizeAvatarMedium
       },
-      width: ({ size }) => {
+      width: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizeAvatarSmall
         return theme.sizeAvatarMedium
       },
       borderRadius: '50%',
-      backgroundColor: ({ isSelected }) => {
+      backgroundColor: ({ isSelected }: AvatarProps) => {
         if (isSelected) return theme.colorBackgroundAvatarSelected
         return theme.colorBackgroundAvatarUser
       },
-      opacity: ({ isInactive }) => (isInactive ? '0.5' : 1),
+      opacity: ({ isInactive }: AvatarProps) => (isInactive ? '0.5' : 1),
     },
     selected: {
       display: 'flex',
@@ -35,11 +37,11 @@ export default createUseStyles(
       color: theme.colorBackgroundAvatarSelectedIcon,
     },
     status: {
-      width: ({ size }) => {
+      width: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizePresenceIndicatorSmall
         return theme.sizePresenceIndicatorMedium
       },
-      height: ({ size }) => {
+      height: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizePresenceIndicatorSmall
         return theme.sizePresenceIndicatorMedium
       },
@@ -47,7 +49,7 @@ export default createUseStyles(
       borderRadius: '50%',
       position: 'absolute',
       boxSizing: 'border-box',
-      backgroundColor: ({ status }) => {
+      backgroundColor: ({ status }: AvatarProps) => {
         switch (status) {
           case 'offline':
             return 'red'

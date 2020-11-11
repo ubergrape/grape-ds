@@ -8,7 +8,7 @@ export default {
 }
 
 export const Base: React.FC<AvatarItemProps> = props => (
-  <AvatarItem name="First-name Last-name" {...props} />
+  <AvatarItem {...props} />
 )
 
 Base.parameters = {

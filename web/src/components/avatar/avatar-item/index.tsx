@@ -32,4 +32,8 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
   )
 }
 
+AvatarItem.defaultProps = {
+  name: 'First-name Last-name',
+}
+
 export default AvatarItem

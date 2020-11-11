@@ -8,7 +8,7 @@ export default {
 }
 
 export const Base: React.FC<AvatarItemProps> = props => (
-  <GroupItem name="Group name" {...props} />
+  <GroupItem {...props} />
 )
 
 Base.parameters = {

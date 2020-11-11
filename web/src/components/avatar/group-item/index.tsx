@@ -49,4 +49,8 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
   )
 }
 
+GroupItem.defaultProps = {
+  name: 'Group name',
+}
+
 export default GroupItem

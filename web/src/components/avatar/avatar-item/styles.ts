@@ -3,6 +3,8 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
 
+import AvatarItemProps from '.'
+
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
@@ -10,20 +12,23 @@ export default createUseStyles(
     },
     text: {
       display: 'flex',
-      flexDirection: ({ size }) => (size === 'small' ? 'row' : 'column'),
-      alignItems: ({ size }) => (size === 'small' ? 'center' : 'initial'),
+      flexDirection: ({ size }: AvatarItemProps) =>
+        size === 'small' ? 'row' : 'column',
+      alignItems: ({ size }: AvatarItemProps) =>
+        size === 'small' ? 'center' : 'initial',
       justifyContent: 'center',
       marginLeft: theme.spaceAvatarItem,
     },
     name: {
-      color: ({ isInactive }) =>
+      color: ({ isInactive }: AvatarItemProps) =>
         isInactive
           ? theme.colorTextAvatarItemPrimaryInactive
           : theme.colorTextAvatarItemPrimary,
     },
     description: {
       color: theme.colorTextAvatarItemSecondary,
-      marginLeft: ({ size }) => (size === 'small' ? theme.spaceAvatarItem : 0),
+      marginLeft: ({ size }: AvatarItemProps) =>
+        size === 'small' ? theme.spaceAvatarItem : 0,
     },
   }),
 )

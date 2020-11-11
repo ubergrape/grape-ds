@@ -3,6 +3,8 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
 
+import GroupProps from '.'
+
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
@@ -13,11 +15,11 @@ export default createUseStyles(
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      height: ({ size }) => {
+      height: ({ size }: GroupProps) => {
         if (size === 'small') return theme.sizeAvatarSmall
         return theme.sizeAvatarMedium
       },
-      width: ({ size }) => {
+      width: ({ size }: GroupProps) => {
         if (size === 'small') return theme.sizeAvatarSmall
         return theme.sizeAvatarMedium
       },
@@ -25,16 +27,16 @@ export default createUseStyles(
       backgroundColor: theme.colorBackgroundAvatarGroup,
     },
     color: {
-      width: ({ size }) => {
+      width: ({ size }: GroupProps) => {
         if (size === 'small') return theme.sizeGroupcolorSmall
         return theme.sizeGroupcolorMedium
       },
-      height: ({ size }) => {
+      height: ({ size }: GroupProps) => {
         if (size === 'small') return theme.sizeGroupcolorSmall
         return theme.sizeGroupcolorMedium
       },
       borderRadius: '50%',
-      backgroundColor: ({ color }) => {
+      backgroundColor: ({ color }: GroupProps) => {
         switch (color) {
           case 'grey':
             return theme.colorBackgroundAvatarGroupColor01
@@ -78,11 +80,11 @@ export default createUseStyles(
       bottom: 0,
       borderRadius: '50%',
       backgroundColor: theme.colorBackgroundGrouptypeIndicator,
-      width: ({ size }) => {
+      width: ({ size }: GroupProps) => {
         if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
         return theme.sizeGrouptypeIndicatorMedium
       },
-      height: ({ size }) => {
+      height: ({ size }: GroupProps) => {
         if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
         return theme.sizeGrouptypeIndicatorMedium
       },
