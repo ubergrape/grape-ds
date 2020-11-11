@@ -35,9 +35,7 @@ export default createUseStyles({
     minHeight: ({ minHeight }) => minHeight,
     maxHeight: ({ maxHeight }) => maxHeight,
     boxSizing: 'border-box',
-    padding: () => {
-      return `${tokens.paddingFormfieldTextareaInputtextTopbottom} ${tokens.paddingFormfieldInputtextLeftright}`
-    },
+    padding: `${tokens.paddingFormfieldTextareaInputtextTopbottom} ${tokens.paddingFormfieldInputtextLeftright}`,
     paddingRight: ({ maxLength, component }) => {
       if (maxLength && component === 'input')
         return `calc(${tokens.paddingFormfieldInputtextCounter} + 50px)`
