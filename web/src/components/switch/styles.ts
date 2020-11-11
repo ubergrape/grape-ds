@@ -40,7 +40,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     borderStyle: 'solid',
     position: 'relative',
     alignItems: 'center',
-    cursor: ({ disabled }) => (disabled ? 'not-allowed' : 'pointer'),
+    cursor: ({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer'),
     '&:hover:not(:focus)': {
       borderColor: getColorHover,
       color: getColorHover,

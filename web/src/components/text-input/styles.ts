@@ -58,6 +58,7 @@ export default createUseStyles({
     color: tokens.colorTextFormfieldLabel,
     fontSize: tokens.fontSizeBodySmall,
     fontWeight: tokens.fontWeightBodyEmphasis,
+    lineHeight: tokens.lineHeightBodySmall,
   },
   validationWrapper: {
     display: 'flex',

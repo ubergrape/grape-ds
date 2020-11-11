@@ -26,9 +26,9 @@ Base.args = {
 export const WithLabel = (): JSX.Element => (
   <div>
     <Checkbox label="Label" name="form-name" />
-    <Checkbox label="Label" checked />
-    <Checkbox label="Label" invalid />
-    <Checkbox label="Label" indeterminate />
+    <Checkbox label="Label" isChecked />
+    <Checkbox label="Label" isInvalid />
+    <Checkbox label="Label" isIndeterminate />
     <Checkbox label="Label" helpText="with help text" />
   </div>
 )
@@ -36,22 +36,22 @@ export const WithLabel = (): JSX.Element => (
 export const WithoutLabel = (): JSX.Element => (
   <div>
     <Checkbox ariaLabel="My aria" id="random-id" />
-    <Checkbox ariaLabel="Checkbox checked" checked />
-    <Checkbox ariaLabel="Checkbox invalid" invalid />
-    <Checkbox ariaLabel="Checkbox indeterminate" indeterminate />
+    <Checkbox ariaLabel="Checkbox checked" isChecked />
+    <Checkbox ariaLabel="Checkbox invalid" isInvalid />
+    <Checkbox ariaLabel="Checkbox indeterminate" isIndeterminate />
   </div>
 )
 
 export const Disabled = (): JSX.Element => (
   <div>
-    <Checkbox label="Label" disabled />
-    <Checkbox label="Label" checked disabled />
-    <Checkbox label="Label" indeterminate disabled />
+    <Checkbox label="Label" isDisabled />
+    <Checkbox label="Label" isChecked isDisabled />
+    <Checkbox label="Label" isIndeterminate isDisabled />
   </div>
 )
 
 export const Invalid = (): JSX.Element => (
   <div>
-    <Checkbox invalid label="Label" helpText="with help text" />
+    <Checkbox isInvalid label="Label" helpText="with help text" />
   </div>
 )

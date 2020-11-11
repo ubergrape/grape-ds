@@ -15,6 +15,7 @@ export interface TextInputProps extends AriaTextFieldOptions {
   placeholder?: string
   description?: string
   validationHelp?: string
+  isRequired?: boolean
   min?: number
   max?: number
   customLabels?: {
@@ -96,7 +97,7 @@ export const GenericField: React.FC<
     <Flex direction="column" gap="1x">
       {label && (
         <label className={classes.label} {...labelProps}>
-          {label}
+          <span>{label}</span>
           {isRequired !== undefined && (
             <Text
               color="secondary"
