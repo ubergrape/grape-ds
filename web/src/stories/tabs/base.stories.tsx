@@ -1,11 +1,6 @@
 import React from 'react'
 
-import {
-  Tabs,
-  TabPanels,
-  Tab,
-  TabsProps,
-} from '../../components/tabs/index.tsx'
+import { Tabs, Tab, TabsProps } from '../../components/tabs/index.tsx'
 
 export default {
   title: 'Components/Tabs',
@@ -14,14 +9,15 @@ export default {
 
 export const Base: React.FC<TabsProps> = props => (
   <Tabs {...props}>
-    <Tab>Tab name 1</Tab>
-    <Tab>Tab name 2 </Tab>
-    <Tab>Tab name 3</Tab>
-    <TabPanels>
+    <Tab name="Tab name 1">
       <div>Tab 1 content</div>
+    </Tab>
+    <Tab name="Tab name 2">
       <div>Tab 2 content</div>
+    </Tab>
+    <Tab name="Tab name 3">
       <div>Tab 3 content</div>
-    </TabPanels>
+    </Tab>
   </Tabs>
 )
 
@@ -36,34 +32,37 @@ Base.parameters = {
 export const Alignment: React.FC<TabsProps> = () => (
   <div>
     <Tabs align="left">
-      <Tab>Tab name 1</Tab>
-      <Tab>Tab name 2 </Tab>
-      <Tab>Tab name 3</Tab>
-      <TabPanels>
+      <Tab name="Tab name 1">
         <div>Tab 1 content</div>
+      </Tab>
+      <Tab name="Tab name 2">
         <div>Tab 2 content</div>
+      </Tab>
+      <Tab name="Tab name 3">
         <div>Tab 3 content</div>
-      </TabPanels>
+      </Tab>
     </Tabs>
     <Tabs align="right">
-      <Tab>Tab name 1</Tab>
-      <Tab>Tab name 2 </Tab>
-      <Tab>Tab name 3</Tab>
-      <TabPanels>
+      <Tab name="Tab name 1">
         <div>Tab 1 content</div>
+      </Tab>
+      <Tab name="Tab name 2">
         <div>Tab 2 content</div>
+      </Tab>
+      <Tab name="Tab name 3">
         <div>Tab 3 content</div>
-      </TabPanels>
+      </Tab>
     </Tabs>
     <Tabs align="justify">
-      <Tab>Tab name 1</Tab>
-      <Tab>Tab name 2 </Tab>
-      <Tab>Tab name 3</Tab>
-      <TabPanels>
+      <Tab name="Tab name 1">
         <div>Tab 1 content</div>
+      </Tab>
+      <Tab name="Tab name 2">
         <div>Tab 2 content</div>
+      </Tab>
+      <Tab name="Tab name 3">
         <div>Tab 3 content</div>
-      </TabPanels>
+      </Tab>
     </Tabs>
   </div>
 )
@@ -80,34 +79,37 @@ Alignment.parameters = {
 export const Size: React.FC<TabsProps> = () => (
   <div>
     <Tabs size="small">
-      <Tab>Tab name 1</Tab>
-      <Tab>Tab name 2 </Tab>
-      <Tab>Tab name 3</Tab>
-      <TabPanels>
+      <Tab name="Tab name 1">
         <div>Tab 1 content</div>
+      </Tab>
+      <Tab name="Tab name 2">
         <div>Tab 2 content</div>
+      </Tab>
+      <Tab name="Tab name 3">
         <div>Tab 3 content</div>
-      </TabPanels>
+      </Tab>
     </Tabs>
     <Tabs size="regular">
-      <Tab>Tab name 1</Tab>
-      <Tab>Tab name 2 </Tab>
-      <Tab>Tab name 3</Tab>
-      <TabPanels>
+      <Tab name="Tab name 1">
         <div>Tab 1 content</div>
+      </Tab>
+      <Tab name="Tab name 2">
         <div>Tab 2 content</div>
+      </Tab>
+      <Tab name="Tab name 3">
         <div>Tab 3 content</div>
-      </TabPanels>
+      </Tab>
     </Tabs>
     <Tabs size="large">
-      <Tab>Tab name 1</Tab>
-      <Tab>Tab name 2 </Tab>
-      <Tab>Tab name 3</Tab>
-      <TabPanels>
+      <Tab name="Tab name 1">
         <div>Tab 1 content</div>
+      </Tab>
+      <Tab name="Tab name 2">
         <div>Tab 2 content</div>
+      </Tab>
+      <Tab name="Tab name 3">
         <div>Tab 3 content</div>
-      </TabPanels>
+      </Tab>
     </Tabs>
   </div>
 )

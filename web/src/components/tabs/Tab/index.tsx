@@ -33,8 +33,14 @@ export const Tab: React.FC<TabProps> = props => {
       case 37:
         onChangeTab(activeTab - 1)
         break
+      case 38:
+        onChangeTab(activeTab + 1)
+        break
       case 39:
         onChangeTab(activeTab + 1)
+        break
+      case 40:
+        onChangeTab(activeTab - 1)
         break
       default:
         break

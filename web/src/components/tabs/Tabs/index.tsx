@@ -1,7 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 
 import { sizes, flexAlignments } from '../../../types'
-import { TabPanels } from '../TabPanels'
 import { Tab } from '../Tab'
 
 import useStyles from './styles'
@@ -20,24 +19,19 @@ export const Tabs: React.FC<TabsProps> = props => {
   const [active, setActiveTab] = useState(0)
 
   const onChangeTab = (tab: number) => {
-    if (tab < 0 || tab >= children.length - 1) return
+    if (tab < 0 || tab > children.length - 1) return
     setActiveTab(tab)
   }
 
-  const tabPanelsChildren = children.find(
-    (tab: any) => tab.type.name === 'TabPanels',
-  ).props.children
+  const activeTabContent = children[active].props.children
 
   return (
     <div>
       <div role="tablist" className={classes.tabs}>
-        {children.map((tab: any, i) => {
+        {children.map((tab, i) => {
           const {
-            props: { children: text },
-            type: { name },
+            props: { name },
           } = tab
-
-          if (name === 'TabPanels') return null
 
           return (
             <Tab
@@ -46,14 +40,14 @@ export const Tabs: React.FC<TabsProps> = props => {
               activeTab={active}
               tab={i}
               align={align}
-              key={text}
+              key={name}
             >
-              {text}
+              {name}
             </Tab>
           )
         })}
       </div>
-      <TabPanels active={active}>{tabPanelsChildren}</TabPanels>
+      {activeTabContent}
     </div>
   )
 }
