@@ -1,12 +1,12 @@
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
-import { getColorFromType } from './helper'
+import { getColorFromType, TextColorType } from './helper'
 
 const maxWithDefaultValues = ['none', 'initial']
 
-const getColorFromProp = ({ color }) =>
-  getColorFromType(color) || tokens.colorTextPrimary
+export const getColorFromProp = ({ color }: { color: TextColorType }): string =>
+  getColorFromType(color)
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   headline: ({ maxWidth, size }) => {

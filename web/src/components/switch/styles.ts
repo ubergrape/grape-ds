@@ -2,25 +2,30 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
 
-const getColorDefault = ({ checked, disabled, indeterminate }): string => {
-  if (disabled) {
-    return checked
+const getColorDefault = ({
+  isChecked,
+  isDisabled,
+  isIndeterminate,
+}): string => {
+  if (isDisabled) {
+    return isChecked
       ? tokens.colorBorderFormcontrolOnDisabled
       : tokens.colorBorderFormcontrolOffDisabled
   }
-  if (checked) return tokens.colorBorderFormcontrolOnDefault
-  if (!checked && indeterminate) return tokens.colorBorderFormcontrolOnDefault
+  if (isChecked) return tokens.colorBorderFormcontrolOnDefault
+  if (!isChecked && isIndeterminate)
+    return tokens.colorBorderFormcontrolOnDefault
 
   return tokens.colorBorderFormcontrolOffDefault
 }
 
-const getColorHover = ({ checked, disabled, indeterminate }): string => {
-  if (disabled) {
-    return checked
+const getColorHover = ({ isChecked, isDisabled, isIndeterminate }): string => {
+  if (isDisabled) {
+    return isChecked
       ? tokens.colorBorderFormcontrolOnDisabled
       : tokens.colorBorderFormcontrolOffDisabled
   }
-  if (checked || indeterminate) return tokens.colorBorderFormcontrolOnHover
+  if (isChecked || isIndeterminate) return tokens.colorBorderFormcontrolOnHover
 
   return tokens.colorBorderFormcontrolOffHover
 }
@@ -36,7 +41,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     position: 'relative',
     alignItems: 'center',
     cursor: ({ disabled }) => (disabled ? 'not-allowed' : 'pointer'),
-    '&:hover': {
+    '&:hover:not(:focus)': {
       borderColor: getColorHover,
       color: getColorHover,
     },
