@@ -20,6 +20,19 @@ export const useFocusStyle = createUseStyles({
           : tokens.colorBorderFormfieldFocus,
     },
   },
+  onFocusVisible: {
+    '&:focus': {
+      outline: 0,
+    },
+    '&:focus-visible': {
+      outline: 0,
+      boxShadow: focusStyle,
+      borderColor: ({ isInvalid }) =>
+        isInvalid
+          ? tokens.colorBorderFormfieldInvalidDefault
+          : tokens.colorBorderFormfieldFocus,
+    },
+  },
   focus: {
     '&:focus': {
       outline: 0,
