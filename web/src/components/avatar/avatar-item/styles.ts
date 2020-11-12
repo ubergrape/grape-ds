@@ -20,8 +20,8 @@ export default createUseStyles(
       marginLeft: theme.spaceAvatarItem,
     },
     name: {
-      color: ({ isInactive }: AvatarItemProps) =>
-        isInactive
+      color: ({ isInactive, isSelected }: AvatarItemProps) =>
+        isInactive && !isSelected
           ? theme.colorTextAvatarItemPrimaryInactive
           : theme.colorTextAvatarItemPrimary,
     },

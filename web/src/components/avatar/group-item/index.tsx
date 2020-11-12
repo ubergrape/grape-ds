@@ -17,25 +17,6 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
 
   const { name, description, members, ...rest } = props
 
-  let secondaryLine = null
-
-  if (members) {
-    secondaryLine = (
-      <Text size="small">
-        <div className={classes.members}>
-          <Icon name="people" size="small" />
-          <span className={classes.membersCount}>{members.toString()}</span>
-        </div>
-      </Text>
-    )
-  } else if (description) {
-    secondaryLine = (
-      <Text size="small" className={classes.description}>
-        {description}
-      </Text>
-    )
-  }
-
   return (
     <div className={classes.wrapper}>
       <Group {...rest} />
@@ -43,7 +24,23 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
         <Text emphasis size="small" className={classes.name}>
           {name}
         </Text>
-        {secondaryLine}
+        <div className={classes.secondary}>
+          {members && (
+            <Text size="small">
+              <div className={classes.members}>
+                <Icon name="people" size="small" />
+                <span className={classes.membersCount}>
+                  {members.toString()}
+                </span>
+              </div>
+            </Text>
+          )}
+          {description && (
+            <Text size="small" className={classes.description}>
+              {description}
+            </Text>
+          )}
+        </div>
       </div>
     </div>
   )

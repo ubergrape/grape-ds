@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import clsx from 'clsx'
+import { useButton } from '@react-aria/button'
 
+import { useFocusStyle } from '../../../styles/global'
 import { Icon } from '../../icon'
 
 import useStyles from './styles'
@@ -8,50 +10,78 @@ import useStyles from './styles'
 export type AvatarProps = {
   src?: string
   alt?: string
-  status?: undefined | 'offline' | 'reachable' | 'inCall' | 'online'
+  isOnline?: boolean
   size?: 'regular' | 'small'
   isInactive?: boolean
   isSelected?: boolean
+  ariaLabel?: string
+  onClick?: () => void
 }
 
 export const Avatar: React.FC<AvatarProps> = props => {
+  const ref = useRef()
   const classes = useStyles(props)
+  const { onFocus } = useFocusStyle(props)
 
-  const { alt, src, status, size, isSelected } = props
+  const { alt, src, isOnline, size, ariaLabel, isSelected } = props
+  const { onClick, ...rest } = props
+
+  const { buttonProps } = useButton({ ...rest, onPress: onClick }, ref)
 
   if (isSelected) {
     return (
-      <div className={clsx(classes.avatar, classes.selected)}>
-        <div className={classes.icon}>
-          <Icon
-            name="checkmark"
-            size={size === 'regular' ? 'medium' : 'small'}
-          />
+      <button
+        type="button"
+        className={clsx(classes.button, onFocus)}
+        ref={ref}
+        aria-label={ariaLabel}
+        {...buttonProps}
+      >
+        <div className={clsx(classes.avatar, classes.selected)}>
+          <div className={classes.icon}>
+            <Icon
+              name="checkmark"
+              size={size === 'regular' ? 'medium' : 'small'}
+            />
+          </div>
         </div>
-      </div>
+      </button>
     )
   }
 
   if (!src || !alt) {
     return (
-      <div className={classes.wrapper}>
+      <button
+        type="button"
+        className={clsx(classes.button, onFocus)}
+        ref={ref}
+        aria-label={ariaLabel}
+        {...buttonProps}
+      >
         <div className={classes.avatar} />
-        {status && <div className={classes.status} />}
-      </div>
+        {isOnline && <div className={classes.online} />}
+      </button>
     )
   }
 
   return (
-    <div className={classes.wrapper}>
+    <button
+      type="button"
+      className={clsx(classes.button, onFocus)}
+      ref={ref}
+      aria-label={ariaLabel}
+      {...buttonProps}
+    >
       <img className={classes.avatar} alt={alt} src={src} />
-      {status && <div className={classes.status} />}
-    </div>
+      {isOnline && <div className={classes.online} />}
+    </button>
   )
 }
 
 Avatar.defaultProps = {
   size: 'regular',
-  status: undefined,
+  ariaLabel: 'Avatar',
+  isOnline: false,
   isInactive: false,
   isSelected: false,
 }

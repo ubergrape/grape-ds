@@ -4,6 +4,7 @@ import { Avatar, AvatarProps } from '../../components/avatar'
 
 export default {
   title: 'Components/Avatar',
+  argTypes: { onClick: { action: 'clicked' } },
   component: Avatar,
 }
 

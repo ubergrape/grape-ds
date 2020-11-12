@@ -7,9 +7,13 @@ import { AvatarProps } from '.'
 
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
-    wrapper: {
+    button: {
       display: 'flex',
       position: 'relative',
+      padding: 0,
+      border: 0,
+      backgroundColor: 'transparent',
+      borderRadius: '50%',
     },
     avatar: {
       height: ({ size }: AvatarProps) => {
@@ -25,7 +29,8 @@ export default createUseStyles(
         if (isSelected) return theme.colorBackgroundAvatarSelected
         return theme.colorBackgroundAvatarUser
       },
-      opacity: ({ isInactive }: AvatarProps) => (isInactive ? '0.5' : 1),
+      opacity: ({ isInactive, isSelected }: AvatarProps) =>
+        isInactive && !isSelected ? '0.5' : 1,
     },
     selected: {
       display: 'flex',
@@ -36,7 +41,7 @@ export default createUseStyles(
       display: 'flex',
       color: theme.colorBackgroundAvatarSelectedIcon,
     },
-    status: {
+    online: {
       width: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizePresenceIndicatorSmall
         return theme.sizePresenceIndicatorMedium
@@ -49,24 +54,8 @@ export default createUseStyles(
       borderRadius: '50%',
       position: 'absolute',
       boxSizing: 'border-box',
-      backgroundColor: ({ status }: AvatarProps) => {
-        switch (status) {
-          case 'offline':
-            return 'red'
-            break
-          case 'reachable':
-            return 'dodgerBlue'
-            break
-          case 'inCall':
-            return 'dodgerBlue'
-            break
-          case 'online':
-            return theme.colorBackgroundPresenceIndicatorOnline
-            break
-          default:
-            return 'transparent'
-        }
-      },
+      backgroundColor: ({ isOnline }: AvatarProps) =>
+        isOnline ? theme.colorBackgroundPresenceIndicatorOnline : 'transparent',
       right: 0,
       bottom: 0,
     },

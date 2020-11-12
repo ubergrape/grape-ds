@@ -24,10 +24,14 @@ export default createUseStyles(
     },
     description: {
       color: theme.colorTextAvatarItemSecondary,
-      marginLeft: ({ size }: GroupItemProps) =>
-        size === 'small' ? theme.spaceAvatarItem : 0,
+      marginLeft: ({ members }: GroupItemProps) =>
+        members ? theme.spaceMembersSecondary : 0,
     },
     members: {
+      display: 'flex',
+      color: theme.colorTextAvatarItemSecondary,
+    },
+    secondary: {
       display: 'flex',
     },
     membersCount: {
