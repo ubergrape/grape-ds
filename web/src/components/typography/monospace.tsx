@@ -20,6 +20,7 @@ export const Monospace: React.FC<MonospaceProps> = props => {
 Monospace.defaultProps = {
   children: 'My Monospace',
   maxWidth: 'none',
+  color: 'primary',
 }
 
 export default Monospace

@@ -9,8 +9,10 @@ export const getColorFromProp = ({ color }: { color: TextColorType }): string =>
   getColorFromType(color)
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
-  headline: ({ maxWidth, size }) => {
+  headline: ({ maxWidth, color: colorName, size }) => {
     const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+
+    const color = getColorFromType(colorName)
 
     return {
       fontFamily: theme.fontFamilyHeadline,
@@ -19,7 +21,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
       whiteSpace: isMaxWidthNonDefault ? 'nowrap' : 'normal',
       overflow: isMaxWidthNonDefault ? 'hidden' : 'visible',
       textOverflow: isMaxWidthNonDefault ? 'ellipsis' : 'clip',
-      color: getColorFromProp,
+      color,
       lineHeight:
         size === 'page'
           ? theme.lineHeightHeadlinePage
@@ -30,8 +32,10 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
           : theme.fontSizeHeadlineBase,
     }
   },
-  text: ({ maxWidth, emphasis, italic, strike, size }) => {
+  text: ({ maxWidth, color: colorName, emphasis, italic, strike, size }) => {
     const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+
+    const color = getColorFromType(colorName)
 
     let fontSize = theme.fontSizeBodyBase
     switch (size) {
@@ -66,7 +70,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     }
 
     return {
-      color: getColorFromProp,
+      color,
       maxWidth,
       whiteSpace: isMaxWidthNonDefault ? 'nowrap' : 'normal',
       overflow: isMaxWidthNonDefault ? 'hidden' : 'visible',
@@ -81,15 +85,17 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
       textDecoration: strike ? 'line-through' : 'none',
     }
   },
-  monospace: ({ maxWidth }) => {
+  monospace: ({ maxWidth, color: colorName }) => {
     const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+
+    const color = getColorFromType(colorName)
 
     return {
       maxWidth,
       whiteSpace: isMaxWidthNonDefault ? 'nowrap' : 'normal',
       overflow: isMaxWidthNonDefault ? 'hidden' : 'visible',
       textOverflow: isMaxWidthNonDefault ? 'ellipsis' : 'clip',
-      color: getColorFromProp,
+      color,
       fontFamily: theme.fontFamilyMonospace,
       fontSize: theme.fontSizeBodyBase,
       lineHeight: theme.lineHeightBodyBase,
