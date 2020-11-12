@@ -56,6 +56,7 @@ Text.defaultProps = {
   size: 'base',
   children: 'My Text',
   maxWidth: 'none',
+  color: 'primary',
   emphasis: false,
   italic: false,
   strike: false,

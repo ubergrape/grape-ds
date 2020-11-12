@@ -94,7 +94,7 @@ export const GenericField: React.FC<
   const Component = component
 
   return (
-    <Flex direction="column" gap="1x">
+    <Flex direction="column" gap="0.5x">
       {label && (
         <label className={classes.label} {...labelProps}>
           <span>{label}</span>
@@ -111,7 +111,7 @@ export const GenericField: React.FC<
         </label>
       )}
       {validationHelp && (
-        <Flex gap="1x">
+        <Flex gap="0.5x">
           <Icon name="alert" color="danger" size="small" />
           <Text as="span" size="small" color="danger">
             {validationHelp}

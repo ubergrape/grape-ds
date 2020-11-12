@@ -26,6 +26,7 @@ Headline.defaultProps = {
   size: 'page',
   children: 'My headline',
   maxWidth: 'none',
+  color: 'primary',
 }
 
 export default Headline
