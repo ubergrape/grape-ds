@@ -7,16 +7,22 @@ import { AvatarItemProps } from '.'
 
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
-    wrapper: {
+    button: {
       display: 'flex',
+      padding: 0,
+      border: 0,
+      alignItems: 'center',
+      backgroundColor: 'transparent',
+      '&:hover': {
+        transform: 'scale(1.1)',
+      },
     },
     text: {
       display: 'flex',
       flexDirection: ({ size }: AvatarItemProps) =>
         size === 'small' ? 'row' : 'column',
       alignItems: ({ size }: AvatarItemProps) =>
-        size === 'small' ? 'center' : 'initial',
-      justifyContent: 'center',
+        size === 'small' ? 'initial' : 'start',
       marginLeft: theme.spaceAvatarItem,
     },
     name: {

@@ -1,5 +1,8 @@
-import React from 'react'
+import clsx from 'clsx'
+import React, { useRef } from 'react'
+import { useButton } from '@react-aria/button'
 
+import { useFocusStyle } from '../../../styles/global'
 import { Icon } from '../../icon'
 import { Text } from '../../typography'
 import { Group, GroupProps } from '..'
@@ -10,25 +13,44 @@ export interface GroupItemProps extends GroupProps {
   name: string
   description?: string
   members?: number
+  ariaLabel?: string
+  isWrapped?: boolean
 }
 
 export const GroupItem: React.FC<GroupItemProps> = props => {
+  const ref = useRef()
   const classes = useStyles(props)
+  const { onFocus } = useFocusStyle(props)
 
-  const { name, description, members, ...rest } = props
+  const { name, description, members, ariaLabel, ...restGroupProps } = props
+  const { size } = props
+  const { onClick, ...restButtonProps } = props
+
+  const { buttonProps } = useButton(
+    { ...restButtonProps, onPress: onClick },
+    ref,
+  )
 
   return (
-    <div className={classes.wrapper}>
-      <Group {...rest} />
+    <button
+      type="button"
+      className={clsx(classes.wrapper, onFocus)}
+      ref={ref}
+      aria-label={ariaLabel || name}
+      {...buttonProps}
+    >
+      <Group isWrapped {...restGroupProps} />
       <div className={classes.text}>
         <Text emphasis size="small" className={classes.name}>
           {name}
         </Text>
         <div className={classes.secondary}>
-          {members && (
+          {members && size !== 'small' && (
             <Text size="small">
               <div className={classes.members}>
-                <Icon name="people" size="small" />
+                <div className={classes.iconWrapper}>
+                  <Icon className={classes.icon} name="people" size="small" />
+                </div>
                 <span className={classes.membersCount}>
                   {members.toString()}
                 </span>
@@ -42,7 +64,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
           )}
         </div>
       </div>
-    </div>
+    </button>
   )
 }
 

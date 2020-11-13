@@ -5,9 +5,12 @@ import tokens from '../../../tokens'
 
 import { AvatarProps } from '.'
 
+export const onScaleIndicationSize = (avatarSize: string): number =>
+  -parseInt(avatarSize.split('px')[0], 10) / 10
+
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
-    button: {
+    wrapper: {
       display: 'flex',
       position: 'relative',
       padding: 0,
@@ -31,6 +34,34 @@ export default createUseStyles(
       },
       opacity: ({ isInactive, isSelected }: AvatarProps) =>
         isInactive && !isSelected ? '0.5' : 1,
+      '&:hover': {
+        transform: ({ isInactive, isWrapped }: AvatarProps) =>
+          isInactive || isWrapped ? 'none' : 'scale(1.1)',
+        '& + div': {
+          width: ({ size }: AvatarProps) => {
+            if (size === 'small') return theme.sizePresenceIndicatorSmall
+            return theme.sizePresenceIndicatorMedium
+          },
+          height: ({ size }: AvatarProps) => {
+            if (size === 'small') return theme.sizePresenceIndicatorSmall
+            return theme.sizePresenceIndicatorMedium
+          },
+          bottom: ({ isInactive, size }: AvatarProps) => {
+            if (isInactive) return 0
+            if (size === 'small') {
+              return onScaleIndicationSize(theme.sizeAvatarSmall)
+            }
+            return onScaleIndicationSize(theme.sizeAvatarMedium)
+          },
+          right: ({ isInactive, size }: AvatarProps) => {
+            if (isInactive) return 0
+            if (size === 'small') {
+              return onScaleIndicationSize(theme.sizeAvatarSmall)
+            }
+            return onScaleIndicationSize(theme.sizeAvatarMedium)
+          },
+        },
+      },
     },
     selected: {
       display: 'flex',
@@ -42,6 +73,7 @@ export default createUseStyles(
       color: theme.colorBackgroundAvatarSelectedIcon,
     },
     online: {
+      pointerEvents: 'none',
       width: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizePresenceIndicatorSmall
         return theme.sizePresenceIndicatorMedium

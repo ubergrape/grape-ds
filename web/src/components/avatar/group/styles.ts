@@ -3,6 +3,7 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
 
+import { onScaleIndicationSize } from '../avatar/styles'
 import { GroupProps } from '.'
 
 export default createUseStyles(
@@ -10,6 +11,10 @@ export default createUseStyles(
     wrapper: {
       display: 'flex',
       position: 'relative',
+      padding: 0,
+      border: 0,
+      backgroundColor: 'transparent',
+      borderRadius: '50%',
     },
     group: {
       display: 'flex',
@@ -25,6 +30,31 @@ export default createUseStyles(
       },
       borderRadius: '50%',
       backgroundColor: theme.colorBackgroundAvatarGroup,
+      '&:hover': {
+        transform: 'scale(1.1)',
+        '& + div': {
+          width: ({ size }: GroupProps) => {
+            if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
+            return theme.sizeGrouptypeIndicatorMedium
+          },
+          height: ({ size }: GroupProps) => {
+            if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
+            return theme.sizeGrouptypeIndicatorMedium
+          },
+          bottom: ({ size }: GroupProps) => {
+            if (size === 'small') {
+              return onScaleIndicationSize(theme.sizeAvatarSmall)
+            }
+            return onScaleIndicationSize(theme.sizeAvatarMedium)
+          },
+          right: ({ size }: GroupProps) => {
+            if (size === 'small') {
+              return onScaleIndicationSize(theme.sizeAvatarSmall)
+            }
+            return onScaleIndicationSize(theme.sizeAvatarMedium)
+          },
+        },
+      },
     },
     color: {
       width: ({ size }: GroupProps) => {
@@ -76,6 +106,10 @@ export default createUseStyles(
     },
     status: {
       position: 'absolute',
+      display: 'flex',
+      pointerEvents: 'none',
+      justifyContent: 'center',
+      alignItems: 'center',
       right: 0,
       bottom: 0,
       borderRadius: '50%',
@@ -88,6 +122,14 @@ export default createUseStyles(
         if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
         return theme.sizeGrouptypeIndicatorMedium
       },
+    },
+    iconWrapper: {
+      width: 10,
+      height: 10,
+    },
+    icon: {
+      display: 'block',
+      color: theme.colorBackgroundGrouptypeIcon,
     },
   }),
 )

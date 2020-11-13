@@ -9,6 +9,13 @@ export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
       display: 'flex',
+      padding: 0,
+      border: 0,
+      alignItems: 'center',
+      backgroundColor: 'transparent',
+      '&:hover': {
+        transform: 'scale(1.1)',
+      },
     },
     text: {
       display: 'flex',
@@ -24,15 +31,27 @@ export default createUseStyles(
     },
     description: {
       color: theme.colorTextAvatarItemSecondary,
-      marginLeft: ({ members }: GroupItemProps) =>
-        members ? theme.spaceMembersSecondary : 0,
+      marginLeft: ({ members, size }: GroupItemProps) =>
+        members && size !== 'small' ? theme.spaceMembersSecondary : 0,
     },
     members: {
       display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       color: theme.colorTextAvatarItemSecondary,
+    },
+    iconWrapper: {
+      width: 11.25,
+      heigth: 11.25,
+    },
+    icon: {
+      display: 'block',
+      color: theme.colorBackgroundGrouptypeIcon,
     },
     secondary: {
       display: 'flex',
+      marginLeft: ({ size }: GroupItemProps) =>
+        size === 'small' ? theme.spaceAvatarItem : 0,
     },
     membersCount: {
       marginLeft: theme.spaceMembersCount,

@@ -2,7 +2,7 @@ import * as React from "react";
 
 function SvgPeople24(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width={24} height={24} fill="none" {...props}>
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

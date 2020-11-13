@@ -2,7 +2,7 @@ import * as React from "react";
 
 function SvgAlert16(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width={16} height={16} fill="none" {...props}>
+    <svg viewBox="0 0 16 16" fill="none" {...props}>
       <path
         d="M8 5.6a.75.75 0 01.75.75v1.9a.75.75 0 01-1.5 0v-1.9A.75.75 0 018 5.6zM8 11.7A.85.85 0 108 10a.85.85 0 000 1.7z"
         fill="currentColor"

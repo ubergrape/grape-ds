@@ -1,23 +1,39 @@
-import React from 'react'
+import clsx from 'clsx'
+import React, { useRef } from 'react'
+import { useButton } from '@react-aria/button'
 
 import useStyles from './styles'
 
+import { useFocusStyle } from '../../../styles/global'
 import { Text } from '../../typography'
 import { Avatar, AvatarProps } from '..'
 
 export interface AvatarItemProps extends AvatarProps {
   name: string
   description?: string
+  ariaLabel?: string
+  onClick?: () => void
 }
 
 export const AvatarItem: React.FC<AvatarItemProps> = props => {
+  const ref = useRef()
   const classes = useStyles(props)
+  const { onFocus } = useFocusStyle(props)
 
-  const { name, description, ...rest } = props
+  const { name, ariaLabel, description } = props
+  const { onClick, ...rest } = props
+
+  const { buttonProps } = useButton({ ...rest, onPress: onClick }, ref)
 
   return (
-    <div className={classes.wrapper}>
-      <Avatar {...rest} />
+    <button
+      type="button"
+      className={clsx(classes.wrapper, onFocus)}
+      ref={ref}
+      aria-label={ariaLabel || name}
+      {...buttonProps}
+    >
+      <Avatar isWrapped {...rest} />
       <div className={classes.text}>
         <Text emphasis size="small" className={classes.name}>
           {name}
@@ -28,7 +44,7 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
           </Text>
         )}
       </div>
-    </div>
+    </button>
   )
 }
 
