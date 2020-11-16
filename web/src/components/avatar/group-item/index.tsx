@@ -14,7 +14,8 @@ export interface GroupItemProps extends GroupProps {
   description?: string
   members?: number
   ariaLabel?: string
-  isButton?: boolean
+  isUnclickable?: boolean
+  maxWidth?: number
 }
 
 export const GroupItem: React.FC<GroupItemProps> = props => {
@@ -23,11 +24,11 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
   const { onFocus } = useFocusStyle(props)
 
   const { name, description, members, ariaLabel, ...restGroupProps } = props
+  const { onClick, isDisabled, ...restButtonProps } = props
   const { size } = props
-  const { onClick, ...restButtonProps } = props
 
   const { buttonProps } = useButton(
-    { ...restButtonProps, onPress: onClick },
+    { ...restButtonProps, isDisabled, onPress: onClick },
     ref,
   )
 
@@ -40,7 +41,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
-        <Group isButton {...restGroupProps} />
+        <Group isUnclickable {...restGroupProps} />
         <div className={classes.text}>
           <Text emphasis size="small" className={classes.name}>
             {name}

@@ -2,10 +2,18 @@ import React, { useRef } from 'react'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
-import { Icon } from '../../icon'
+import { Icon, IconTypes } from '../../icon'
 
 import { useFocusStyle } from '../../../styles/global'
 import useStyles from './styles'
+
+const groupTypeIconData = {
+  private: {
+    name: 'lock',
+    width: 10,
+    height: 10,
+  },
+}
 
 type groupColorsTypes =
   | 'grey'
@@ -19,10 +27,13 @@ type groupColorsTypes =
   | 'green'
   | 'light-green'
 
+type GroupTypes = 'private'
+
 export type GroupProps = {
   size?: 'regular' | 'small'
-  isPrivate?: boolean
-  isButton?: boolean
+  groupType?: GroupTypes
+  isUnclickable?: boolean
+  isDisabled?: boolean
   color?: groupColorsTypes
   ariaLabel?: string
   onClick?: () => void
@@ -33,18 +44,23 @@ export const Group: React.FC<GroupProps> = props => {
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
 
-  const { isPrivate, isButton, ariaLabel } = props
+  const { groupType, isUnclickable, ariaLabel } = props
+  const { onClick, isDisabled, ...rest } = props
 
   let Wrapper = null
 
-  if (isButton) {
+  if (isUnclickable) {
     Wrapper = ({ children }) => (
-      <div className={classes.wrapper}>{children}</div>
+      <div aria-label={ariaLabel} className={classes.wrapper}>
+        {children}
+      </div>
     )
   } else {
     Wrapper = ({ children }) => {
-      const { onClick, ...rest } = props
-      const { buttonProps } = useButton({ ...rest, onPress: onClick }, ref)
+      const { buttonProps } = useButton(
+        { ...rest, isDisabled, onPress: onClick },
+        ref,
+      )
 
       return (
         <FocusRing focusRingClass={onFocus} within>
@@ -62,22 +78,22 @@ export const Group: React.FC<GroupProps> = props => {
     }
   }
 
+  const icon = groupTypeIconData[groupType]
+
   return (
     <Wrapper>
       <div className={classes.group}>
         <span className={classes.color} />
       </div>
-      {isPrivate && (
+      {groupType && (
         <div className={classes.status}>
-          <div className={classes.iconWrapper}>
-            <Icon
-              width={10}
-              height={10}
-              className={classes.icon}
-              name="lock"
-              size="small"
-            />
-          </div>
+          <Icon
+            width={icon.width}
+            height={icon.height}
+            name={icon.name as IconTypes}
+            className={classes.icon}
+            size="small"
+          />
         </div>
       )}
     </Wrapper>
@@ -85,9 +101,9 @@ export const Group: React.FC<GroupProps> = props => {
 }
 
 Group.defaultProps = {
+  isDisabled: false,
   size: 'regular',
   ariaLabel: 'Group',
-  isPrivate: false,
   color: 'grey',
 }
 

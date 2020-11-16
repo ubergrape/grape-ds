@@ -15,36 +15,40 @@ export default createUseStyles(
       border: 0,
       backgroundColor: 'transparent',
       borderRadius: '50%',
+      width: ({ size }: GroupProps) =>
+        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
+      height: ({ size }: GroupProps) =>
+        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
+      cursor: ({ isDisabled }: GroupProps) =>
+        isDisabled ? 'not-allowed' : 'pointer',
       '&:focus': {
         outline: 0,
       },
     },
     group: {
+      width: ({ size }: GroupProps) =>
+        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
+      height: ({ size }: GroupProps) =>
+        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      height: ({ size }: GroupProps) => {
-        if (size === 'small') return theme.sizeAvatarSmall
-        return theme.sizeAvatarMedium
-      },
-      width: ({ size }: GroupProps) => {
-        if (size === 'small') return theme.sizeAvatarSmall
-        return theme.sizeAvatarMedium
-      },
       borderRadius: '50%',
       backgroundColor: theme.colorBackgroundAvatarGroup,
       transition: 'all 0.25s ease-in-out',
+      opacity: ({ isDisabled }: GroupProps) => (isDisabled ? '0.5' : 1),
       '&:hover': {
-        transform: 'scale(1.1)',
+        transform: ({ isDisabled }: GroupProps) =>
+          isDisabled ? 'none' : 'scale(1.1)',
         '& + div': {
-          width: ({ size }: GroupProps) => {
-            if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
-            return theme.sizeGrouptypeIndicatorMedium
-          },
-          height: ({ size }: GroupProps) => {
-            if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
-            return theme.sizeGrouptypeIndicatorMedium
-          },
+          width: ({ size }: GroupProps) =>
+            size === 'small'
+              ? theme.sizeGrouptypeIndicatorSmall
+              : theme.sizeGrouptypeIndicatorMedium,
+          height: ({ size }: GroupProps) =>
+            size === 'small'
+              ? theme.sizeGrouptypeIndicatorSmall
+              : theme.sizeGrouptypeIndicatorMedium,
           bottom: ({ size }: GroupProps) => {
             if (size === 'small') {
               return onScaleIndicationSize(theme.sizeAvatarSmall)
@@ -61,14 +65,14 @@ export default createUseStyles(
       },
     },
     color: {
-      width: ({ size }: GroupProps) => {
-        if (size === 'small') return theme.sizeGroupcolorSmall
-        return theme.sizeGroupcolorMedium
-      },
-      height: ({ size }: GroupProps) => {
-        if (size === 'small') return theme.sizeGroupcolorSmall
-        return theme.sizeGroupcolorMedium
-      },
+      width: ({ size }: GroupProps) =>
+        size === 'small'
+          ? theme.sizeGroupcolorSmall
+          : theme.sizeGroupcolorMedium,
+      height: ({ size }: GroupProps) =>
+        size === 'small'
+          ? theme.sizeGroupcolorSmall
+          : theme.sizeGroupcolorMedium,
       borderRadius: '50%',
       backgroundColor: ({ color }: GroupProps) => {
         switch (color) {
@@ -118,21 +122,17 @@ export default createUseStyles(
       bottom: 0,
       borderRadius: '50%',
       backgroundColor: theme.colorBackgroundGrouptypeIndicator,
-      width: ({ size }: GroupProps) => {
-        if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
-        return theme.sizeGrouptypeIndicatorMedium
-      },
-      height: ({ size }: GroupProps) => {
-        if (size === 'small') return theme.sizeGrouptypeIndicatorSmall
-        return theme.sizeGrouptypeIndicatorMedium
-      },
-    },
-    iconWrapper: {
-      width: 10,
-      height: 10,
+      transition: 'all 0.25s ease-in-out',
+      width: ({ size }: GroupProps) =>
+        size === 'small'
+          ? theme.sizeGrouptypeIndicatorSmall
+          : theme.sizeGrouptypeIndicatorMedium,
+      height: ({ size }: GroupProps) =>
+        size === 'small'
+          ? theme.sizeGrouptypeIndicatorSmall
+          : theme.sizeGrouptypeIndicatorMedium,
     },
     icon: {
-      display: 'block',
       color: theme.colorBackgroundGrouptypeIcon,
     },
   }),

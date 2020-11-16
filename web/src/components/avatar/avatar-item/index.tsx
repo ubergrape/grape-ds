@@ -11,6 +11,7 @@ import { Avatar, AvatarProps } from '..'
 export interface AvatarItemProps extends AvatarProps {
   name: string
   description?: string
+  maxWidth?: number
   ariaLabel?: string
   onClick?: () => void
 }
@@ -20,10 +21,13 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
 
-  const { name, ariaLabel, description } = props
-  const { onClick, ...rest } = props
+  const { name, ariaLabel, description, ...restAvatarProps } = props
+  const { onClick, isDisabled, ...restButtonProps } = props
 
-  const { buttonProps } = useButton({ ...rest, onPress: onClick }, ref)
+  const { buttonProps } = useButton(
+    { ...restButtonProps, isDisabled, onPress: onClick },
+    ref,
+  )
 
   return (
     <FocusRing focusRingClass={onFocus} within>
@@ -34,7 +38,7 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
-        <Avatar isButton {...rest} />
+        <Avatar isUnclickable {...restAvatarProps} />
         <div className={classes.text}>
           <Text emphasis size="small" className={classes.name}>
             {name}
