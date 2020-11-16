@@ -20,7 +20,7 @@ export type ActionLinkProps = {
 }
 
 export const ActionLink: React.FC<ActionLinkProps> = props => {
-  const { href, icon, target, ...rest } = props
+  const { href, icon, target, ariaLabel, ...rest } = props
   const { isDisabled } = props
   const style = useStyles(rest)
   const focus = useFocusStyle({ isInvalid: false, isDisabled })
@@ -31,6 +31,7 @@ export const ActionLink: React.FC<ActionLinkProps> = props => {
       title={props.children}
       className={clsx(style.actionLink, focus.onFocus)}
       {...(isDisabled && { tabIndex: -1 })}
+      {...(ariaLabel && { 'aria-label': ariaLabel })}
     >
       <Flex direction="row" items="center">
         <div className={style.iconWrapper}>
