@@ -2,7 +2,7 @@ import * as React from "react";
 
 function SvgAlert20(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 20 20" fill="none" {...props}>
+    <svg width={20} height={20} viewBox="0 0 20 20" fill="none" {...props}>
       <path
         d="M10 7a1 1 0 011 1v2.5a1 1 0 11-2 0V8a1 1 0 011-1zM10 14.5a1 1 0 100-2 1 1 0 000 2z"
         fill="currentColor"

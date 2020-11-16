@@ -26,6 +26,8 @@ export type IconProps = {
   ariaLabel?: string
   ariaHidden?: boolean
   focusable?: boolean
+  width?: number
+  height?: number
 }
 
 const getFromSize = (name: string, size: IconSize) => {
