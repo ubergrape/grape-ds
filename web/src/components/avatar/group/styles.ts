@@ -15,6 +15,9 @@ export default createUseStyles(
       border: 0,
       backgroundColor: 'transparent',
       borderRadius: '50%',
+      '&:focus': {
+        outline: 0,
+      },
     },
     group: {
       display: 'flex',

@@ -16,6 +16,9 @@ export default createUseStyles(
       '&:hover': {
         transform: 'scale(1.1)',
       },
+      '&:focus': {
+        outline: 0,
+      },
     },
     text: {
       display: 'flex',

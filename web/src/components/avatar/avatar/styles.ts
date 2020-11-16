@@ -17,6 +17,9 @@ export default createUseStyles(
       border: 0,
       backgroundColor: 'transparent',
       borderRadius: '50%',
+      '&:focus': {
+        outline: 0,
+      },
     },
     avatar: {
       height: ({ size }: AvatarProps) => {
@@ -34,6 +37,7 @@ export default createUseStyles(
       },
       opacity: ({ isInactive, isSelected }: AvatarProps) =>
         isInactive && !isSelected ? '0.5' : 1,
+      transition: 'all 0.25s ease-in-out',
       '&:hover': {
         transform: ({ isInactive, isWrapped }: AvatarProps) =>
           isInactive || isWrapped ? 'none' : 'scale(1.1)',

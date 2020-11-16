@@ -7,7 +7,7 @@ import { AvatarItemProps } from '.'
 
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
-    button: {
+    wrapper: {
       display: 'flex',
       padding: 0,
       border: 0,
@@ -15,6 +15,9 @@ export default createUseStyles(
       backgroundColor: 'transparent',
       '&:hover': {
         transform: 'scale(1.1)',
+      },
+      '&:focus': {
+        outline: 0,
       },
     },
     text: {

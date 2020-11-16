@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React, { useRef } from 'react'
+import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
 import { Icon } from '../../icon'
@@ -47,15 +47,17 @@ export const Group: React.FC<GroupProps> = props => {
       const { buttonProps } = useButton({ ...rest, onPress: onClick }, ref)
 
       return (
-        <button
-          type="button"
-          className={clsx(classes.wrapper, onFocus)}
-          ref={ref}
-          aria-label={ariaLabel}
-          {...buttonProps}
-        >
-          {children}
-        </button>
+        <FocusRing focusRingClass={onFocus} within>
+          <button
+            type="button"
+            className={classes.wrapper}
+            ref={ref}
+            aria-label={ariaLabel}
+            {...buttonProps}
+          >
+            {children}
+          </button>
+        </FocusRing>
       )
     }
   }
