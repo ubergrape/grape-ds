@@ -37,6 +37,11 @@ props:
     value: '{!line-height-cozy}'
     comment: 'Text for labels, help, additional information.'
 
+  ## Button Large text
+  line-height-button-large:
+    value: '{!line-height-cozy}'
+    comment: 'Text for large buttons.'
+
   ## Button Regular text
   line-height-button-regular:
     value: '{!line-height-base}'
