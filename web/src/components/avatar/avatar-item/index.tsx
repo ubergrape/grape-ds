@@ -25,8 +25,6 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
 
   const { buttonProps } = useButton({ ...rest, onPress: onClick }, ref)
 
-  console.log(classes)
-
   return (
     <FocusRing focusRingClass={onFocus} within>
       <button
@@ -36,7 +34,7 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
-        <Avatar isWrapped {...rest} />
+        <Avatar isButton {...rest} />
         <div className={classes.text}>
           <Text emphasis size="small" className={classes.name}>
             {name}

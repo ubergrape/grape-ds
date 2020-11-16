@@ -22,7 +22,7 @@ type groupColorsTypes =
 export type GroupProps = {
   size?: 'regular' | 'small'
   isPrivate?: boolean
-  isWrapped?: boolean
+  isButton?: boolean
   color?: groupColorsTypes
   ariaLabel?: string
   onClick?: () => void
@@ -33,11 +33,11 @@ export const Group: React.FC<GroupProps> = props => {
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
 
-  const { isPrivate, isWrapped, ariaLabel } = props
+  const { isPrivate, isButton, ariaLabel } = props
 
   let Wrapper = null
 
-  if (isWrapped) {
+  if (isButton) {
     Wrapper = ({ children }) => (
       <div className={classes.wrapper}>{children}</div>
     )
@@ -70,7 +70,13 @@ export const Group: React.FC<GroupProps> = props => {
       {isPrivate && (
         <div className={classes.status}>
           <div className={classes.iconWrapper}>
-            <Icon className={classes.icon} name="lock" size="small" />
+            <Icon
+              width={10}
+              height={10}
+              className={classes.icon}
+              name="lock"
+              size="small"
+            />
           </div>
         </div>
       )}

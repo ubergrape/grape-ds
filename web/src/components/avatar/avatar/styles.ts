@@ -39,8 +39,8 @@ export default createUseStyles(
         isInactive && !isSelected ? '0.5' : 1,
       transition: 'all 0.25s ease-in-out',
       '&:hover': {
-        transform: ({ isInactive, isWrapped }: AvatarProps) =>
-          isInactive || isWrapped ? 'none' : 'scale(1.1)',
+        transform: ({ isInactive, isButton }: AvatarProps) =>
+          isInactive || isButton ? 'none' : 'scale(1.1)',
         '& + div': {
           width: ({ size }: AvatarProps) => {
             if (size === 'small') return theme.sizePresenceIndicatorSmall
@@ -76,7 +76,7 @@ export default createUseStyles(
       display: 'flex',
       color: theme.colorBackgroundAvatarSelectedIcon,
     },
-    online: {
+    status: {
       pointerEvents: 'none',
       width: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizePresenceIndicatorSmall
@@ -90,8 +90,14 @@ export default createUseStyles(
       borderRadius: '50%',
       position: 'absolute',
       boxSizing: 'border-box',
-      backgroundColor: ({ isOnline }: AvatarProps) =>
-        isOnline ? theme.colorBackgroundPresenceIndicatorOnline : 'transparent',
+      backgroundColor: ({ status }: AvatarProps) => {
+        switch (status) {
+          case 'online':
+            return theme.colorBackgroundPresenceIndicatorOnline
+          default:
+            return 'transparent'
+        }
+      },
       right: 0,
       bottom: 0,
     },

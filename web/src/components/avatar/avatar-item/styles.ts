@@ -13,8 +13,13 @@ export default createUseStyles(
       border: 0,
       alignItems: 'center',
       backgroundColor: 'transparent',
+      '& > div:first-child': {
+        transition: 'all 0.25s ease-in-out',
+      },
       '&:hover': {
-        transform: 'scale(1.1)',
+        '& > div:first-child': {
+          transform: 'scale(1.1)',
+        },
       },
       '&:focus': {
         outline: 0,

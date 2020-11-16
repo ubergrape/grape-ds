@@ -14,7 +14,7 @@ export interface GroupItemProps extends GroupProps {
   description?: string
   members?: number
   ariaLabel?: string
-  isWrapped?: boolean
+  isButton?: boolean
 }
 
 export const GroupItem: React.FC<GroupItemProps> = props => {
@@ -40,7 +40,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
-        <Group isWrapped {...restGroupProps} />
+        <Group isButton {...restGroupProps} />
         <div className={classes.text}>
           <Text emphasis size="small" className={classes.name}>
             {name}
@@ -49,9 +49,13 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
             {members && size !== 'small' && (
               <Text size="small">
                 <div className={classes.members}>
-                  <div className={classes.iconWrapper}>
-                    <Icon className={classes.icon} name="people" size="small" />
-                  </div>
+                  <Icon
+                    width={11.25}
+                    height={11.25}
+                    className={classes.icon}
+                    name="people"
+                    size="small"
+                  />
                   <span className={classes.membersCount}>
                     {members.toString()}
                   </span>

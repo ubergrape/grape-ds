@@ -8,15 +8,28 @@ import { Icon } from '../../icon'
 
 import useStyles from './styles'
 
+export type StatusProps = {
+  className: string
+  status?: string
+}
+
+export const Status: React.FC<StatusProps> = ({
+  status,
+  className,
+}: StatusProps) => {
+  if (!status) return null
+  return <div className={className} />
+}
+
 export type AvatarProps = {
   src?: string
   alt?: string
-  isOnline?: boolean
+  status?: string
   size?: 'regular' | 'small'
   isInactive?: boolean
   isSelected?: boolean
   ariaLabel?: string
-  isWrapped?: boolean
+  isButton?: boolean
   onClick?: () => void
 }
 
@@ -25,11 +38,11 @@ export const Avatar: React.FC<AvatarProps> = props => {
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
 
-  const { alt, src, isWrapped, isOnline, size, ariaLabel, isSelected } = props
+  const { alt, src, status, isButton, ariaLabel, isSelected } = props
 
   let Wrapper = null
 
-  if (isWrapped) {
+  if (isButton) {
     Wrapper = ({ children }) => (
       <div className={classes.wrapper}>{children}</div>
     )
@@ -59,10 +72,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
       <Wrapper>
         <div className={clsx(classes.avatar, classes.selected)}>
           <div className={classes.icon}>
-            <Icon
-              name="checkmark"
-              size={size === 'regular' ? 'medium' : 'small'}
-            />
+            <Icon name="checkmark" size="medium" />
           </div>
         </div>
       </Wrapper>
@@ -73,7 +83,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
     return (
       <Wrapper>
         <div className={classes.avatar} />
-        {isOnline && <div className={classes.online} />}
+        <Status status={status} className={classes.status} />
       </Wrapper>
     )
   }
@@ -81,7 +91,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
   return (
     <Wrapper>
       <img className={classes.avatar} alt={alt} src={src} />
-      {isOnline && <div className={classes.online} />}
+      <Status status={status} className={classes.status} />
     </Wrapper>
   )
 }
@@ -89,7 +99,6 @@ export const Avatar: React.FC<AvatarProps> = props => {
 Avatar.defaultProps = {
   size: 'regular',
   ariaLabel: 'Avatar',
-  isOnline: false,
   isInactive: false,
   isSelected: false,
 }

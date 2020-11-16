@@ -33,6 +33,7 @@ export default createUseStyles(
       },
       borderRadius: '50%',
       backgroundColor: theme.colorBackgroundAvatarGroup,
+      transition: 'all 0.25s ease-in-out',
       '&:hover': {
         transform: 'scale(1.1)',
         '& + div': {
