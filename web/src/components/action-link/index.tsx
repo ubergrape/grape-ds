@@ -16,7 +16,6 @@ export type ActionLinkProps = {
   isDisabled?: boolean
   ariaLabel?: string
   children: string
-  className?: string
 }
 
 export const ActionLink: React.FC<ActionLinkProps> = props => {
