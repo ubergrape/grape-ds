@@ -34,7 +34,7 @@ export const Types = (): JSX.Element => (
       Basic Link
     </ActionLink>
     <ActionLink href="#" variant="danger">
-      Danker Link
+      Danger Link
     </ActionLink>
   </Flex>
 )
@@ -42,10 +42,10 @@ export const Types = (): JSX.Element => (
 export const Sizes = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
     <ActionLink href="#" size="regular">
-      Primary Link
+      Regular Link
     </ActionLink>
     <ActionLink href="#" size="small">
-      Basic Link
+      Small Link
     </ActionLink>
   </Flex>
 )

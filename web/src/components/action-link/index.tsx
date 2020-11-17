@@ -39,6 +39,7 @@ export const ActionLink: React.FC<ActionLinkProps> = props => {
             name={icon || 'search'}
             size="small"
             color="primary"
+            focusable={false}
           />
         </div>
         <Text as="span" size="base" className={style.label}>
