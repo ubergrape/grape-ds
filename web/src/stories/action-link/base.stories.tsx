@@ -59,7 +59,7 @@ export const Disabled = (): JSX.Element => (
       Basic Link
     </ActionLink>
     <ActionLink href="#" variant="danger" isDisabled>
-      Danker Link
+      Danger Link
     </ActionLink>
   </Flex>
 )
