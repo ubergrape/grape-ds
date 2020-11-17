@@ -42,10 +42,10 @@ export const Types = (): JSX.Element => (
 export const Sizes = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
     <ActionLink href="#" size="regular">
-      Regular Link
+      Regular Sized Link
     </ActionLink>
     <ActionLink href="#" size="small">
-      Small Link
+      Small Sized Link
     </ActionLink>
   </Flex>
 )
