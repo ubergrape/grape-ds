@@ -1,6 +1,6 @@
 global:
   category: background-color
-  type: color
+  type: 'color|string'
   cssProperties:
   - 'background*'
 

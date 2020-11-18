@@ -36,18 +36,3 @@ props:
   font-size-body-small:
     value: '{!font-size-4}'
     comment: 'Text for labels, help, additional information.'
-
-## Button Large text
-  font-size-button-large:
-    value: '{!font-size-2}'
-    comment: 'Text for large buttons.'
-
-  ## Button Regular text
-  font-size-button-regular:
-    value: '{!font-size-3}'
-    comment: 'Text for regular buttons.'
-
-  ## Button Small text
-  font-size-button-small:
-    value: '{!font-size-4}'
-    comment: 'Text for small buttons.'

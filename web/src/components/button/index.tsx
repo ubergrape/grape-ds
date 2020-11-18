@@ -1,11 +1,14 @@
 import React, { useRef } from 'react'
-import { useTheme } from 'react-jss'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 import clsx from 'clsx'
 
-import useStyles from './styles'
 import { Icon, IconTypes } from '../icon'
+import { Text } from '../typography'
+import { getTextSize } from '../../utils'
+
+import { useFocusStyle } from '../../styles/global'
+import useStyles from './styles'
 
 export type ButtonProps = {
   onClick?: () => void
@@ -21,7 +24,6 @@ export type ButtonProps = {
 }
 
 export const Button: React.FC<ButtonProps> = props => {
-  const theme = useTheme()
   const ref = useRef()
   const {
     isDisabled,
@@ -40,15 +42,16 @@ export const Button: React.FC<ButtonProps> = props => {
     ref,
   )
 
+  const { focus } = useFocusStyle(props)
   const classes = useStyles({
     ...props,
-    theme,
     iconOnly,
   })
 
   const iconComponent = icon && (
     <Icon
       name={icon}
+      className={classes.children}
       {...(!iconOnly && {
         style: iconPosition === 'left' ? { marginRight: 5 } : { marginLeft: 5 },
       })}
@@ -59,7 +62,7 @@ export const Button: React.FC<ButtonProps> = props => {
   )
 
   return (
-    <FocusRing focusRingClass={classes.focusRing} within>
+    <FocusRing focusRingClass={focus} within>
       <button
         className={clsx(
           classes.button,
@@ -72,7 +75,16 @@ export const Button: React.FC<ButtonProps> = props => {
         {...buttonProps}
       >
         {iconPosition === 'left' && iconComponent}
-        {children && <span>{children}</span>}
+        {children && (
+          <Text
+            as="span"
+            emphasis
+            className={classes.children}
+            size={getTextSize(size)}
+          >
+            {children}
+          </Text>
+        )}
         {iconPosition === 'right' && iconComponent}
       </button>
     </FocusRing>

@@ -36,18 +36,3 @@ props:
   line-height-body-small:
     value: '{!line-height-cozy}'
     comment: 'Text for labels, help, additional information.'
-
-  ## Button Large text
-  line-height-button-large:
-    value: '{!line-height-cozy}'
-    comment: 'Text for large buttons.'
-
-  ## Button Regular text
-  line-height-button-regular:
-    value: '{!line-height-base}'
-    comment: 'Text for regular buttons.'
-
-  ## Button Small text
-  line-height-button-small:
-    value: '{!line-height-cozy}'
-    comment: 'Text for small buttons.'

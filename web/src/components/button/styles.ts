@@ -7,8 +7,6 @@ import tokens from '../../tokens'
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     button: {
-      fontFamily: theme.fontFamily,
-      fontWeight: theme.fontWeightButton,
       transition: 'all 0.25s ease-in-out',
       cursor: ({ isDisabled }: ButtonProps) => {
         return isDisabled ? 'not-allowed' : 'pointer'
@@ -18,7 +16,19 @@ export default createUseStyles(
         return 0
       },
       backgroundColor: ({ appearance, variant }: ButtonProps): string => {
-        if (appearance === 'minimal') return 'transparent'
+        if (appearance === 'minimal') {
+          switch (variant) {
+            case 'primary':
+              return theme.colorBackgroundButtonMinimalPrimaryDefault
+            case 'basic':
+              return theme.colorBackgroundButtonMinimalBasicDefault
+            case 'danger':
+              return theme.colorBackgroundButtonMinimalDangerDefault
+            default:
+              return theme.colorBackgroundButtonMinimalPrimaryDefault
+          }
+        }
+
         switch (variant) {
           case 'primary':
             return theme.colorBackgroundButtonFilledPrimaryDefault
@@ -55,48 +65,10 @@ export default createUseStyles(
             return theme.heightButtonRegular
         }
       },
-      lineHeight: '16px',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       verticalAlign: 'middle',
-      fontSize: ({ size }: ButtonProps) => {
-        switch (size) {
-          case 'regular':
-            return theme.fontSizeButtonRegular
-          case 'small':
-            return theme.fontSizeButtonSmall
-          case 'large':
-            return theme.fontSizeButtonLarge
-          default:
-            return theme.fontSizeButtonRegular
-        }
-      },
-      color: ({ appearance, variant }: ButtonProps): string => {
-        if (appearance === 'minimal') {
-          switch (variant) {
-            case 'primary':
-              return theme.colorTextButtonMinimalPrimary
-            case 'basic':
-              return theme.colorTextButtonMinimalBasic
-            case 'danger':
-              return theme.colorTextButtonMinimalDanger
-            default:
-              return theme.colorTextButtonMinimalPrimary
-          }
-        }
-
-        switch (variant) {
-          case 'primary':
-            return theme.colorTextButtonFilledPrimary
-          case 'basic':
-            return theme.colorTextButtonFilledBasic
-          case 'danger':
-            return theme.colorTextButtonFilledDanger
-          default:
-            return theme.colorTextButtonFilledPrimary
-        }
-      },
       padding: (p: ButtonProps & { iconOnly?: boolean }) => {
         let padding = theme.paddingButtonRegularRightLeft
         switch (p.size) {
@@ -153,7 +125,9 @@ export default createUseStyles(
       '&:disabled': {
         cursor: 'not-allowed',
         backgroundColor: ({ appearance }: ButtonProps): string => {
-          if (appearance === 'minimal') return 'transparent'
+          if (appearance === 'minimal') {
+            return theme.colorBackgroundButtonMinimalDisabled
+          }
 
           return theme.colorBackgroundButtonFilledDisabled
         },
@@ -196,8 +170,32 @@ export default createUseStyles(
         },
       },
     },
-    focusRing: {
-      boxShadow: `0 0 0 ${theme.outlineWidthFocus} ${theme.colorOutlineFocusDefault}`,
+    children: {
+      color: ({ appearance, variant }: ButtonProps): string => {
+        if (appearance === 'minimal') {
+          switch (variant) {
+            case 'primary':
+              return theme.colorTextButtonMinimalPrimary
+            case 'basic':
+              return theme.colorTextButtonMinimalBasic
+            case 'danger':
+              return theme.colorTextButtonMinimalDanger
+            default:
+              return theme.colorTextButtonMinimalPrimary
+          }
+        }
+
+        switch (variant) {
+          case 'primary':
+            return theme.colorTextButtonFilledPrimary
+          case 'basic':
+            return theme.colorTextButtonFilledBasic
+          case 'danger':
+            return theme.colorTextButtonFilledDanger
+          default:
+            return theme.colorTextButtonFilledPrimary
+        }
+      },
     },
   }),
 )
