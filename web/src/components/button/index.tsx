@@ -9,10 +9,10 @@ import { Icon, IconTypes } from '../icon'
 
 export type ButtonProps = {
   onClick?: () => void
-  disabled?: boolean
+  isDisabled?: boolean
   variant?: 'primary' | 'basic' | 'danger'
-  appearance?: 'standard' | 'minimal'
-  size?: 'regular' | 'small'
+  appearance?: 'filled' | 'minimal'
+  size?: 'small' | 'regular' | 'large'
   icon?: IconTypes
   iconPosition?: 'left' | 'right'
   ariaLabel?: string
@@ -23,12 +23,20 @@ export type ButtonProps = {
 export const Button: React.FC<ButtonProps> = props => {
   const theme = useTheme()
   const ref = useRef()
-  const { disabled, icon, children, iconPosition, ariaLabel, className } = props
+  const {
+    isDisabled,
+    size,
+    icon,
+    children,
+    iconPosition,
+    ariaLabel,
+    className,
+  } = props
   const { onClick, ...rest } = props
   const iconOnly = (children === undefined || children === '') && icon
 
   const { buttonProps, isPressed } = useButton(
-    { ...rest, onPress: onClick },
+    { ...rest, onPress: onClick, isDisabled },
     ref,
   )
 
@@ -46,7 +54,7 @@ export const Button: React.FC<ButtonProps> = props => {
       })}
       aria-hidden
       focusable={false}
-      size="small"
+      size={size === 'large' ? 'medium' : 'small'}
     />
   )
 
@@ -55,14 +63,13 @@ export const Button: React.FC<ButtonProps> = props => {
       <button
         className={clsx(
           classes.button,
-          isPressed && !disabled && 'active',
+          isPressed && !isDisabled && 'active',
           className,
         )}
         type="button"
         ref={ref}
         {...(ariaLabel && { 'aria-label': ariaLabel })}
         {...buttonProps}
-        disabled={disabled}
       >
         {iconPosition === 'left' && iconComponent}
         {children && <span>{children}</span>}
@@ -73,11 +80,11 @@ export const Button: React.FC<ButtonProps> = props => {
 }
 
 Button.defaultProps = {
-  disabled: false,
+  isDisabled: false,
   iconPosition: 'left',
   variant: 'basic',
   size: 'regular',
-  appearance: 'standard',
+  appearance: 'filled',
 }
 
 export default Button
