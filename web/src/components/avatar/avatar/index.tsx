@@ -1,11 +1,12 @@
-import clsx from 'clsx'
 import React, { useRef } from 'react'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
-import { useFocusStyle } from '../../../styles/global'
 import { Icon } from '../../icon'
+import { Flex } from '../../layout'
 
+import { useFocusStyle } from '../../../styles/global'
+import { useAvatarStyle } from '../styles/avatar'
 import useStyles from './styles'
 
 type StatusType = 'online'
@@ -16,6 +17,7 @@ export type AvatarProps = {
   status?: StatusType
   size?: 'regular' | 'small'
   isDisabled?: boolean
+  isInactive?: boolean
   isSelected?: boolean
   ariaLabel?: string
   isUnclickable?: boolean
@@ -26,15 +28,17 @@ export const Avatar: React.FC<AvatarProps> = props => {
   const ref = useRef()
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
+  const { wrapper, circle } = useAvatarStyle(props)
 
   const {
     alt,
     src,
     status,
     isDisabled,
+    isInactive,
+    isSelected,
     isUnclickable,
     ariaLabel,
-    isSelected,
   } = props
 
   const { onClick, ...rest } = props
@@ -43,7 +47,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
 
   if (isUnclickable) {
     Wrapper = ({ children }) => (
-      <div aria-label={ariaLabel} className={classes.wrapper}>
+      <div aria-label={ariaLabel || alt} className={wrapper}>
         {children}
       </div>
     )
@@ -58,9 +62,9 @@ export const Avatar: React.FC<AvatarProps> = props => {
         <FocusRing focusRingClass={onFocus} within>
           <button
             type="button"
-            className={classes.wrapper}
+            className={wrapper}
             ref={ref}
-            aria-label={ariaLabel}
+            aria-label={ariaLabel || alt}
             {...buttonProps}
           >
             {children}
@@ -73,11 +77,11 @@ export const Avatar: React.FC<AvatarProps> = props => {
   if (isSelected) {
     return (
       <Wrapper>
-        <div className={clsx(classes.avatar, classes.isSelected)}>
+        <Flex items="center" justify="center" className={circle}>
           <div className={classes.icon}>
             <Icon name="checkmark" size="medium" />
           </div>
-        </div>
+        </Flex>
       </Wrapper>
     )
   }
@@ -85,16 +89,16 @@ export const Avatar: React.FC<AvatarProps> = props => {
   if (!src || !alt) {
     return (
       <Wrapper>
-        <div className={classes.avatar} />
-        {!isDisabled && status && <div className={classes.status} />}
+        <div className={circle} />
+        {!isInactive && status && <div className={classes.status} />}
       </Wrapper>
     )
   }
 
   return (
     <Wrapper>
-      <img className={classes.avatar} alt={alt} src={src} />
-      {!isDisabled && status && <div className={classes.status} />}
+      <img className={circle} alt={alt} src={src} />
+      {!isInactive && status && <div className={classes.status} />}
     </Wrapper>
   )
 }
@@ -103,6 +107,7 @@ Avatar.defaultProps = {
   size: 'regular',
   ariaLabel: 'Avatar',
   isDisabled: false,
+  isInactive: false,
   isSelected: false,
 }
 

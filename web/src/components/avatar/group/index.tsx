@@ -3,8 +3,10 @@ import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
 import { Icon, IconTypes } from '../../icon'
+import { Flex } from '../../layout'
 
 import { useFocusStyle } from '../../../styles/global'
+import { useAvatarStyle } from '../styles/avatar'
 import useStyles from './styles'
 
 const groupTypeIconData = {
@@ -15,17 +17,7 @@ const groupTypeIconData = {
   },
 }
 
-type groupColorsTypes =
-  | 'grey'
-  | 'light-grey'
-  | 'gold'
-  | 'orange'
-  | 'pink'
-  | 'purple'
-  | 'blue'
-  | 'light-blue'
-  | 'green'
-  | 'light-green'
+type groupColorsTypes = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 
 type GroupTypes = 'private'
 
@@ -34,6 +26,7 @@ export type GroupProps = {
   groupType?: GroupTypes
   isUnclickable?: boolean
   isDisabled?: boolean
+  isInactive?: boolean
   color?: groupColorsTypes
   ariaLabel?: string
   onClick?: () => void
@@ -43,6 +36,7 @@ export const Group: React.FC<GroupProps> = props => {
   const ref = useRef()
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
+  const { wrapper, circle } = useAvatarStyle(props)
 
   const { groupType, isUnclickable, ariaLabel } = props
   const { onClick, isDisabled, ...rest } = props
@@ -51,7 +45,7 @@ export const Group: React.FC<GroupProps> = props => {
 
   if (isUnclickable) {
     Wrapper = ({ children }) => (
-      <div aria-label={ariaLabel} className={classes.wrapper}>
+      <div aria-label={ariaLabel} className={wrapper}>
         {children}
       </div>
     )
@@ -66,7 +60,7 @@ export const Group: React.FC<GroupProps> = props => {
         <FocusRing focusRingClass={onFocus} within>
           <button
             type="button"
-            className={classes.wrapper}
+            className={wrapper}
             ref={ref}
             aria-label={ariaLabel}
             {...buttonProps}
@@ -82,11 +76,11 @@ export const Group: React.FC<GroupProps> = props => {
 
   return (
     <Wrapper>
-      <div className={classes.group}>
+      <Flex items="center" justify="center" className={circle}>
         <span className={classes.color} />
-      </div>
+      </Flex>
       {groupType && (
-        <div className={classes.status}>
+        <Flex items="center" justify="center" className={classes.status}>
           <Icon
             width={icon.width}
             height={icon.height}
@@ -94,7 +88,7 @@ export const Group: React.FC<GroupProps> = props => {
             className={classes.icon}
             size="small"
           />
-        </div>
+        </Flex>
       )}
     </Wrapper>
   )
@@ -102,9 +96,10 @@ export const Group: React.FC<GroupProps> = props => {
 
 Group.defaultProps = {
   isDisabled: false,
+  isInactive: false,
   size: 'regular',
   ariaLabel: 'Group',
-  color: 'grey',
+  color: 1,
 }
 
 export default Group
