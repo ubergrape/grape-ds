@@ -8,8 +8,8 @@ export const useItemStyle = createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
       display: 'flex',
-      padding: 0,
       border: 0,
+      padding: theme.sizeHalfX,
       alignItems: 'center',
       backgroundColor: 'transparent',
       cursor: ({ isInactive, isDisabled }) => {
@@ -23,6 +23,10 @@ export const useItemStyle = createUseStyles(
         '& > div:first-child': {
           transform: ({ isInactive, isDisabled }) =>
             isInactive || isDisabled ? 'none' : 'scale(1.1)',
+        },
+        '& > div:first-child > div:nth-child(2)': {
+          transform: ({ isInactive, isDisabled }) =>
+            isInactive || isDisabled ? 'none' : 'scale(0.91)',
         },
       },
       '&:focus': {

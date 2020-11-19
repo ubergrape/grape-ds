@@ -5,7 +5,7 @@ import tokens from '../../../tokens'
 import { parseToken } from '../../../utils'
 
 export const onScaleIndicationSize = (avatarSize: string): number =>
-  -parseToken(avatarSize) / 10
+  -parseToken(avatarSize) / 10 + 1
 
 export const useAvatarStyle = createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
