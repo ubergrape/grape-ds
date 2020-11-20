@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React from 'react'
 import { createUseStyles } from 'react-jss'
 import * as icons from '../../icons'
@@ -21,6 +22,7 @@ export type IconProps = {
   size?: IconSize
   color?: TextColorType
   ariaLabel?: string
+  className?: string
   ariaHidden?: boolean
   focusable?: boolean
 }
@@ -49,6 +51,7 @@ export const Icon: React.FC<IconProps> = ({
   size,
   color,
   ariaLabel,
+  className,
   ariaHidden,
   ...rest
 }) => {
@@ -56,7 +59,7 @@ export const Icon: React.FC<IconProps> = ({
   const classes = useStyles({ color })
   return (
     <IconComponent
-      className={classes.icon}
+      className={clsx(classes.icon, className)}
       {...rest}
       aria-label={ariaLabel}
       aria-hidden={ariaLabel ? false : ariaHidden}
