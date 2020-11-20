@@ -131,12 +131,14 @@ export default createUseStyles(
 
           return theme.colorBackgroundButtonFilledDisabled
         },
-        color: ({ appearance }: ButtonProps): string => {
-          if (appearance === 'minimal') {
-            return theme.colorTextButtonMinimalDisabled
-          }
+        '& > span': {
+          color: ({ appearance }: ButtonProps): string => {
+            if (appearance === 'minimal') {
+              return theme.colorTextButtonMinimalDisabled
+            }
 
-          return theme.colorTextButtonFilledDisabled
+            return theme.colorTextButtonFilledDisabled
+          },
         },
       },
       '&:focus': {

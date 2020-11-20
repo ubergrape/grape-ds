@@ -71,6 +71,7 @@ export const Button: React.FC<ButtonProps> = props => {
         )}
         type="button"
         ref={ref}
+        disabled={isDisabled}
         {...(ariaLabel && { 'aria-label': ariaLabel })}
         {...buttonProps}
       >
