@@ -1,6 +1,6 @@
 global:
   category: background-color
-  type: color
+  type: 'color|string'
   cssProperties:
   - 'background*'
 
@@ -20,37 +20,37 @@ props:
     value: '{!base-ghost}'
     comment: 'Secondary background color for light theme used to distinguish elements.'
 
-  ## Buttons Standard
-  color-background-button-standard-primary--default:
+  ## Buttons Filled
+  color-background-button-filled-primary--default:
     value: '{!primary-base}'
-    comment: 'Standard primary button default.'
-  color-background-button-standard-primary--hover:
+    comment: 'Filled primary button default.'
+  color-background-button-filled-primary--hover:
     value: '{!primary-dark}'
-    comment: 'Standard primary button hover.'
-  color-background-button-standard-primary--active:
+    comment: 'Filled primary button hover.'
+  color-background-button-filled-primary--active:
     value: '{!primary-darker}'
-    comment: 'Standard primary button active.'
-  color-background-button-standard-basic--default:
+    comment: 'Filled primary button active.'
+  color-background-button-filled-basic--default:
     value: '{!base-lightest}'
-    comment: 'Standard basic button default.'
-  color-background-button-standard-basic--hover:
+    comment: 'Filled basic button default.'
+  color-background-button-filled-basic--hover:
     value: '{!base-lighter}'
-    comment: 'Standard basic button hover.'
-  color-background-button-standard-basic--active:
+    comment: 'Filled basic button hover.'
+  color-background-button-filled-basic--active:
     value: '{!base-light}'
-    comment: 'Standard basic button active.'
-  color-background-button-standard-danger--default:
+    comment: 'Filled basic button active.'
+  color-background-button-filled-danger--default:
     value: '{!negative-base}'
-    comment: 'Standard danger button default.'
-  color-background-button-standard-danger--hover:
+    comment: 'Filled danger button default.'
+  color-background-button-filled-danger--hover:
     value: '{!negative-dark}'
-    comment: 'Standard danger button hover.'
-  color-background-button-standard-danger--active:
+    comment: 'Filled danger button hover.'
+  color-background-button-filled-danger--active:
     value: '{!negative-darker}'
-    comment: 'Standard danger button active.'
-  color-background-button-standard-disabled:
+    comment: 'Filled danger button active.'
+  color-background-button-filled-disabled:
     value: '{!disabled-ghost}'
-    comment: 'Standard disabled button.'
+    comment: 'Filled disabled button.'
 
   ## Buttons Minimal
   color-background-button-minimal-primary--default:

@@ -9,12 +9,15 @@ imports:
 - ./aliases/space.yml
 
 props:
+  padding-button-large-right-left:
+    value: '{!space-2-half-x}'
+    comment: 'Padding between button border and text/icon on the right and on the left side of a large button.'
   padding-button-regular-right-left:
     value: '{!space-2-x}'
     comment: 'Padding between button border and text/icon on the right and on the left side of a regular button.'
   padding-button-small-right-left:
     value: '{!space-1-half-x}'
-    comment: 'Padding between button border and text/icon on the right and on the left side of a regular button.'
+    comment: 'Padding between button border and text/icon on the right and on the left side of a small button.'
   padding-button-icon-text:
     value: '{!space-half-x}'
     comment: 'Padding between icon and text inside the button.'

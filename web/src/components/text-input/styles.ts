@@ -36,10 +36,12 @@ export default createUseStyles({
     maxHeight: ({ maxHeight }) => maxHeight,
     boxSizing: 'border-box',
     padding: `${tokens.paddingFormfieldTextareaInputtextTopbottom} ${tokens.paddingFormfieldInputtextLeftright}`,
-    paddingRight: ({ maxLength, component }) => {
+    paddingRight: ({ maxLength, component, type }) => {
       if (maxLength && component === 'input')
         return `calc(${tokens.paddingFormfieldInputtextCounter} + 50px)`
-
+      if (type === 'search') {
+        return `calc(${tokens.size4X} + ${tokens.sizeHalfX})`
+      }
       return null
     },
     paddingLeft: ({ renderLeft }) => {

@@ -24,6 +24,7 @@ export type IconProps = {
   color?: TextColorType
   className?: string
   ariaLabel?: string
+  className?: string
   ariaHidden?: boolean
   focusable?: boolean
   width?: number
@@ -55,6 +56,7 @@ export const Icon: React.FC<IconProps> = ({
   color,
   className,
   ariaLabel,
+  className,
   ariaHidden,
   ...rest
 }) => {

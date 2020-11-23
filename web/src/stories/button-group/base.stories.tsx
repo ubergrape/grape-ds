@@ -27,28 +27,26 @@ Base.parameters = {
 }
 
 export const Alignment: React.FC<ButtonGroupProps> = () => (
-  <div>
-    <Flex direction="column" gap="2x">
-      <ButtonGroup>
-        <Button variant="primary" onPress={action('clicked')}>
-          Button
-        </Button>
-        <Button onPress={action('clicked')}>Button</Button>
-        <Button appearance="minimal" onPress={action('clicked')}>
-          Button
-        </Button>
-      </ButtonGroup>
-      <ButtonGroup align="right">
-        <Button variant="primary" onPress={action('clicked')}>
-          Button
-        </Button>
-        <Button onPress={action('clicked')}>Button</Button>
-        <Button appearance="minimal" onPress={action('clicked')}>
-          Button
-        </Button>
-      </ButtonGroup>
-    </Flex>
-  </div>
+  <Flex direction="column" gap="2x">
+    <ButtonGroup>
+      <Button variant="primary" onPress={action('clicked')}>
+        Button
+      </Button>
+      <Button onPress={action('clicked')}>Button</Button>
+      <Button appearance="minimal" onPress={action('clicked')}>
+        Button
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup align="right">
+      <Button variant="primary" onPress={action('clicked')}>
+        Button
+      </Button>
+      <Button onPress={action('clicked')}>Button</Button>
+      <Button appearance="minimal" onPress={action('clicked')}>
+        Button
+      </Button>
+    </ButtonGroup>
+  </Flex>
 )
 
 Alignment.parameters = {

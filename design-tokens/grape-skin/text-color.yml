@@ -39,19 +39,19 @@ props:
     value: '{!gray-40}'
     comment: 'Placeholder text color.'
 
-  ## Buttons Standard
-  color-text-button-standard-primary:
+  ## Buttons Filled
+  color-text-button-filled-primary:
     value: '{!base-bw-white}'
-    comment: 'Standard primary button text.'
-  color-text-button-standard-basic:
+    comment: 'Filled primary button text.'
+  color-text-button-filled-basic:
     value: '{!base-dark}'
-    comment: 'Standard basic button text.'
-  color-text-button-standard-danger:
+    comment: 'Filled basic button text.'
+  color-text-button-filled-danger:
     value: '{!base-bw-white}'
-    comment: 'Standard danger button text.'
-  color-text-button-standard-disabled:
+    comment: 'Filled danger button text.'
+  color-text-button-filled-disabled:
     value: '{!disabled-base}'
-    comment: 'Standard disabled button text.'
+    comment: 'Filled disabled button text.'
 
   ## Buttons Minimal
   color-text-button-minimal-primary:
