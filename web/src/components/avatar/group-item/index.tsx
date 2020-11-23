@@ -17,6 +17,7 @@ export interface GroupItemProps extends GroupProps {
   members?: number
   ariaLabel?: string
   isUnclickable?: boolean
+  isInactive?: boolean
   maxWidth?: number
 }
 
@@ -84,6 +85,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
 
 GroupItem.defaultProps = {
   name: 'Group name',
+  isInactive: false,
 }
 
 export default GroupItem

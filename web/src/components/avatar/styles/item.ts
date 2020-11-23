@@ -12,10 +12,7 @@ export const useItemStyle = createUseStyles(
       padding: theme.sizeHalfX,
       alignItems: 'center',
       backgroundColor: 'transparent',
-      cursor: ({ isInactive, isDisabled }) => {
-        if (isDisabled) return 'auto'
-        return isInactive ? 'not-allowed' : 'pointer'
-      },
+      cursor: ({ isDisabled }) => (isDisabled ? 'auto' : 'pointer'),
       '& > div:first-child': {
         transition: 'all 0.25s ease-in-out',
       },

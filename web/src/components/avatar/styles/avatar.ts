@@ -5,7 +5,7 @@ import tokens from '../../../tokens'
 import { parseToken } from '../../../utils'
 
 export const onScaleIndicationSize = (avatarSize: string): number =>
-  -parseToken(avatarSize) / 10 + 1
+  -parseToken(avatarSize) / 10 + 2
 
 export const useAvatarStyle = createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
@@ -16,14 +16,12 @@ export const useAvatarStyle = createUseStyles(
       border: 0,
       backgroundColor: 'transparent',
       borderRadius: '50%',
+      pointerEvents: ({ isUnclickable }) => (isUnclickable ? 'none' : 'auto'),
       width: ({ size }) =>
         size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
       height: ({ size }) =>
         size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
-      cursor: ({ isInactive, isDisabled }) => {
-        if (isDisabled) return 'auto'
-        return isInactive ? 'not-allowed' : 'pointer'
-      },
+      cursor: ({ isDisabled }) => (isDisabled ? 'auto' : 'pointer'),
       transition: 'all 0.25s ease-in-out',
       '&:hover': {
         transform: ({ isInactive, isDisabled }) =>

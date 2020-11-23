@@ -26,7 +26,6 @@ export type GroupProps = {
   groupType?: GroupTypes
   isUnclickable?: boolean
   isDisabled?: boolean
-  isInactive?: boolean
   color?: groupColorsTypes
   ariaLabel?: string
   onClick?: () => void
@@ -96,7 +95,6 @@ export const Group: React.FC<GroupProps> = props => {
 
 Group.defaultProps = {
   isDisabled: false,
-  isInactive: false,
   size: 'regular',
   ariaLabel: 'Group',
   color: 1,
