@@ -15,12 +15,12 @@ export const useAvatarStyle = createUseStyles(
       padding: 0,
       border: 0,
       backgroundColor: 'transparent',
-      borderRadius: '50%',
+      borderRadius: theme.borderRadiusAvatar,
       pointerEvents: ({ isUnclickable }) => (isUnclickable ? 'none' : 'auto'),
       width: ({ size }) =>
-        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
+        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
       height: ({ size }) =>
-        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
+        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
       cursor: ({ isDisabled }) => (isDisabled ? 'auto' : 'pointer'),
       transition: 'all 0.25s ease-in-out',
       '&:hover': {
@@ -34,14 +34,14 @@ export const useAvatarStyle = createUseStyles(
             if (size === 'small') {
               return onScaleIndicationSize(theme.sizeAvatarSmall)
             }
-            return onScaleIndicationSize(theme.sizeAvatarMedium)
+            return onScaleIndicationSize(theme.sizeAvatarRegular)
           },
           right: ({ isInactive, isDisabled, size }) => {
             if (isInactive || isDisabled) return -1
             if (size === 'small') {
               return onScaleIndicationSize(theme.sizeAvatarSmall)
             }
-            return onScaleIndicationSize(theme.sizeAvatarMedium)
+            return onScaleIndicationSize(theme.sizeAvatarRegular)
           },
         },
       },
@@ -51,10 +51,10 @@ export const useAvatarStyle = createUseStyles(
     },
     circle: {
       width: ({ size }) =>
-        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
+        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
       height: ({ size }) =>
-        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
-      borderRadius: '50%',
+        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
+      borderRadius: theme.borderRadiusAvatar,
       backgroundColor: ({ isSelected }) => {
         if (isSelected) return theme.colorBackgroundAvatarSelected
         return theme.colorBackgroundAvatarUser

@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React, { useRef } from 'react'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
@@ -25,7 +26,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
   const ref = useRef()
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
-  const { wrapper, text } = useItemStyle(props)
+  const itemClasses = useItemStyle(props)
 
   const { name, description, members, ariaLabel, ...restGroupProps } = props
   const { onClick, isDisabled, ...restButtonProps } = props
@@ -40,14 +41,18 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
     <FocusRing focusRingClass={onFocus} within>
       <button
         type="button"
-        className={wrapper}
+        className={itemClasses.wrapper}
         ref={ref}
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
         <Group isUnclickable {...restGroupProps} />
-        <div className={text}>
-          <Text emphasis size="small" className={classes.name}>
+        <div className={itemClasses.text}>
+          <Text
+            emphasis
+            size="small"
+            className={clsx(itemClasses.name, classes.name)}
+          >
             {name}
           </Text>
           <div className={classes.secondary}>

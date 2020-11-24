@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React, { useRef } from 'react'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
@@ -21,7 +22,7 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
   const ref = useRef()
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
-  const { wrapper, text } = useItemStyle(props)
+  const itemClasses = useItemStyle(props)
 
   const { name, ariaLabel, description, ...restAvatarProps } = props
   const { onClick, isDisabled, ...restButtonProps } = props
@@ -35,14 +36,18 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
     <FocusRing focusRingClass={onFocus} within>
       <button
         type="button"
-        className={wrapper}
+        className={itemClasses.wrapper}
         ref={ref}
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
         <Avatar isUnclickable {...restAvatarProps} />
-        <div className={text}>
-          <Text emphasis size="small" className={classes.name}>
+        <div className={itemClasses.text}>
+          <Text
+            emphasis
+            size="small"
+            className={clsx(itemClasses.name, classes.name)}
+          >
             {name}
           </Text>
           {description && (

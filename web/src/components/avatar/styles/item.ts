@@ -39,12 +39,30 @@ export const useItemStyle = createUseStyles(
         const padding = parseToken(theme.spaceAvatarItem)
 
         const avatarSize = parseToken(
-          size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
+          size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
         )
 
         return `calc(${maxWidth}px - ${padding + avatarSize}px)`
       },
       flexDirection: ({ size }) => (size === 'small' ? 'row' : 'column'),
+    },
+    name: {
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      textAlign: 'left',
+      flexShrink: 0,
+      maxWidth: ({ maxWidth, size }) => {
+        if (!maxWidth) return 'auto'
+
+        const padding = parseToken(theme.spaceAvatarItem) * 2
+
+        const avatarSize = parseToken(
+          size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
+        )
+
+        return `calc(${maxWidth}px - ${padding + avatarSize}px)`
+      },
     },
   }),
 )

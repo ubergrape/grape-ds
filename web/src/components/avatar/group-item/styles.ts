@@ -9,22 +9,6 @@ import { GroupItemProps } from '.'
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     name: {
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      textAlign: 'left',
-      flexShrink: 0,
-      maxWidth: ({ maxWidth, size }) => {
-        if (!maxWidth) return 'auto'
-
-        const padding = parseToken(theme.spaceAvatarItem) * 2
-
-        const avatarSize = parseToken(
-          size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarMedium,
-        )
-
-        return `calc(${maxWidth}px - ${padding + avatarSize}px)`
-      },
       color: ({ isInactive }: GroupItemProps) =>
         isInactive
           ? theme.colorTextAvatarItemPrimaryInactive

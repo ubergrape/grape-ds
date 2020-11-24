@@ -11,12 +11,12 @@ export default createUseStyles(
       width: ({ size }: GroupProps) =>
         size === 'small'
           ? theme.sizeGroupcolorSmall
-          : theme.sizeGroupcolorMedium,
+          : theme.sizeGroupcolorRegular,
       height: ({ size }: GroupProps) =>
         size === 'small'
           ? theme.sizeGroupcolorSmall
-          : theme.sizeGroupcolorMedium,
-      borderRadius: '50%',
+          : theme.sizeGroupcolorRegular,
+      borderRadius: theme.borderRadiusAvatar,
       backgroundColor: ({ color }: GroupProps) => {
         switch (color) {
           case 1:
@@ -60,17 +60,17 @@ export default createUseStyles(
       bottom: -1,
       position: 'absolute',
       pointerEvents: 'none',
-      borderRadius: '50%',
+      borderRadius: theme.borderRadiusAvatar,
       transition: 'all 0.25s ease-in-out',
       backgroundColor: theme.colorBackgroundGrouptypeIndicator,
       width: ({ size }: GroupProps) =>
         size === 'small'
           ? theme.sizeGrouptypeIndicatorSmall
-          : theme.sizeGrouptypeIndicatorMedium,
+          : theme.sizeGrouptypeIndicatorRegular,
       height: ({ size }: GroupProps) =>
         size === 'small'
           ? theme.sizeGrouptypeIndicatorSmall
-          : theme.sizeGrouptypeIndicatorMedium,
+          : theme.sizeGrouptypeIndicatorRegular,
     },
     icon: {
       color: theme.colorBackgroundGrouptypeIcon,

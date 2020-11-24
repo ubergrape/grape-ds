@@ -16,7 +16,7 @@ export default createUseStyles(
       bottom: -1,
       position: 'absolute',
       pointerEvents: 'none',
-      borderRadius: '50%',
+      borderRadius: theme.borderRadiusAvatar,
       boxSizing: 'border-box',
       transition: 'all 0.25s ease-in-out',
       border: `${theme.borderWidthPresenceIndicator} solid ${theme.colorBorderPresenceIndicator}`,
@@ -30,11 +30,11 @@ export default createUseStyles(
       },
       width: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizePresenceIndicatorSmall
-        return theme.sizePresenceIndicatorMedium
+        return theme.sizePresenceIndicatorRegular
       },
       height: ({ size }: AvatarProps) => {
         if (size === 'small') return theme.sizePresenceIndicatorSmall
-        return theme.sizePresenceIndicatorMedium
+        return theme.sizePresenceIndicatorRegular
       },
     },
   }),
