@@ -1,7 +1,8 @@
 import { createUseStyles } from 'react-jss'
 import tokens from '../tokens'
 
-const focusStyle = ({ isInvalid }): string => {
+const focusStyle = ({ isInvalid, isDisabled }): string => {
+  if (isDisabled) return undefined
   if (isInvalid)
     return `0 0 0 ${tokens.outlineWidthFocus} ${tokens.colorOutlineFocusInvalid}`
   return `0 0 0 ${tokens.outlineWidthFocus} ${tokens.colorOutlineFocusDefault}`

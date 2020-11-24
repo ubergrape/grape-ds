@@ -36,6 +36,9 @@ props:
     value: '{!space-6-x}'
 
   ## Buttons
+  height-button-large:
+    value: '{!space-5-x}'
+    comment: 'Button height for large size.'
   height-button-regular:
     value: '{!space-4-x}'
     comment: 'Button height for regular size.'
@@ -61,9 +64,6 @@ props:
   size-icon-large:
     value: '{!space-3-x}'
     comment: 'Large icon size.'
-  size-icon-button:
-    value: '{!space-2-x}'
-    comment: 'Icon size inside a button.'
 
   ## Form controls
   space-formcontrol-label:

@@ -26,8 +26,3 @@ props:
   font-weight-overline:
     value: '{!font-weight-regular}'
     comment: 'Used for overlines.'
-
-  ## Button text
-  font-weight-button:
-    value: '{!font-weight-emphasis}'
-    comment: 'Used for buttons.'
