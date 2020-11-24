@@ -12,8 +12,8 @@ import useStyles from './styles'
 type StatusType = 'online'
 
 export type AvatarProps = {
-  src?: string
-  alt?: string
+  src: string
+  alt: string
   status?: StatusType
   size?: 'regular' | 'small'
   isDisabled?: boolean
@@ -22,6 +22,11 @@ export type AvatarProps = {
   ariaLabel?: string
   isUnclickable?: boolean
   onClick?: () => void
+}
+
+const isWithImage = (props): props is AvatarProps => {
+  console.log(props.src)
+  return props.src !== undefined
 }
 
 export const Avatar: React.FC<AvatarProps> = props => {
@@ -86,18 +91,13 @@ export const Avatar: React.FC<AvatarProps> = props => {
     )
   }
 
-  if (!src || !alt) {
-    return (
-      <Wrapper>
-        <div className={circle} />
-        {!isInactive && status && <div className={classes.status} />}
-      </Wrapper>
-    )
-  }
-
   return (
     <Wrapper>
-      <img className={circle} alt={alt} src={src} />
+      {isWithImage(props) ? (
+        <img className={circle} alt={alt} src={src} />
+      ) : (
+        <div className={circle} />
+      )}
       {!isInactive && status && <div className={classes.status} />}
     </Wrapper>
   )
