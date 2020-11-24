@@ -4,20 +4,35 @@ import { Flex } from '../layout'
 import { Text } from '../typography/text'
 import { useStyles } from './styles'
 
-export interface Props {
+type DefaultProps = {
   onRemove?: () => void
   maxWidth?: number
   children: string
-  avatar?: string
   removeAriaLabel?: string
 }
 
+type WithAvatar = DefaultProps & {
+  avatarSrc: string
+  avatarAlt: string
+}
+
+export type Props = DefaultProps | WithAvatar
+
+const isAvatarTag = (va: Props): va is WithAvatar =>
+  (va as WithAvatar).avatarSrc !== undefined
+
 export const Tag: React.FC<Props> = props => {
-  const { children, onRemove, avatar } = props
+  const { children, onRemove } = props
   const classes = useStyles(props)
   return (
     <Flex className={classes.tag} gap="0.5x" items="center">
-      {avatar && <div className={classes.avatar} />}
+      {isAvatarTag(props) && (
+        <img
+          src={props.avatarSrc}
+          alt={props.avatarAlt}
+          className={classes.avatar}
+        />
+      )}
       <Text
         maxWidth={props.maxWidth}
         as="div"

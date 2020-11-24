@@ -40,8 +40,17 @@ export const Removeable = (): JSX.Element => (
 
 export const Avatar = (): JSX.Element => (
   <Flex gap="1x" direction="column">
-    <Tag avatar="Test">Tag label</Tag>
-    <Tag avatar="Test" onRemove={() => alert('Remove')}>
+    <Tag
+      avatarSrc="https://thispersondoesnotexist.com/image"
+      avatarAlt="Alt text image"
+    >
+      Tag label
+    </Tag>
+    <Tag
+      avatarSrc="https://thispersondoesnotexist.com/image"
+      avatarAlt="Alt text image"
+      onRemove={() => alert('Remove')}
+    >
       Tag label
     </Tag>
   </Flex>

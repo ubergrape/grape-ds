@@ -29,7 +29,6 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
   avatar: {
     width: theme.size2X,
     height: theme.size2X,
-    backgroundColor: 'white',
     borderRadius: theme.borderRadiusTag,
   },
 }))
