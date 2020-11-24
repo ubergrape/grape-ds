@@ -24,10 +24,7 @@ export type AvatarProps = {
   onClick?: () => void
 }
 
-const isWithImage = (props): props is AvatarProps => {
-  console.log(props.src)
-  return props.src !== undefined
-}
+const isWithImage = (props): props is AvatarProps => props.src !== undefined
 
 export const Avatar: React.FC<AvatarProps> = props => {
   const ref = useRef()
