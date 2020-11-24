@@ -1,11 +1,14 @@
 import { createUseStyles } from 'react-jss'
+import { isAvatarTag, Props } from '.'
 import tokens from '../../tokens'
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   tag: {
     backgroundColor: theme.colorBackgroundTagBasic,
-    paddingLeft: ({ avatar }) =>
-      avatar ? theme.paddingTagAvatarSide : theme.paddingTagTextSide,
+    paddingLeft: (props: Props) =>
+      isAvatarTag(props)
+        ? theme.paddingTagAvatarSide
+        : theme.paddingTagTextSide,
     paddingRight: ({ onRemove }) =>
       onRemove ? theme.paddingTagRemoveSide : theme.paddingTagTextSide,
     borderRadius: theme.borderRadiusTag,

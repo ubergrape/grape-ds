@@ -18,7 +18,7 @@ type WithAvatar = DefaultProps & {
 
 export type Props = DefaultProps | WithAvatar
 
-const isAvatarTag = (va: Props): va is WithAvatar =>
+export const isAvatarTag = (va: Props): va is WithAvatar =>
   (va as WithAvatar).avatarSrc !== undefined
 
 export const Tag: React.FC<Props> = props => {
