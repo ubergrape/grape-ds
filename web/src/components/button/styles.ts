@@ -7,83 +7,85 @@ import tokens from '../../tokens'
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     button: {
-      fontFamily: theme.fontFamily,
-      fontWeight: theme.fontWeightButton,
       transition: 'all 0.25s ease-in-out',
-      cursor: ({ disabled }: ButtonProps) => {
-        return disabled ? 'not-allowed' : 'pointer'
+      cursor: ({ isDisabled }: ButtonProps) => {
+        return isDisabled ? 'not-allowed' : 'pointer'
       },
       minWidth: ({ iconOnly }) => {
         if (!iconOnly) return 64
         return 0
       },
       backgroundColor: ({ appearance, variant }: ButtonProps): string => {
-        if (appearance === 'minimal') return 'transparent'
-        switch (variant) {
-          case 'primary':
-            return theme.colorBackgroundButtonStandardPrimaryDefault
-          case 'basic':
-            return theme.colorBackgroundButtonStandardBasicDefault
-          case 'danger':
-            return theme.colorBackgroundButtonStandardDangerDefault
-          default:
-            return theme.colorBackgroundButtonStandardPrimaryDefault
-        }
-      },
-      height: ({ size }: ButtonProps) => {
-        return size === 'small'
-          ? theme.heightButtonSmall
-          : theme.heightButtonRegular
-      },
-      width: ({ iconOnly, size }) => {
-        if (!iconOnly) return 'auto'
-        return size === 'small'
-          ? theme.heightButtonSmall
-          : theme.heightButtonRegular
-      },
-      lineHeight: '16px',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      verticalAlign: 'middle',
-      fontSize: ({ size }: ButtonProps) => {
-        return size === 'small'
-          ? theme.fontSizeButtonSmall
-          : theme.fontSizeButtonRegular
-      },
-      color: ({ appearance, variant }: ButtonProps): string => {
         if (appearance === 'minimal') {
           switch (variant) {
             case 'primary':
-              return theme.colorTextButtonMinimalPrimary
+              return theme.colorBackgroundButtonMinimalPrimaryDefault
             case 'basic':
-              return theme.colorTextButtonMinimalBasic
+              return theme.colorBackgroundButtonMinimalBasicDefault
             case 'danger':
-              return theme.colorTextButtonMinimalDanger
+              return theme.colorBackgroundButtonMinimalDangerDefault
             default:
-              return theme.colorTextButtonMinimalPrimary
+              return theme.colorBackgroundButtonMinimalPrimaryDefault
           }
         }
 
         switch (variant) {
           case 'primary':
-            return theme.colorTextButtonStandardPrimary
+            return theme.colorBackgroundButtonFilledPrimaryDefault
           case 'basic':
-            return theme.colorTextButtonStandardBasic
+            return theme.colorBackgroundButtonFilledBasicDefault
           case 'danger':
-            return theme.colorTextButtonStandardDanger
+            return theme.colorBackgroundButtonFilledDangerDefault
           default:
-            return theme.colorTextButtonStandardPrimary
+            return theme.colorBackgroundButtonFilledPrimaryDefault
         }
       },
+      height: ({ size }: ButtonProps) => {
+        switch (size) {
+          case 'regular':
+            return theme.heightButtonRegular
+          case 'small':
+            return theme.heightButtonSmall
+          case 'large':
+            return theme.heightButtonLarge
+          default:
+            return theme.heightButtonRegular
+        }
+      },
+      width: ({ iconOnly, size }) => {
+        if (!iconOnly) return 'auto'
+        switch (size) {
+          case 'regular':
+            return theme.heightButtonRegular
+          case 'small':
+            return theme.heightButtonSmall
+          case 'large':
+            return theme.heightButtonLarge
+          default:
+            return theme.heightButtonRegular
+        }
+      },
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      verticalAlign: 'middle',
       padding: (p: ButtonProps & { iconOnly?: boolean }) => {
-        return !p.iconOnly
-          ? `0px ${
-              p.size === 'small'
-                ? theme.paddingButtonSmallRightLeft
-                : theme.paddingButtonRegularRightLeft
-            }`
-          : 0
+        let padding = theme.paddingButtonRegularRightLeft
+        switch (p.size) {
+          case 'regular':
+            padding = theme.paddingButtonRegularRightLeft
+            break
+          case 'small':
+            padding = theme.paddingButtonSmallRightLeft
+            break
+          case 'large':
+            padding = theme.paddingButtonLargeRightLeft
+            break
+          default:
+            padding = theme.paddingButtonRegularRightLeft
+        }
+
+        return !p.iconOnly ? `0px ${padding}` : 0
       },
       border: 0,
       borderRadius: theme.borderRadiusButton,
@@ -107,13 +109,13 @@ export default createUseStyles(
 
           switch (variant) {
             case 'primary':
-              return theme.colorBackgroundButtonStandardPrimaryHover
+              return theme.colorBackgroundButtonFilledPrimaryHover
             case 'basic':
-              return theme.colorBackgroundButtonStandardBasicHover
+              return theme.colorBackgroundButtonFilledBasicHover
             case 'danger':
-              return theme.colorBackgroundButtonStandardDangerHover
+              return theme.colorBackgroundButtonFilledDangerHover
             default:
-              return theme.colorBackgroundButtonStandardPrimaryHover
+              return theme.colorBackgroundButtonFilledPrimaryHover
           }
         },
         '& > svg': {
@@ -123,16 +125,20 @@ export default createUseStyles(
       '&:disabled': {
         cursor: 'not-allowed',
         backgroundColor: ({ appearance }: ButtonProps): string => {
-          if (appearance === 'minimal') return 'transparent'
-
-          return theme.colorBackgroundButtonStandardDisabled
-        },
-        color: ({ appearance }: ButtonProps): string => {
           if (appearance === 'minimal') {
-            return theme.colorTextButtonMinimalDisabled
+            return theme.colorBackgroundButtonMinimalDisabled
           }
 
-          return theme.colorTextButtonStandardDisabled
+          return theme.colorBackgroundButtonFilledDisabled
+        },
+        '& > span': {
+          color: ({ appearance }: ButtonProps): string => {
+            if (appearance === 'minimal') {
+              return theme.colorTextButtonMinimalDisabled
+            }
+
+            return theme.colorTextButtonFilledDisabled
+          },
         },
       },
       '&:focus': {
@@ -155,19 +161,43 @@ export default createUseStyles(
 
           switch (variant) {
             case 'primary':
-              return theme.colorBackgroundButtonStandardPrimaryActive
+              return theme.colorBackgroundButtonFilledPrimaryActive
             case 'basic':
-              return theme.colorBackgroundButtonStandardBasicActive
+              return theme.colorBackgroundButtonFilledBasicActive
             case 'danger':
-              return theme.colorBackgroundButtonStandardDangerActive
+              return theme.colorBackgroundButtonFilledDangerActive
             default:
-              return theme.colorBackgroundButtonStandardPrimaryActive
+              return theme.colorBackgroundButtonFilledPrimaryActive
           }
         },
       },
     },
-    focusRing: {
-      boxShadow: `0 0 0 ${theme.outlineWidthFocus} ${theme.colorOutlineFocusDefault}`,
+    children: {
+      color: ({ appearance, variant }: ButtonProps): string => {
+        if (appearance === 'minimal') {
+          switch (variant) {
+            case 'primary':
+              return theme.colorTextButtonMinimalPrimary
+            case 'basic':
+              return theme.colorTextButtonMinimalBasic
+            case 'danger':
+              return theme.colorTextButtonMinimalDanger
+            default:
+              return theme.colorTextButtonMinimalPrimary
+          }
+        }
+
+        switch (variant) {
+          case 'primary':
+            return theme.colorTextButtonFilledPrimary
+          case 'basic':
+            return theme.colorTextButtonFilledBasic
+          case 'danger':
+            return theme.colorTextButtonFilledDanger
+          default:
+            return theme.colorTextButtonFilledPrimary
+        }
+      },
     },
   }),
 )

@@ -40,8 +40,8 @@ export const Types: React.FC = () => (
 
 export const Disabled: React.FC = () => (
   <div>
-    <Button disabled>Button</Button>
-    <Button appearance="minimal" disabled>
+    <Button isDisabled>Button</Button>
+    <Button appearance="minimal" isDisabled>
       Button
     </Button>
   </div>
@@ -75,12 +75,16 @@ export const IconButton: React.FC = () => (
 
 export const Sizes: React.FC = () => (
   <div>
+    <Button size="small">Button</Button>
+    <Button size="small" appearance="minimal">
+      Button
+    </Button>
     <Button size="regular">Button</Button>
     <Button size="regular" appearance="minimal">
       Button
     </Button>
-    <Button size="small">Button</Button>
-    <Button size="small" appearance="minimal">
+    <Button size="large">Button</Button>
+    <Button size="large" appearance="minimal">
       Button
     </Button>
   </div>

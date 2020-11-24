@@ -14,11 +14,11 @@ import { InputLabel } from '../input-label'
 export interface Props {
   id?: string
   name?: string
-  checked?: boolean
-  invalid?: boolean
-  disabled?: boolean
-  required?: boolean
-  indeterminate?: boolean
+  isChecked?: boolean
+  isInvalid?: boolean
+  isDisabled?: boolean
+  isRequired?: boolean
+  isIndeterminate?: boolean
 }
 
 export interface WithLabel extends Props {
@@ -35,32 +35,26 @@ const isLabelCheckbox = (va): va is WithLabel =>
   va.label !== undefined && va.label !== ''
 
 export const Checkbox: React.FC<CheckboxProps> = props => {
-  const { checked, disabled, indeterminate, invalid, id } = props
+  const { isChecked, isIndeterminate, isDisabled, isInvalid, id } = props
   const state = useToggleState({
     ...props,
-    isSelected: checked,
+    isSelected: isChecked,
   })
   const ref = useRef()
   const [_id] = useState(id || genUid())
-  const { inputProps } = useCheckbox(
-    { ...props, isDisabled: disabled, isIndeterminate: indeterminate },
-    state,
-    ref,
-  )
+  const { inputProps } = useCheckbox(props, state, ref)
   const { isFocusVisible, focusProps } = useFocusRing()
-  const theme = useTheme()
   const focusClass = useFocusStyle(props)
   const classes = useStyles({
     ...props,
-    theme,
     isFocusVisible,
-    checked: state.isSelected,
+    isChecked: state.isSelected,
   })
   const hasLabel = isLabelCheckbox(props)
 
   return (
     <InputLabel
-      disabled={disabled}
+      isDisabled={isDisabled}
       id={_id}
       {...props}
       renderHiddenInput={() => (
@@ -70,7 +64,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
           ref={ref}
           id={_id}
           {...(!isLabelCheckbox(props) && { 'aria-label': props.ariaLabel })}
-          {...(invalid && { 'aria-invalid': 'true' })}
+          {...(isInvalid && { 'aria-invalid': 'true' })}
         />
       )}
       renderInput={() => (
@@ -82,7 +76,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
           )}
         >
           {state.isSelected && <CheckmarkIcon />}
-          {indeterminate && !state.isSelected && <IndeterminateIcon />}
+          {isIndeterminate && !state.isSelected && <IndeterminateIcon />}
         </div>
       )}
     />

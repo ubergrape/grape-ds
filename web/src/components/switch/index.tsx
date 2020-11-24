@@ -15,37 +15,31 @@ export interface Props {
   label: string
   helpText?: string
   name?: string
-  checked?: boolean
-  disabled?: boolean
+  isChecked?: boolean
+  isDisabled?: boolean
 }
 
 export const Switch: React.FC<Props> = props => {
-  const { checked, disabled, id } = props
+  const { isChecked, isDisabled, id } = props
   const state = useToggleState({
     ...props,
-    isSelected: checked,
+    isSelected: isChecked,
   })
   const ref = useRef()
   const [_id] = useState(id || genUid())
-  const { inputProps } = useSwitch(
-    { ...props, isDisabled: disabled },
-    state,
-    ref,
-  )
+  const { inputProps } = useSwitch(props, state, ref)
   const { isFocusVisible, focusProps } = useFocusRing()
-  const theme = useTheme()
   const focusClass = useFocusStyle(props)
   const classes = useStyles({
     ...props,
-    theme,
     isFocusVisible,
-    checked: state.isSelected,
+    isChecked: state.isSelected,
   })
 
   return (
     <InputLabel
-      disabled={disabled}
       {...props}
+      isDisabled={isDisabled}
       id={_id}
       helpTextClass={classes.helpText}
       renderHiddenInput={() => (

@@ -10,7 +10,7 @@ export interface Props {
   id?: string
   label?: string
   helpText?: string
-  disabled?: boolean
+  isDisabled?: boolean
   renderHiddenInput?: () => JSX.Element
   renderInput?: () => JSX.Element
   helpTextClass?: string
@@ -19,7 +19,7 @@ export interface Props {
 export const InputLabel: React.FC<Props> = props => {
   const {
     label,
-    disabled,
+    isDisabled,
     id,
     renderHiddenInput,
     renderInput,
@@ -38,7 +38,7 @@ export const InputLabel: React.FC<Props> = props => {
       {...(hasLabel && {
         size: 'base',
         as: 'label',
-        color: disabled ? 'secondary' : 'primary',
+        color: isDisabled ? 'secondary' : 'primary',
         htmlFor: id,
       })}
     >

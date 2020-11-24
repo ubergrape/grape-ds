@@ -7,6 +7,7 @@ export type HeadlineProps = React.FC<{
   size: 'page' | 'base'
   children: string
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'span' | 'div'
+  maxWidth?: number | string
   color?: TextColorType
 }>
 
@@ -24,6 +25,8 @@ export const Headline: HeadlineProps = props => {
 Headline.defaultProps = {
   size: 'page',
   children: 'My headline',
+  maxWidth: 'none',
+  color: 'primary',
 }
 
 export default Headline

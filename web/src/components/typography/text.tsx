@@ -19,7 +19,7 @@ export interface Props {
   strike?: boolean
   color?: TextColorType
   className?: string
-  maxWidth?: number
+  maxWidth?: number | string
   title?: string
 }
 
@@ -57,6 +57,7 @@ export const Text: React.FC<TextProps> = props => {
 Text.defaultProps = {
   size: 'base',
   children: 'My Text',
+  color: 'primary',
   emphasis: false,
   italic: false,
   strike: false,

@@ -1,77 +1,95 @@
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
-import { getColorFromType } from './helper'
-import { TextProps } from './text'
+import { getColorFromType, TextColorType } from './helper'
 
-const getColorFromProp = ({ color }) =>
-  getColorFromType(color) || tokens.colorTextPrimary
+const maxWithDefaultValues = ['none', 'initial']
+
+export const getColorFromProp = ({ color }: { color: TextColorType }): string =>
+  getColorFromType(color)
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
-  headline: {
-    fontFamily: theme.fontFamilyHeadline,
-    fontWeight: theme.fontWeightHeadline,
-    color: getColorFromProp,
-    lineHeight: ({ size }) => {
-      return size === 'page'
-        ? theme.lineHeightHeadlinePage
-        : theme.lineHeightHeadlineBase
-    },
-    fontSize: ({ size }) => {
-      return size === 'page'
-        ? theme.fontSizeHeadlinePage
-        : theme.fontSizeHeadlineBase
-    },
+  headline: ({ maxWidth, color: colorName, size }) => {
+    const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+
+    const color = getColorFromType(colorName)
+
+    return {
+      fontFamily: theme.fontFamilyHeadline,
+      fontWeight: theme.fontWeightHeadline,
+      maxWidth,
+      whiteSpace: isMaxWidthNonDefault ? 'nowrap' : 'normal',
+      overflow: isMaxWidthNonDefault ? 'hidden' : 'visible',
+      textOverflow: isMaxWidthNonDefault ? 'ellipsis' : 'clip',
+      color,
+      lineHeight:
+        size === 'page'
+          ? theme.lineHeightHeadlinePage
+          : theme.lineHeightHeadlineBase,
+      fontSize:
+        size === 'page'
+          ? theme.fontSizeHeadlinePage
+          : theme.fontSizeHeadlineBase,
+    }
   },
-  text: {
-    color: getColorFromProp,
-    fontFamily: () => {
-      return theme.fontFamilyBody
-    },
-    lineHeight: ({ size }: TextProps) => {
-      switch (size) {
-        case 'base':
-          return theme.lineHeightBodyBase
-        case 'large':
-          return theme.lineHeightBodyLarge
-        case 'small':
-          return theme.lineHeightBodySmall
-        default:
-          return theme.lineHeightBodySmall
-      }
-    },
-    fontSize: ({ size }: TextProps) => {
-      switch (size) {
-        case 'base':
-          return theme.fontSizeBodyBase
-        case 'large':
-          return theme.fontSizeBodyLarge
-        case 'small':
-          return theme.fontSizeBodySmall
-        default:
-          return theme.fontSizeBodyBase
-      }
-    },
-    fontWeight: ({ emphasis }: TextProps) => {
-      return emphasis
+  text: ({ maxWidth, color: colorName, emphasis, italic, strike, size }) => {
+    const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+
+    const color = getColorFromType(colorName)
+
+    let fontSize = theme.fontSizeBodyBase
+    let lineHeight = theme.lineHeightBodySmall
+
+    switch (size) {
+      case 'base':
+        fontSize = theme.fontSizeBodyBase
+        lineHeight = theme.lineHeightBodyBase
+
+        break
+      case 'large':
+        fontSize = theme.fontSizeBodyLarge
+        lineHeight = theme.lineHeightBodyLarge
+
+        break
+      case 'small':
+        fontSize = theme.fontSizeBodySmall
+        lineHeight = theme.lineHeightBodySmall
+
+        break
+      default:
+        break
+    }
+
+    return {
+      color,
+      maxWidth,
+      whiteSpace: isMaxWidthNonDefault ? 'nowrap' : 'normal',
+      overflow: isMaxWidthNonDefault ? 'hidden' : 'visible',
+      textOverflow: isMaxWidthNonDefault ? 'ellipsis' : 'clip',
+      fontFamily: theme.fontFamilyBody,
+      lineHeight,
+      fontSize,
+      fontWeight: emphasis
         ? theme.fontWeightBodyEmphasis
-        : theme.fontWeightBodyRegular
-    },
-    fontStyle: ({ italic }: TextProps) => {
-      return italic ? 'italic' : 'normal'
-    },
-    textDecoration: ({ strike }: TextProps) => {
-      return strike ? 'line-through' : 'none'
-    },
-    maxWidth: ({ maxWidth }) => maxWidth,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
+        : theme.fontWeightBodyRegular,
+      fontStyle: italic ? 'italic' : 'normal',
+      textDecoration: strike ? 'line-through' : 'none',
+    }
   },
-  monospace: {
-    color: getColorFromProp,
-    fontFamily: theme.fontFamilyMonospace,
-    fontSize: theme.fontSizeBodyBase,
-    lineHeight: theme.lineHeightBodyBase,
+  monospace: ({ maxWidth, color: colorName }) => {
+    const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+
+    const color = getColorFromType(colorName)
+
+    return {
+      maxWidth,
+      whiteSpace: isMaxWidthNonDefault ? 'nowrap' : 'normal',
+      overflow: isMaxWidthNonDefault ? 'hidden' : 'visible',
+      textOverflow: isMaxWidthNonDefault ? 'ellipsis' : 'clip',
+      color,
+      fontFamily: theme.fontFamilyMonospace,
+      fontSize: theme.fontSizeBodyBase,
+      lineHeight: theme.lineHeightBodyBase,
+    }
   },
 }))
