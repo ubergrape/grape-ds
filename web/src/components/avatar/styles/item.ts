@@ -4,6 +4,8 @@ import { createUseStyles } from 'react-jss'
 import tokens from '../../../tokens'
 import { parseToken } from '../../../utils'
 
+import onHover from './onHover'
+
 export const useItemStyle = createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
@@ -17,14 +19,7 @@ export const useItemStyle = createUseStyles(
         transition: 'all 0.25s ease-in-out',
       },
       '&:hover': {
-        '& > div:first-child': {
-          transform: ({ isInactive, isDisabled }) =>
-            isInactive || isDisabled ? 'none' : 'scale(1.1)',
-        },
-        '& > div:first-child > div:nth-child(2)': {
-          transform: ({ isInactive, isDisabled }) =>
-            isInactive || isDisabled ? 'none' : 'scale(0.91)',
-        },
+        '& > div:first-child': onHover(theme),
       },
       '&:focus': {
         outline: 0,
@@ -63,6 +58,13 @@ export const useItemStyle = createUseStyles(
 
         return `calc(${maxWidth}px - ${padding + avatarSize}px)`
       },
+    },
+    description: {
+      color: theme.colorTextAvatarItemSecondary,
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      textAlign: 'left',
     },
   }),
 )

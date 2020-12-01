@@ -14,11 +14,6 @@ export default createUseStyles(
           : theme.colorTextAvatarItemPrimary,
     },
     description: {
-      color: theme.colorTextAvatarItemSecondary,
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      textAlign: 'left',
       marginLeft: ({ size }: AvatarItemProps) =>
         size === 'small' ? theme.spaceAvatarItem : 0,
     },

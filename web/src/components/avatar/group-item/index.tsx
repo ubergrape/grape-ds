@@ -77,7 +77,10 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
               </Text>
             )}
             {description && (
-              <Text size="small" className={classes.description}>
+              <Text
+                size="small"
+                className={clsx(itemClasses.description, classes.description)}
+              >
                 {description}
               </Text>
             )}

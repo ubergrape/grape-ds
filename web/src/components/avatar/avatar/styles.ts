@@ -15,7 +15,6 @@ export default createUseStyles(
       right: -1,
       bottom: -1,
       position: 'absolute',
-      pointerEvents: 'none',
       borderRadius: theme.borderRadiusAvatar,
       boxSizing: 'border-box',
       transition: 'all 0.25s ease-in-out',

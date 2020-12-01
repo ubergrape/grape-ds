@@ -23,11 +23,6 @@ export default createUseStyles(
         size === 'small' ? theme.spaceAvatarItem : 0,
     },
     description: {
-      color: theme.colorTextAvatarItemSecondary,
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      textAlign: 'left',
       marginLeft: ({ members, size }: GroupItemProps) =>
         members && size !== 'small' ? theme.spaceMembersSecondary : 0,
     },
