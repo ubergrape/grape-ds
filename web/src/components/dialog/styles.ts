@@ -8,6 +8,7 @@ export default createUseStyles(
     wrapper: {
       position: 'fixed',
       width: '100%',
+      height: '100%',
       zIndex: 100,
       top: 0,
       left: 0,
@@ -17,8 +18,9 @@ export default createUseStyles(
     },
     dialog: {
       display: 'flex',
+      outline: 0,
       flexDirection: 'column',
-      height: '100vh',
+      height: `calc(100% - ${theme.size6X})`,
       alignItems: 'center',
       padding: theme.size3X,
     },
@@ -30,8 +32,8 @@ export default createUseStyles(
     content: {
       marginTop: theme.size3X,
       width: 680,
-      height: `calc(100% - ${theme.size6X})`,
       display: 'flex',
+      minHeight: 0,
       flexDirection: 'column',
     },
     title: {
@@ -39,15 +41,16 @@ export default createUseStyles(
     },
     body: {
       marginTop: theme.size3X,
-      overflowY: 'scroll',
-      height: '100%',
+      flex: '1 1 auto',
+      overflowY: 'auto',
+      minHeight: 0,
     },
     '@media (max-width: 730px)': {
       content: {
         marginTop: theme.size3X,
         width: '100%',
-        height: `calc(100% - ${theme.size6X})`,
         display: 'flex',
+        minHeight: 0,
         flexDirection: 'column',
       },
     },

@@ -47,3 +47,88 @@ export const Base: React.FC<ButtonGroupProps> = props => {
     </>
   )
 }
+
+export const Scrollable: React.FC<ButtonGroupProps> = props => {
+  const state = useOverlayTriggerState({
+    defaultOpen: true,
+  })
+
+  return (
+    <>
+      <Flex gap="1x">
+        <Button onClick={() => state.open()}>Open Dialog</Button>
+      </Flex>
+      <OverlayContainer>
+        <Dialog
+          title="Title"
+          isOpen={state.isOpen}
+          onClose={state.close}
+          isDismissable
+          {...props}
+        >
+          <Flex direction="column" gap="2x">
+            <div>
+              <Button onClick={() => state.close()}>Close Dialog</Button>
+            </div>
+            <span>
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+              Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
+              body Dialog body Dialog body Dialog body Dialog body Dialog body
+            </span>
+          </Flex>
+        </Dialog>
+      </OverlayContainer>
+    </>
+  )
+}
