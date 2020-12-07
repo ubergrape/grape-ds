@@ -73,7 +73,7 @@ yarn build:lib
 
 ## Adding content
 
-### Pages
+### Stories
 
 create a new file `something.stories.mdx` in `src/stories`. Example content:
 
