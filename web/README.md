@@ -69,3 +69,30 @@ yarn build:lib
 ```
 
 (or run `yarn build:components` in the root directory of this repo)
+
+
+## Adding content
+
+### Pages
+
+create a new file `something.stories.mdx` in `src/stories`. Example content:
+
+```markdown
+import { Meta } from '@storybook/addon-docs/blocks';
+import image1 from '../someimage.jpg';
+
+<Meta title="Blah" />
+
+some text
+
+## blub
+
+look at this image:
+
+<img src={image1} height="200px" />
+
+```
+
+* The image in this example must be placed in `src/someimage.jpg`.
+* Meta title "Blah" is used for the page name in Storybook
+* more information on the [MDX format in the Storybook docs](https://storybook.js.org/docs/react/api/mdx)
