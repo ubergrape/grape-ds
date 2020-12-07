@@ -15,7 +15,7 @@ export type AvatarProps = {
   src: string
   alt: string
   status?: StatusType
-  size?: 'regular' | 'small'
+  size?: 'regular' | 'small' | 'x-small'
   isDisabled?: boolean
   isInactive?: boolean
   isSelected?: boolean
@@ -35,6 +35,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
   const {
     alt,
     src,
+    size,
     status,
     isDisabled,
     isInactive,
@@ -76,7 +77,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
     }
   }
 
-  if (isSelected) {
+  if (isSelected && size !== 'x-small') {
     return (
       <Wrapper>
         <Flex items="center" justify="center" className={circle}>
@@ -95,7 +96,9 @@ export const Avatar: React.FC<AvatarProps> = props => {
       ) : (
         <div className={circle} />
       )}
-      {!isInactive && status && <div className={classes.status} />}
+      {!isInactive && status && size !== 'x-small' && (
+        <div className={classes.status} />
+      )}
     </Wrapper>
   )
 }
