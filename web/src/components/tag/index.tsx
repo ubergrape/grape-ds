@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { Button } from '../button'
+import { Avatar } from '../avatar'
 import { Flex } from '../layout'
 import { Text } from '../typography/text'
 import { useStyles } from './styles'
@@ -27,10 +29,11 @@ export const Tag: React.FC<Props> = props => {
   return (
     <Flex className={classes.tag} gap="0.5x" items="center">
       {isAvatarTag(props) && (
-        <img
+        <Avatar
           src={props.avatarSrc}
           alt={props.avatarAlt}
-          className={classes.avatar}
+          size="x-small"
+          isUnclickable
         />
       )}
       <Text

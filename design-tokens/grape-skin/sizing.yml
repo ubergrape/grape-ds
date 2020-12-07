@@ -71,6 +71,9 @@ props:
       comment: 'Space between a form control and the label/explanation.'
 
 ## Avatar
+  size-avatar-x-small:
+    value: '{!space-2-x}'
+    comment: 'Extra small avatar size.'
   size-avatar-small:
     value: '{!space-3-x}'
     comment: 'Small avatar size.'

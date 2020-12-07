@@ -15,10 +15,6 @@ export const useAvatarStyle = createUseStyles(
       backgroundColor: 'transparent',
       borderRadius: theme.borderRadiusAvatar,
       pointerEvents: ({ isUnclickable }) => (isUnclickable ? 'none' : 'auto'),
-      width: ({ size }) =>
-        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
-      height: ({ size }) =>
-        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
       cursor: ({ isDisabled }) => (isDisabled ? 'auto' : 'pointer'),
       transition: 'all 0.25s ease-in-out',
       '&:hover': onHover(theme),
@@ -27,14 +23,36 @@ export const useAvatarStyle = createUseStyles(
       },
     },
     circle: {
-      width: ({ size }) =>
-        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
-      height: ({ size }) =>
-        size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
+      width: ({ size }) => {
+        switch (size) {
+          case 'x-small':
+            return theme.sizeAvatarXSmall
+          case 'small':
+            return theme.sizeAvatarSmall
+          case 'regular':
+            return theme.sizeAvatarRegular
+          default:
+            return theme.sizeAvatarRegular
+        }
+      },
+      height: ({ size }) => {
+        switch (size) {
+          case 'x-small':
+            return theme.sizeAvatarXSmall
+          case 'small':
+            return theme.sizeAvatarSmall
+          case 'regular':
+            return theme.sizeAvatarRegular
+          default:
+            return theme.sizeAvatarRegular
+        }
+      },
       borderRadius: theme.borderRadiusAvatar,
       transition: 'all 0.25s ease-in-out',
-      backgroundColor: ({ isSelected }) => {
-        if (isSelected) return theme.colorBackgroundAvatarSelected
+      backgroundColor: ({ isSelected, size }) => {
+        if (isSelected && size !== 'x-small') {
+          return theme.colorBackgroundAvatarSelected
+        }
         return theme.colorBackgroundAvatarUser
       },
       opacity: ({ isInactive, isSelected }) =>
