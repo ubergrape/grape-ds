@@ -50,6 +50,7 @@ export const Avatar = (): JSX.Element => (
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
       onRemove={() => alert('Remove')}
+      removeAriaLabel="Remove Label"
     >
       Tag label
     </Tag>
