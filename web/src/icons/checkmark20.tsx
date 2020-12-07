@@ -2,7 +2,7 @@ import * as React from "react";
 
 function SvgCheckmark20(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width={20} height={20} fill="none" {...props}>
+    <svg width={20} height={20} viewBox="0 0 20 20" fill="none" {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

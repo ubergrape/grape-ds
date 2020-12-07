@@ -26,3 +26,6 @@ props:
   border-radius-tag:
     value: '{!border-radius-pill}'
     comment: 'Border radius for tag.'
+  border-radius-avatar:
+    value: '{!border-radius-pill}'
+    comment: 'Border radius for avatar.'
