@@ -71,30 +71,33 @@ props:
       comment: 'Space between a form control and the label/explanation.'
 
 ## Avatar
+  size-avatar-x-small:
+    value: '{!space-2-x}'
+    comment: 'Extra small avatar size.'
   size-avatar-small:
     value: '{!space-3-x}'
     comment: 'Small avatar size.'
-  size-avatar-medium:
+  size-avatar-regular:
     value: '{!space-4-x}'
-    comment: 'Medium avatar size.'
+    comment: 'Regular avatar size.'
   size-presence-indicator-small:
     value: '{!space-1-half-x}'
     comment: 'Presence indicator size for small avatar size.'
-  size-presence-indicator-medium:
+  size-presence-indicator-regular:
     value: '{!space-1-half-x}'
-    comment: 'Presence indicator size for medium avatar size.'
+    comment: 'Presence indicator size for regular avatar size.'
   size-grouptype-indicator-small:
     value: '{!space-1-half-x}'
     comment: 'Group-type indicator size for small avatar size.'
-  size-grouptype-indicator-medium:
+  size-grouptype-indicator-regular:
     value: '{!space-2-x}'
-    comment: 'Group-type indicator size for medium avatar size.'
+    comment: 'Group-type indicator size for regular avatar size.'
   size-groupcolor-small:
     value: '{!space-1-half-x}'
     comment: 'Group color area for small avatar size.'
-  size-groupcolor-medium:
+  size-groupcolor-regular:
     value: '{!space-2-x}'
-    comment: 'Group color area for medium avatar size.'
+    comment: 'Group color area for regular avatar size.'
   space-avatar-item:
       value: '{!space-1-x}'
       comment: 'Space between avatar and text in avatar item.'

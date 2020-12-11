@@ -2,7 +2,7 @@ import * as React from "react";
 
 function SvgLock24(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width={24} height={24} fill="none" {...props}>
+    <svg width={24} height={24} viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M14 15.5a2 2 0 11-4 0 2 2 0 014 0z" fill="currentColor" />
       <path
         fillRule="evenodd"
