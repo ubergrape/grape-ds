@@ -1,78 +1,82 @@
 module.exports = {
   title: "Aurora",
-  tagline: "Aurora Design Guidelines by Grape",
-  url: "https://aurora.grape.io",
+  tagline: "Grape's design system",
+  url: "https://aurora.ubergrape.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
   favicon: "img/favicon.ico",
-  organizationName: "ubergrape",
+  organizationName: "UberGrape GmbH",
   projectName: "aurora",
   themes: ["@docusaurus/theme-live-codeblock"],
   themeConfig: {
+    colorMode: {
+      defaultMode: "light",
+      disableSwitch: true,
+    },
     navbar: {
       title: "Aurora",
       logo: {
-        alt: "Aurora Logo",
+        alt: "Grape logo",
         src: "img/logo.svg",
       },
       items: [
         {
           to: "docs/",
           activeBasePath: "docs",
-          label: "Docs",
-          position: "left",
+          label: "Design",
+          position: "right",
         },
         {
-          href: "https://github.com/ubergrape/grape-ds",
-          label: "GitHub",
+          href: "https://aurora.ubergrape.com/storybook/",
+          label: "Development 🡕",
           position: "right",
         },
       ],
     },
     footer: {
-      style: "dark",
+      style: "light",
       links: [
         {
           title: "Docs",
           items: [
             {
-              label: "Style Guide",
+              label: "Design",
               to: "docs/",
             },
             {
-              label: "Second Doc",
-              to: "docs/doc2/",
+              label: "Development 🡕",
+              href: "https://aurora.ubergrape.com/storybook/",
             },
           ],
         },
         {
-          title: "Community",
+          title: "Get in touch",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              label: "Grape",
+              href: "https://grape.io",
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/docusaurus",
+              href: "https://twitter.com/chatgrapecom",
             },
           ],
         },
         {
-          title: "More",
+          title: "Resources on GitHub",
           items: [
             {
-              label: "GitHub",
+              label: "React components",
               href: "https://github.com/ubergrape/grape-ds",
+            },
+            {
+              label: "Icons",
+              href: "https://github.com/ubergrape/grape-icons",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Grape, Inc.`,
+      copyright: `Grape Design &bull; Aurora © ${new Date().getFullYear()} UberGrape GmbH`,
     },
   },
   presets: [
