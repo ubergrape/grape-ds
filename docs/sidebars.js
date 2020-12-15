@@ -1,6 +1,14 @@
 module.exports = {
   someSidebar: {
-    "Design System": ["doc1", "doc2", "doc3"],
-    Components: ["buttons"],
+    "Get started": ["example"],
+    "Foundations": ["design-principles"],
+    "Design guidelines": ["color"],
+    "Writing": ["inclusive-language"],
+    "Components": [
+      "components/example",
+      "components/button"
+    ],
+    "Resources": ["fonts"],
+    "Help": ["help"],
   },
 };
