@@ -28,7 +28,7 @@ module.exports = {
         },
         {
           href: "https://aurora.ubergrape.com/storybook/",
-          label: "Development 🡕",
+          label: "Development",
           position: "right",
         },
       ],
@@ -44,7 +44,7 @@ module.exports = {
               to: "docs/",
             },
             {
-              label: "Development 🡕",
+              label: "Development",
               href: "https://aurora.ubergrape.com/storybook/",
             },
           ],
