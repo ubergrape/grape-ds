@@ -72,7 +72,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Grape, Inc.`,
+      copyright: `Copyright © ${new Date().getFullYear()} UberGrape GmbH`,
     },
   },
   presets: [
