@@ -7,14 +7,150 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary-lightest: #f8edfe;
+  --ifm-color-primary-lighter: #f0dbfe;
+  --ifm-color-primary-light: #c867ec;
+  --ifm-color-primary: #9428b7;
+  --ifm-color-primary-dark: #75059b;
+  --ifm-color-primary-darker: #55006b;
+  --ifm-color-primary-darkest: #39004c;
+  --ifm-color-secondary-lightest: #f1f1f1;
+  --ifm-color-secondary-lighter: #e2e2e2;
+  --ifm-color-secondary-light: #c6c6c6;
+  --ifm-color-secondary: #727272;
+  --ifm-color-secondary-dark: #5e5e5e;
+  --ifm-color-secondary-darker: #303030;
+  --ifm-color-secondary-darkest: #1b1b1b;
+  --ifm-color-success-lightest: #eef3de;
+  --ifm-color-success-lighter: #dde7c1;
+  --ifm-color-success-light: #99b559;
+  --ifm-color-success: #729e08;
+  --ifm-color-success-dark: #5b8004;
+  --ifm-color-success-darker: #4a6709;
+  --ifm-color-success-darkest: #1b2200;
+  --ifm-color-info-lightest: #e5f2ff;
+  --ifm-color-info-lighter: #cae6fd;
+  --ifm-color-info-light: #97ccfd;
+  --ifm-color-info: #2294f5;
+  --ifm-color-info-dark: #0f71d6;
+  --ifm-color-info-darker: #074689;
+  --ifm-color-info-darkest: #002040;
+  --ifm-color-warning-lightest: #fff1b7;
+  --ifm-color-warning-lighter: #fce094;
+  --ifm-color-warning-light: #fcbb2e;
+  --ifm-color-warning: #e59d01;
+  --ifm-color-warning-dark: #a36b01;
+  --ifm-color-warning-darker: #825501;
+  --ifm-color-warning-darkest: #331900;
+  --ifm-color-danger-lightest: #ffede9;
+  --ifm-color-danger-lighter: #ffdbd3;
+  --ifm-color-danger-light: #fa8d79;
+  --ifm-color-danger: #e32222;
+  --ifm-color-danger-dark: #b5251f;
+  --ifm-color-danger-darker: #8a1b16;
+  --ifm-color-danger-darkest: #430b00;
+
   --ifm-code-font-size: 95%;
+  --ifm-footer-background-color: #f9f9f9;
+  --ifm-footer-link-color: #727272;
+  --ifm-pagination-nav-color-hover: #0F71D6;
+  --ifm-menu-color-active: var(--ifm-color-primary);
+}
+
+/*
+.markdown {
+  line-height: 1.6;
+}
+
+.table-of-contents__link {
+  line-height: 1.6;
+}
+*/
+.menu__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+.table-of-contents__link--active {
+  color: #666666;
+  font-weight: bold;
+}
+
+a {
+  color: #0F71D6;
+}
+
+a:hover {
+  color: #0F71D6;
+  text-decoration-style: solid;
+  text-underline-offset: 2px;
+}
+
+.footer__link-item:hover {
+  text-decoration: none;
+}
+
+.footer__link-item {
+  font-size: 90%;
+  /* line-height: 1.8; */
+}
+
+.footer__title {
+  font-size: 90%;
+  /* line-height: 2; */
+}
+
+.footer__links {
+  margin-bottom: 2rem;
+}
+
+.alert--secondary {
+  background-color: var(--ifm-color-secondary-lightest);
+  color: var(--ifm-color-secondary-darker);
+  border: none;
+}
+
+.alert--secondary svg{
+  fill: var(--ifm-color-secondary-darker);
+}
+
+.alert--success {
+  background-color: var(--ifm-color-success-lightest);
+  color: var(--ifm-color-success-darker);
+  border: none;
+}
+
+.alert--success svg{
+  fill: var(--ifm-color-success-darker);
+}
+
+.alert--info {
+  background-color: var(--ifm-color-info-lightest);
+  color: var(--ifm-color-info-darker);
+  border: none;
+}
+
+.alert--info svg{
+  fill: var(--ifm-color-info-darker);
+}
+
+.alert--warning {
+  background-color: var(--ifm-color-warning-lightest);
+  color: var(--ifm-color-warning-darker);
+  border: none;
+}
+
+.alert--warning svg{
+  fill: var(--ifm-color-warning-darker);
+}
+
+.alert--danger {
+  background-color: var(--ifm-color-danger-lightest);
+  color: var(--ifm-color-danger-darker);
+  border: none;
+}
+
+.alert--danger svg{
+  fill: var(--ifm-color-danger-darker);
 }
 
 .docusaurus-highlight-code-line {
@@ -22,4 +158,11 @@
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+}
+
+.playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-src-theme-Playground- {
+  font-size: 80%;
+  letter-spacing: 0rem !important;
+  text-transform: none !important;
+  font-weight: normal !important;
 }
