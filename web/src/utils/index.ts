@@ -14,3 +14,6 @@ export const getTextSize = (size: sizes): textSizes => {
       return 'base'
   }
 }
+
+export const parseToken = (token: string): number =>
+  parseInt(token.split('px')[0], 10)

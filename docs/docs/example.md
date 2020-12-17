@@ -1,11 +1,13 @@
 ---
-id: doc1
-title: Style Guide
-sidebar_label: Style Guide
+id: example
+title: Example
+sidebar_label: Example
 slug: /
 ---
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
+
+This is a link to [another document.](components/button.mdx) This is a link to an [external page.](http://www.grape.io/)
 
 ## Markdown Syntax
 

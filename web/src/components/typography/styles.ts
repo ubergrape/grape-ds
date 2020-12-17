@@ -38,34 +38,25 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     const color = getColorFromType(colorName)
 
     let fontSize = theme.fontSizeBodyBase
+    let lineHeight = theme.lineHeightBodySmall
+
     switch (size) {
       case 'base':
         fontSize = theme.fontSizeBodyBase
+        lineHeight = theme.lineHeightBodyBase
+
         break
       case 'large':
         fontSize = theme.fontSizeBodyLarge
+        lineHeight = theme.lineHeightBodyLarge
+
         break
       case 'small':
         fontSize = theme.fontSizeBodySmall
-        break
-      default:
-        fontSize = theme.fontSizeBodyBase
-        break
-    }
+        lineHeight = theme.lineHeightBodySmall
 
-    let lineHeight = theme.lineHeightBodySmall
-    switch (size) {
-      case 'base':
-        lineHeight = theme.lineHeightBodyBase
-        break
-      case 'large':
-        lineHeight = theme.lineHeightBodyLarge
-        break
-      case 'small':
-        lineHeight = theme.lineHeightBodySmall
         break
       default:
-        lineHeight = theme.lineHeightBodySmall
         break
     }
 
