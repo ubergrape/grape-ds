@@ -15,7 +15,7 @@ export const Base = (): JSX.Element => (
       display: 'flex',
     }}
   >
-    <ScrollBar style={{ height: '100%', width: 150, backgroundColor: 'white' }}>
+    <ScrollBar style={{ width: 150, backgroundColor: 'white' }}>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
         fringilla justo id ex rhoncus mattis eu eget ipsum. Etiam ac dui mauris.
@@ -24,7 +24,7 @@ export const Base = (): JSX.Element => (
         Aliquam erat volutpat.
       </div>
     </ScrollBar>
-    <ScrollBar style={{ height: '100%', width: 150, backgroundColor: 'white' }}>
+    <ScrollBar style={{ width: 150, backgroundColor: 'white' }}>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
         fringilla justo id ex rhoncus mattis eu eget ipsum. Etiam ac dui mauris.

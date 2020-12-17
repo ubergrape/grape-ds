@@ -8,6 +8,7 @@ import 'overlayscrollbars/css/OverlayScrollbars.css'
 const useStyles = createUseStyles({
   customScrollbar: overflowPadding => {
     return {
+      height: '100%',
       '& .os-viewport': {
         paddingRight: overflowPadding,
       },
