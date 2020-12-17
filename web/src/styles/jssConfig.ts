@@ -9,7 +9,7 @@ import functions from 'jss-plugin-rule-value-function'
 
 import fonts from '../fonts'
 import { reset } from './reset'
-import { overwrites } from './global-style-overwrites'
+import overwrites from './globalStyleOverwrites'
 
 const jss = create()
 

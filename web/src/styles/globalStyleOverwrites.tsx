@@ -1,8 +1,5 @@
-// import tokens from '../tokens/tokens.json'
-
-export const overwrites = {
+export default {
   '@global': {
-    // custom styling
     'input[type=search]::-ms-clear, input[type=search]::-ms-reveal ': {
       display: 'none',
       width: 0,

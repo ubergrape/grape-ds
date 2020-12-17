@@ -16,10 +16,16 @@ export const Base = (): JSX.Element => (
     }}
   >
     <ScrollBar style={{ height: '100%', width: 150, backgroundColor: 'white' }}>
-      <div style={{ paddingRight: 16 }}>Short text in scroll area</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+        fringilla justo id ex rhoncus mattis eu eget ipsum. Etiam ac dui mauris.
+        Maecenas euismod purus tortor, et rutrum sem consequat sit amet. Nulla
+        facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aliquam erat volutpat.
+      </div>
     </ScrollBar>
     <ScrollBar style={{ height: '100%', width: 150, backgroundColor: 'white' }}>
-      <div style={{ paddingRight: 16 }}>
+      <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
         fringilla justo id ex rhoncus mattis eu eget ipsum. Etiam ac dui mauris.
         Maecenas euismod purus tortor, et rutrum sem consequat sit amet. Nulla
