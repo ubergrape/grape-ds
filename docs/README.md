@@ -37,23 +37,29 @@ This will open up a browser window. Most changes are reflected live without havi
 
 #### Changes in components
 
-every time you change something in the components you need to build them again:
+When you are working on components and want to preview them in docusaurus at the same time use [`yarn link`](https://classic.yarnpkg.com/en/docs/cli/link/), so changes can appear faster in docusaurus.
 
-in the root directory:
-```bash
-yarn build:components
+in the `web` directory:
+```
+yarn link
 ```
 
-or in the web directory
+in the `docs` directory:
+```
+yarn link aurora-ui
+```
+
+Now you can Docusaurus:
+```
+yarn start
+```
+
+every time you change something in web, run this in the `web` directory:
 ```bash
 yarn build:lib
 ```
 
-then you must run `yarn` again for docusaurus and restart it:
-```bash
-yarn
-yarn start
-```
+Docusaurus will automatically rebuild.
 
 ### Build
 
