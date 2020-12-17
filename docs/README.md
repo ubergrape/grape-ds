@@ -35,6 +35,26 @@ yarn start
 
 This will open up a browser window. Most changes are reflected live without having to restart the server.
 
+#### Changes in components
+
+every time you change something in the components you need to build them again:
+
+in the root directory:
+```bash
+yarn build:components
+```
+
+or in the web directory
+```bash
+yarn build:lib
+```
+
+then you must run `yarn` again for docusaurus and restart it:
+```bash
+yarn
+yarn start
+```
+
 ### Build
 
 ```bash
