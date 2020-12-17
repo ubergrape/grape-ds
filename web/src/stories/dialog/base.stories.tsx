@@ -36,7 +36,7 @@ export const Base: React.FC<ButtonGroupProps> = props => {
           isDismissable
           {...props}
         >
-          <Flex direction="column" gap="2x">
+          <Flex direction="column" gap="0x">
             <span>Dialog body</span>
             <div>
               <Button onClick={() => state.close()}>Close Dialog</Button>
@@ -66,7 +66,7 @@ export const Scrollable: React.FC<ButtonGroupProps> = props => {
           isDismissable
           {...props}
         >
-          <Flex direction="column" gap="2x">
+          <Flex direction="column" gap="0x">
             <div>
               <Button onClick={() => state.close()}>Close Dialog</Button>
             </div>

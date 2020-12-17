@@ -4,6 +4,7 @@ import { FocusScope } from '@react-aria/focus'
 import { useOverlay, usePreventScroll, useModal } from '@react-aria/overlays'
 
 import Button from '../button'
+import { ScrollBar } from '../scrollbar'
 import { Headline } from '../typography'
 
 import useStyles from './styles'
@@ -68,7 +69,9 @@ export const Dialog: React.FC<DialogProps> = props => {
                 {title}
               </Headline>
             )}
-            <div className={classes.body}>{children}</div>
+            <div className={classes.body}>
+              <ScrollBar>{children}</ScrollBar>
+            </div>
           </div>
         </div>
       </FocusScope>

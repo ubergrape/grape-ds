@@ -32,6 +32,7 @@ export default createUseStyles(
     content: {
       marginTop: theme.size3X,
       width: 680,
+      height: '100%',
       display: 'flex',
       minHeight: 0,
       flexDirection: 'column',
@@ -42,7 +43,6 @@ export default createUseStyles(
     body: {
       marginTop: theme.size3X,
       flex: '1 1 auto',
-      overflowY: 'auto',
       minHeight: 0,
     },
     '@media (max-width: 730px)': {
