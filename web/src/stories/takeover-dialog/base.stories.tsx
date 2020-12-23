@@ -2,13 +2,16 @@ import React from 'react'
 import { useOverlayTriggerState } from '@react-stately/overlays'
 import { OverlayContainer } from '@react-aria/overlays'
 
-import { Dialog } from '../../components/dialog'
+import {
+  TakeoverDialog,
+  TakeoverDialogProps,
+} from '../../components/takeover-dialog'
 import Button from '../../components/button'
 import { Flex } from '../../components/layout'
 
 export default {
-  title: 'Components/Dialog',
-  component: Dialog,
+  title: 'Components/TakeoverDialog',
+  component: TakeoverDialog,
   parameters: {
     design: {
       type: 'figma',
@@ -18,7 +21,7 @@ export default {
   },
 }
 
-export const Base: React.FC<ButtonGroupProps> = props => {
+export const Base: React.FC<TakeoverDialogProps> = props => {
   const state = useOverlayTriggerState({
     defaultOpen: true,
   })
@@ -29,7 +32,7 @@ export const Base: React.FC<ButtonGroupProps> = props => {
         <Button onClick={() => state.open()}>Open Dialog</Button>
       </Flex>
       <OverlayContainer>
-        <Dialog
+        <TakeoverDialog
           title="Title"
           isOpen={state.isOpen}
           onClose={state.close}
@@ -38,17 +41,14 @@ export const Base: React.FC<ButtonGroupProps> = props => {
         >
           <Flex direction="column" gap="0x">
             <span>Dialog body</span>
-            <div>
-              <Button onClick={() => state.close()}>Close Dialog</Button>
-            </div>
           </Flex>
-        </Dialog>
+        </TakeoverDialog>
       </OverlayContainer>
     </>
   )
 }
 
-export const Scrollable: React.FC<ButtonGroupProps> = props => {
+export const Scrollable: React.FC<TakeoverDialogProps> = props => {
   const state = useOverlayTriggerState({
     defaultOpen: true,
   })
@@ -59,7 +59,7 @@ export const Scrollable: React.FC<ButtonGroupProps> = props => {
         <Button onClick={() => state.open()}>Open Dialog</Button>
       </Flex>
       <OverlayContainer>
-        <Dialog
+        <TakeoverDialog
           title="Title"
           isOpen={state.isOpen}
           onClose={state.close}
@@ -67,9 +67,6 @@ export const Scrollable: React.FC<ButtonGroupProps> = props => {
           {...props}
         >
           <Flex direction="column" gap="0x">
-            <div>
-              <Button onClick={() => state.close()}>Close Dialog</Button>
-            </div>
             <span>
               Dialog body Dialog body Dialog body Dialog body Dialog body Dialog
               body Dialog body Dialog body Dialog body Dialog body Dialog body
@@ -127,7 +124,37 @@ export const Scrollable: React.FC<ButtonGroupProps> = props => {
               body Dialog body Dialog body Dialog body Dialog body Dialog body
             </span>
           </Flex>
-        </Dialog>
+        </TakeoverDialog>
+      </OverlayContainer>
+    </>
+  )
+}
+
+export const WithCloseButtonInBody: React.FC<TakeoverDialogProps> = props => {
+  const state = useOverlayTriggerState({
+    defaultOpen: true,
+  })
+
+  return (
+    <>
+      <Flex gap="1x">
+        <Button onClick={() => state.open()}>Open Dialog</Button>
+      </Flex>
+      <OverlayContainer>
+        <TakeoverDialog
+          title="Title"
+          isOpen={state.isOpen}
+          onClose={state.close}
+          isDismissable
+          {...props}
+        >
+          <Flex direction="column" gap="0x">
+            <div>
+              <Button onClick={() => state.close()}>Close Dialog</Button>
+            </div>
+            <span>Dialog body</span>
+          </Flex>
+        </TakeoverDialog>
       </OverlayContainer>
     </>
   )

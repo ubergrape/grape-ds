@@ -9,7 +9,7 @@ import { Headline } from '../typography'
 
 import useStyles from './styles'
 
-export type DialogProps = {
+export type TakeoverDialogProps = {
   title?: string
   children: ReactElement
   isOpen: boolean
@@ -17,7 +17,7 @@ export type DialogProps = {
   onClose: () => void
 }
 
-export const Dialog: React.FC<DialogProps> = props => {
+export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
   const { title, onClose, children, isOpen } = props
 
   if (!isOpen) return null
@@ -48,15 +48,6 @@ export const Dialog: React.FC<DialogProps> = props => {
           className={classes.dialog}
           ref={ref}
         >
-          <div className={classes.button}>
-            <Button
-              ariaLabel="Close"
-              onClick={onClose}
-              appearance="minimal"
-              icon="close"
-              size="large"
-            />
-          </div>
           <div className={classes.content}>
             {title && (
               <Headline
@@ -73,13 +64,22 @@ export const Dialog: React.FC<DialogProps> = props => {
               <ScrollBar>{children}</ScrollBar>
             </div>
           </div>
+          <div className={classes.button}>
+            <Button
+              ariaLabel="Close"
+              onClick={onClose}
+              appearance="minimal"
+              icon="close"
+              size="large"
+            />
+          </div>
         </div>
       </FocusScope>
     </div>
   )
 }
 
-Dialog.defaultProps = {
+TakeoverDialog.defaultProps = {
   isOpen: false,
   isDismissable: true,
 }

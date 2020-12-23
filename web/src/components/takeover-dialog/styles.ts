@@ -19,7 +19,7 @@ export default createUseStyles(
     dialog: {
       display: 'flex',
       outline: 0,
-      flexDirection: 'column',
+      flexDirection: 'column-reverse',
       height: `calc(100% - ${theme.size6X})`,
       alignItems: 'center',
       padding: theme.size3X,
