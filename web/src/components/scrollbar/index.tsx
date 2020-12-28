@@ -9,7 +9,6 @@ const useStyles = createUseStyles({
   customScrollbar: overflowPadding => {
     return {
       height: '100%',
-      // outline: 0,
       '& .os-viewport': {
         paddingRight: overflowPadding,
       },
