@@ -2,15 +2,13 @@ import React from 'react'
 import { ScrollBar } from '../../components/scrollbar'
 
 export default {
-  title: 'Forms/ScrollBar',
+  title: 'Components/ScrollBar',
   component: ScrollBar,
 }
 
 export const Base = (): JSX.Element => (
   <div
     style={{
-      backgroundColor: '#f0f0f0',
-      width: '500px',
       height: '500px',
       display: 'flex',
     }}

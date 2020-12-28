@@ -3,6 +3,8 @@ import clsx from 'clsx'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 import { createUseStyles } from 'react-jss'
 
+import tokens from '../../tokens'
+
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
 const useStyles = createUseStyles({
@@ -30,7 +32,7 @@ const useStyles = createUseStyles({
 export const ScrollBar = (
   props: OverlayScrollbarsComponent['props'],
 ): JSX.Element => {
-  const [overflowPadding, setOverflowPadding] = useState(0)
+  const [overflowPadding, setOverflowPadding] = useState('0px')
 
   const styles = useStyles(overflowPadding)
 
@@ -40,11 +42,11 @@ export const ScrollBar = (
         callbacks: {
           onOverflowChanged: args => {
             if (args.yScrollable) {
-              setOverflowPadding(17)
+              setOverflowPadding(tokens.size2X)
               return
             }
 
-            setOverflowPadding(0)
+            setOverflowPadding('0px')
           },
         },
       }}
