@@ -4,29 +4,28 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 
 ### Installation
 
-
 Make sure to run the commands in this directory:
 
 ```bash
 cd docs
 ```
 
-install all requirements:
+Install all requirements:
 
 ```bash
 yarn
 ```
 
-### Local Development
+### Local development
 
-the components from `../web` are used in the docs and are imported with a symlink. You need to build them first:
+The components from `../web` are used in the docs and are imported with a symlink. You need to build them first:
 
 ```bash
 cd ..
 yarn build:components
 ```
 
-run development server:
+Run the development server:
 
 ```bash
 cd docs
@@ -37,24 +36,24 @@ This will open up a browser window. Most changes are reflected live without havi
 
 #### Changes in components
 
-When you are working on components and want to preview them in docusaurus at the same time use [`yarn link`](https://classic.yarnpkg.com/en/docs/cli/link/), so changes can appear faster in docusaurus.
+When you are working on components and want to preview them in Docusaurus at the same time use [`yarn link`](https://classic.yarnpkg.com/en/docs/cli/link/), so changes can appear faster in docusaurus.
 
-in the `web` directory:
+In the `web` directory:
 ```
 yarn link
 ```
 
-in the `docs` directory:
+In the `docs` directory:
 ```
 yarn link aurora-ui
 ```
 
-Now you can Docusaurus:
+Now you can run Docusaurus:
 ```
 yarn start
 ```
 
-every time you change something in web, run this in the `web` directory:
+Every time you change something in web, run this in the `web` directory:
 ```bash
 yarn build:lib
 ```
