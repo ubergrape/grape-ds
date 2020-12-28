@@ -9,9 +9,9 @@ This projects contains two subprojects
 * `/doc` - Homepage, main design system documentation (with Docusaurus) and docs for components with examples.
 * `/web` - Documentation (with Storybook) for components with all details, React props and the corresponding Figma designs.
 
-both subprojects have their own Readme files and have a separate build process.
+Both subprojects have their own Readme files and have a separate build process.
 
-the design tokens are in `/design-tokens` in the YAML format and are converted to JSON for the use with Storybook.
+The design tokens are in `/design-tokens` in the YAML format and are converted to JSON for the use with Storybook.
 
 ## Design Tokens
 
