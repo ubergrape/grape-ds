@@ -14,11 +14,13 @@ export type TakeoverDialogProps = {
   children: ReactElement
   isOpen: boolean
   isDismissable?: boolean
+  ariaLabel?: string
+  closeAriaLabel?: string
   onClose: () => void
 }
 
 export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
-  const { title, onClose, children, isOpen } = props
+  const { title, onClose, ariaLabel, closeAriaLabel, children, isOpen } = props
 
   if (!isOpen) return null
 
@@ -43,7 +45,9 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
           {...overlayProps}
           {...dialogProps}
           {...modalProps}
-          {...(title && { 'aria-labelledby': title })}
+          {...(title
+            ? { 'aria-labelledby': title }
+            : { 'aria-label': ariaLabel })}
           aria-modal
           className={classes.dialog}
           ref={ref}
@@ -66,7 +70,7 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
           </div>
           <div className={classes.button}>
             <Button
-              ariaLabel="Close"
+              ariaLabel={closeAriaLabel}
               onClick={onClose}
               appearance="minimal"
               icon="close"
