@@ -3,7 +3,7 @@ module.exports = {
   tagline: "Grape's design system",
   url: "https://aurora.ubergrape.com",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "ignore",
   favicon: "img/favicon.ico",
   organizationName: "UberGrape GmbH",
   projectName: "aurora",
