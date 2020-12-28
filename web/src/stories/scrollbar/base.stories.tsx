@@ -3,7 +3,7 @@ import { ScrollBar } from '../../components/scrollbar'
 import { Button } from '../../components/button'
 
 export default {
-  title: 'Forms/ScrollBar',
+  title: 'Components/ScrollBar',
   component: ScrollBar,
 }
 
