@@ -27,7 +27,8 @@ module.exports = {
           position: "right",
         },
         {
-          to: "storybook/",
+          to: "/storybook",
+          target: "_blank",
           label: "Development",
           position: "right",
         },
@@ -45,7 +46,8 @@ module.exports = {
             },
             {
               label: "Development",
-              to: "storybook/",
+              to: "/storybook",
+              target: "_blank",
             },
           ],
         },
