@@ -14,7 +14,6 @@ export type TextColorType =
   | 'inverse'
   | 'placeholder'
   | 'active'
-  | string
 
 export const getColorFromType = (type: TextColorType): string =>
   type ? tokens[`colorText${capitalizeFirstLetter(type)}`] : undefined

@@ -56,6 +56,7 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
             {title && (
               <Headline
                 {...titleProps}
+                color="primary"
                 as="span"
                 size="page"
                 maxWidth={680}
