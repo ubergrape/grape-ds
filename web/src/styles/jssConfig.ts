@@ -9,12 +9,15 @@ import functions from 'jss-plugin-rule-value-function'
 
 import fonts from '../fonts'
 import { reset } from './reset'
+import overwrites from './globalStyleOverwrites'
 
 const jss = create()
 
 jss.use(functions(), global(), extend(), nested(), camel(), unit(), expand())
 
 jss.createStyleSheet(reset).attach()
+jss.createStyleSheet(overwrites).attach()
+
 jss
   .createStyleSheet({
     ...fonts,

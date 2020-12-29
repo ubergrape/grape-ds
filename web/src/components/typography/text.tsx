@@ -20,6 +20,7 @@ export interface Props {
   color?: TextColorType
   className?: string
   maxWidth?: number | string
+  id?: string
   title?: string
 }
 
@@ -37,7 +38,7 @@ export type TextProps = DefaultTextProps | LabelProps
 const isLabel = (va): va is LabelProps => va.as === 'label'
 
 export const Text: React.FC<TextProps> = props => {
-  const { children, as = 'div', title, className } = props
+  const { children, as = 'div', id, title, className } = props
 
   const classes = useStyles(props)
 
@@ -47,6 +48,7 @@ export const Text: React.FC<TextProps> = props => {
     <Component
       {...(title && { title })}
       className={clsx(classes.text, className)}
+      {...(id && { id })}
       {...(isLabel(props) && { htmlFor: props.htmlFor })}
     >
       {children}

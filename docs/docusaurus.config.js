@@ -3,7 +3,7 @@ module.exports = {
   tagline: "Grape's design system",
   url: "https://aurora.ubergrape.com",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "ignore",
   favicon: "img/favicon.ico",
   organizationName: "UberGrape GmbH",
   projectName: "aurora",
@@ -27,7 +27,8 @@ module.exports = {
           position: "right",
         },
         {
-          href: "https://aurora.ubergrape.com/storybook/",
+          to: "/storybook",
+          target: "_blank",
           label: "Development",
           position: "right",
         },
@@ -45,7 +46,8 @@ module.exports = {
             },
             {
               label: "Development",
-              href: "https://aurora.ubergrape.com/storybook/",
+              to: "/storybook",
+              target: "_blank",
             },
           ],
         },
