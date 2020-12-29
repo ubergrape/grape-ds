@@ -1,5 +1,6 @@
 import React from 'react'
 import { ScrollBar } from '../../components/scrollbar'
+import { Button } from '../../components/button'
 
 export default {
   title: 'Components/ScrollBar',
@@ -60,6 +61,32 @@ export const Base = (): JSX.Element => (
         rhoncus, mollis ligula nec, commodo sem. Fusce ultrices lectus viverra
         quam facilisis aliquet. Vivamus a consequat mi. Praesent vitae lacinia
         tellus, vitae finibus odio.
+      </div>
+    </ScrollBar>
+    <ScrollBar style={{ width: 150, backgroundColor: 'white' }}>
+      <div>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
+        <Button>Button</Button>
       </div>
     </ScrollBar>
   </div>

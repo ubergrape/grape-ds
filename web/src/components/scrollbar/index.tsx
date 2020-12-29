@@ -38,6 +38,15 @@ export const ScrollBar = (
 
   return (
     <OverlayScrollbarsComponent
+      ref={ref => {
+        // Accesibility viaolation fix. Elements that have scrollable content should be accessible by keyboard.
+        if (ref) {
+          ref
+            .osTarget()
+            .querySelector('.os-viewport')
+            .setAttribute('tabindex', '0')
+        }
+      }}
       options={{
         callbacks: {
           onOverflowChanged: args => {

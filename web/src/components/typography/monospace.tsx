@@ -7,14 +7,19 @@ export type MonospaceProps = {
   children: string
   color?: TextColorType
   maxWidth?: number | string
+  id?: string
 }
 
 export const Monospace: React.FC<MonospaceProps> = props => {
-  const { children } = props
+  const { children, id } = props
 
   const classes = useStyles(props)
 
-  return <div className={classes.monospace}>{children}</div>
+  return (
+    <div {...(id && { id })} className={classes.monospace}>
+      {children}
+    </div>
+  )
 }
 
 Monospace.defaultProps = {
