@@ -1,6 +1,6 @@
 export default {
   staticPath:
     process.env.NODE_ENV === 'production'
-      ? 'http://localhost:55555'
-      : 'http://localhost:55555',
+      ? window.location.origin
+      : 'http://localhost:55555/src/fonts/',
 }
