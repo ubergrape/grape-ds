@@ -31,29 +31,5 @@ export const reset = {
       borderCollapse: 'collapse',
       borderSpacing: 0,
     },
-    // custom styling
-    // 'input[type=search]::-ms-clear, input[type=search]::-ms-reveal ': {
-    //   display: 'none',
-    //   width: 0,
-    //   height: 0,
-    // },
-    // 'input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration': {
-    //   display: 'none',
-    // },
-    // '*': {
-    //   scrollbarWidth: 'thin',
-    //   scrollbarColor: 'blue',
-    // },
-    // '*::-webkit-scrollbar': {
-    //   width: 12,
-    // },
-    // '*::-webkit-scrollbar-track': {
-    //   background: 'orange',
-    // },
-    // '*::-webkit-scrollbar-thumb': {
-    //   backgroundColor: 'blue',
-    //   borderRadius: 20,
-    //   border: '3px solid orange',
-    // },
   },
 }
