@@ -1,4 +1,4 @@
-import { create } from 'jss'
+import { create, Jss } from 'jss'
 import global from 'jss-plugin-global'
 import extend from 'jss-plugin-extend'
 import nested from 'jss-plugin-nested'
@@ -11,17 +11,18 @@ import fonts from '../fonts'
 import { reset } from './reset'
 import overwrites from './globalStyleOverwrites'
 
-const jss = create()
+export default (isStylesNotReset: boolean): Jss => {
+  const jss = create()
 
-jss.use(functions(), global(), extend(), nested(), camel(), unit(), expand())
+  jss.use(functions(), global(), extend(), nested(), camel(), unit(), expand())
+  if (!isStylesNotReset) jss.createStyleSheet(reset).attach()
+  jss.createStyleSheet(overwrites).attach()
 
-jss.createStyleSheet(reset).attach()
-jss.createStyleSheet(overwrites).attach()
+  jss
+    .createStyleSheet({
+      ...fonts,
+    })
+    .attach()
 
-jss
-  .createStyleSheet({
-    ...fonts,
-  })
-  .attach()
-
-export default jss
+  return jss
+}

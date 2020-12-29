@@ -6,12 +6,14 @@ import jss from './jssConfig'
 
 export interface ThemeProviderProps {
   children: ReactChild | ReactChildren
+  isStylesNotReset?: boolean
 }
 
 export const ThemeProvider = ({
   children,
+  isStylesNotReset,
 }: ThemeProviderProps): JSX.Element => (
-  <JssProvider jss={jss}>
+  <JssProvider jss={jss(isStylesNotReset)}>
     <JssThemeProvider theme={theme}>{children}</JssThemeProvider>
   </JssProvider>
 )
