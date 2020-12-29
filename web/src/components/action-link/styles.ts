@@ -8,7 +8,7 @@ const getSizeFromProp = ({ size }: ActionLinkProps) =>
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   actionLink: {
-    display: 'block',
+    display: 'inline-block',
     height: getSizeFromProp,
     textDecoration: 'none',
     alignSelf: 'flex-start',
