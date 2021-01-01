@@ -6,7 +6,7 @@ Documentation on our design system, design tokens (e.g. colors, spacing) and Rea
 
 This projects contains two subprojects
 
-* `/doc` - Homepage, main design system documentation (with Docusaurus) and docs for components with examples.
+* `/docs` - Homepage, main design system documentation (with Docusaurus) and docs for components with examples.
 * `/web` - Documentation (with Storybook) for components with all details, React props and the corresponding Figma designs.
 
 Both subprojects have their own Readme files and have a separate build process.
