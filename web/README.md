@@ -1,4 +1,4 @@
-# Storybook for Web Components
+# Storybook for web components
 
 This directory contains our web storybook project. It is built with [Storybook](https://storybook.js.org/) and contains all React components which can be used in the Grape web client, with so called stories to showcase their usage and interactively try them out in the browser.
 
@@ -46,11 +46,11 @@ The SVG icons are in a separate repository [ubergrape/grape-icons](https://githu
 
     Old icon components will be removed, outdated ones will be updated and new icons components will be created.
 
-    The generated icon components are in `src/components/icons`.
+    The generated icon components are in `src/icons`.
 
 3. Manually update the `IconTypes`:
 
-    edit `src/components/icon/index.tsx` and update `IconTypes` to match the icon names in `src/components/icons`
+    edit `src/components/icon/index.tsx` and update `IconTypes` to match the icon names in `src/icons`
 
 ### Build for release
 
