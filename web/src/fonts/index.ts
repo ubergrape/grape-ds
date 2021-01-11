@@ -28,7 +28,7 @@ const getFontFace = ({
       format =>
         `local('${family} ${style}'), ` +
         `local('${concatenatedFamilyName}-${style}'), ` +
-        `url('${constants.staticPath}${concatenatedFamilyName}/${style}.${format}') ` +
+        `url('${constants.staticPath}/src/fonts/${concatenatedFamilyName}/${style}.${format}') ` +
         `format('${format}')`,
     ),
   }
