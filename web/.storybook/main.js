@@ -1,3 +1,6 @@
+const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
   stories: ['../src/**/*.stories.!(tjm)?(ds)?(x)'],
   addons: [
@@ -13,12 +16,19 @@ module.exports = {
   webpackFinal: async config => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: require.resolve('ts-loader'),
-        },
-      ],
+      loaders: [require.resolve('ts-loader')],
     })
+
+    config.plugins.push(
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, '../src/fonts'),
+            to: 'static/fonts',
+          },
+        ],
+      }),
+    )
 
     config.resolve.extensions.push('.ts', '.tsx')
     return config

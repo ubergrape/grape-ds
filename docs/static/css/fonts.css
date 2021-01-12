@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://aurora.ubergrape.com/fonts/NotoSansMono/Regular.woff2) format('woff2'),
+       url(https://aurora.ubergrape.com/fonts/NotoSansMono/Regular.woff) format('woff'),
+       url(https://aurora.ubergrape.com/fonts/NotoSansMono/Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://aurora.ubergrape.com/fonts/NotoSans/Regular.woff2) format('woff2'),
+       url(https://aurora.ubergrape.com/fonts/NotoSans/Regular.woff) format('woff'),
+       url(https://aurora.ubergrape.com/fonts/NotoSans/Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://aurora.ubergrape.com/fonts/NotoSans/SemiBold.woff2) format('woff2'),
+       url(https://aurora.ubergrape.com/fonts/NotoSans/SemiBold.woff) format('woff'),
+       url(https://aurora.ubergrape.com/fonts/NotoSans/SemiBold.ttf) format('truetype');
+}

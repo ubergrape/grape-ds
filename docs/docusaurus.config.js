@@ -81,6 +81,9 @@ module.exports = {
       copyright: `Grape Design &bull; Aurora © ${new Date().getFullYear()} UberGrape GmbH`,
     },
   },
+  stylesheets: [
+    'https://aurora.ubergrape.com/css/fonts.css',
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",
