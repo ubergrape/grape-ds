@@ -50,6 +50,7 @@
   --ifm-color-danger-darker: #8a1b16;
   --ifm-color-danger-darkest: #430b00;
 
+  --ifm-font-family-base: "Noto Sans", "Neue Helvetica", Helvetica, Arial, sans-serif;
   --ifm-code-font-size: 95%;
   --ifm-footer-background-color: #f9f9f9;
   --ifm-footer-link-color: #727272;
