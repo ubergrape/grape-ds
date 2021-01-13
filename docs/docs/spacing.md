@@ -1,7 +1,7 @@
 ---
-id: help
-title: Help
-sidebar_label: Help
+id: spacing
+title: Spacing
+sidebar_label: Spacing
 ---
 
 Something important.
