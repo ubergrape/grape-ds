@@ -21,10 +21,28 @@ module.exports = {
       },
       items: [
         {
-          to: "docs/",
-          activeBasePath: "docs",
+          type: "doc",
+          position: "left",
+          docId: "design-principles",
           label: "Design",
-          position: "right",
+        },
+        {
+          type: "doc",
+          position: "left",
+          docId: "inclusive-language",
+          label: "Writing",
+        },
+        {
+          type: "doc",
+          position: "left",
+          docId: "components/button",
+          label: "Components",
+        },
+        {
+          type: "doc",
+          position: "left",
+          docId: "resources",
+          label: "Resources",
         },
         {
           to: "/storybook",
@@ -42,7 +60,7 @@ module.exports = {
           items: [
             {
               label: "Design",
-              to: "docs/",
+              to: "docs/design-principles",
             },
             {
               label: "Development",

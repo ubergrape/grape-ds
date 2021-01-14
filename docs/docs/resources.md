@@ -1,7 +1,7 @@
 ---
-id: fonts
-title: Fonts
-sidebar_label: Fonts
+id: resources
+title: Resources
+sidebar_label: Resources
 ---
 
 Something important.

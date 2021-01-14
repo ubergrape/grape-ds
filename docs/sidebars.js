@@ -1,15 +1,48 @@
 module.exports = {
-  someSidebar: {
-    "Get started": ["example"],
-    "Foundations": ["design-principles"],
-    "Design guidelines": ["color"],
-    "Writing": ["inclusive-language"],
-    "Components": [
-      "components/example",
-      "components/button",
-      "components/scrollbar"
-    ],
-    "Resources": ["fonts"],
-    "Help": ["help"],
-  },
+  design: [
+    {
+      type: "category",
+      label: "Foundation",
+      items: [
+        "design-principles",
+        "accessibility",
+        "internationalization",
+      ],
+    },
+    {
+      type: "category",
+      label: "Guidelines",
+      items: [
+        "color",
+        "typography",
+        "iconography",
+        "spacing",
+      ],
+    },
+  ],
+  writing: [
+    {
+      type: "category",
+      label: "Writing",
+      items: [
+        "inclusive-language",
+        "vocabulary",
+        "language-and-grammar",
+        "writing-style",
+      ],
+    },
+  ],
+  components: [
+    {
+      type: "category",
+      label: "Components",
+      items: [
+        "components/button",
+        "components/scrollbar"
+      ],
+    },
+  ],
+  resources: [
+    "resources",
+  ],
 };
