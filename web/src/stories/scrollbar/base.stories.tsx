@@ -1,10 +1,10 @@
 import React from 'react'
-import { ScrollBar } from '../../components/scrollbar'
+import { Scrollbar } from '../../components/scrollbar'
 import { Button } from '../../components/button'
 
 export default {
-  title: 'Components/ScrollBar',
-  component: ScrollBar,
+  title: 'Components/Scrollbar',
+  component: Scrollbar,
 }
 
 export const Base = (): JSX.Element => (
@@ -14,7 +14,7 @@ export const Base = (): JSX.Element => (
       display: 'flex',
     }}
   >
-    <ScrollBar style={{ width: 150, backgroundColor: 'white' }}>
+    <Scrollbar style={{ width: 150, backgroundColor: 'white' }}>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
         fringilla justo id ex rhoncus mattis eu eget ipsum. Etiam ac dui mauris.
@@ -22,8 +22,8 @@ export const Base = (): JSX.Element => (
         facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Aliquam erat volutpat.
       </div>
-    </ScrollBar>
-    <ScrollBar style={{ width: 150, backgroundColor: 'white' }}>
+    </Scrollbar>
+    <Scrollbar style={{ width: 150, backgroundColor: 'white' }}>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
         fringilla justo id ex rhoncus mattis eu eget ipsum. Etiam ac dui mauris.
@@ -62,8 +62,8 @@ export const Base = (): JSX.Element => (
         quam facilisis aliquet. Vivamus a consequat mi. Praesent vitae lacinia
         tellus, vitae finibus odio.
       </div>
-    </ScrollBar>
-    <ScrollBar style={{ width: 150, backgroundColor: 'white' }}>
+    </Scrollbar>
+    <Scrollbar style={{ width: 150, backgroundColor: 'white' }}>
       <div>
         <Button>Button</Button>
         <Button>Button</Button>
@@ -88,6 +88,6 @@ export const Base = (): JSX.Element => (
         <Button>Button</Button>
         <Button>Button</Button>
       </div>
-    </ScrollBar>
+    </Scrollbar>
   </div>
 )

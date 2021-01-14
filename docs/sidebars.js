@@ -6,7 +6,8 @@ module.exports = {
     "Writing": ["inclusive-language"],
     "Components": [
       "components/example",
-      "components/button"
+      "components/button",
+      "components/scrollbar"
     ],
     "Resources": ["fonts"],
     "Help": ["help"],

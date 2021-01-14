@@ -29,7 +29,7 @@ const useStyles = createUseStyles({
   },
 })
 
-export const ScrollBar = (
+export const Scrollbar = (
   props: OverlayScrollbarsComponent['props'],
 ): JSX.Element => {
   const [overflowPadding, setOverflowPadding] = useState('0px')

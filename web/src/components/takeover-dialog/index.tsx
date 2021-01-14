@@ -4,7 +4,7 @@ import { FocusScope } from '@react-aria/focus'
 import { useOverlay, usePreventScroll, useModal } from '@react-aria/overlays'
 
 import Button from '../button'
-import { ScrollBar } from '../scrollbar'
+import { Scrollbar } from '../scrollbar'
 import { Headline } from '../typography'
 
 import useStyles from './styles'
@@ -66,7 +66,7 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
               </Headline>
             )}
             <div className={classes.body}>
-              <ScrollBar>{children}</ScrollBar>
+              <Scrollbar>{children}</Scrollbar>
             </div>
           </div>
           <div className={classes.button}>

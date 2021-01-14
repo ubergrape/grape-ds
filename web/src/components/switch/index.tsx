@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { useTheme } from 'react-jss'
 import clsx from 'clsx'
 import { useFocusRing } from '@react-aria/focus'
 import { useToggleState } from '@react-stately/toggle'
