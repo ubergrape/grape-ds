@@ -160,8 +160,17 @@ a:hover {
 }
 
 .playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-src-theme-Playground- {
-  font-size: 80%;
   letter-spacing: 0rem !important;
   text-transform: none !important;
   font-weight: normal !important;
+  border-radius: 10px 10px 0px 0px !important;
+}
+
+.playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-src-theme-Playground- {
+  background-color: var(--ifm-color-secondary-lightest) !important;
+  color: var(--ifm-color-secondary-darker) !important;
+}
+
+.playgroundPreviewHeader_node_modules-\@docusaurus-theme-live-codeblock-src-theme-Playground- {
+  display: none !important;
 }

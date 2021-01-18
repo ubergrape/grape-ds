@@ -1,0 +1,81 @@
+---
+id: avatar
+title: Avatar
+---
+
+import { Avatar, AvatarItem, Group, GroupItem } from "aurora-ui";
+
+## Avatar
+[Storybook](https://aurora.ubergrape.com/storybook/?path=/story/components-avatar--base)
+
+### No image
+<Avatar />
+
+### With image
+<Avatar src="https://thispersondoesnotexist.com/image" />
+
+### Selected
+<Avatar src="https://thispersondoesnotexist.com/image" isSelected />
+
+### Playground
+
+```jsx live
+<Avatar
+    src="https://thispersondoesnotexist.com/image"
+    status="online"
+    size="regular"
+    />
+```
+
+## Avatar Item
+[Storybook](https://aurora.ubergrape.com/storybook/?path=/story/components-avataritem--base)
+
+### No image
+<AvatarItem />
+
+### With image
+<AvatarItem src="https://thispersondoesnotexist.com/image" />
+
+### Selected
+<AvatarItem src="https://thispersondoesnotexist.com/image" isSelected />
+
+### Playground
+
+```jsx live
+<AvatarItem
+    src="https://thispersondoesnotexist.com/image"
+    name="Barbabo Barba"
+    status="online"
+    size="regular"
+/>
+```
+
+## Group
+[Storybook](https://aurora.ubergrape.com/storybook/?path=/story/components-group--base)
+
+<Group />
+
+### Playground
+
+```jsx live
+<Group
+    color={1}
+    groupType="private"
+    size="regular"
+/>
+```
+
+## Group Item
+[Storybook](https://aurora.ubergrape.com/storybook/?path=/story/components-groupitem--base)
+
+<GroupItem />
+
+### Playground
+
+```jsx live
+<GroupItem
+    color={6}
+    groupType="private"
+    name="Barbapapa"
+/>
+```

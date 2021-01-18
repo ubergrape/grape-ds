@@ -35,7 +35,7 @@ module.exports = {
         {
           type: "doc",
           position: "left",
-          docId: "components/button",
+          docId: "components/action-link",
           label: "Components",
         },
         {

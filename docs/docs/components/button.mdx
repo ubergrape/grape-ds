@@ -5,23 +5,25 @@ title: Button
 
 import { Button } from "aurora-ui";
 
-[Storybook 🡕](https://aurora.ubergrape.com/storybook/?path=/story/components-button--base)
+[Storybook](https://aurora.ubergrape.com/storybook/?path=/story/components-button--base)
 
-## Variants
 <Button>Button</Button>{" "}
-<Button variant="primary">Button</Button>{" "}
+<Button appearance="minimal">Button</Button>{" "}
 
-## Appearances
-<Button appearance="minimal">Button</Button>
+### Icon-only
+<Button icon="person" />{" "}
+<Button icon="person" appearance="minimal" />
 
-### Just Code
-
-```jsx
-<Button>Basic</Button>
-```
-
-### Editable
+### Playground
 
 ```jsx live
-<Button>Basic</Button>
+<Button
+    variant="primary"
+    appearance="filled"
+    size="regular"
+    icon="person"
+    iconPosition="left"
+>
+Basic
+</Button>
 ```
