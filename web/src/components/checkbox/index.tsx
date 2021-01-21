@@ -62,7 +62,9 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
           {...focusProps}
           ref={ref}
           id={_id}
-          {...(!isLabelCheckbox(props) && { 'aria-label': props.ariaLabel })}
+          {...(isLabelCheckbox(props)
+            ? { 'aria-labelledby': props.label.replace(/\s/g, '') }
+            : { 'aria-label': props.ariaLabel })}
           {...(isInvalid && { 'aria-invalid': 'true' })}
         />
       )}

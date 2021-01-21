@@ -34,19 +34,17 @@ export const InputLabel: React.FC<Props> = props => {
   const hasLabel = label && label !== ''
   const Wrapper = hasLabel ? Text : 'div'
   return (
-    <Wrapper
-      {...(hasLabel && {
-        size: 'base',
-        as: 'label',
-        color: isDisabled ? 'secondary' : 'primary',
-        htmlFor: id,
-      })}
+    <Text
+      size="base"
+      as="label"
+      color={isDisabled ? 'secondary' : 'primary'}
+      htmlFor={id}
     >
       <VisuallyHidden>{renderHiddenInput?.()}</VisuallyHidden>
 
       <div className={classes.label}>
         {renderInput?.()}
-        {hasLabel && label}
+        {hasLabel && <span id={label.replace(/\s/g, '')}>{label}</span>}
       </div>
 
       {hasLabel && props.helpText && (
@@ -58,6 +56,6 @@ export const InputLabel: React.FC<Props> = props => {
           {props.helpText}
         </Text>
       )}
-    </Wrapper>
+    </Text>
   )
 }
