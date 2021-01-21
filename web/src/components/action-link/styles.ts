@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss'
 
-import { ActionLinkProps } from '.'
+import ActionLink, { ActionLinkProps } from '.'
 import tokens from '../../tokens'
 
 const getSizeFromProp = ({ size }: ActionLinkProps) =>
@@ -51,7 +51,10 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
           return tokens.colorBackgroundActionlinkBasicIconShape
       }
     },
-    marginRight: theme.paddingActionlinkRegularIconshapeLinktext,
+    marginRight: ({ size }: ActionLinkProps) =>
+      size === 'regular'
+        ? theme.paddingActionlinkRegularIconshapeLinktext
+        : theme.paddingActionlinkSmallIconshapeLinktext,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
