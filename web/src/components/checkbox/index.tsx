@@ -37,7 +37,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
   const { isChecked, isIndeterminate, isDisabled, isInvalid, id } = props
   const state = useToggleState({
     ...props,
-    isSelected: isChecked,
+    defaultSelected: isChecked,
   })
   const ref = useRef()
   const [_id] = useState(id || genUid())
