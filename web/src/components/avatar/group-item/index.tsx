@@ -56,7 +56,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
             {name}
           </Text>
           <div className={classes.secondary}>
-            {members > 0 && size !== 'small' && (
+            {members > 0 && size === 'regular' && (
               <Text size="small">
                 <Flex
                   items="center"
