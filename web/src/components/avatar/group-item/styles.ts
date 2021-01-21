@@ -20,11 +20,11 @@ export default createUseStyles(
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       marginLeft: ({ size }: GroupItemProps) =>
-        size === 'small' ? theme.spaceAvatarItem : 0,
+        size === 'regular' ? 0 : theme.spaceAvatarItem,
     },
     description: {
       marginLeft: ({ members, size }: GroupItemProps) =>
-        members && size !== 'small' ? theme.spaceMembersSecondary : 0,
+        members && size !== 'regular' ? 0 : theme.spaceMembersSecondary,
     },
     members: {
       flexShrink: 0,

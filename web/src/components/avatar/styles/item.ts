@@ -34,12 +34,12 @@ export const useItemStyle = createUseStyles(
         const padding = parseToken(theme.spaceAvatarItem)
 
         const avatarSize = parseToken(
-          size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
+          size === 'regular' ? theme.sizeAvatarRegular : theme.sizeAvatarSmall,
         )
 
         return `calc(${maxWidth}px - ${padding + avatarSize}px)`
       },
-      flexDirection: ({ size }) => (size === 'small' ? 'row' : 'column'),
+      flexDirection: ({ size }) => (size === 'regular' ? 'column' : 'row'),
     },
     name: {
       whiteSpace: 'nowrap',
@@ -53,7 +53,7 @@ export const useItemStyle = createUseStyles(
         const padding = parseToken(theme.spaceAvatarItem) * 2
 
         const avatarSize = parseToken(
-          size === 'small' ? theme.sizeAvatarSmall : theme.sizeAvatarRegular,
+          size === 'regular' ? theme.sizeAvatarRegular : theme.sizeAvatarSmall,
         )
 
         return `calc(${maxWidth}px - ${padding + avatarSize}px)`
