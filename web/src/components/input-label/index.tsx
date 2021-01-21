@@ -32,7 +32,7 @@ export const InputLabel: React.FC<Props> = props => {
     theme,
   })
   const hasLabel = label && label !== ''
-  const Wrapper = hasLabel ? Text : 'div'
+
   return (
     <Text
       size="base"
