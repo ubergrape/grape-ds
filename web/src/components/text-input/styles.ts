@@ -58,6 +58,7 @@ export default createUseStyles({
   },
   label: {
     color: tokens.colorTextFormfieldLabel,
+    fontFamily: tokens.fontFamily,
     fontSize: tokens.fontSizeBodySmall,
     fontWeight: tokens.fontWeightBodyEmphasis,
     lineHeight: tokens.lineHeightBodySmall,
@@ -87,6 +88,7 @@ export default createUseStyles({
     marginLeft: tokens.sizeHalfX,
   },
   inputWrapper: {
+    display: 'flex',
     position: 'relative',
   },
 })
