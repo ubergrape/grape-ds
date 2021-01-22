@@ -26,39 +26,62 @@ Base.args = {
 
 export const Default = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <SearchField label="Label" placeholder="Placeholder" />
-    <SearchField label="Label" />
+    <SearchField
+      removeAriaLabel="Remove"
+      label="Label"
+      placeholder="Placeholder"
+    />
+    <SearchField removeAriaLabel="Remove" label="Label" />
   </Flex>
 )
 
 export const WithoutLabel = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <SearchField aria-label="Label" placeholder="Placeholder" />
+    <SearchField
+      removeAriaLabel="Remove"
+      aria-label="Label"
+      placeholder="Placeholder"
+    />
   </Flex>
 )
 
 export const Required = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <SearchField isRequired label="Label" />
+    <SearchField isRequired removeAriaLabel="Remove" label="Label" />
   </Flex>
 )
 
 export const WithHelp = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <SearchField label="Label" description="Help Text" />
+    <SearchField
+      label="Label"
+      removeAriaLabel="Remove"
+      description="Help Text"
+    />
   </Flex>
 )
 
 export const MinLength = (): JSX.Element => (
   <Flex gap="2x">
-    <SearchField label="Has Min Length" minLength={1} />
+    <SearchField
+      label="Has Min Length"
+      removeAriaLabel="Remove"
+      minLength={1}
+    />
+  </Flex>
+)
+
+export const AutoFocused = (): JSX.Element => (
+  <Flex gap="2x">
+    <SearchField label="Auto Focused" removeAriaLabel="Remove" autoFocus />
   </Flex>
 )
 
 export const Invalid = (): JSX.Element => (
-  <Flex>
+  <Flex gap="2x">
     <SearchField
       label="Label"
+      removeAriaLabel="Remove"
       isInvalid
       validationHelp="Validation Help"
       placeholder="Placeholder"
@@ -69,12 +92,17 @@ export const Invalid = (): JSX.Element => (
 
 export const Disabled = (): JSX.Element => (
   <Flex gap="2x">
-    <SearchField isDisabled label="Disabled" value="Some value" />
+    <SearchField
+      isDisabled
+      removeAriaLabel="Remove"
+      label="Disabled"
+      value="Some value"
+    />
   </Flex>
 )
 
 export const CustomIcon = (): JSX.Element => (
   <Flex gap="2x">
-    <SearchField label="Custom" icon="people" />
+    <SearchField label="Custom" removeAriaLabel="Remove" icon="people" />
   </Flex>
 )

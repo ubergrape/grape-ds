@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useMemo, useState } from 'react'
 import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
+import { FocusRing } from '@react-aria/focus'
 import clsx from 'clsx'
 
 import { Text } from '../typography'
@@ -16,6 +17,9 @@ export interface TextInputProps extends AriaTextFieldOptions {
   description?: string
   validationHelp?: string
   isRequired?: boolean
+  maxLength?: number
+  autoFocus?: boolean
+  type?: 'text' | 'number' | 'search' | 'password' | 'email' | 'tel'
   min?: number
   max?: number
   customLabels?: {
@@ -50,17 +54,21 @@ export const GenericField: React.FC<
     description,
     validationHelp,
     maxLength,
+    autoFocus,
+    type,
+    min,
+    max,
     component,
     isRequired,
     renderLeft,
     renderRight,
-    min,
-    max,
+    onChange,
+    defaultValue,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
   const [isDirty, setDirty] = useState(false)
-  const [value, setValue] = useState(props.value || props.defaultValue || '')
+  const [value, setValue] = useState(props.value || defaultValue || '')
 
   const allowedChars = maxLength - value.length
 
@@ -71,14 +79,14 @@ export const GenericField: React.FC<
       onChange: p => {
         setValue(p)
         setDirty(p.length > 0)
-        props.onChange?.(p)
+        onChange?.(p)
       },
     },
     ref,
   )
 
   const numberValid = useMemo(() => {
-    if (props.type !== 'number') return true
+    if (type !== 'number') return true
     if (value.length === 0) return true
     const val = Number(value)
     if (min !== undefined && val < min) return false
@@ -120,15 +128,19 @@ export const GenericField: React.FC<
       )}
       <div className={classes.inputWrapper}>
         {renderLeft?.()}
-
-        <Component
-          className={clsx(classes.textField, onFocus)}
-          {...inputProps}
-          {...(invalid && { 'aria-invalid': true })}
-          {...(min !== undefined && { min })}
-          {...(max !== undefined && { max })}
-          ref={ref}
-        />
+        <FocusRing {...(autoFocus && autoFocus)}>
+          <Component
+            className={clsx(classes.textField, onFocus)}
+            {...inputProps}
+            {...(invalid && { 'aria-invalid': true })}
+            {...(min !== undefined && { min })}
+            {...(max !== undefined && { max })}
+            {...(validationHelp && {
+              'aria-describedby': description.replace(/\s/g, ''),
+            })}
+            ref={ref}
+          />
+        </FocusRing>
         {maxLength && (
           <div className={classes.counter}>
             <Text size="base" color={invalid ? 'danger' : 'primary'}>
@@ -138,7 +150,7 @@ export const GenericField: React.FC<
         )}
         {renderRight?.({
           onClear: () => {
-            props.onChange?.('')
+            onChange?.('')
             setValue('')
             setDirty(false)
             if (ref.current) {
@@ -151,7 +163,11 @@ export const GenericField: React.FC<
       </div>
 
       {description && (
-        <Text color="secondary" size="small">
+        <Text
+          {...(validationHelp && { id: description.replace(/\s/g, '') })}
+          color="secondary"
+          size="small"
+        >
           {description}
         </Text>
       )}

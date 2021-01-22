@@ -20,15 +20,20 @@ const useStyles = createUseStyles(() => ({
   },
   rightIcon: {
     position: 'absolute',
+    display: 'flex',
     right: tokens.size1X,
     top: tokens.sizeHalfX,
   },
 }))
 
 export const SearchField: React.FC<
-  InputProps & { icon?: IconTypes }
+  InputProps & {
+    icon?: IconTypes
+    removeAriaLabel?: string
+  }
 > = props => {
   const classes = useStyles(props)
+  console.log(props.removeAriaLabel)
   return (
     <GenericField
       {...props}
@@ -44,6 +49,7 @@ export const SearchField: React.FC<
           <div className={classes.rightIcon}>
             <Button
               onClick={onClear}
+              ariaLabel={props.removeAriaLabel}
               icon="close"
               size="small"
               appearance="minimal"
