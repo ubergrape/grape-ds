@@ -74,7 +74,7 @@ export const MaxLength = (): JSX.Element => (
 
 export const AutoFocused = (): JSX.Element => (
   <Flex gap="2x">
-    <TextField label="Auto focused" autoFocus />
+    <TextField label="Auto Focused" autoFocus />
   </Flex>
 )
 
