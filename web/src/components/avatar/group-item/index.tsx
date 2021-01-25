@@ -92,6 +92,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
 }
 
 GroupItem.defaultProps = {
+  size: 'regular',
   name: 'Group name',
   isInactive: false,
 }
