@@ -15,6 +15,7 @@ export interface Props {
   name?: string
   isChecked?: boolean
   isDisabled?: boolean
+  isRequired?: boolean
 }
 
 export interface WithLabel extends Props {
