@@ -73,7 +73,8 @@ export const MaxLength = (): JSX.Element => (
 )
 
 export const Invalid = (): JSX.Element => (
-  <Flex>    <TextField
+  <Flex>
+    <TextField
       label="Label"
       isInvalid
       validationHelp="Validation Help"
