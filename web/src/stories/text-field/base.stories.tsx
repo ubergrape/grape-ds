@@ -5,7 +5,21 @@ import { TextField } from '../../components/text-input'
 export default {
   title: 'Forms/TextField',
   component: TextField,
-  argTypes: { onChange: { action: 'typed' } },
+  argTypes: {
+    onChange: { action: 'typed' },
+    min: {
+      description: 'Minimum value',
+      control: {
+        type: 'number',
+      },
+    },
+    max: {
+      description: 'Maximum value',
+      control: {
+        type: 'number',
+      },
+    },
+  },
   parameters: {
     design: {
       type: 'figma',
@@ -72,8 +86,14 @@ export const MaxLength = (): JSX.Element => (
   </Flex>
 )
 
+export const AutoFocused = (): JSX.Element => (
+  <Flex gap="2x">
+    <TextField label="Auto Focused" autoFocus />
+  </Flex>
+)
+
 export const Invalid = (): JSX.Element => (
-  <Flex>
+  <Flex gap="2x">
     <TextField
       label="Label"
       isInvalid

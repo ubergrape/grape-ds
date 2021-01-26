@@ -18,6 +18,10 @@ export interface TextInputProps extends AriaTextFieldOptions {
   validationHelp?: string
   isRequired?: boolean
   maxLength?: number
+<<<<<<< HEAD
+=======
+  minLength?: number
+>>>>>>> 1d4b1a305bfa5a84a6d1a09039e149bc34d6a4ae
   autoFocus?: boolean
   type?: 'text' | 'number' | 'search' | 'password' | 'email' | 'tel'
   min?: number
@@ -54,6 +58,7 @@ export const GenericField: React.FC<
     description,
     validationHelp,
     maxLength,
+    minLength,
     autoFocus,
     type,
     min,
@@ -71,11 +76,14 @@ export const GenericField: React.FC<
   const [value, setValue] = useState(props.value || defaultValue || '')
 
   const allowedChars = maxLength - value.length
+  const isMaxLengthReached = allowedChars < 0
+  const isMinLengthReached = value.length > minLength
 
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
       maxLength: undefined,
+      minLength: undefined,
       onChange: p => {
         setValue(p)
         setDirty(p.length > 0)
@@ -85,7 +93,7 @@ export const GenericField: React.FC<
     ref,
   )
 
-  const numberValid = useMemo(() => {
+  const isNumberValid = useMemo(() => {
     if (type !== 'number') return true
     if (value.length === 0) return true
     const val = Number(value)
@@ -94,7 +102,8 @@ export const GenericField: React.FC<
     return true
   }, [value, min, max])
 
-  const invalid = isInvalid || allowedChars < 0 || !numberValid
+  const invalid =
+    isInvalid || isMaxLengthReached || isMinLengthReached || !isNumberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
   const classes = useStyles(customProps)
@@ -141,7 +150,7 @@ export const GenericField: React.FC<
             ref={ref}
           />
         </FocusRing>
-        {maxLength && (
+        {maxLength > 0 && (
           <div className={classes.counter}>
             <Text size="base" color={invalid ? 'danger' : 'primary'}>
               {allowedChars}
