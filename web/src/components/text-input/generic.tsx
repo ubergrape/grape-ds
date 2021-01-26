@@ -142,7 +142,7 @@ export const GenericField: React.FC<
             {...(min !== undefined && { min })}
             {...(max !== undefined && { max })}
             {...(validationHelp && {
-              'aria-describedby': description.replace(/\s/g, ''),
+              'aria-describedby': validationHelp.replace(/\s/g, ''),
             })}
             ref={ref}
           />
@@ -170,7 +170,7 @@ export const GenericField: React.FC<
 
       {description && (
         <Text
-          {...(validationHelp && { id: description.replace(/\s/g, '') })}
+          {...(validationHelp && { id: validationHelp.replace(/\s/g, '') })}
           color="secondary"
           size="small"
         >
