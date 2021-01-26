@@ -127,6 +127,9 @@ export const GenericField: React.FC<
           {...(invalid && { 'aria-invalid': true })}
           {...(min !== undefined && { min })}
           {...(max !== undefined && { max })}
+          {...(validationHelp && {
+            'aria-describedby': validationHelp.replace(/\s/g, ''),
+          })}
           ref={ref}
         />
         {maxLength && (
@@ -151,7 +154,11 @@ export const GenericField: React.FC<
       </div>
 
       {description && (
-        <Text color="secondary" size="small">
+        <Text
+          {...(validationHelp && { id: validationHelp.replace(/\s/g, '') })}
+          color="secondary"
+          size="small"
+        >
           {description}
         </Text>
       )}
