@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useEffect, useState } from 'react'
+import OverlayScrollbars from 'overlayscrollbars'
 import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
 import clsx from 'clsx'
 
@@ -16,6 +17,8 @@ export interface TextInputProps extends AriaTextFieldOptions {
   description?: string
   validationHelp?: string
   isRequired?: boolean
+  maxLength?: number
+  minLength?: number
   min?: number
   max?: number
   customLabels?: {
@@ -50,6 +53,7 @@ export const GenericField: React.FC<
     description,
     validationHelp,
     maxLength,
+    minLength,
     component,
     isRequired,
     renderLeft,
@@ -59,15 +63,32 @@ export const GenericField: React.FC<
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
+  let osInstance
+
+  useEffect(() => {
+    if (component === 'textarea') {
+      osInstance = OverlayScrollbars(ref.current, {})
+    }
+
+    return () => {
+      if (component === 'textarea' && OverlayScrollbars.valid(osInstance)) {
+        osInstance.destroy()
+      }
+    }
+  }, [])
+
   const [isDirty, setDirty] = useState(false)
   const [value, setValue] = useState(props.value || props.defaultValue || '')
 
   const allowedChars = maxLength - value.length
+  const isMaxLengthReached = allowedChars < 0
+  const isMinLengthReached = value.length > minLength
 
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
       maxLength: undefined,
+      minLength: undefined,
       onChange: p => {
         setValue(p)
         setDirty(p.length > 0)
@@ -77,7 +98,7 @@ export const GenericField: React.FC<
     ref,
   )
 
-  const numberValid = useMemo(() => {
+  const isNumberValid = useMemo(() => {
     if (props.type !== 'number') return true
     if (value.length === 0) return true
     const val = Number(value)
@@ -86,7 +107,8 @@ export const GenericField: React.FC<
     return true
   }, [value, min, max])
 
-  const invalid = isInvalid || allowedChars < 0 || !numberValid
+  const invalid =
+    isInvalid || isMaxLengthReached || isMinLengthReached || !isNumberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
   const classes = useStyles(customProps)
@@ -132,7 +154,7 @@ export const GenericField: React.FC<
           })}
           ref={ref}
         />
-        {maxLength && (
+        {maxLength > 0 && (
           <div className={classes.counter}>
             <Text size="base" color={invalid ? 'danger' : 'primary'}>
               {allowedChars}
