@@ -65,6 +65,7 @@ export const GenericField: React.FC<
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
   let osInstance
 
+  // https://github.com/KingSora/OverlayScrollbars/issues/146
   useEffect(() => {
     if (component === 'textarea') {
       osInstance = OverlayScrollbars(ref.current, {})
