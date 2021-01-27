@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss'
 
-import ActionLink, { ActionLinkProps } from '.'
+import { ActionLinkProps } from '.'
 import tokens from '../../tokens'
 
 const getSizeFromProp = ({ size }: ActionLinkProps) =>
@@ -16,6 +16,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     cursor: ({ isDisabled }: ActionLinkProps) =>
       isDisabled ? 'not-allowed' : 'pointer',
     '&:hover': {
+      textDecoration: 'none',
       backgroundColor: ({ variant, isDisabled }: ActionLinkProps): string => {
         if (isDisabled) return undefined
         switch (variant) {
