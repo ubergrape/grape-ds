@@ -23,7 +23,7 @@ export default createUseStyles(
     },
     description: {
       marginLeft: ({ members, size }: GroupItemProps) =>
-        members && size !== 'regular' ? 0 : theme.spaceMembersSecondary,
+        members > 0 && size === 'regular' ? theme.spaceMembersSecondary : 0,
     },
     members: {
       flexShrink: 0,
