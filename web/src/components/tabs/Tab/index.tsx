@@ -28,7 +28,6 @@ export const Tab: React.FC<TabProps> = props => {
   const isActive = activeTab === tab
 
   const onKeyDown = e => {
-    e.preventDefault()
     switch (e.which) {
       case 37:
         onChangeTab(activeTab - 1)
