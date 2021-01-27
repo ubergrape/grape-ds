@@ -16,8 +16,7 @@ export default createUseStyles({
     borderWidth: tokens.borderWidthFormfield,
     borderStyle: 'solid',
     color: tokens.colorTextPrimary,
-    width: ({ component }) =>
-      component === 'input' ? '100%' : 'calc(100% - 16px)',
+    width: ({ component }) => (component === 'input' ? '100%' : null),
     backgroundColor: ({ isDisabled, isReadOnly }) => {
       if (isDisabled) return tokens.colorBackgroundFormfieldDisabled
       if (isReadOnly) return tokens.colorBackgroundFormfieldReadonly
@@ -88,8 +87,7 @@ export default createUseStyles({
     textAlign: 'right',
     display: 'flex',
     alignItems: 'center',
-    paddingRight: ({ component }) =>
-      component === 'input' ? tokens.paddingFormfieldInputtextLeftright : 0,
+    paddingRight: tokens.paddingFormfieldInputtextLeftright,
     justifyContent: 'flex-end',
     pointerEvents: 'none',
     top: ({ component }) => (component === 'textarea' ? undefined : 0),
