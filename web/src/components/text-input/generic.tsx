@@ -18,10 +18,7 @@ export interface TextInputProps extends AriaTextFieldOptions {
   validationHelp?: string
   isRequired?: boolean
   maxLength?: number
-<<<<<<< HEAD
-=======
   minLength?: number
->>>>>>> 1d4b1a305bfa5a84a6d1a09039e149bc34d6a4ae
   autoFocus?: boolean
   type?: 'text' | 'number' | 'search' | 'password' | 'email' | 'tel'
   min?: number
