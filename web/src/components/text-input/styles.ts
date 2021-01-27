@@ -82,6 +82,7 @@ export default createUseStyles({
   },
   counter: {
     position: 'absolute',
+    boxSizing: 'content-box',
     right: 0,
     width: 32,
     textAlign: 'right',
