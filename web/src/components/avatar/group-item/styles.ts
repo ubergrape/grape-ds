@@ -2,7 +2,6 @@ import { JssStyle } from 'jss'
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
-import { parseToken } from '../../../utils'
 
 import { GroupItemProps } from '.'
 
