@@ -2,8 +2,10 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
 import { getColorDefault, getColorHover } from '../checkbox/styles'
+import customScrollbar from '../scrollbar/styles'
 
 export default createUseStyles({
+  customScrollbar: ({ overflowPadding }) => customScrollbar(overflowPadding),
   textField: {
     fontFamily: tokens.fontFamily,
     borderRadius: ({ component }) => {

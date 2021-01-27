@@ -9,6 +9,7 @@ import useStyles from './styles'
 import { useFocusStyle } from '../../styles/global'
 import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
+import { onOverflowChanged } from '../scrollbar'
 
 import { TextAreaWithLabelProps, TextAreaWithoutLabelProps } from './text-area'
 import {
@@ -77,6 +78,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const [isDirty, setDirty] = useState(false)
   const [osInstance, setOsInstance] = useState(null)
   const [value, setValue] = useState(props.value || props.defaultValue || '')
+  const [overflowPadding, setOverflowPadding] = useState('0px')
 
   // https://github.com/KingSora/OverlayScrollbars/issues/146
   useEffect(() => {
@@ -87,6 +89,11 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             'allowResize' in props && props.allowResize ? 'vertical' : 'none',
           textarea: {
             dynHeight: 'autoExpand' in props && props.autoExpand,
+          },
+          callbacks: {
+            onOverflowChanged: args => {
+              onOverflowChanged(args, setOverflowPadding)
+            },
           },
         }),
       )
@@ -130,7 +137,12 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     isInvalid || isMaxLengthReached || isMinLengthReached || !isNumberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
-  const classes = useStyles(customProps)
+  let classes
+  if (component === 'textarea') {
+    classes = useStyles({ ...customProps, overflowPadding })
+  } else {
+    classes = useStyles(customProps)
+  }
 
   const Component = component
 
@@ -162,32 +174,20 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       <div className={classes.inputWrapper}>
         {renderLeft?.()}
 
-        {component === 'textarea' ? (
-          <Component
-            className={clsx(classes.textField, onFocus)}
-            {...inputProps}
-            {...(invalid && { 'aria-invalid': true })}
-            {...(min !== undefined && { min })}
-            {...(max !== undefined && { max })}
-            {...(validationHelp && {
-              'aria-describedby': validationHelp.replace(/\s/g, ''),
-            })}
-            {...('rows' in props && props.rows && { rows: props.rows })}
-            ref={ref}
-          />
-        ) : (
-          <Component
-            className={clsx(classes.textField, onFocus)}
-            {...inputProps}
-            {...(invalid && { 'aria-invalid': true })}
-            {...(min !== undefined && { min })}
-            {...(max !== undefined && { max })}
-            {...(validationHelp && {
-              'aria-describedby': validationHelp.replace(/\s/g, ''),
-            })}
-            ref={ref}
-          />
-        )}
+        <Component
+          className={clsx(classes.textField, classes.customScrollbar, onFocus)}
+          {...inputProps}
+          {...(invalid && { 'aria-invalid': true })}
+          {...(min !== undefined && { min })}
+          {...(max !== undefined && { max })}
+          {...(validationHelp && {
+            'aria-describedby': validationHelp.replace(/\s/g, ''),
+          })}
+          {...(component === 'textarea' &&
+            'rows' in props &&
+            props.rows && { rows: props.rows })}
+          ref={ref}
+        />
         {maxLength > 0 && (
           <div className={classes.counter}>
             <Text size="base" color={invalid ? 'danger' : 'primary'}>
