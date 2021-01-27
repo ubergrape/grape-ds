@@ -25,7 +25,6 @@ Base.args = {
 }
 export const Default = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <TextArea label="Label" placeholder="Placeholder" rows={100} />
     <TextArea label="Label" />
   </Flex>
 )
@@ -55,9 +54,27 @@ export const WithHelp = (): JSX.Element => (
   </Flex>
 )
 
+export const Rows = (): JSX.Element => (
+  <Flex gap="2x">
+    <TextArea label="Label" placeholder="Placeholder" rows={10} />
+  </Flex>
+)
+
 export const MaxLength = (): JSX.Element => (
   <Flex gap="2x">
     <TextArea label="Has Max Length" maxLength={30} />
+  </Flex>
+)
+
+export const AutoExpandableWithRows = (): JSX.Element => (
+  <Flex gap="2x">
+    <TextArea label="Label" placeholder="Placeholder" rows={10} autoExpand />
+  </Flex>
+)
+
+export const AutoExpandableWithMinAndMaxHeight = (): JSX.Element => (
+  <Flex gap="2x">
+    <TextArea label="Label" minHeight={100} maxHeight={200} autoExpand />
   </Flex>
 )
 
@@ -85,12 +102,13 @@ export const Disabled = (): JSX.Element => (
   </Flex>
 )
 
-export const Resizeable = (): JSX.Element => (
+export const Resizable = (): JSX.Element => (
   <Flex gap="2x">
     <TextArea
       minHeight={100}
       maxHeight={200}
       allowResize
+      autoExpand
       label="Resize"
       maxLength={100}
     />

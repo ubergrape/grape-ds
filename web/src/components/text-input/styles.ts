@@ -14,8 +14,8 @@ export default createUseStyles({
     borderWidth: tokens.borderWidthFormfield,
     borderStyle: 'solid',
     color: tokens.colorTextPrimary,
-    resize: ({ allowResize }) => (allowResize ? 'vertical' : 'none'),
-    width: '100%',
+    width: ({ component }) =>
+      component === 'input' ? '100%' : 'calc(100% - 16px)',
     backgroundColor: ({ isDisabled, isReadOnly }) => {
       if (isDisabled) return tokens.colorBackgroundFormfieldDisabled
       if (isReadOnly) return tokens.colorBackgroundFormfieldReadonly
@@ -25,16 +25,25 @@ export default createUseStyles({
       if (isDisabled) return 'not-allowed'
       return undefined
     },
-    height: ({ component, maxLength }) => {
+    height: ({
+      component,
+      maxLength,
+      rows,
+      maxHeight,
+      minHeight,
+      autoExpand,
+    }) => {
       if (component === 'input') return tokens.sizeFormfieldInput
-      if (maxLength) {
+      if (maxLength && !autoExpand) {
         return '92px'
       }
+      if (rows || maxHeight || minHeight || autoExpand) return 'auto'
       return '60px'
     },
     minHeight: ({ minHeight }) => minHeight,
     maxHeight: ({ maxHeight }) => maxHeight,
-    boxSizing: 'border-box',
+    boxSizing: ({ component }) =>
+      component === 'input' ? 'border-box' : 'content-box',
     padding: `${tokens.paddingFormfieldTextareaInputtextTopbottom} ${tokens.paddingFormfieldInputtextLeftright}`,
     paddingRight: ({ maxLength, component, type }) => {
       if (maxLength && component === 'input')
@@ -77,7 +86,8 @@ export default createUseStyles({
     textAlign: 'right',
     display: 'flex',
     alignItems: 'center',
-    paddingRight: tokens.paddingFormfieldInputtextLeftright,
+    paddingRight: ({ component }) =>
+      component === 'input' ? tokens.paddingFormfieldInputtextLeftright : 0,
     justifyContent: 'flex-end',
     pointerEvents: 'none',
     top: ({ component }) => (component === 'textarea' ? undefined : 0),
@@ -88,7 +98,6 @@ export default createUseStyles({
     marginLeft: tokens.sizeHalfX,
   },
   inputWrapper: {
-    display: 'flex',
     position: 'relative',
   },
 })

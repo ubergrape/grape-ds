@@ -10,7 +10,17 @@ import { useFocusStyle } from '../../styles/global'
 import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
 
-export interface TextInputProps extends AriaTextFieldOptions {
+import { TextAreaWithLabelProps, TextAreaWithoutLabelProps } from './text-area'
+import {
+  TextFieldWithLabelProps,
+  TextFieldWithoutLabelProps,
+} from './text-field'
+import {
+  SearchFieldWithLabelProps,
+  SearchFieldWithoutLabelProps,
+} from './search-field'
+
+export interface InputComponentProps extends AriaTextFieldOptions {
   id?: string
   isInvalid?: boolean
   placeholder?: string
@@ -34,19 +44,19 @@ export interface TextInputProps extends AriaTextFieldOptions {
   }) => JSX.Element
 }
 
-export interface WithoutLabel extends TextInputProps {
-  'aria-label': string
+export interface InputProps extends InputComponentProps {
+  component: 'input'
 }
 
-export interface WithLabel extends TextInputProps {
-  label: string
-}
+export type GenericFieldProps =
+  | TextAreaWithLabelProps
+  | TextAreaWithoutLabelProps
+  | TextFieldWithLabelProps
+  | TextFieldWithoutLabelProps
+  | SearchFieldWithLabelProps
+  | SearchFieldWithoutLabelProps
 
-export type InputProps = WithoutLabel | WithLabel
-
-export const GenericField: React.FC<
-  InputProps & { component: 'input' | 'textarea' }
-> = props => {
+export const GenericField: React.FC<GenericFieldProps> = props => {
   const {
     label,
     isInvalid,
@@ -63,12 +73,23 @@ export const GenericField: React.FC<
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
-  let osInstance
+
+  const [isDirty, setDirty] = useState(false)
+  const [osInstance, setOsInstance] = useState(null)
+  const [value, setValue] = useState(props.value || props.defaultValue || '')
 
   // https://github.com/KingSora/OverlayScrollbars/issues/146
   useEffect(() => {
     if (component === 'textarea') {
-      osInstance = OverlayScrollbars(ref.current, {})
+      setOsInstance(
+        OverlayScrollbars(ref.current, {
+          resize:
+            'allowResize' in props && props.allowResize ? 'vertical' : 'none',
+          textarea: {
+            dynHeight: 'autoExpand' in props && props.autoExpand,
+          },
+        }),
+      )
     }
 
     return () => {
@@ -77,9 +98,6 @@ export const GenericField: React.FC<
       }
     }
   }, [])
-
-  const [isDirty, setDirty] = useState(false)
-  const [value, setValue] = useState(props.value || props.defaultValue || '')
 
   const allowedChars = maxLength - value.length
   const isMaxLengthReached = allowedChars < 0
@@ -144,17 +162,32 @@ export const GenericField: React.FC<
       <div className={classes.inputWrapper}>
         {renderLeft?.()}
 
-        <Component
-          className={clsx(classes.textField, onFocus)}
-          {...inputProps}
-          {...(invalid && { 'aria-invalid': true })}
-          {...(min !== undefined && { min })}
-          {...(max !== undefined && { max })}
-          {...(validationHelp && {
-            'aria-describedby': validationHelp.replace(/\s/g, ''),
-          })}
-          ref={ref}
-        />
+        {component === 'textarea' ? (
+          <Component
+            className={clsx(classes.textField, onFocus)}
+            {...inputProps}
+            {...(invalid && { 'aria-invalid': true })}
+            {...(min !== undefined && { min })}
+            {...(max !== undefined && { max })}
+            {...(validationHelp && {
+              'aria-describedby': validationHelp.replace(/\s/g, ''),
+            })}
+            {...('rows' in props && props.rows && { rows: props.rows })}
+            ref={ref}
+          />
+        ) : (
+          <Component
+            className={clsx(classes.textField, onFocus)}
+            {...inputProps}
+            {...(invalid && { 'aria-invalid': true })}
+            {...(min !== undefined && { min })}
+            {...(max !== undefined && { max })}
+            {...(validationHelp && {
+              'aria-describedby': validationHelp.replace(/\s/g, ''),
+            })}
+            ref={ref}
+          />
+        )}
         {maxLength > 0 && (
           <div className={classes.counter}>
             <Text size="base" color={invalid ? 'danger' : 'primary'}>
