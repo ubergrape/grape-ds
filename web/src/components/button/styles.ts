@@ -131,7 +131,7 @@ export default createUseStyles(
 
           return theme.colorBackgroundButtonFilledDisabled
         },
-        '& > span': {
+        '& > *': {
           color: ({ appearance }: ButtonProps): string => {
             if (appearance === 'minimal') {
               return theme.colorTextButtonMinimalDisabled
