@@ -17,6 +17,7 @@ export type IconTypes =
   | 'lock'
   | 'alert'
   | 'search'
+  | 'addPerson'
 
 export type IconProps = {
   name: IconTypes
