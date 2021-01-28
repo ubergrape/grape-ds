@@ -8,6 +8,7 @@ export default createUseStyles({
   customScrollbar: ({ overflowPadding }) => customScrollbar(overflowPadding),
   textField: {
     fontFamily: tokens.fontFamily,
+    fontSize: tokens.fontSizeBodyBase,
     borderRadius: ({ component }) => {
       return component === 'input'
         ? tokens.borderRadiusFormfieldInput
