@@ -49,11 +49,14 @@ export const Switch: React.FC<SwitchProps> = props => {
     isChecked: state.isSelected,
   })
 
+  const ariaLabelledbyId = genUid()
+
   return (
     <InputLabel
       {...props}
       isDisabled={isDisabled}
       id={_id}
+      ariaLabelledbyId={ariaLabelledbyId}
       helpTextClass={classes.helpText}
       renderHiddenInput={() => (
         <input
@@ -62,7 +65,7 @@ export const Switch: React.FC<SwitchProps> = props => {
           ref={ref}
           id={_id}
           {...(isLabelSwitch(props)
-            ? { 'aria-labelledby': props.label.replace(/\s/g, '') }
+            ? { 'aria-labelledby': ariaLabelledbyId }
             : { 'aria-label': props.ariaLabel })}
         />
       )}

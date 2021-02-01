@@ -8,6 +8,7 @@ import { Text } from '../typography'
 
 export interface Props {
   id?: string
+  ariaLabelledbyId?: string
   label?: string
   helpText?: string
   isDisabled?: boolean
@@ -20,6 +21,7 @@ export const InputLabel: React.FC<Props> = props => {
   const {
     label,
     isDisabled,
+    ariaLabelledbyId,
     id,
     renderHiddenInput,
     renderInput,
@@ -44,7 +46,7 @@ export const InputLabel: React.FC<Props> = props => {
 
       <div className={classes.label}>
         {renderInput?.()}
-        {hasLabel && <span id={label.replace(/\s/g, '')}>{label}</span>}
+        {hasLabel && <span id={ariaLabelledbyId}>{label}</span>}
       </div>
 
       {hasLabel && props.helpText && (
