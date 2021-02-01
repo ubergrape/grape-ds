@@ -9,6 +9,7 @@ import useStyles from './styles'
 import { useFocusStyle } from '../../styles/global'
 import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
+import { genUid } from '../../utils'
 
 export interface TextInputProps extends AriaTextFieldOptions {
   id?: string
@@ -106,6 +107,7 @@ export const GenericField: React.FC<
   const classes = useStyles(customProps)
 
   const Component = component
+  const validationHelpId = genUid()
 
   return (
     <Flex direction="column" gap="0.5x">
@@ -127,7 +129,7 @@ export const GenericField: React.FC<
       {validationHelp && (
         <Flex gap="0.5x">
           <Icon name="alert" color="danger" size="small" />
-          <Text as="span" size="small" color="danger">
+          <Text as="span" size="small" color="danger" id={validationHelpId}>
             {validationHelp}
           </Text>
         </Flex>
@@ -142,7 +144,7 @@ export const GenericField: React.FC<
             {...(min !== undefined && { min })}
             {...(max !== undefined && { max })}
             {...(validationHelp && {
-              'aria-describedby': validationHelp.replace(/\s/g, ''),
+              'aria-describedby': validationHelpId,
             })}
             ref={ref}
           />
@@ -169,11 +171,7 @@ export const GenericField: React.FC<
       </div>
 
       {description && (
-        <Text
-          {...(validationHelp && { id: validationHelp.replace(/\s/g, '') })}
-          color="secondary"
-          size="small"
-        >
+        <Text color="secondary" size="small">
           {description}
         </Text>
       )}
