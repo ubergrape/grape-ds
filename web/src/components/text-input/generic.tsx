@@ -10,6 +10,7 @@ import { useFocusStyle } from '../../styles/global'
 import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
 import { onOverflowChanged } from '../scrollbar'
+import { genUid } from '../../utils'
 
 import { TextAreaWithLabelProps, TextAreaWithoutLabelProps } from './text-area'
 import {
@@ -145,6 +146,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   }
 
   const Component = component
+  const validationHelpId = genUid()
 
   return (
     <Flex direction="column" gap="0.5x">
@@ -166,7 +168,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       {validationHelp && (
         <Flex gap="0.5x">
           <Icon name="alert" color="danger" size="small" />
-          <Text as="span" size="small" color="danger">
+          <Text as="span" size="small" color="danger" id={validationHelpId}>
             {validationHelp}
           </Text>
         </Flex>
@@ -181,7 +183,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           {...(min !== undefined && { min })}
           {...(max !== undefined && { max })}
           {...(validationHelp && {
-            'aria-describedby': validationHelp.replace(/\s/g, ''),
+            'aria-describedby': validationHelpId,
           })}
           {...(component === 'textarea' &&
             'rows' in props &&
@@ -210,11 +212,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       </div>
 
       {description && (
-        <Text
-          {...(validationHelp && { id: validationHelp.replace(/\s/g, '') })}
-          color="secondary"
-          size="small"
-        >
+        <Text color="secondary" size="small">
           {description}
         </Text>
       )}
