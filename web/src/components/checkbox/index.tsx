@@ -50,11 +50,13 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     isChecked: state.isSelected,
   })
   const hasLabel = isLabelCheckbox(props)
+  const labelId = genUid()
 
   return (
     <InputLabel
       isDisabled={isDisabled}
       id={_id}
+      labelId={labelId}
       {...props}
       renderHiddenInput={() => (
         <input
@@ -63,7 +65,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
           ref={ref}
           id={_id}
           {...(isLabelCheckbox(props)
-            ? { 'aria-labelledby': props.label.replace(/\s/g, '') }
+            ? { 'aria-labelledby': labelId }
             : { 'aria-label': props.ariaLabel })}
           {...(isInvalid && { 'aria-invalid': 'true' })}
         />
