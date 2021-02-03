@@ -25,11 +25,11 @@ Base.args = {
 
 export const WithLabel = (): JSX.Element => (
   <div>
-    <Checkbox label="Label" name="form-name" />
-    <Checkbox label="Label" isChecked />
-    <Checkbox label="Label" isInvalid />
-    <Checkbox label="Label" isIndeterminate />
-    <Checkbox label="Label" helpText="with help text" />
+    <Checkbox label="Label 1" name="form-name" />
+    <Checkbox label="Label 2" isChecked />
+    <Checkbox label="Label 3" isInvalid />
+    <Checkbox label="Label 4" isIndeterminate />
+    <Checkbox label="It's my life" helpText="Some help." />
   </div>
 )
 
@@ -44,9 +44,9 @@ export const WithoutLabel = (): JSX.Element => (
 
 export const Disabled = (): JSX.Element => (
   <div>
-    <Checkbox label="Label" isDisabled />
-    <Checkbox label="Label" isChecked isDisabled />
-    <Checkbox label="Label" isIndeterminate isDisabled />
+    <Checkbox label="Label 1" isDisabled />
+    <Checkbox label="Label 2" isChecked isDisabled />
+    <Checkbox label="Label 3" isIndeterminate isDisabled />
   </div>
 )
 

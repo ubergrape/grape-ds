@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { useFocusRing } from '@react-aria/focus'
 import { useToggleState } from '@react-stately/toggle'
@@ -37,7 +37,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
   const { isChecked, isIndeterminate, isDisabled, isInvalid, id } = props
   const state = useToggleState({
     ...props,
-    isSelected: isChecked,
+    defaultSelected: isChecked,
   })
   const ref = useRef()
   const [_id] = useState(id || genUid())
@@ -50,11 +50,13 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     isChecked: state.isSelected,
   })
   const hasLabel = isLabelCheckbox(props)
+  const labelId = useMemo(() => genUid(), [id])
 
   return (
     <InputLabel
       isDisabled={isDisabled}
       id={_id}
+      labelId={labelId}
       {...props}
       renderHiddenInput={() => (
         <input
@@ -62,7 +64,9 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
           {...focusProps}
           ref={ref}
           id={_id}
-          {...(!isLabelCheckbox(props) && { 'aria-label': props.ariaLabel })}
+          {...(isLabelCheckbox(props)
+            ? { 'aria-labelledby': labelId }
+            : { 'aria-label': props.ariaLabel })}
           {...(isInvalid && { 'aria-invalid': 'true' })}
         />
       )}
