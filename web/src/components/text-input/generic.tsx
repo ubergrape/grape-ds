@@ -25,10 +25,13 @@ import {
 export interface InputComponentProps extends AriaTextFieldOptions {
   id?: string
   isInvalid?: boolean
+  isDisabled?: boolean
+  isReadOnly?: boolean
   placeholder?: string
   description?: string
   validationHelp?: string
   isRequired?: boolean
+  height?: number
   maxLength?: number
   minLength?: number
   min?: number
@@ -62,6 +65,8 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const {
     label,
     isInvalid,
+    isDisabled,
+    isReadOnly,
     description,
     validationHelp,
     maxLength,
@@ -116,10 +121,10 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       ...props,
       maxLength: undefined,
       minLength: undefined,
-      onChange: p => {
-        setValue(p)
-        setDirty(p.length > 0)
-        props.onChange?.(p)
+      onChange: v => {
+        setValue(v)
+        setDirty(v.length > 0)
+        props.onChange?.(v)
       },
     },
     ref,
@@ -173,11 +178,17 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           </Text>
         </Flex>
       )}
-      <div className={classes.inputWrapper}>
+      <div className={clsx(classes.inputWrapper, onFocus)}>
         {renderLeft?.()}
 
         <Component
-          className={clsx(classes.textField, classes.customScrollbar, onFocus)}
+          className={clsx(
+            classes.textField,
+            classes.customScrollbar,
+            onFocus,
+            'os-text-inherit',
+            'os-textarea',
+          )}
           {...inputProps}
           {...(invalid && { 'aria-invalid': true })}
           {...(min !== undefined && { min })}
@@ -190,7 +201,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             props.rows && { rows: props.rows })}
           ref={ref}
         />
-        {maxLength > 0 && (
+        {maxLength > 0 && !isDisabled && !isReadOnly && (
           <div className={classes.counter}>
             <Text size="base" color={invalid ? 'danger' : 'primary'}>
               {allowedChars}

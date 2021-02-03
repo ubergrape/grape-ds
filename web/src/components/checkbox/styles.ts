@@ -13,6 +13,7 @@ export const getColorDefault = ({
   isChecked,
   isInvalid,
   isDisabled,
+  isReadOnly,
   isIndeterminate,
 }: InputProps): string => {
   if (isDisabled) {
@@ -20,6 +21,7 @@ export const getColorDefault = ({
       ? tokens.colorBorderFormcontrolOnDisabled
       : tokens.colorBorderFormcontrolOffDisabled
   }
+  if (isReadOnly) return tokens.colorBorderFormfieldReadonly
   if (isInvalid) return tokens.colorBorderFormcontrolInvalidDefault
   if (isChecked) return tokens.colorBorderFormcontrolOnDefault
   if (!isChecked && isIndeterminate)

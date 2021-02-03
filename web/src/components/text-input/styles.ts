@@ -1,14 +1,16 @@
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
-import { getColorDefault, getColorHover } from '../checkbox/styles'
+import { getColorDefault } from '../checkbox/styles'
 import customScrollbar from '../scrollbar/styles'
+import { parseToken } from '../../utils'
 
 export default createUseStyles({
   customScrollbar: ({ overflowPadding }) => customScrollbar(overflowPadding),
   textField: {
     fontFamily: tokens.fontFamily,
     fontSize: tokens.fontSizeBodyBase,
+    lineHeight: tokens.lineHeightBodyBase,
     borderRadius: ({ component }) => {
       return component === 'input'
         ? tokens.borderRadiusFormfieldInput
@@ -28,6 +30,7 @@ export default createUseStyles({
       return undefined
     },
     height: ({
+      height,
       component,
       maxLength,
       rows,
@@ -35,6 +38,20 @@ export default createUseStyles({
       minHeight,
       autoExpand,
     }) => {
+      if (height) {
+        if (
+          height <
+          parseFloat(tokens.lineHeightBodyBase) *
+            parseToken(tokens.fontSizeBodyBase)
+        ) {
+          return (
+            parseFloat(tokens.lineHeightBodyBase) *
+            parseToken(tokens.fontSizeBodyBase)
+          )
+        }
+
+        return tokens.lineHeightBodyBase
+      }
       if (component === 'input') return tokens.sizeFormfieldInput
       if (maxLength && !autoExpand) {
         return '92px'
@@ -42,7 +59,27 @@ export default createUseStyles({
       if (rows || maxHeight || minHeight || autoExpand) return 'auto'
       return '60px'
     },
-    minHeight: ({ minHeight }) => minHeight,
+    minHeight: ({ minHeight }) => {
+      if (!minHeight) {
+        return (
+          parseFloat(tokens.lineHeightBodyBase) *
+          parseToken(tokens.fontSizeBodyBase)
+        )
+      }
+
+      if (
+        minHeight <
+        parseFloat(tokens.lineHeightBodyBase) *
+          parseToken(tokens.fontSizeBodyBase)
+      ) {
+        return (
+          parseFloat(tokens.lineHeightBodyBase) *
+          parseToken(tokens.fontSizeBodyBase)
+        )
+      }
+
+      return minHeight
+    },
     maxHeight: ({ maxHeight }) => maxHeight,
     boxSizing: ({ component }) =>
       component === 'input' ? 'border-box' : 'content-box',
@@ -61,9 +98,6 @@ export default createUseStyles({
     },
     '&:placeholder': {
       color: tokens.colorTextFormfieldPlaceholder,
-    },
-    '&:hover:not(:focus)': {
-      borderColor: getColorHover,
     },
     borderColor: getColorDefault,
   },
@@ -101,5 +135,13 @@ export default createUseStyles({
   },
   inputWrapper: {
     position: 'relative',
+    '& > .os-host-textarea:not(.focus)': {
+      borderColor: getColorDefault,
+      backgroundColor: ({ isDisabled, isReadOnly }) => {
+        if (isDisabled) return tokens.colorBackgroundFormfieldDisabled
+        if (isReadOnly) return tokens.colorBackgroundFormfieldReadonly
+        return tokens.colorBackgroundFormcontrolDefault
+      },
+    },
   },
 })
