@@ -25,15 +25,23 @@ Base.args = {
 
 export const WithLabel = (): JSX.Element => (
   <div>
-    <Switch label="Label" name="form-name" />
-    <Switch label="Label" isChecked />
-    <Switch label="Label" helpText="with help text" />
+    <Switch label="Label 1" name="form-name" />
+    <Switch label="Label 2" isChecked />
+    <Switch label="Label 3" helpText="with help text" />
+  </div>
+)
+
+export const WithoutLabel = (): JSX.Element => (
+  <div>
+    <Switch ariaLabel="My aria" name="form-name" />
+    <Switch ariaLabel="Switch checked" isChecked />
+    <Switch ariaLabel="Switch with help text" helpText="with help text" />
   </div>
 )
 
 export const Disabled = (): JSX.Element => (
   <div>
-    <Switch label="Label" isDisabled />
-    <Switch label="Label" isChecked isDisabled />
+    <Switch label="Label 1" isDisabled />
+    <Switch label="Label 2" isChecked isDisabled />
   </div>
 )
