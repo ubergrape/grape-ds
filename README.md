@@ -21,13 +21,21 @@ Grape Design Tokens for use with [Theo](https://github.com/salesforce-ux/theo).
 
 In order to build storybook and the component library be sure to install Node.JS & yarn.
 
-First, you need to install the dependencies by executing
+1. you need to install the dependencies by executing
 
-```
-yarn
-```
+    ```
+    yarn
+    ```
 
-After that, just run `yarn build` to build storybook and the component library.
+    this will also install dependencies for the "docs" and "web" projects.
+
+2. Run
+
+    ```
+    yarn build
+    ```
+
+    to build storybook and the component library.
 
 A new directory called `build` is generated in the current directory which should be deployed.
 
