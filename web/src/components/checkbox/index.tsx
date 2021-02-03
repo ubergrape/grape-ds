@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { useFocusRing } from '@react-aria/focus'
 import { useToggleState } from '@react-stately/toggle'
@@ -50,7 +50,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     isChecked: state.isSelected,
   })
   const hasLabel = isLabelCheckbox(props)
-  const labelId = genUid()
+  const labelId = useMemo(() => genUid(), [id])
 
   return (
     <InputLabel
