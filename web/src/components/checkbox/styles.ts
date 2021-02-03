@@ -5,6 +5,7 @@ import tokens from '../../tokens'
 type InputProps = {
   isChecked?: boolean
   isInvalid?: boolean
+  isReadOnly?: boolean
   isDisabled?: boolean
   isIndeterminate?: boolean
 }
