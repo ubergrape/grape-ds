@@ -38,46 +38,16 @@ export default createUseStyles({
       minHeight,
       autoExpand,
     }) => {
-      if (height) {
-        if (
-          height <
-          parseFloat(tokens.lineHeightBodyBase) *
-            parseToken(tokens.fontSizeBodyBase)
-        ) {
-          return (
-            parseFloat(tokens.lineHeightBodyBase) *
-            parseToken(tokens.fontSizeBodyBase)
-          )
-        }
-
-        return tokens.lineHeightBodyBase
-      }
       if (component === 'input') return tokens.sizeFormfieldInput
       if (maxLength && !autoExpand) {
         return '92px'
       }
       if (rows || maxHeight || minHeight || autoExpand) return 'auto'
-      return '60px'
+      if (height) return height
+      return 44
     },
-    minHeight: ({ minHeight }) => {
-      if (!minHeight) {
-        return (
-          parseFloat(tokens.lineHeightBodyBase) *
-          parseToken(tokens.fontSizeBodyBase)
-        )
-      }
-
-      if (
-        minHeight <
-        parseFloat(tokens.lineHeightBodyBase) *
-          parseToken(tokens.fontSizeBodyBase)
-      ) {
-        return (
-          parseFloat(tokens.lineHeightBodyBase) *
-          parseToken(tokens.fontSizeBodyBase)
-        )
-      }
-
+    minHeight: ({ component, minHeight }) => {
+      if (component === 'textarea' && (!minHeight || minHeight < 44)) return 44
       return minHeight
     },
     maxHeight: ({ maxHeight }) => maxHeight,

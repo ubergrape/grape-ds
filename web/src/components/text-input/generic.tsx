@@ -30,7 +30,8 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   placeholder?: string
   description?: string
   validationHelp?: string
-  isRequired?: boolean
+  allowResize?: boolean
+  autoExpand?: boolean
   height?: number
   maxLength?: number
   minLength?: number
@@ -48,6 +49,19 @@ export interface InputComponentProps extends AriaTextFieldOptions {
     isDirty?: boolean
   }) => JSX.Element
 }
+
+const textAreaRender = ({ props, ref, setOverflowPadding }) =>
+  OverlayScrollbars(ref.current, {
+    resize: 'allowResize' in props && props.allowResize ? 'vertical' : 'none',
+    textarea: {
+      dynHeight: 'autoExpand' in props && props.autoExpand,
+    },
+    callbacks: {
+      onOverflowChanged: args => {
+        onOverflowChanged(args, setOverflowPadding)
+      },
+    },
+  })
 
 export interface InputProps extends InputComponentProps {
   component: 'input'
@@ -73,6 +87,8 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     minLength,
     component,
     isRequired,
+    allowResize,
+    autoExpand,
     renderLeft,
     renderRight,
     min,
@@ -89,20 +105,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   // https://github.com/KingSora/OverlayScrollbars/issues/146
   useEffect(() => {
     if (component === 'textarea') {
-      setOsInstance(
-        OverlayScrollbars(ref.current, {
-          resize:
-            'allowResize' in props && props.allowResize ? 'vertical' : 'none',
-          textarea: {
-            dynHeight: 'autoExpand' in props && props.autoExpand,
-          },
-          callbacks: {
-            onOverflowChanged: args => {
-              onOverflowChanged(args, setOverflowPadding)
-            },
-          },
-        }),
-      )
+      setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
     }
 
     return () => {
@@ -111,6 +114,30 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       }
     }
   }, [])
+
+  const usePrevious = <T extends unknown>(v: T): T | undefined => {
+    const previousRef = React.useRef<T>()
+    useEffect(() => {
+      previousRef.current = v
+    })
+    return previousRef.current
+  }
+
+  const prevAmount = usePrevious({ allowResize, autoExpand })
+
+  useEffect(() => {
+    if (component === 'textarea' && OverlayScrollbars.valid(osInstance)) {
+      // Re-render textarea, if these two property changed, otherwise old state will be shown
+      if (
+        prevAmount.allowResize !== allowResize ||
+        prevAmount.autoExpand !== autoExpand
+      ) {
+        osInstance.destroy()
+
+        setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
+      }
+    }
+  })
 
   const allowedChars = maxLength - value.length
   const isMaxLengthReached = allowedChars < 0
