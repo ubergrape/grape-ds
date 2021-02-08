@@ -44,10 +44,10 @@ export default createUseStyles({
       }
       if (rows || maxHeight || minHeight || autoExpand) return 'auto'
       if (height) return height
-      return 44
+      return 45
     },
     minHeight: ({ component, minHeight }) => {
-      if (component === 'textarea' && (!minHeight || minHeight < 44)) return 44
+      if (component === 'textarea' && (!minHeight || minHeight < 45)) return 45
       return minHeight
     },
     maxHeight: ({ maxHeight }) => maxHeight,
