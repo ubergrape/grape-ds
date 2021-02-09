@@ -7,6 +7,16 @@ export default {
   component: TextField,
   argTypes: {
     onChange: { action: 'typed' },
+    label: {
+      control: {
+        type: 'text',
+      },
+    },
+    'aria-label': {
+      control: {
+        type: 'text',
+      },
+    },
     min: {
       description: 'Minimum value',
       control: {

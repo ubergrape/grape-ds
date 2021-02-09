@@ -5,7 +5,19 @@ import { SearchField } from '../../components/text-input'
 export default {
   title: 'Forms/SearchField',
   component: SearchField,
-  argTypes: { onChange: { action: 'typed' } },
+  argTypes: {
+    onChange: { action: 'typed' },
+    label: {
+      control: {
+        type: 'text',
+      },
+    },
+    'aria-label': {
+      control: {
+        type: 'text',
+      },
+    },
+  },
   parameters: {
     design: {
       type: 'figma',

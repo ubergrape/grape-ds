@@ -27,16 +27,15 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   isInvalid?: boolean
   isDisabled?: boolean
   isReadOnly?: boolean
+  isRequired?: boolean
+  isRequiredLabel?: boolean
   placeholder?: string
   description?: string
   validationHelp?: string
-  allowResize?: boolean
-  autoExpand?: boolean
-  height?: number
+  height?: number | string
+  width?: number | string
   maxLength?: number
   minLength?: number
-  min?: number
-  max?: number
   customLabels?: {
     required?: string
     optional?: string
@@ -83,19 +82,20 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     isReadOnly,
     description,
     validationHelp,
+    width,
+    height,
     maxLength,
     minLength,
     component,
-    isRequired,
-    allowResize,
-    autoExpand,
+    isRequiredLabel,
     renderLeft,
     renderRight,
-    min,
-    max,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
+
+  const min = 'min' in props ? props.min : undefined
+  const max = 'max' in props ? props.max : undefined
 
   const [isDirty, setDirty] = useState(false)
   const [osInstance, setOsInstance] = useState(null)
@@ -123,25 +123,47 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     return previousRef.current
   }
 
-  const prevAmount = usePrevious({ allowResize, autoExpand })
+  if (component === 'textarea') {
+    const allowResize = 'allowResize' in props ? props.allowResize : undefined
+    const autoExpand = 'autoExpand' in props ? props.autoExpand : undefined
+    const minHeight = 'minHeight' in props ? props.minHeight : undefined
+    const maxHeight = 'maxHeight' in props ? props.maxHeight : undefined
+    const rows = 'rows' in props ? props.rows : undefined
 
-  useEffect(() => {
-    if (component === 'textarea' && OverlayScrollbars.valid(osInstance)) {
-      // Re-render textarea, if these two property changed, otherwise old state will be shown
-      if (
-        prevAmount.allowResize !== allowResize ||
-        prevAmount.autoExpand !== autoExpand
-      ) {
-        osInstance.destroy()
+    const prevAmount = usePrevious({
+      width,
+      height,
+      maxLength,
+      allowResize,
+      autoExpand,
+      minHeight,
+      maxHeight,
+      rows,
+    })
 
-        setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
+    useEffect(() => {
+      if (OverlayScrollbars.valid(osInstance)) {
+        // Re-render textarea, if these two property changed, otherwise old state will be shown
+        if (
+          prevAmount.allowResize !== allowResize ||
+          prevAmount.autoExpand !== autoExpand ||
+          prevAmount.width !== width ||
+          prevAmount.height !== height ||
+          prevAmount.minHeight !== minHeight ||
+          prevAmount.maxHeight !== maxHeight ||
+          prevAmount.rows !== rows
+        ) {
+          osInstance.destroy()
+
+          setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
+        }
       }
-    }
-  })
+    })
+  }
 
   const allowedChars = maxLength - value.length
   const isMaxLengthReached = allowedChars < 0
-  const isMinLengthReached = value.length > minLength
+  const isMinLengthReached = value.length < minLength
 
   const { labelProps, inputProps } = useTextField(
     {
@@ -153,18 +175,27 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         setDirty(v.length > 0)
         props.onChange?.(v)
       },
+      onFocus: e => {
+        if (component === 'textarea') {
+          const textarea = e.target as HTMLTextAreaElement
+          textarea.setSelectionRange(0, textarea.value.length)
+        }
+      },
     },
     ref,
   )
 
   const isNumberValid = useMemo(() => {
-    if (props.type !== 'number') return true
+    if (props.type === 'search' || props.type !== 'number') return true
     if (value.length === 0) return true
     const val = Number(value)
-    if (min !== undefined && val < min) return false
-    if (max !== undefined && val > max) return false
+    if ('min' in props && props.min !== undefined && val < props.min) {
+      return false
+    }
+    if ('max' in props && props.max !== undefined && val > props.max)
+      return false
     return true
-  }, [value, min, max])
+  }, [value])
 
   const invalid =
     isInvalid || isMaxLengthReached || isMinLengthReached || !isNumberValid
@@ -181,18 +212,26 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const validationHelpId = genUid()
 
   return (
-    <Flex direction="column" gap="0.5x">
+    <Flex className={classes.wrapper} direction="column" gap="0.5x">
       {label && (
         <label className={classes.label} {...labelProps}>
-          <span>{label}</span>
-          {isRequired !== undefined && (
+          <Text
+            as="span"
+            color="formFieldLabel"
+            maxWidth="initial"
+            size="small"
+          >
+            {label.toString()}
+          </Text>
+          {isRequiredLabel !== undefined && (
             <Text
               color="secondary"
               size="small"
               as="span"
               className={classes.suffix}
             >
-              ({isRequired ? customLabels.required : customLabels.optional})
+              ({isRequiredLabel ? customLabels.required : customLabels.optional}
+              )
             </Text>
           )}
         </label>
@@ -200,7 +239,13 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       {validationHelp && (
         <Flex gap="0.5x">
           <Icon name="alert" color="danger" size="small" />
-          <Text as="span" size="small" color="danger" id={validationHelpId}>
+          <Text
+            as="span"
+            maxWidth="initial"
+            size="small"
+            color="danger"
+            id={validationHelpId}
+          >
             {validationHelp}
           </Text>
         </Flex>
@@ -229,8 +274,12 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           ref={ref}
         />
         {maxLength > 0 && !isDisabled && !isReadOnly && (
-          <div className={classes.counter}>
-            <Text size="base" color={invalid ? 'danger' : 'primary'}>
+          <div className={classes.counterWrapper}>
+            <Text
+              className={classes.counter}
+              size="base"
+              color={invalid ? 'danger' : 'primary'}
+            >
               {allowedChars}
             </Text>
           </div>
@@ -250,7 +299,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       </div>
 
       {description && (
-        <Text color="secondary" size="small">
+        <Text color="secondary" maxWidth="initial" as="span" size="small">
           {description}
         </Text>
       )}

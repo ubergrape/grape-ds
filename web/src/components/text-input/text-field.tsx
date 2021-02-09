@@ -2,11 +2,16 @@ import React from 'react'
 
 import { GenericField, InputProps } from './generic'
 
-export interface TextFieldWithLabelProps extends InputProps {
+export interface TextFieldComponentProps extends InputProps {
+  min?: number
+  max?: number
+}
+
+export interface TextFieldWithLabelProps extends TextFieldComponentProps {
   label: string
 }
 
-export interface TextFieldWithoutLabelProps extends InputProps {
+export interface TextFieldWithoutLabelProps extends TextFieldComponentProps {
   'aria-label': string
 }
 

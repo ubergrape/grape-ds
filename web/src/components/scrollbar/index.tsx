@@ -22,9 +22,10 @@ export const onOverflowChanged = (
   setPadding('0px')
 }
 
-const useStyles = createUseStyles({
-  customScrollbar: overflowPadding => scrollBarStyles(overflowPadding),
-})
+const useStyles = createUseStyles((theme: typeof tokens) => ({
+  customScrollbar: overflowPadding =>
+    scrollBarStyles({ overflowPadding, theme }),
+}))
 
 export const Scrollbar = (
   props: OverlayScrollbarsComponent['props'],
