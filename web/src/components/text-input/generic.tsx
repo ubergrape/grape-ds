@@ -138,6 +138,8 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       autoExpand,
       minHeight,
       maxHeight,
+      isReadOnly,
+      isDisabled,
       rows,
     })
 
@@ -151,6 +153,8 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           prevAmount.height !== height ||
           prevAmount.minHeight !== minHeight ||
           prevAmount.maxHeight !== maxHeight ||
+          prevAmount.isReadOnly !== isReadOnly ||
+          prevAmount.isDisabled !== isDisabled ||
           prevAmount.rows !== rows
         ) {
           osInstance.destroy()
