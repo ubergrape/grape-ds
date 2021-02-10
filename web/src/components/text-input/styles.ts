@@ -1,10 +1,14 @@
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
+import { parseToken } from '../../utils'
 import { getColorDefault } from '../checkbox/styles'
 import customScrollbar from '../scrollbar/styles'
 
 const textAreaHeight = 61
+const counterBoxHeight =
+  parseToken(tokens.fontSizeBodyBase) * parseFloat(tokens.lineHeightBodyBase) +
+  2 * parseToken(tokens.paddingFormfieldInputtextCounter)
 
 export default createUseStyles((theme: typeof tokens) => ({
   wrapper: {
@@ -28,16 +32,21 @@ export default createUseStyles((theme: typeof tokens) => ({
       // Adding + 2 to cover borders because of border-box sizing
       minHeight: ({ minHeight, maxLength }) => {
         if (minHeight) {
-          if (maxLength) return [[minHeight + 42], '!important']
+          if (maxLength) {
+            return [[minHeight + counterBoxHeight + 2], '!important']
+          }
           return [[minHeight + 2], '!important']
         }
-        if (maxLength) return [[textAreaHeight + 42], '!important']
+        if (maxLength) {
+          return [[textAreaHeight + counterBoxHeight + 2], '!important']
+        }
         if (minHeight < textAreaHeight) {
           return [[textAreaHeight + 2], '!important']
         }
         return [[textAreaHeight + 2], '!important']
       },
-      paddingBottom: ({ maxLength }) => (maxLength ? 42 : null),
+      paddingBottom: ({ maxLength }) =>
+        maxLength ? counterBoxHeight + 2 : null,
       maxHeight: ({ maxHeight }) => maxHeight,
     },
     '& .os-scrollbar': {
@@ -120,23 +129,44 @@ export default createUseStyles((theme: typeof tokens) => ({
   counterWrapper: {
     position: 'absolute',
     boxSizing: 'content-box',
-    backgroundColor: 'white',
-    width: 'calc(100% - 16px)',
-    borderRadius: 16,
-    zIndex: 1,
-    left: 8,
-    height: 40,
+    backgroundColor: ({ component }) =>
+      component === 'textarea' ? theme.colorBackgroundFormfieldDefault : null,
+    width: ({ component }) => {
+      return component === 'textarea'
+        ? `calc(100% - ${
+            parseToken(theme.paddingFormfieldInputtextCounter) * 2
+          }px)`
+        : null
+    },
+    borderRadius: ({ component }) => {
+      return component === 'textarea'
+        ? theme.borderRadiusFormfieldTextarea
+        : null
+    },
+    zIndex: ({ component }) => (component === 'textarea' ? 1 : null),
+    left: ({ component }) =>
+      component === 'textarea' ? theme.paddingFormfieldInputtextCounter : null,
+    top: ({ component }) => (component === 'input' ? 0 : null),
+    bottom: ({ component }) => (component === 'textarea' ? 1 : 0),
+    right: ({ component }) =>
+      component === 'input' ? theme.paddingFormfieldInputtextLeftright : null,
+    height: ({ component }) =>
+      component === 'textarea' ? counterBoxHeight : null,
     textAlign: 'right',
     display: 'flex',
     justifyContent: 'flex-end',
+    alignItems: ({ component }) => (component === 'input' ? 'center' : null),
     pointerEvents: 'none',
-    top: ({ component }) => (component === 'textarea' ? undefined : 0),
-    bottom: ({ component }) => (component === 'textarea' ? 1 : 0),
   },
   counter: {
-    right: theme.paddingFormfieldTextareaInputtextTopbottom,
-    bottom: theme.paddingFormfieldTextareaInputtextTopbottom,
-    position: 'absolute',
+    right: ({ component }) => (component === 'textarea' ? 0 : null),
+    bottom: ({ component }) => (component === 'textarea' ? 0 : null),
+    padding: ({ component }) =>
+      component === 'textarea'
+        ? theme.paddingFormfieldInputtextCounter
+        : [0, theme.paddingFormfieldInputtextCounter],
+    position: ({ component }) =>
+      component === 'input' ? 'relative' : 'absolut',
   },
   suffix: {
     marginLeft: theme.sizeHalfX,

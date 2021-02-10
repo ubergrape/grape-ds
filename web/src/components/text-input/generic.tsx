@@ -217,7 +217,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         <label className={classes.label} {...labelProps}>
           <Text
             as="span"
-            color="formFieldLabel"
+            color="formfieldLabel"
             maxWidth="initial"
             size="small"
           >
@@ -278,7 +278,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             <Text
               className={classes.counter}
               size="base"
-              color={invalid ? 'danger' : 'primary'}
+              color={invalid ? 'danger' : 'formfieldCounter'}
             >
               {allowedChars}
             </Text>
