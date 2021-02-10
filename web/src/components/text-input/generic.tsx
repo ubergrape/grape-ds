@@ -221,6 +221,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         <label className={classes.label} {...labelProps}>
           <Text
             as="span"
+            emphasis
             color="formfieldLabel"
             maxWidth="initial"
             size="small"
