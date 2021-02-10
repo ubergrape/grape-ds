@@ -28,7 +28,6 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   isDisabled?: boolean
   isReadOnly?: boolean
   isRequired?: boolean
-  isRequiredLabel?: boolean
   placeholder?: string
   description?: string
   validationHelp?: string
@@ -36,10 +35,7 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   width?: number | string
   maxLength?: number
   minLength?: number
-  customLabels?: {
-    required?: string
-    optional?: string
-  }
+  necessityLabel?: string
   value?: string
   defaultValue?: string
   renderLeft?: () => JSX.Element
@@ -81,16 +77,16 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     isDisabled,
     isReadOnly,
     description,
+    necessityLabel,
     validationHelp,
+    defaultValue,
     width,
     height,
     maxLength,
     minLength,
     component,
-    isRequiredLabel,
     renderLeft,
     renderRight,
-    customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
 
@@ -140,6 +136,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       maxHeight,
       isReadOnly,
       isDisabled,
+      defaultValue,
       rows,
     })
 
@@ -155,6 +152,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           prevAmount.maxHeight !== maxHeight ||
           prevAmount.isReadOnly !== isReadOnly ||
           prevAmount.isDisabled !== isDisabled ||
+          prevAmount.defaultValue !== defaultValue ||
           prevAmount.rows !== rows
         ) {
           osInstance.destroy()
@@ -216,7 +214,12 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const validationHelpId = genUid()
 
   return (
-    <Flex className={classes.wrapper} direction="column" gap="0.5x">
+    <Flex
+      className={classes.wrapper}
+      direction="column"
+      flex="0 0 auto"
+      gap="0.5x"
+    >
       {label && (
         <label className={classes.label} {...labelProps}>
           <Text
@@ -228,15 +231,14 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           >
             {label.toString()}
           </Text>
-          {isRequiredLabel !== undefined && (
+          {necessityLabel && (
             <Text
               color="secondary"
               size="small"
               as="span"
               className={classes.suffix}
             >
-              ({isRequiredLabel ? customLabels.required : customLabels.optional}
-              )
+              ({necessityLabel})
             </Text>
           )}
         </label>
