@@ -238,7 +238,12 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       )}
       {validationHelp && (
         <Flex gap="0.5x">
-          <Icon name="alert" color="danger" size="small" />
+          <Icon
+            name="alert"
+            className={classes.validationIcon}
+            color="danger"
+            size="small"
+          />
           <Text
             as="span"
             maxWidth="initial"

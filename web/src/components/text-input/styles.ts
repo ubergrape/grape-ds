@@ -17,6 +17,10 @@ export default createUseStyles((theme: typeof tokens) => ({
       return '100%'
     },
   },
+  label: {
+    // Reset for Docasaurus
+    lineHeight: 1,
+  },
   inputWrapper: {
     position: 'relative',
     '& > .os-host-textarea:not(.focus)': {
@@ -122,6 +126,9 @@ export default createUseStyles((theme: typeof tokens) => ({
   validationWrapper: {
     display: 'flex',
     alignItems: 'center',
+  },
+  validationIcon: {
+    flex: '0 0 auto',
   },
   validationMessage: {
     color: theme.colorTextDanger,
