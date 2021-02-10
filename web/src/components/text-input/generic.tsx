@@ -35,7 +35,11 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   width?: number | string
   maxLength?: number
   minLength?: number
-  necessityLabel?: string
+  customLabels?: {
+    required?: string
+    optional?: string
+  }
+  isNecessityLabel?: boolean
   value?: string
   defaultValue?: string
   renderLeft?: () => JSX.Element
@@ -77,9 +81,10 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     isDisabled,
     isReadOnly,
     description,
-    necessityLabel,
     validationHelp,
     defaultValue,
+    isRequired,
+    isNecessityLabel,
     width,
     height,
     maxLength,
@@ -87,6 +92,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     component,
     renderLeft,
     renderRight,
+    customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
 
@@ -231,14 +237,14 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           >
             {label.toString()}
           </Text>
-          {necessityLabel && (
+          {isNecessityLabel && (
             <Text
               color="secondary"
               size="small"
               as="span"
               className={classes.suffix}
             >
-              ({necessityLabel})
+              ({isRequired ? customLabels.required : customLabels.optional})
             </Text>
           )}
         </label>
