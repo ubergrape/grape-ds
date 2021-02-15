@@ -49,11 +49,30 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   }) => JSX.Element
 }
 
+const onChangeProps = [
+  'allowResize',
+  'autoExpand',
+  'width',
+  'height',
+  'minHeight',
+  'maxHeight',
+  'isReadOnly',
+  'isDisabled',
+  'defaultValue',
+  'rows',
+]
+
+const shouldScrollbarUpdate = (props, prevProps) =>
+  !!onChangeProps.filter(prop => {
+    if (prevProps.prop !== props[prop]) return true
+    return false
+  }).length
+
 const textAreaRender = ({ props, ref, setOverflowPadding }) =>
   OverlayScrollbars(ref.current, {
-    resize: 'allowResize' in props && props.allowResize ? 'vertical' : 'none',
+    resize: props.allowResize ? 'vertical' : 'none',
     textarea: {
-      dynHeight: 'autoExpand' in props && props.autoExpand,
+      dynHeight: props.autoExpand,
     },
     callbacks: {
       onOverflowChanged: args => {
@@ -89,15 +108,11 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     height,
     maxLength,
     minLength,
-    component,
     renderLeft,
     renderRight,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
-
-  const min = 'min' in props ? props.min : undefined
-  const max = 'max' in props ? props.max : undefined
 
   const [isDirty, setDirty] = useState(false)
   const [osInstance, setOsInstance] = useState(null)
@@ -106,33 +121,32 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
 
   // https://github.com/KingSora/OverlayScrollbars/issues/146
   useEffect(() => {
-    if (component === 'textarea') {
+    if (props.component === 'textarea') {
       setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
     }
 
     return () => {
-      if (component === 'textarea' && OverlayScrollbars.valid(osInstance)) {
+      if (
+        props.component === 'textarea' &&
+        OverlayScrollbars.valid(osInstance)
+      ) {
         osInstance.destroy()
       }
     }
   }, [])
 
   const usePrevious = <T extends unknown>(v: T): T | undefined => {
-    const previousRef = React.useRef<T>()
+    const prevRef = React.useRef<T>()
     useEffect(() => {
-      previousRef.current = v
+      prevRef.current = v
     })
-    return previousRef.current
+    return prevRef.current
   }
 
-  if (component === 'textarea') {
-    const allowResize = 'allowResize' in props ? props.allowResize : undefined
-    const autoExpand = 'autoExpand' in props ? props.autoExpand : undefined
-    const minHeight = 'minHeight' in props ? props.minHeight : undefined
-    const maxHeight = 'maxHeight' in props ? props.maxHeight : undefined
-    const rows = 'rows' in props ? props.rows : undefined
+  if (props.component === 'textarea') {
+    const { allowResize, autoExpand, minHeight, maxHeight, rows } = props
 
-    const prevAmount = usePrevious({
+    const prevProps = usePrevious({
       width,
       height,
       maxLength,
@@ -149,18 +163,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     useEffect(() => {
       if (OverlayScrollbars.valid(osInstance)) {
         // Re-render textarea, if these two property changed, otherwise old state will be shown
-        if (
-          prevAmount.allowResize !== allowResize ||
-          prevAmount.autoExpand !== autoExpand ||
-          prevAmount.width !== width ||
-          prevAmount.height !== height ||
-          prevAmount.minHeight !== minHeight ||
-          prevAmount.maxHeight !== maxHeight ||
-          prevAmount.isReadOnly !== isReadOnly ||
-          prevAmount.isDisabled !== isDisabled ||
-          prevAmount.defaultValue !== defaultValue ||
-          prevAmount.rows !== rows
-        ) {
+        if (shouldScrollbarUpdate(props, prevProps)) {
           osInstance.destroy()
 
           setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
@@ -184,7 +187,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         props.onChange?.(v)
       },
       onFocus: e => {
-        if (component === 'textarea') {
+        if (props.component === 'textarea' && props.isReadOnly) {
           const textarea = e.target as HTMLTextAreaElement
           textarea.setSelectionRange(0, textarea.value.length)
         }
@@ -193,30 +196,30 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     ref,
   )
 
+  const min = 'min' in props ? props.min : undefined
+  const max = 'max' in props ? props.max : undefined
+
   const isNumberValid = useMemo(() => {
     if (props.type === 'search' || props.type !== 'number') return true
     if (value.length === 0) return true
     const val = Number(value)
-    if ('min' in props && props.min !== undefined && val < props.min) {
-      return false
-    }
-    if ('max' in props && props.max !== undefined && val > props.max)
-      return false
+    if (min !== undefined && val < min) return false
+    if (max !== undefined && val > max) return false
     return true
-  }, [value])
+  }, [value, min, max])
 
   const invalid =
     isInvalid || isMaxLengthReached || isMinLengthReached || !isNumberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
   let classes
-  if (component === 'textarea') {
+  if (props.component === 'textarea') {
     classes = useStyles({ ...customProps, overflowPadding })
   } else {
     classes = useStyles(customProps)
   }
 
-  const Component = component
+  const TextComponent = props.component
   const validationHelpId = genUid()
 
   return (
@@ -271,7 +274,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       <div className={clsx(classes.inputWrapper, onFocus)}>
         {renderLeft?.()}
 
-        <Component
+        <TextComponent
           className={clsx(
             classes.textField,
             classes.customScrollbar,
@@ -286,7 +289,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           {...(validationHelp && {
             'aria-describedby': validationHelpId,
           })}
-          {...(component === 'textarea' &&
+          {...(props.component === 'textarea' &&
             'rows' in props &&
             props.rows && { rows: props.rows })}
           ref={ref}

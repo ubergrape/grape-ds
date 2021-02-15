@@ -21,7 +21,7 @@ export default ({
     backgroundColor: '#727272 !important',
   },
   '& .os-scrollbar': {
-    padding: ['4px', '!important'],
+    padding: [[theme.sizeHalfX], '!important'],
     boxSizing: 'content-box !important',
   },
 })

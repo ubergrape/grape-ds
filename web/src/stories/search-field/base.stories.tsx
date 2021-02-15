@@ -17,6 +17,10 @@ export default {
         type: 'text',
       },
     },
+    isRequired: {
+      description:
+        'Whether user input is required on the input before form submission. Paired with the `isNecessityLabel` prop to add a visual indicator to the input.',
+    },
   },
   parameters: {
     design: {

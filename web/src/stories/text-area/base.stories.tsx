@@ -17,6 +17,10 @@ export default {
         type: 'text',
       },
     },
+    isRequired: {
+      description:
+        'Whether user input is required on the input before form submission. Paired with the `isNecessityLabel` prop to add a visual indicator to the input.',
+    },
   },
   parameters: {
     design: {
@@ -36,32 +40,49 @@ Base.args = {
   label: 'Label',
 }
 export const Default = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
+  <Flex gap="2x">
     <TextArea label="Label" />
   </Flex>
 )
 
 export const WithoutLabel = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
+  <Flex gap="2x">
     <TextArea aria-label="Label" placeholder="Placeholder" />
   </Flex>
 )
 
 export const Required = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
-    <TextArea isRequired necessityLabel="required" label="Label" />
+  <Flex gap="2x">
+    <TextArea isRequired isNecessityLabel label="Label" />
   </Flex>
 )
 
 export const Optional = (): JSX.Element => (
+  <Flex gap="2x">
+    <TextArea isNecessityLabel label="Label" />
+  </Flex>
+)
+
+export const customLabels = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <TextArea label="Label" />
-    <TextArea isRequired={false} necessityLabel="optional" label="Label" />
+    <TextArea
+      customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
+      label="Label"
+      isRequired
+      isNecessityLabel
+      value="Some value"
+    />
+    <TextArea
+      customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
+      label="Label"
+      isNecessityLabel
+      value="Some value"
+    />
   </Flex>
 )
 
 export const WithHelp = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
+  <Flex gap="2x">
     <TextArea label="Label" description="Help Text" />
   </Flex>
 )
