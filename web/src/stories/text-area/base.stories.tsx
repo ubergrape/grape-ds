@@ -54,12 +54,14 @@ export const WithoutLabel = (): JSX.Element => (
 export const Required = (): JSX.Element => (
   <Flex gap="2x">
     <TextArea isRequired isNecessityLabel label="Label" />
+    <TextArea isRequired label="Label" />
   </Flex>
 )
 
 export const Optional = (): JSX.Element => (
   <Flex gap="2x">
     <TextArea isNecessityLabel label="Label" />
+    <TextArea label="Label" />
   </Flex>
 )
 
