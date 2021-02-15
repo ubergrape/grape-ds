@@ -15,7 +15,7 @@ export default createUseStyles(
     },
     description: {
       marginLeft: ({ size }: AvatarItemProps) =>
-        size === 'small' ? theme.spaceAvatarItem : 0,
+        size === 'regular' ? 0 : theme.spaceAvatarItem,
     },
   }),
 )

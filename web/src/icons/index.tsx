@@ -1,3 +1,6 @@
+export { default as addPerson16 } from './addPerson16'
+export { default as addPerson20 } from './addPerson20'
+export { default as addPerson24 } from './addPerson24'
 export { default as alert16 } from './alert16'
 export { default as alert20 } from './alert20'
 export { default as alert24 } from './alert24'

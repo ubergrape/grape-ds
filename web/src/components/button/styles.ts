@@ -8,9 +8,7 @@ export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     button: {
       transition: 'all 0.25s ease-in-out',
-      cursor: ({ isDisabled }: ButtonProps) => {
-        return isDisabled ? 'not-allowed' : 'pointer'
-      },
+      cursor: 'pointer',
       minWidth: ({ iconOnly }) => {
         if (!iconOnly) return 64
         return 0
@@ -131,7 +129,7 @@ export default createUseStyles(
 
           return theme.colorBackgroundButtonFilledDisabled
         },
-        '& > span': {
+        '& > *': {
           color: ({ appearance }: ButtonProps): string => {
             if (appearance === 'minimal') {
               return theme.colorTextButtonMinimalDisabled

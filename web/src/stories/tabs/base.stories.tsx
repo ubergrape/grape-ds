@@ -10,7 +10,11 @@ export default {
 export const Base: React.FC<TabsProps> = props => (
   <Tabs {...props}>
     <Tab name="Tab name 1">
-      <div>Tab 1 content</div>
+      <div>
+        Tab 1 content with{' '}
+        <a href="https://aurora.ubergrape.com/docs/components/tabs">link</a> and{' '}
+        <button type="button">button</button>
+      </div>
     </Tab>
     <Tab name="Tab name 2">
       <div>Tab 2 content</div>
@@ -33,7 +37,11 @@ export const Alignment: React.FC<TabsProps> = () => (
   <div>
     <Tabs align="left">
       <Tab name="Tab name 1">
-        <div>Tab 1 content</div>
+        <div>
+          Tab 1 content with{' '}
+          <a href="https://aurora.ubergrape.com/docs/components/tabs">link</a>{' '}
+          and <button type="button">button</button>
+        </div>
       </Tab>
       <Tab name="Tab name 2">
         <div>Tab 2 content</div>
@@ -80,7 +88,11 @@ export const Size: React.FC<TabsProps> = () => (
   <div>
     <Tabs size="small">
       <Tab name="Tab name 1">
-        <div>Tab 1 content</div>
+        <div>
+          Tab 1 content with{' '}
+          <a href="https://aurora.ubergrape.com/docs/components/tabs">link</a>{' '}
+          and <button type="button">button</button>
+        </div>
       </Tab>
       <Tab name="Tab name 2">
         <div>Tab 2 content</div>

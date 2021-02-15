@@ -8,6 +8,7 @@ import { Text } from '../typography'
 
 export interface Props {
   id?: string
+  labelId?: string
   label?: string
   helpText?: string
   isDisabled?: boolean
@@ -20,6 +21,7 @@ export const InputLabel: React.FC<Props> = props => {
   const {
     label,
     isDisabled,
+    labelId,
     id,
     renderHiddenInput,
     renderInput,
@@ -32,21 +34,19 @@ export const InputLabel: React.FC<Props> = props => {
     theme,
   })
   const hasLabel = label && label !== ''
-  const Wrapper = hasLabel ? Text : 'div'
+
   return (
-    <Wrapper
-      {...(hasLabel && {
-        size: 'base',
-        as: 'label',
-        color: isDisabled ? 'secondary' : 'primary',
-        htmlFor: id,
-      })}
+    <Text
+      size="base"
+      as="label"
+      color={isDisabled ? 'secondary' : 'primary'}
+      htmlFor={id}
     >
       <VisuallyHidden>{renderHiddenInput?.()}</VisuallyHidden>
 
       <div className={classes.label}>
         {renderInput?.()}
-        {hasLabel && label}
+        {hasLabel && <span id={labelId}>{label}</span>}
       </div>
 
       {hasLabel && props.helpText && (
@@ -58,6 +58,6 @@ export const InputLabel: React.FC<Props> = props => {
           {props.helpText}
         </Text>
       )}
-    </Wrapper>
+    </Text>
   )
 }

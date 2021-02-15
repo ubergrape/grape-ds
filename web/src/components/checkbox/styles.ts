@@ -51,6 +51,7 @@ export const getColorHover = ({
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   spacing: { marginRight: theme.size1X },
   checkbox: {
+    boxSizing: 'content-box',
     width: theme.size2X,
     height: theme.size2X,
     borderRadius: theme.borderRadiusCheckbox,

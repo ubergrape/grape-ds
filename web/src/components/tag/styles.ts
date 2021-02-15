@@ -14,6 +14,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     borderRadius: theme.borderRadiusTag,
     lineHeight: theme.sizeTag,
     height: theme.sizeTag,
+    display: 'inline-flex',
     alignSelf: 'flex-start',
   },
   text: {
