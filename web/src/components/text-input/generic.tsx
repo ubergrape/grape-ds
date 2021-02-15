@@ -56,6 +56,7 @@ const onChangeProps = [
   'height',
   'minHeight',
   'maxHeight',
+  'maxLength',
   'isReadOnly',
   'isDisabled',
   'defaultValue',

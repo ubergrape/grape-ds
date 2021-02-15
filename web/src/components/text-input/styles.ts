@@ -52,20 +52,20 @@ export default createUseStyles((theme: typeof tokens) => ({
       paddingBottom: ({ maxLength }) =>
         maxLength ? counterBoxHeight + 2 : null,
       maxHeight: ({ maxHeight }) => maxHeight,
-    },
-    '& ..os-scrollbar-corner': {
-      position: 'absolute',
-    },
-    '& .os-scrollbar': {
-      paddingBottom: ({ maxLength, allowResize }) => {
-        if (maxLength) {
-          // -10 to align scrollbar block on same level where text ends
-          if (allowResize) {
-            return [[`${counterBoxHeight - 10 + 2}px`], '!important']
+      '& .os-scrollbar-corner': {
+        position: 'absolute',
+      },
+      '& .os-scrollbar': {
+        paddingBottom: ({ maxLength, allowResize }) => {
+          if (maxLength) {
+            // -10 to align scrollbar block on same level where text ends
+            if (allowResize) {
+              return [[`${counterBoxHeight - 10 + 2}px`], '!important']
+            }
+            return [[`${counterBoxHeight + 2}px`], '!important']
           }
-          return [[`${counterBoxHeight + 2}px`], '!important']
-        }
-        return [[theme.sizeHalfX], '!important']
+          return [[theme.sizeHalfX], '!important']
+        },
       },
     },
   },
