@@ -83,8 +83,8 @@ export default createUseStyles((theme: typeof tokens) => ({
     borderWidth: theme.borderWidthFormfield,
     borderStyle: 'solid',
     color: theme.colorTextPrimary,
-    width: ({ component, inputWidth }) => {
-      if (inputWidth) return inputWidth
+    width: ({ component, width }) => {
+      if (width) return width
       if (component === 'input') return '100%'
       return null
     },

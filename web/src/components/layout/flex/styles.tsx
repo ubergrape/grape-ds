@@ -9,7 +9,7 @@ export default createUseStyles(() => {
     },
     flex: {
       display: 'flex',
-      flex: ({ flex }) => (flex !== undefined ? flex : 1),
+      flex: 1,
       flexDirection: ({ direction }) => direction,
       justifyContent: ({ justify }) => justify,
       alignItems: ({ items }) => items,

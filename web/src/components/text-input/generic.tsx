@@ -224,12 +224,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const validationHelpId = genUid()
 
   return (
-    <Flex
-      className={classes.wrapper}
-      direction="column"
-      flex="0 0 auto"
-      gap="0.5x"
-    >
+    <Flex className={classes.wrapper} direction="column" gap="0.5x">
       {label && (
         <label className={classes.label} {...labelProps}>
           <Text
