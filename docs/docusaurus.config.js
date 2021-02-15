@@ -100,7 +100,7 @@ module.exports = {
     },
   },
   stylesheets: [
-    'https://aurora.ubergrape.com/css/fonts.css',
+    '/css/fonts.css',
   ],
   presets: [
     [
