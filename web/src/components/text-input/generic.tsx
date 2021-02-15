@@ -64,7 +64,7 @@ const onChangeProps = [
 
 const shouldScrollbarUpdate = (props, prevProps) =>
   !!onChangeProps.filter(prop => {
-    if (prevProps.prop !== props[prop]) return true
+    if (prevProps[prop] !== props[prop]) return true
     return false
   }).length
 
