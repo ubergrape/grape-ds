@@ -4,9 +4,10 @@ import tokens from '../../tokens'
 import { parseToken } from '../../utils'
 import { getColorDefault } from '../checkbox/styles'
 import customScrollbar from '../scrollbar/styles'
+import textAreaStyles from './text-area/styles'
 
-const textAreaHeight = 61
-const counterBoxHeight =
+export const textAreaHeight = 61
+export const counterBoxHeight =
   parseToken(tokens.fontSizeBodyBase) * parseFloat(tokens.lineHeightBodyBase) +
   2 * parseToken(tokens.paddingFormfieldInputtextCounter)
 
@@ -21,53 +22,20 @@ export default createUseStyles((theme: typeof tokens) => ({
     // Reset for Docasaurus
     lineHeight: 1,
   },
-  inputWrapper: {
-    position: 'relative',
-    '& > .os-host-textarea:not(.focus)': {
-      borderColor: getColorDefault,
-      backgroundColor: ({ isDisabled, isReadOnly }) => {
-        if (isDisabled) return theme.colorBackgroundFormfieldDisabled
-        if (isReadOnly) return theme.colorBackgroundFormfieldReadonly
-        return theme.colorBackgroundFormfieldDefault
-      },
-    },
-    '& > .os-host-textarea': {
-      boxSizing: 'border-box',
-      // Adding + 2 to cover borders because of border-box sizing
-      minHeight: ({ minHeight, maxLength }) => {
-        if (minHeight) {
-          if (maxLength) {
-            return [[minHeight + counterBoxHeight + 2], '!important']
-          }
-          return [[minHeight + 2], '!important']
-        }
-        if (maxLength) {
-          return [[textAreaHeight + counterBoxHeight + 2], '!important']
-        }
-        if (minHeight < textAreaHeight) {
-          return [[textAreaHeight + 2], '!important']
-        }
-        return [[textAreaHeight + 2], '!important']
-      },
-      paddingBottom: ({ maxLength }) =>
-        maxLength ? counterBoxHeight + 2 : null,
-      maxHeight: ({ maxHeight }) => maxHeight,
-      '& .os-scrollbar-corner': {
-        position: 'absolute',
-      },
-      '& .os-scrollbar': {
-        paddingBottom: ({ maxLength, allowResize }) => {
-          if (maxLength) {
-            // -10 to align scrollbar block on same level where text ends
-            if (allowResize) {
-              return [[`${counterBoxHeight - 10 + 2}px`], '!important']
-            }
-            return [[`${counterBoxHeight + 2}px`], '!important']
-          }
-          return [[theme.sizeHalfX], '!important']
-        },
-      },
-    },
+  inputWrapper: props => {
+    if (props.component === 'textarea') {
+      return {
+        position: 'relative',
+        ...textAreaStyles({
+          ...props,
+          theme,
+        }),
+      }
+    }
+
+    return {
+      position: 'relative',
+    }
   },
   customScrollbar: ({ overflowPadding }: { overflowPadding: string }) =>
     customScrollbar({ overflowPadding, theme }),
@@ -85,8 +53,7 @@ export default createUseStyles((theme: typeof tokens) => ({
     color: theme.colorTextPrimary,
     width: ({ component, width }) => {
       if (width) return width
-      if (component === 'input') return '100%'
-      return null
+      return component === 'input' ? '100%' : null
     },
     backgroundColor: ({ isDisabled, isReadOnly }) => {
       if (isDisabled) return theme.colorBackgroundFormfieldDisabled
@@ -113,7 +80,7 @@ export default createUseStyles((theme: typeof tokens) => ({
       return minHeight
     },
     boxSizing: ({ component }) =>
-      component === 'input' ? 'border-box' : 'content-box',
+      component === 'textarea' ? 'content-box' : 'border-box',
     padding: `${theme.paddingFormfieldTextareaInputtextTopbottom} ${theme.paddingFormfieldInputtextLeftright}`,
     paddingRight: ({ maxLength, component, type }) => {
       if (maxLength && component === 'input')
@@ -142,47 +109,52 @@ export default createUseStyles((theme: typeof tokens) => ({
   validationMessage: {
     color: theme.colorTextDanger,
   },
-  counterWrapper: {
-    position: 'absolute',
-    boxSizing: 'content-box',
-    backgroundColor: ({ component }) =>
-      component === 'textarea' ? theme.colorBackgroundFormfieldDefault : null,
-    width: ({ component }) => {
-      return component === 'textarea'
-        ? `calc(100% - ${
-            parseToken(theme.paddingFormfieldInputtextCounter) * 2
-          }px)`
-        : null
-    },
-    borderRadius: ({ component }) => {
-      return component === 'textarea'
-        ? theme.borderRadiusFormfieldTextarea
-        : null
-    },
-    zIndex: ({ component }) => (component === 'textarea' ? 1 : null),
-    left: ({ component }) =>
-      component === 'textarea' ? theme.paddingFormfieldInputtextCounter : null,
-    top: ({ component }) => (component === 'input' ? 0 : null),
-    bottom: ({ component }) => (component === 'textarea' ? 1 : 0),
-    right: ({ component }) =>
-      component === 'input' ? theme.paddingFormfieldInputtextLeftright : null,
-    height: ({ component }) =>
-      component === 'textarea' ? counterBoxHeight : null,
-    textAlign: 'right',
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: ({ component }) => (component === 'input' ? 'center' : null),
-    pointerEvents: 'none',
+  counterWrapper: ({ component }) => {
+    const commonStyles = {
+      position: 'absolute',
+      boxSizing: 'content-box',
+      textAlign: 'right',
+      display: 'flex',
+      justifyContent: 'flex-end',
+      pointerEvents: 'none',
+    }
+
+    if (component === 'textarea') {
+      return {
+        backgroundColor: theme.colorBackgroundFormfieldDefault,
+        width: `calc(100% - ${
+          parseToken(theme.paddingFormfieldInputtextCounter) * 2
+        }px)`,
+        borderRadius: theme.borderRadiusFormfieldTextarea,
+        zIndex: 1,
+        left: theme.paddingFormfieldInputtextCounter,
+        bottom: 1,
+        height: counterBoxHeight,
+        ...commonStyles,
+      }
+    }
+
+    return {
+      top: 0,
+      bottom: 0,
+      right: theme.paddingFormfieldInputtextLeftright,
+      alignItems: 'center',
+      ...commonStyles,
+    }
   },
-  counter: {
-    right: ({ component }) => (component === 'textarea' ? 0 : null),
-    bottom: ({ component }) => (component === 'textarea' ? 0 : null),
-    padding: ({ component }) =>
-      component === 'textarea'
-        ? theme.paddingFormfieldInputtextCounter
-        : [0, theme.paddingFormfieldInputtextCounter],
-    position: ({ component }) =>
-      component === 'input' ? 'relative' : 'absolut',
+  counter: ({ component }) => {
+    if (component === 'textarea') {
+      return {
+        right: 0,
+        bottom: 0,
+        padding: theme.paddingFormfieldInputtextCounter,
+        position: 'absolut',
+      }
+    }
+
+    return {
+      position: 'relative',
+    }
   },
   suffix: {
     marginLeft: theme.sizeHalfX,

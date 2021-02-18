@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { GenericField, InputComponentProps } from './generic'
+import { GenericField, InputComponentProps } from '../generic'
 
 export interface TextAreaComponentProps extends InputComponentProps {
   component: 'textarea'

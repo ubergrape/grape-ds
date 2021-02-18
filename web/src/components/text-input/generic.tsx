@@ -121,30 +121,25 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const [overflowPadding, setOverflowPadding] = useState('0px')
 
   // https://github.com/KingSora/OverlayScrollbars/issues/146
-  useEffect(() => {
-    if (props.component === 'textarea') {
-      setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
-    }
-
-    return () => {
-      if (
-        props.component === 'textarea' &&
-        OverlayScrollbars.valid(osInstance)
-      ) {
-        osInstance.destroy()
-      }
-    }
-  }, [])
-
-  const usePrevious = <T extends unknown>(v: T): T | undefined => {
-    const prevRef = React.useRef<T>()
-    useEffect(() => {
-      prevRef.current = v
-    })
-    return prevRef.current
-  }
-
   if (props.component === 'textarea') {
+    useEffect(() => {
+      setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
+
+      return () => {
+        if (OverlayScrollbars.valid(osInstance)) {
+          osInstance.destroy()
+        }
+      }
+    }, [])
+
+    const usePrevious = <T extends unknown>(v: T): T | undefined => {
+      const prevRef = React.useRef<T>()
+      useEffect(() => {
+        prevRef.current = v
+      })
+      return prevRef.current
+    }
+
     const { allowResize, autoExpand, minHeight, maxHeight, rows } = props
 
     const prevProps = usePrevious({
@@ -213,14 +208,9 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     isInvalid || isMaxLengthReached || isMinLengthReached || !isNumberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
-  let classes
-  if (props.component === 'textarea') {
-    classes = useStyles({ ...customProps, overflowPadding })
-  } else {
-    classes = useStyles(customProps)
-  }
+  const classes = useStyles({ ...customProps, overflowPadding })
 
-  const TextComponent = props.component
+  const Component = props.component
   const validationHelpId = genUid()
 
   return (
@@ -270,7 +260,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
       <div className={clsx(classes.inputWrapper, onFocus)}>
         {renderLeft?.()}
 
-        <TextComponent
+        <Component
           className={clsx(
             classes.textField,
             classes.customScrollbar,
@@ -286,7 +276,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             'aria-describedby': validationHelpId,
           })}
           {...(props.component === 'textarea' &&
-            'rows' in props &&
             props.rows && { rows: props.rows })}
           ref={ref}
         />

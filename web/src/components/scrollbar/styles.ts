@@ -14,11 +14,11 @@ export default ({
     paddingRight: overflowPadding,
   },
   '& .os-scrollbar-handle': {
-    backgroundColor: '#C6C6C6 !important',
+    backgroundColor: [[theme.colorBackgroundScrollbarHandle], '!important'],
     width: [[theme.size1X], '!important'],
   },
   '& .os-scrollbar-handle.active': {
-    backgroundColor: '#727272 !important',
+    backgroundColor: [[theme.colorBackgroundScrollbarActive], '!important'],
   },
   '& .os-scrollbar': {
     padding: [[theme.sizeHalfX], '!important'],

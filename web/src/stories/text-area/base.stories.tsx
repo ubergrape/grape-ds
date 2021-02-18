@@ -66,7 +66,7 @@ export const Optional = (): JSX.Element => (
 )
 
 export const customLabels = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
+  <Flex gap="2x">
     <TextArea
       customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
       label="Label"
