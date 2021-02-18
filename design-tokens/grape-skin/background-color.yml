@@ -189,7 +189,7 @@ props:
     value: '{!negative-base}'
     comment: 'Icon color for validation hint error in form fields.'
 
-## Action-Link
+  ## Action-Link
   color-background-actionlink-primary-icon:
     value: '{!primary-base}'
     comment: 'Icon color in Primary action-link.'
@@ -233,7 +233,7 @@ props:
     value: '{!negative-lightest}'
     comment: 'Danger action-link background on hover.'
 
-## Tag
+  ## Tag
   color-background-tag-basic:
     value: '{!base-lightest}'
     comment: 'Background color for tag basic.'
@@ -243,3 +243,11 @@ props:
   color-background-tag-basic-remove--hover:
     value: '{!base-lighter}'
     comment: 'Background color for remove button in hover state.'
+
+  ## Scrollbar
+  color-background-scrollbar-handle:
+    value: '{!base-light}'
+    comment: 'Base background color for scrollbar handle.'
+  color-background-scrollbar-active:
+    value: '{!base-base}'
+    comment: 'Background color for scrollbar when it active.'
