@@ -18,8 +18,8 @@
     "aurora-ui": "../web",
     "clsx": "^1.1.1",
     "git": "^0.1.5",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "browserslist": {
     "production": [
