@@ -39,6 +39,7 @@ export interface InputComponentProps extends AriaTextFieldOptions {
     required?: string
     optional?: string
   }
+  // Defines if visual label indicator for isRequired value should be shown
   isNecessityLabel?: boolean
   value?: string
   defaultValue?: string
