@@ -5,12 +5,12 @@ sidebar_label: Design principles
 ---
 ## Approachable
 ### Biased towards simplicity
-Keep it simple rather than flexible. Make complex things possible. We don't overload the experience. We don't offer 10 options, there are as little decisions to make, to get a perfect outcome. We choose sensible defaults and narrow down to options meaningful for most of our users. We value quality over quantity.
+Keep it simple rather than flexible. Make complex things possible. We don't overload the experience. We don't offer 10 options, there are as few decisions as possible to make, to get a perfect outcome. We choose sensible defaults and narrow down to options meaningful for most of our users. We value quality over quantity.
 ### Clear
 We create a clean, well-lit space where people's communication can sparkle. We are clear in what we communicate to increase confidence. We build our products based on the way humans think (natural mental models) to support intuitive understanding without any direct explanation. Every element must have purpose, and contribute to the purpose of a larger element it is part of. All things have an impact. If you can't explain what an element is for, most likely it shouldn't be there.
 ## Respectful
 ### Universal
-People with different backgrounds, abilities, devices and technological capabilities, speaking a multitude of languages, and being in various environments are collaborating using our product. This is why we design and build our products to be welcoming and accessible, and exclude as few people as possible.
+People with different backgrounds, abilities, devices and technological capabilities, speaking a multitude of languages, and being in various environments are collaborating using our products. This is why we design and build our products to be welcoming and accessible, and exclude as few people as possible.
 ### Mindful
 The attention and privacy of our users are precious. We stay in the background when needed, and surprise in the right moment to make an interaction more memorable. If something moves in focus, everything else "ducks" away. We avoid dissonance, like unnecessary notifications or unhelpful system messages, and only distract users with changes that are personally relevant.
 ## Human
