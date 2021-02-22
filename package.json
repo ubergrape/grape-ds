@@ -17,6 +17,6 @@
     "build:docs": "yarn --cwd docs build",
     "build": "yarn build:storybook && yarn build:components && cd ./docs && yarn &&  cd ..  && yarn build:docs && cp _redirects build/_redirects",
     "clean": "rm -rf build && rm -rf docs/node_modules && rm -rf web/node_modules",
-    "postinstall": "if [[ $$NETLIFY != *true ]]; then (cd docs && yarn); (cd web && yarn); fi"
+    "postinstall": "#!/bin/bash if [[ $$NETLIFY != *true ]]; then (cd docs && yarn); (cd web && yarn); fi"
   }
 }
