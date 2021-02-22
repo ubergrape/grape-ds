@@ -22,21 +22,14 @@ export default createUseStyles((theme: typeof tokens) => ({
     // Reset for Docasaurus
     lineHeight: 1,
   },
-  inputWrapper: props => {
-    if (props.component === 'textarea') {
-      return {
-        position: 'relative',
-        ...textAreaStyles({
-          ...props,
-          theme,
-        }),
-      }
-    }
-
-    return {
-      position: 'relative',
-    }
-  },
+  inputWrapper: props => ({
+    ...(props.component === 'textarea' &&
+      textAreaStyles({
+        ...props,
+        theme,
+      })),
+    position: 'relative',
+  }),
   customScrollbar: ({ overflowPadding }: { overflowPadding: string }) =>
     customScrollbar({ overflowPadding, theme }),
   textField: {
@@ -119,8 +112,10 @@ export default createUseStyles((theme: typeof tokens) => ({
       pointerEvents: 'none',
     }
 
+    let specificStyles
+
     if (component === 'textarea') {
-      return {
+      specificStyles = {
         backgroundColor: theme.colorBackgroundFormfieldDefault,
         width: `calc(100% - ${
           parseToken(theme.paddingFormfieldInputtextCounter) * 2
@@ -130,15 +125,20 @@ export default createUseStyles((theme: typeof tokens) => ({
         left: theme.paddingFormfieldInputtextCounter,
         bottom: 1,
         height: counterBoxHeight,
-        ...commonStyles,
+      }
+    }
+
+    if (component === 'input') {
+      specificStyles = {
+        top: 0,
+        bottom: 0,
+        right: theme.paddingFormfieldInputtextLeftright,
+        alignItems: 'center',
       }
     }
 
     return {
-      top: 0,
-      bottom: 0,
-      right: theme.paddingFormfieldInputtextLeftright,
-      alignItems: 'center',
+      ...specificStyles,
       ...commonStyles,
     }
   },

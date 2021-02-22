@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useMemo, useEffect, useState } from 'react'
-import OverlayScrollbars from 'overlayscrollbars'
+import React, { useMemo, useState } from 'react'
 import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
 import clsx from 'clsx'
 
@@ -9,10 +8,14 @@ import useStyles from './styles'
 import { useFocusStyle } from '../../styles/global'
 import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
-import { onOverflowChanged } from '../scrollbar'
 import { genUid } from '../../utils'
 
-import { TextAreaWithLabelProps, TextAreaWithoutLabelProps } from './text-area'
+import {
+  onTextAreaFocus,
+  useTextAreaEffects,
+  TextAreaWithLabelProps,
+  TextAreaWithoutLabelProps,
+} from './text-area'
 import {
   TextFieldWithLabelProps,
   TextFieldWithoutLabelProps,
@@ -50,39 +53,6 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   }) => JSX.Element
 }
 
-const onChangeProps = [
-  'allowResize',
-  'autoExpand',
-  'width',
-  'height',
-  'minHeight',
-  'maxHeight',
-  'maxLength',
-  'isReadOnly',
-  'isDisabled',
-  'defaultValue',
-  'rows',
-]
-
-const shouldScrollbarUpdate = (props, prevProps) =>
-  !!onChangeProps.filter(prop => {
-    if (prevProps[prop] !== props[prop]) return true
-    return false
-  }).length
-
-const textAreaRender = ({ props, ref, setOverflowPadding }) =>
-  OverlayScrollbars(ref.current, {
-    resize: props.allowResize ? 'vertical' : 'none',
-    textarea: {
-      dynHeight: props.autoExpand,
-    },
-    callbacks: {
-      onOverflowChanged: args => {
-        onOverflowChanged(args, setOverflowPadding)
-      },
-    },
-  })
-
 export interface InputProps extends InputComponentProps {
   component: 'input'
 }
@@ -103,11 +73,8 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     isReadOnly,
     description,
     validationHelp,
-    defaultValue,
     isRequired,
     isNecessityLabel,
-    width,
-    height,
     maxLength,
     minLength,
     renderLeft,
@@ -123,50 +90,15 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
 
   // https://github.com/KingSora/OverlayScrollbars/issues/146
   if (props.component === 'textarea') {
-    useEffect(() => {
-      setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
-
-      return () => {
-        if (OverlayScrollbars.valid(osInstance)) {
-          osInstance.destroy()
-        }
-      }
-    }, [])
-
-    const usePrevious = <T extends unknown>(v: T): T | undefined => {
-      const prevRef = React.useRef<T>()
-      useEffect(() => {
-        prevRef.current = v
-      })
-      return prevRef.current
-    }
-
-    const { allowResize, autoExpand, minHeight, maxHeight, rows } = props
-
-    const prevProps = usePrevious({
-      width,
-      height,
-      maxLength,
-      allowResize,
-      autoExpand,
-      minHeight,
-      maxHeight,
-      isReadOnly,
-      isDisabled,
-      defaultValue,
-      rows,
-    })
-
-    useEffect(() => {
-      if (OverlayScrollbars.valid(osInstance)) {
-        // Re-render textarea, if these two property changed, otherwise old state will be shown
-        if (shouldScrollbarUpdate(props, prevProps)) {
-          osInstance.destroy()
-
-          setOsInstance(textAreaRender({ props, ref, setOverflowPadding }))
-        }
-      }
-    })
+    useTextAreaEffects(
+      props,
+      {
+        osInstance,
+        setOsInstance,
+        setOverflowPadding,
+      },
+      ref,
+    )
   }
 
   const allowedChars = maxLength - value.length
@@ -183,12 +115,9 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         setDirty(v.length > 0)
         props.onChange?.(v)
       },
-      onFocus: e => {
-        if (props.component === 'textarea' && props.isReadOnly) {
-          const textarea = e.target as HTMLTextAreaElement
-          textarea.setSelectionRange(0, textarea.value.length)
-        }
-      },
+      ...(props.component === 'textarea' && {
+        onFocus: e => onTextAreaFocus(e, props),
+      }),
     },
     ref,
   )
