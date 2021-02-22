@@ -25,10 +25,16 @@ cd ..
 yarn build:components
 ```
 
-Run the development server:
+Install freshly built aurora-ui in `docs`:
 
 ```bash
 cd docs
+yarn add aurora-ui@../web
+```
+
+Run the development server:
+
+```bash
 yarn start
 ```
 
@@ -36,7 +42,11 @@ This will open up a browser window. Most changes are reflected live without havi
 
 #### Changes in components
 
-When you are working on components and want to preview them in Docusaurus at the same time use [`yarn link`](https://classic.yarnpkg.com/en/docs/cli/link/), so changes can appear faster in docusaurus.
+When you are working on components and want to preview them in Docusaurus please follow this intructions:
+
+##### Automatic workflow
+
+Use [`yarn link`](https://classic.yarnpkg.com/en/docs/cli/link/), so changes can appear faster in docusaurus on each change of aurora-ui build.
 
 In the `web` directory:
 ```
@@ -48,14 +58,58 @@ In the `docs` directory:
 yarn link aurora-ui
 ```
 
+If you're working with local directory, please additionally follow this workaround and link `react` and `react-dom` in root folder and use them in `docs` in same way as `aurora-ui`:
+https://github.com/facebook/react/issues/14257#issuecomment-595183610.
+
+```bash
+cd ../node_modules/react
+yarn link
+cd ../react-dom
+yarn link
+cd ../docs
+yarn link react
+yarn link react-dom
+```
+
+To rebuild every time you change something in web, run this in the `web` directory:
+```bash
+yarn build:lib:watch
+```
+
+or in root directory run:
+```bash
+yarn build:components:watch
+```
+
 Now you can run Docusaurus:
 ```
 yarn start
 ```
 
-Every time you change something in web, run this in the `web` directory:
+Docusaurus will automatically rebuild.
+
+##### Manual workflow
+
+In the `web` directory:
 ```bash
 yarn build:lib
+```
+
+or in root directory run:
+```bash
+yarn build:components
+```
+
+Install freshly built aurora-ui in `docs`:
+
+```bash
+cd docs
+yarn add aurora-ui@../web
+```
+
+Now you can run Docusaurus:
+```
+yarn start
 ```
 
 Docusaurus will automatically rebuild.
