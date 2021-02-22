@@ -15,7 +15,8 @@
     "tokens:import": "node src/tokens/theo-import.js",
     "svgr": "svgr -d src/icons/ ../node_modules/grape-icons/icons --svgo-config .svgorc.json --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
     "build:storybook": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
-    "build:lib": "rollup -c "
+    "build:lib": "rollup -c",
+    "build:lib:watch": "rollup -c -w"
   },
   "dependencies": {
     "@react-aria/button": "^3.2.1",
