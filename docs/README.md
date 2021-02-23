@@ -4,12 +4,12 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 
 ### Installation
 
-If you ran previously `yarn` in the root folder then all packages already in their places. Otherwise, hit `yarn` to install dependencies for `docs` folder.
-Until `aurora-ui` is not published to npm, follow steps for `Local development` to correctly setup `aurora-ui`, even if you already installed packages with `yarn` in `docs` or in the root folder.
+If you ran previously `yarn` in the root directory of the repository then all packages already in their places. Otherwise, hit `yarn` to install dependencies for `docs` folder.
+Until `aurora-ui` is not published to npm, follow steps for `Local development` to correctly setup `aurora-ui`, even if you already installed packages with `yarn` in `docs` or in the root directory of the repository.
 
 ### Local development
 
-The components from `../web` are used in the docs and are imported with a symlink. Before running commands below make sure you installed dependencies for `../web`. You need to build them first, in the root directory:
+The components from `../web` are used in the docs and are imported with a symlink. Before running commands below make sure you installed dependencies for `../web`. You need to build them first, in the root directory of the repository:
 
 ```bash
 yarn build:components
@@ -45,10 +45,10 @@ In the `docs` directory:
 yarn link aurora-ui
 ```
 
-If you're working with local directory, please additionally follow this workaround and link `react` and `react-dom` in root folder and use them in `docs` in same way as `aurora-ui`:
+If you're working with local directory, please additionally follow this workaround and link `react` and `react-dom` in root directory of the repository and use them in `docs` in same way as `aurora-ui`:
 https://github.com/facebook/react/issues/14257#issuecomment-595183610.
 
-In the root directory:
+In the root directory of the repository:
 ```bash
 cd node_modules/react
 yarn link
@@ -59,7 +59,7 @@ yarn link react
 yarn link react-dom
 ```
 
-To rebuild every time you change something in web, run this in the root directory:
+To rebuild every time you change something in web, run this in the root directory of the repository:
 ```bash
 yarn build:components:watch
 ```
@@ -73,7 +73,7 @@ Docusaurus will automatically rebuild.
 
 ##### Manual workflow
 
-In the root directory run:
+In the root directory of the repository:
 ```bash
 yarn build:components
 ```
