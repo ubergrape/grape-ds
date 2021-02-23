@@ -29,7 +29,7 @@ This will open up a browser window. Most changes are reflected live without havi
 
 ### Changes in components
 
-When you are working on components and want to preview them in Docusaurus please follow this intructions:
+When you are working on components and want to preview them in Docusaurus please follow automatic or manual workflow to install latest changes from `../web` folder:
 
 #### Automatic workflow
 
