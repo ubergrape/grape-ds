@@ -221,7 +221,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         )}
         {renderRight?.({
           onClear: () => {
-            onChange?.('')
+            props.onChange?.('')
             setValue('')
             setDirty(false)
             if (ref.current) {
