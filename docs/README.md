@@ -27,7 +27,7 @@ yarn start
 
 This will open up a browser window. Most changes are reflected live without having to restart the server.
 
-### Changes in components
+### Changes in `aurora-ui` components
 
 When you are working on components and want to preview them in Docusaurus please follow automatic or manual workflow to install latest changes from `../web` folder:
 
