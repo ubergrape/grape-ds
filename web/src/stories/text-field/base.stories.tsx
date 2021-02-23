@@ -5,7 +5,35 @@ import { TextField } from '../../components/text-input'
 export default {
   title: 'Forms/TextField',
   component: TextField,
-  argTypes: { onChange: { action: 'typed' } },
+  argTypes: {
+    onChange: { action: 'typed' },
+    label: {
+      control: {
+        type: 'text',
+      },
+    },
+    'aria-label': {
+      control: {
+        type: 'text',
+      },
+    },
+    isRequired: {
+      description:
+        'Whether user input is required on the input before form submission. Paired with the `isNecessityLabel` prop to add a visual indicator to the input.',
+    },
+    min: {
+      description: 'Minimum value',
+      control: {
+        type: 'number',
+      },
+    },
+    max: {
+      description: 'Maximum value',
+      control: {
+        type: 'number',
+      },
+    },
+  },
   parameters: {
     design: {
       type: 'figma',

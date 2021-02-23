@@ -1,33 +1,33 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import clsx from 'clsx'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
+import scrollBarStyles from './styles'
 
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
-const useStyles = createUseStyles({
-  customScrollbar: overflowPadding => {
-    return {
-      height: '100%',
-      '& .os-viewport': {
-        paddingRight: overflowPadding,
-      },
-      '& .os-scrollbar-handle': {
-        backgroundColor: '#C6C6C6 !important',
-        width: '8px !important',
-      },
-      '& .os-scrollbar-handle.active': {
-        backgroundColor: '#727272 !important',
-      },
-      '& .os-scrollbar': {
-        padding: '4px !important',
-        boxSizing: 'content-box !important',
-      },
-    }
+// Sets padding from right to size2X if the element has a vertical scrollbar,
+// so text and scrollbar don't overlap each other. Added comment
+export const onOverflowChanged = (
+  args: {
+    yScrollable: boolean
   },
-})
+  setPadding: Dispatch<SetStateAction<string>>,
+): void => {
+  if (args.yScrollable) {
+    setPadding(tokens.size2X)
+    return
+  }
+
+  setPadding('0px')
+}
+
+const useStyles = createUseStyles((theme: typeof tokens) => ({
+  customScrollbar: overflowPadding =>
+    scrollBarStyles({ overflowPadding, theme }),
+}))
 
 export const Scrollbar = (
   props: OverlayScrollbarsComponent['props'],
@@ -50,12 +50,7 @@ export const Scrollbar = (
       options={{
         callbacks: {
           onOverflowChanged: args => {
-            if (args.yScrollable) {
-              setOverflowPadding(tokens.size2X)
-              return
-            }
-
-            setOverflowPadding('0px')
+            onOverflowChanged(args, setOverflowPadding)
           },
         },
       }}

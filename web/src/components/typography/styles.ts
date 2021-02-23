@@ -3,14 +3,14 @@ import { createUseStyles } from 'react-jss'
 import tokens from '../../tokens'
 import { getColorFromType, TextColorType } from './helper'
 
-const maxWithDefaultValues = ['none', 'initial']
+const maxWidthDefaultValues = ['none', 'initial']
 
 export const getColorFromProp = ({ color }: { color: TextColorType }): string =>
   getColorFromType(color)
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   headline: ({ maxWidth, color: colorName, size }) => {
-    const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+    const isMaxWidthNonDefault = !maxWidthDefaultValues.includes(maxWidth)
 
     const color = getColorFromType(colorName)
 
@@ -33,7 +33,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     }
   },
   text: ({ maxWidth, color: colorName, emphasis, italic, strike, size }) => {
-    const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+    const isMaxWidthNonDefault = !maxWidthDefaultValues.includes(maxWidth)
 
     const color = getColorFromType(colorName)
 
@@ -77,7 +77,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     }
   },
   monospace: ({ maxWidth, color: colorName }) => {
-    const isMaxWidthNonDefault = !maxWithDefaultValues.includes(maxWidth)
+    const isMaxWidthNonDefault = !maxWidthDefaultValues.includes(maxWidth)
 
     const color = getColorFromType(colorName)
 
