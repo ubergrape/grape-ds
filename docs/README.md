@@ -4,21 +4,12 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 
 ### Installation
 
-Make sure to run the commands in this directory:
-
-```bash
-cd docs
-```
-
-Install all requirements:
-
-```bash
-yarn
-```
+If you ran previously `yarn` in the root folder then all packages already in their places. Otherwise, hit `yarn` to install dependencies for `docs` folder.
+Until `aurora-ui` is not published to npm, follow steps for `Local development` to correctly setup `aurora-ui`, even if you already installed packages with `yarn` in `docs` or in root folder.
 
 ### Local development
 
-The components from `../web` are used in the docs and are imported with a symlink. You need to build them first:
+The components from `../web` are used in the docs and are imported with a symlink. Before running commands below make sure you installed dependencies for `../web`. You need to build them first:
 
 ```bash
 cd ..
