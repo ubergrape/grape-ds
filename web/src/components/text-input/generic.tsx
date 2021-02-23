@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useMemo, useState } from 'react'
 import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
-import { FocusRing } from '@react-aria/focus'
 import clsx from 'clsx'
 
 import { Text } from '../typography'
@@ -11,23 +10,40 @@ import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
 import { genUid } from '../../utils'
 
-export interface TextInputProps extends AriaTextFieldOptions {
+import {
+  onTextAreaFocus,
+  useTextAreaEffects,
+  TextAreaWithLabelProps,
+  TextAreaWithoutLabelProps,
+} from './text-area'
+import {
+  TextFieldWithLabelProps,
+  TextFieldWithoutLabelProps,
+} from './text-field'
+import {
+  SearchFieldWithLabelProps,
+  SearchFieldWithoutLabelProps,
+} from './search-field'
+
+export interface InputComponentProps extends AriaTextFieldOptions {
   id?: string
   isInvalid?: boolean
+  isDisabled?: boolean
+  isReadOnly?: boolean
+  isRequired?: boolean
   placeholder?: string
   description?: string
   validationHelp?: string
-  isRequired?: boolean
+  height?: number | string
+  width?: number | string
   maxLength?: number
   minLength?: number
-  autoFocus?: boolean
-  type?: 'text' | 'number' | 'search' | 'password' | 'email' | 'tel'
-  min?: number
-  max?: number
   customLabels?: {
     required?: string
     optional?: string
   }
+  // Defines if visual label indicator for isRequired value should be shown
+  isNecessityLabel?: boolean
   value?: string
   defaultValue?: string
   renderLeft?: () => JSX.Element
@@ -37,62 +53,80 @@ export interface TextInputProps extends AriaTextFieldOptions {
   }) => JSX.Element
 }
 
-export interface WithoutLabel extends TextInputProps {
-  'aria-label': string
+export interface InputProps extends InputComponentProps {
+  component: 'input'
 }
 
-export interface WithLabel extends TextInputProps {
-  label: string
-}
+export type GenericFieldProps =
+  | TextAreaWithLabelProps
+  | TextAreaWithoutLabelProps
+  | TextFieldWithLabelProps
+  | TextFieldWithoutLabelProps
+  | SearchFieldWithLabelProps
+  | SearchFieldWithoutLabelProps
 
-export type InputProps = WithoutLabel | WithLabel
-
-export const GenericField: React.FC<
-  InputProps & { component: 'input' | 'textarea' }
-> = props => {
+export const GenericField: React.FC<GenericFieldProps> = props => {
   const {
     label,
     isInvalid,
+    isDisabled,
+    isReadOnly,
     description,
     validationHelp,
+    isRequired,
+    isNecessityLabel,
     maxLength,
     minLength,
-    autoFocus,
-    type,
-    min,
-    max,
-    component,
-    isRequired,
     renderLeft,
     renderRight,
-    onChange,
-    defaultValue,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
+
   const [isDirty, setDirty] = useState(false)
-  const [value, setValue] = useState(props.value || defaultValue || '')
+  const [osInstance, setOsInstance] = useState(null)
+  const [value, setValue] = useState(props.value || props.defaultValue || '')
+  const [overflowPadding, setOverflowPadding] = useState('0px')
+
+  // https://github.com/KingSora/OverlayScrollbars/issues/146
+  if (props.component === 'textarea') {
+    useTextAreaEffects(
+      props,
+      {
+        osInstance,
+        setOsInstance,
+        setOverflowPadding,
+      },
+      ref,
+    )
+  }
 
   const allowedChars = maxLength - value.length
   const isMaxLengthReached = allowedChars < 0
-  const isMinLengthReached = value.length > minLength
+  const isMinLengthReached = value.length < minLength
 
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
       maxLength: undefined,
       minLength: undefined,
-      onChange: p => {
-        setValue(p)
-        setDirty(p.length > 0)
-        onChange?.(p)
+      onChange: v => {
+        setValue(v)
+        setDirty(v.length > 0)
+        props.onChange?.(v)
       },
+      ...(props.component === 'textarea' && {
+        onFocus: e => onTextAreaFocus(e, props),
+      }),
     },
     ref,
   )
 
+  const min = 'min' in props ? props.min : undefined
+  const max = 'max' in props ? props.max : undefined
+
   const isNumberValid = useMemo(() => {
-    if (type !== 'number') return true
+    if (props.type === 'search' || props.type !== 'number') return true
     if (value.length === 0) return true
     const val = Number(value)
     if (min !== undefined && val < min) return false
@@ -104,17 +138,25 @@ export const GenericField: React.FC<
     isInvalid || isMaxLengthReached || isMinLengthReached || !isNumberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
-  const classes = useStyles(customProps)
+  const classes = useStyles({ ...customProps, overflowPadding })
 
-  const Component = component
+  const Component = props.component
   const validationHelpId = genUid()
 
   return (
-    <Flex direction="column" gap="0.5x">
+    <Flex className={classes.wrapper} direction="column" gap="0.5x">
       {label && (
         <label className={classes.label} {...labelProps}>
-          <span>{label}</span>
-          {isRequired !== undefined && (
+          <Text
+            as="span"
+            emphasis
+            color="formfieldLabel"
+            maxWidth="initial"
+            size="small"
+          >
+            {label.toString()}
+          </Text>
+          {isNecessityLabel && (
             <Text
               color="secondary"
               size="small"
@@ -128,30 +170,51 @@ export const GenericField: React.FC<
       )}
       {validationHelp && (
         <Flex gap="0.5x">
-          <Icon name="alert" color="danger" size="small" />
-          <Text as="span" size="small" color="danger" id={validationHelpId}>
+          <Icon
+            name="alert"
+            className={classes.validationIcon}
+            color="danger"
+            size="small"
+          />
+          <Text
+            as="span"
+            maxWidth="initial"
+            size="small"
+            color="danger"
+            id={validationHelpId}
+          >
             {validationHelp}
           </Text>
         </Flex>
       )}
-      <div className={classes.inputWrapper}>
+      <div className={clsx(classes.inputWrapper, onFocus)}>
         {renderLeft?.()}
-        <FocusRing {...(autoFocus && autoFocus)}>
-          <Component
-            className={clsx(classes.textField, onFocus)}
-            {...inputProps}
-            {...(invalid && { 'aria-invalid': true })}
-            {...(min !== undefined && { min })}
-            {...(max !== undefined && { max })}
-            {...(validationHelp && {
-              'aria-describedby': validationHelpId,
-            })}
-            ref={ref}
-          />
-        </FocusRing>
-        {maxLength > 0 && (
-          <div className={classes.counter}>
-            <Text size="base" color={invalid ? 'danger' : 'primary'}>
+        <Component
+          className={clsx(
+            classes.textField,
+            classes.customScrollbar,
+            onFocus,
+            'os-text-inherit',
+            'os-textarea',
+          )}
+          {...inputProps}
+          {...(invalid && { 'aria-invalid': true })}
+          {...(min !== undefined && { min })}
+          {...(max !== undefined && { max })}
+          {...(validationHelp && {
+            'aria-describedby': validationHelpId,
+          })}
+          {...(props.component === 'textarea' &&
+            props.rows && { rows: props.rows })}
+          ref={ref}
+        />
+        {maxLength > 0 && !isDisabled && !isReadOnly && (
+          <div className={classes.counterWrapper}>
+            <Text
+              className={classes.counter}
+              size="base"
+              color={invalid ? 'danger' : 'formfieldCounter'}
+            >
               {allowedChars}
             </Text>
           </div>
@@ -171,7 +234,7 @@ export const GenericField: React.FC<
       </div>
 
       {description && (
-        <Text color="secondary" size="small">
+        <Text color="secondary" maxWidth="initial" as="span" size="small">
           {description}
         </Text>
       )}

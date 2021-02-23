@@ -7,6 +7,20 @@ export default {
   component: TextField,
   argTypes: {
     onChange: { action: 'typed' },
+    label: {
+      control: {
+        type: 'text',
+      },
+    },
+    'aria-label': {
+      control: {
+        type: 'text',
+      },
+    },
+    isRequired: {
+      description:
+        'Whether user input is required on the input before form submission. Paired with the `isNecessityLabel` prop to add a visual indicator to the input.',
+    },
     min: {
       description: 'Minimum value',
       control: {
