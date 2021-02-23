@@ -5,7 +5,6 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 ## Installation
 
 If you ran previously `yarn` in the root directory of the repository then all packages already in their places. Otherwise, hit `yarn` to install dependencies for `docs` folder.
-Until `aurora-ui` is not published to npm, follow steps for `Local development` to correctly setup `aurora-ui`, even if you already installed packages with `yarn` in `docs` or in the root directory of the repository.
 
 ## Local development
 
@@ -27,7 +26,12 @@ yarn start
 
 This will open up a browser window. Most changes are reflected live without having to restart the server.
 
-### Changes in `aurora-ui` components
+### Using `aurora-ui` as NPM package (not available yet)
+
+Automatically `aurora-ui` will be installed from NPM with other packages with running `yarn`. Please make sure you have the latest version from NPM on your branch.
+If you want to use local `aurora-ui` components, follow the guide below.
+
+### Local changes in `aurora-ui` components
 
 When you are working on components and want to preview them in Docusaurus please follow automatic or manual workflow to install latest changes from `../web` folder:
 
