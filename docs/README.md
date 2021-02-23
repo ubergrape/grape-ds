@@ -2,12 +2,12 @@
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
-### Installation
+## Installation
 
 If you ran previously `yarn` in the root directory of the repository then all packages already in their places. Otherwise, hit `yarn` to install dependencies for `docs` folder.
 Until `aurora-ui` is not published to npm, follow steps for `Local development` to correctly setup `aurora-ui`, even if you already installed packages with `yarn` in `docs` or in the root directory of the repository.
 
-### Local development
+## Local development
 
 The components from `../web` are used in the docs and are imported with a symlink. Before running commands below make sure you installed dependencies for `../web`. You need to build them first, in the root directory of the repository:
 
@@ -27,11 +27,11 @@ yarn start
 
 This will open up a browser window. Most changes are reflected live without having to restart the server.
 
-#### Changes in components
+### Changes in components
 
 When you are working on components and want to preview them in Docusaurus please follow this intructions:
 
-##### Automatic workflow
+#### Automatic workflow
 
 Use [`yarn link`](https://classic.yarnpkg.com/en/docs/cli/link/), so changes can appear faster in docusaurus on each change of aurora-ui build.
 
@@ -71,7 +71,7 @@ yarn start
 
 Docusaurus will automatically rebuild.
 
-##### Manual workflow
+#### Manual workflow
 
 In the root directory of the repository:
 ```bash
@@ -91,7 +91,7 @@ yarn start
 
 Docusaurus will automatically rebuild.
 
-### Build
+## Build
 
 ```bash
 yarn build
@@ -99,7 +99,7 @@ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
+## Deployment
 
 ```bash
 GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
