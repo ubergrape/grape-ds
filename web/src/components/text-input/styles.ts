@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
 import { parseToken } from '../../utils'
-import { getColorDefault } from '../checkbox/styles'
+import { getColorHover, getColorDefault } from '../checkbox/styles'
 import customScrollbar from '../scrollbar/styles'
 import textAreaStyles from './text-area/styles'
 
@@ -75,8 +75,8 @@ export default createUseStyles((theme: typeof tokens) => ({
     boxSizing: ({ component }) =>
       component === 'textarea' ? 'content-box' : 'border-box',
     padding: `${theme.paddingFormfieldTextareaInputtextTopbottom} ${theme.paddingFormfieldInputtextLeftright}`,
-    paddingRight: ({ maxLength, component, type }) => {
-      if (maxLength && component === 'input')
+    paddingRight: ({ maxLength, component, isDisabled, isReadOnly, type }) => {
+      if (component === 'input' && maxLength > 0 && !isDisabled && !isReadOnly)
         return `calc(${theme.paddingFormfieldInputtextCounter} + 50px)`
       if (type === 'search') {
         return `calc(${theme.size4X} + ${theme.sizeHalfX})`
@@ -89,6 +89,9 @@ export default createUseStyles((theme: typeof tokens) => ({
     },
     '&:placeholder': {
       color: theme.colorTextFormfieldPlaceholder,
+    },
+    '&:hover': {
+      borderColor: getColorHover,
     },
     borderColor: getColorDefault,
   },

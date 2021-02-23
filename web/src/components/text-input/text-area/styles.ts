@@ -1,7 +1,7 @@
 import { JssStyle } from 'jss'
 
 import tokens from '../../../tokens'
-import { getColorDefault } from '../../checkbox/styles'
+import { getColorDefault, getColorHover } from '../../checkbox/styles'
 import { textAreaHeight, counterBoxHeight } from '../styles'
 import { TextAreaComponentProps } from '.'
 
@@ -19,6 +19,9 @@ export default ({
   theme,
 }: TextAreaComponentStyles): Record<string, JssStyle | string> => ({
   '& > .os-host-textarea:not(.focus)': {
+    '&:hover': {
+      borderColor: getColorHover,
+    },
     borderColor: getColorDefault,
     backgroundColor: () => {
       if (isDisabled) return theme.colorBackgroundFormfieldDisabled

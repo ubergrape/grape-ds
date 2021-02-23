@@ -5,6 +5,7 @@ import { GenericField, InputProps } from './generic'
 export interface TextFieldComponentProps extends InputProps {
   min?: number
   max?: number
+  type?: string
 }
 
 export interface TextFieldWithLabelProps extends TextFieldComponentProps {
