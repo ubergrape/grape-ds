@@ -59,12 +59,7 @@ yarn link react
 yarn link react-dom
 ```
 
-To rebuild every time you change something in web, run this in the `web` directory:
-```bash
-yarn build:lib:watch
-```
-
-Or in root directory run:
+To rebuild every time you change something in web, run this in the root directory:
 ```bash
 yarn build:components:watch
 ```
@@ -78,12 +73,7 @@ Docusaurus will automatically rebuild.
 
 ##### Manual workflow
 
-In the `web` directory:
-```bash
-yarn build:lib
-```
-
-Or in the root directory run:
+In the root directory run:
 ```bash
 yarn build:components
 ```
