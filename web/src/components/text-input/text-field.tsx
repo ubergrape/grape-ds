@@ -5,7 +5,7 @@ import { GenericField, InputProps } from './generic'
 export interface TextFieldComponentProps extends InputProps {
   min?: number
   max?: number
-  type?: string
+  type?: 'email' | 'number' | 'password' | 'tel' | 'text'
 }
 
 export interface TextFieldWithLabelProps extends TextFieldComponentProps {

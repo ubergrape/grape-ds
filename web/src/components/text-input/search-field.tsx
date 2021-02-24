@@ -25,11 +25,15 @@ const useStyles = createUseStyles(() => ({
   },
 }))
 
-export interface SearchFieldWithLabelProps extends InputProps {
+export interface SearchFieldComponentProps extends InputProps {
+  type: 'search'
+}
+
+export interface SearchFieldWithLabelProps extends SearchFieldComponentProps {
   label: string
 }
 
-export interface SearchFieldWithoutLabelProps extends InputProps {
+export interface SearchFieldWithoutLabelProps extends SearchFieldComponentProps {
   'aria-label': string
 }
 
