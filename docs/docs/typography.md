@@ -6,30 +6,32 @@ sidebar_label: Typography
 
 import { Flex, Headline, Text, Monospace } from "aurora-ui";
 
-Typography can help create clear hierarchies, organize information and guide people through our products.  We use type tokens to organize our typography, and typography components to consistently apply it to our components and interfaces.  
+Typography can help create clear hierarchies, organize information and guide people through our products.  We use type tokens to organize our typography, and we use typography components to consistently apply it to our components and interfaces.  
 ## Typeface
-We use the typeface **Noto Sans**, and suggest using Noto Sans **Regular** (400) and **SemiBold** (600) for digital experiences. For presenting code snippets, **Noto Mono** is available. Noto Fonts can be accessed and downloaded from [Google Noto Fonts](https://www.google.com/get/noto/).
+We use the typeface **Noto Sans** with font weights **Regular** (400) and **SemiBold** (600), and **Noto Mono** when presenting code snippets, for digital experiences. Noto Fonts can be accessed and downloaded from [Google Noto Fonts](https://www.google.com/get/noto/).
 ## Typographic scale
 To keep our typographic scale simple we limit and adjust it to the needs within our products. We use a reduced set of sizes: 2 for headlines, 3 for body text, 1 for monospace text.  
+
+For designers, all our typography tokens are ready to be used in Figma [Grape DS Foundation - Typography](https://www.figma.com/file/1H80rWSPzHMnJ66iic8z5q/?node-id=125%3A270), and available as text styles from the Figma Team Library.
 ### Headlines
-Sizes define the visual appearance and can style any semantic HTML element from `h1` to `h5`, `div` or `span`. For page headlines we use **Headline page**, all other headlines use **Headline base**.  
+Sizes define the visual appearance and can style any semantic HTML element from `h1` to `h5`, `div` or `span`. For page headlines use **Headline page**, for all other headlines **Headline base**.  
 <Flex gap="2x" direction="column" style={{ border: 'solid 1px #f1f1f1', padding: 10 }}>
-<Headline size="page">Headline page</Headline>
-<Headline size="base">Headline base</Headline>
+<Headline size="page">Headline page (24/1.4)</Headline>
+<Headline size="base">Headline base (16/1.6)</Headline>
 </Flex>
 
 ### Body text
 **Large** size is used for main body text on pages like articles with a decent amount of text to read. **Base** size is our standard text size used within our products, and **small** size is used for captions, annotations, notes and labels. If we display code, **monospace** is available.
 <Flex gap="2x" direction="column" style={{ border: 'solid 1px #f1f1f1', padding: 10 }}>
 <Box />
-<Text size="large">Large body text</Text>
-<Text size="base">Base body text</Text>
-<Text size="small">Small body text</Text>
-<Monospace>Monospace text</Monospace>
+<Text size="large">Large body text (16/1.4)</Text>
+<Text size="base">Base body text (14/1.6)</Text>
+<Text size="small">Small body text (12/1.4)</Text>
+<Monospace>Base body monospace text (14/1.6)</Monospace>
 </Flex>
 
 ## Type color
-Type color should be carefully considered, with accessibility and legibility as main concerns. Keep color neutral in running text. Text color is available as tokens. Color is not for decoration.
+Type color should be carefully considered, with accessibility and legibility as main concerns. Keep color neutral in running text. Color is not for decoration.
 <Flex gap="2x" direction="column" style={{ border: 'solid 1px #f1f1f1', padding: 10 }}>
 <Text size="base" color="primary">Primary text color</Text>
 <Text size="base" color="secondary">Secondary text color</Text>
