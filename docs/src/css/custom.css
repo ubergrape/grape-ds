@@ -174,3 +174,8 @@ a:hover {
 .playgroundPreviewHeader_node_modules-\@docusaurus-theme-live-codeblock-src-theme-Playground- {
   display: none !important;
 }
+
+tr {
+  background-color: white !important;
+}
+
