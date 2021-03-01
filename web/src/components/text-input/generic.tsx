@@ -74,6 +74,7 @@ export type GenericFieldProps =
 export const GenericField: React.FC<GenericFieldProps> = props => {
   const {
     label,
+    type,
     isInvalid,
     isDisabled,
     isReadOnly,
@@ -108,9 +109,10 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     )
   }
 
+  const isTypeNumber = type === 'number'
   const allowedChars = maxLength - value.length
-  const isMaxLengthReached = allowedChars < 0
-  const isMinLengthReached = value.length < minLength
+  const isMaxLengthReached = allowedChars < 0 && !isTypeNumber
+  const isMinLengthReached = value.length < minLength && !isTypeNumber
 
   const { labelProps, inputProps } = useTextField(
     {
@@ -137,7 +139,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const max = 'max' in props ? props.max : undefined
 
   const isNumberValid = useMemo(() => {
-    if (props.type === 'search' || props.type !== 'number') return true
+    if (type === 'search' || type !== 'number') return true
     if (value.length === 0) return true
     const val = Number(value)
     if (min !== undefined && val < min) return false
@@ -226,7 +228,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             ref={ref}
           />
         </FocusRing>
-        {maxLength > 0 && !isDisabled && !isReadOnly && (
+        {maxLength > 0 && !isDisabled && !isReadOnly && !isTypeNumber && (
           <div className={classes.counterWrapper}>
             <Text
               className={classes.counter}

@@ -61,7 +61,7 @@ export const Default = (): JSX.Element => (
 
 export const InputTypes = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <TextField label="Email" type="email" />
+    <TextField label="Email" value="olegaleshkin@gmail.com" type="email" />
     <TextField label="Number between 1-10" type="number" min={1} max={10} />
     <TextField label="Password" type="password" />
     <TextField label="Telephone" type="tel" />
@@ -76,15 +76,34 @@ export const WithoutLabel = (): JSX.Element => (
 )
 
 export const Required = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
+  <Flex gap="2x">
+    <TextField isRequired isNecessityLabel label="Label" />
     <TextField isRequired label="Label" />
   </Flex>
 )
 
 export const Optional = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
+  <Flex gap="2x">
+    <TextField isNecessityLabel label="Label" />
     <TextField label="Label" />
-    <TextField isRequired={false} label="Label" />
+  </Flex>
+)
+
+export const customLabels = (): JSX.Element => (
+  <Flex gap="2x">
+    <TextField
+      customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
+      label="Label"
+      isRequired
+      isNecessityLabel
+      defaultValue="Some value"
+    />
+    <TextField
+      customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
+      label="Label"
+      isNecessityLabel
+      defaultValue="Some value"
+    />
   </Flex>
 )
 
@@ -127,21 +146,6 @@ export const ReadOnly = (): JSX.Element => (
 export const Disabled = (): JSX.Element => (
   <Flex gap="2x">
     <TextField isDisabled label="Disabled" value="Some value" />
-  </Flex>
-)
-
-export const CustomLabels = (): JSX.Element => (
-  <Flex gap="2x">
-    <TextField
-      isRequired
-      label="Adresse"
-      customLabels={{ required: 'erforderlich' }}
-    />
-    <TextField
-      isRequired={false}
-      label="Adresse"
-      customLabels={{ optional: 'Not needed' }}
-    />
   </Flex>
 )
 

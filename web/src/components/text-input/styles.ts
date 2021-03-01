@@ -76,7 +76,13 @@ export default createUseStyles((theme: typeof tokens) => ({
       component === 'textarea' ? 'content-box' : 'border-box',
     padding: `${theme.paddingFormfieldTextareaInputtextTopbottom} ${theme.paddingFormfieldInputtextLeftright}`,
     paddingRight: ({ maxLength, component, isDisabled, isReadOnly, type }) => {
-      if (component === 'input' && maxLength > 0 && !isDisabled && !isReadOnly)
+      if (
+        component === 'input' &&
+        type !== 'number' &&
+        maxLength > 0 &&
+        !isDisabled &&
+        !isReadOnly
+      )
         return `calc(${theme.paddingFormfieldInputtextCounter} + 50px)`
       if (type === 'search') {
         return `calc(${theme.size4X} + ${theme.sizeHalfX})`
