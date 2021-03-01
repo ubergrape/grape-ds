@@ -43,14 +43,12 @@ We crafted our color palettes based on human perception, following the LCh color
 
 ### Monochrome
 #### Black & White
-<!-- ![Black & White color palette](./assets/colorpalette_bw.png) -->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#ffffff"></Swatch> | `white` | #ffffff | 255,255,255
 | <Swatch color="#000000"></Swatch> | `black` | #000000 | 0,0,0
 
 #### Gray
-<!--![Gray color palette](./assets/colorpalette_gray.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#fcfcfc"></Swatch> | `gray-1` | #fcfcfc | 252,252,252
@@ -68,7 +66,6 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#303030"></Swatch> | `gray-80` | #303030 | 48,48,48
 | <Swatch color="#1b1b1b"></Swatch> | `gray-90` | #1b1b1b | 27,27,27
 #### Gray warm
-<!--![Gray warm color palette](./assets/colorpalette_gray-warm.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#fdfcfa"></Swatch> | `gray-warm-1` | #fdfcfa | 253,252,250
@@ -87,7 +84,6 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#1c1c19"></Swatch> | `gray-warm-90` | #1c1c19 | 28,28,25
 ### Colors vivid
 #### Purple
-<!--![Purple color palette](./assets/colorpalette_purple.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#f8edfe"></Swatch> | `purple-5` | #f8edfe | 248,237,254
@@ -101,7 +97,6 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#55006b"></Swatch> | `purple-80` | #55006b | 85,0,107
 | <Swatch color="#39004c"></Swatch> | `purple-90` | #39004c | 57,0,76
 #### Blue
-<!--![Blue color palette](./assets/colorpalette_blue.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#e5f2ff"></Swatch> | `blue-5` | #e5f2ff | 229,242,255
@@ -115,7 +110,6 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#023a6c"></Swatch> | `blue-80` | #023a6c | 82,58,108
 | <Swatch color="#002040"></Swatch> | `blue-90` | #002040 | 0,32,64
 #### Pink
-<!--![Pink color palette](./assets/colorpalette_pink.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#feeded"></Swatch> | `pink-5` | #feeded | 254,237,237
@@ -129,7 +123,6 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#640724"></Swatch> | `pink-80` | #640724 | 100,7,36
 | <Swatch color="#470016"></Swatch> | `pink-90` | #470016 | 71,0,22
 #### Lime
-<!--![Lime color palette](./assets/colorpalette_lime.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#eef3de"></Swatch> | `lime-5` | #eef3de | 238,243,222
@@ -143,7 +136,6 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#263504"></Swatch> | `lime-80` | #263504 | 38,53,4
 | <Swatch color="#1b2200"></Swatch> | `lime-90` | #1b2200 | 27,34,0
 #### Red
-<!--![Red color palette](./assets/colorpalette_red.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#ffede9"></Swatch> | `red-5` | #ffede9 | 255,237,233
@@ -157,7 +149,6 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#5f140e"></Swatch> | `red-80` | #5f140e | 95,20,14
 | <Swatch color="#430b00"></Swatch> | `red-90` | #430b00 | 67,11,0
 #### Orange
-<!--![Orange color palette](./assets/colorpalette_orange.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#ffeeda"></Swatch> | `orange-5` | #ffeeda | 255,238,218
@@ -171,7 +162,6 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#552100"></Swatch> | `orange-80` | #552100 | 85,33,0
 | <Swatch color="#331100"></Swatch> | `orange-90` | #331100 | 51,17,0
 #### Gold
-<!--![Gold color palette](./assets/colorpalette_gold.png)-->
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#fff1b7"></Swatch> | `gold-5` | #fff1b7 | 255,241,183
@@ -187,15 +177,13 @@ We crafted our color palettes based on human perception, following the LCh color
 ## Color tokens
 Each color token is drawn from a color palette token. We only use token-based colors in all of our components.
 ### Neutrals
-Neutral tokens are divided into `base-bw`, `base` and `base-warm`. Neutrals (except black and white) have eight possible lightness grades, from ghost to darkest.  
+Neutral tokens are divided into `base-bw`, `base` and `base-warm`. Neutrals (except base-bw) have 8 possible lightness grades, from ghost to darkest.  
 #### Base BW
-<!--![Base BW color tokens](./assets/colortokens_base-bw.png)-->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#ffffff"></Swatch> | `base-bw-white` | white | #ffffff | 255,255,255
 | <Swatch color="#000000"></Swatch> | `base-bw-black` | black | #000000 | 0,0,0
 #### Base
-<!-- ![Base color tokens](./assets/colortokens_base.png) -->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#f9f9f9"></Swatch> | `base-ghost` | gray-2 | #f9f9f9 | 249,249,249
@@ -207,7 +195,6 @@ Neutral tokens are divided into `base-bw`, `base` and `base-warm`. Neutrals (exc
 | <Swatch color="#303030"></Swatch> | `base-darker` | gray-80 | #303030 | 48,48,48
 | <Swatch color="#1b1b1b"></Swatch> | `base-darkest` | gray-90 | #1b1b1b | 27,27,27
 #### Base warm
-<!-- ![Base warm color tokens](./assets/colortokens_base-warm.png) -->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#faf9f7"></Swatch> | `base-warm-ghost` | gray-warm-2 | #faf9f7 | 250,249,247
@@ -219,9 +206,10 @@ Neutral tokens are divided into `base-bw`, `base` and `base-warm`. Neutrals (exc
 | <Swatch color="#31302d"></Swatch> | `base-warm-darker` | gray-warm-80 | #31302d | 49,48,45
 | <Swatch color="#1c1c19"></Swatch> | `base-warm-darkest` | gray-warm-90 | #1c1c19 | 28,28,25
 ### Theme
-Theme color tokens are designed to be useful in our product. Theme tokens are divided into `primary`, `secondary`, `personal` and `accent`. The **personal** color is used for everything that relates to the person interacting with our product themselves, be it their personal space or their own message. Each color family has seven possible lightness grades, from lightest to darkest.    
+Theme color tokens are designed to be useful in our product. Theme tokens are divided into `primary`, `secondary`, `personal` and `accent`. Each color family has 7 possible lightness grades, from lightest to darkest. Theme tokens can be used to customize the skin when white-labelling the product.
 #### Primary
-<!-- ![Primary color tokens](./assets/colortokens_primary.png) -->
+The primary color is used for primary actions and elements. It's used sparingly to underline the importance.
+
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#f8edfe"></Swatch> | `primary-lightest` | purple-5 | #f8edfe | 248,237,254
@@ -232,7 +220,8 @@ Theme color tokens are designed to be useful in our product. Theme tokens are di
 | <Swatch color="#55006b"></Swatch> | `primary-darker` | purple-80 | #55006b | 85,0,107
 | <Swatch color="#39004c"></Swatch> | `primary-darkest` | purple-90 | #39004c | 57,0,76
 #### Secondary
-<!-- ![Secondary color tokens](./assets/colortokens_secondary.png) -->
+The secondary color is used for links and states indicating something is active or focused.
+
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#e5f2ff"></Swatch> | `secondary-lightest` | blue-5 | #e5f2ff | 229,242,255
@@ -243,7 +232,8 @@ Theme color tokens are designed to be useful in our product. Theme tokens are di
 | <Swatch color="#074689"></Swatch> | `secondary-darker` | blue-70 | #074689 | 7,70,137
 | <Swatch color="#002040"></Swatch> | `secondary-darkest` | blue-90 | #002040 | 0,32,64
 #### Personal
-<!-- ![Personal color tokens](./assets/colortokens_personal.png) -->
+The personal color is used for everything that relates to the person interacting with our product themselves, be it their personal space or their own message.
+
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#feeded"></Swatch> | `personal-lightest` | pink-5 | #feeded | 254,237,237
@@ -254,7 +244,6 @@ Theme color tokens are designed to be useful in our product. Theme tokens are di
 | <Swatch color="#910033"></Swatch> | `personal-darker` | pink-70 | #910033 | 145,0,51
 | <Swatch color="#470016"></Swatch> | `personal-darkest` | pink-90 | #470016 | 71,0,22
 #### Accent
-<!-- ![Accent color tokens](./assets/colortokens_accent.png) -->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#ffeeda"></Swatch> | `accent-lightest` | orange-5 | #ffeeda | 255,238,218
@@ -267,7 +256,6 @@ Theme color tokens are designed to be useful in our product. Theme tokens are di
 ### States
 State tokens are useful for states and alerts. They are divided into 5 state-roles: `positive`, `negative`, `warning`, `info`, and `disabled`. Each state token group except disabled has seven possible lightness grades, from lightest to darkest.  
 #### Positive
-<!-- ![Positive color tokens](./assets/colortokens_positive.png) -->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#eef3de"></Swatch> | `positive-lightest` | lime-5 | #eef3de | 238,243,222
@@ -278,7 +266,6 @@ State tokens are useful for states and alerts. They are divided into 5 state-rol
 | <Swatch color="#4a6709"></Swatch> | `positive-darker` | lime-60 | #4a6709 | 71,103,9
 | <Swatch color="#1b2200"></Swatch> | `positive-darkest` | lime-90 | #1b2200 | 27,34,0
 #### Negative
-<!-- ![Negative color tokens](./assets/colortokens_negative.png) -->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#ffede9"></Swatch> | `negative-lightest` | red-5 | #ffede9 | 255,237,233
@@ -289,7 +276,6 @@ State tokens are useful for states and alerts. They are divided into 5 state-rol
 | <Swatch color="#8a1b16"></Swatch> | `negative-darker` | red-70 | #8a1b16 | 138,27,22
 | <Swatch color="#430b00"></Swatch> | `negative-darkest` | red-90 | #430b00 | 67,11,0
 #### Warning
-<!-- ![Warning color tokens](./assets/colortokens_warning.png) -->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#fff1b7"></Swatch> | `warning-lightest` | gold-5 | #fff1b7 | 255,241,183
@@ -300,7 +286,6 @@ State tokens are useful for states and alerts. They are divided into 5 state-rol
 | <Swatch color="#825501"></Swatch> | `warning-darker` | gold-60 | #825501 | 130,85,1
 | <Swatch color="#331900"></Swatch> | `warning-darkest` | gold-90 | #331900 | 51,25,0
 #### Info
-<!-- ![Info color tokens](./assets/colortokens_info.png) -->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#e5f2ff"></Swatch> | `info-lightest` | blue-5 | #e5f2ff | 229,242,255
@@ -311,7 +296,6 @@ State tokens are useful for states and alerts. They are divided into 5 state-rol
 | <Swatch color="#074689"></Swatch> | `info-darker` | blue-70 | #074689 | 7,70,137
 | <Swatch color="#002040"></Swatch> | `info-darkest` | blue-90 | #002040 | 0,32,64
 #### Disabled
-<!-- ![Disabled color tokens](./assets/colortokens_disabled.png) -->
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#f9f9f9"></Swatch> | `disabled-ghost` | gray-2 | #f9f9f9 | 249,249,249
