@@ -19,35 +19,32 @@ export const Swatch = ({children, color}) => (
 
 Our colors are light and quiet in the background, but shine bright for important or active elements in the foreground.  
 ## Tokens
-We organize our tokens into color palette tokens, theme tokens including neutrals/grays, and state tokens. The color palette tokens are the complete set of colors available. Theme tokens are a smaller subset of all available tokens and customized to the main use cases.
+We organize our tokens into color palette tokens, theme tokens including neutrals/grays, and state tokens. The color palette tokens are the complete set of colors available. Theme and state tokens are a smaller subset of all available tokens and customized to the main use cases.
 ## Color and accessibility
-The effects of color on people are neither consistent nor predictable across all people, and color insensitivity can make it difficult to distinguish hues for some people. We are commited to complying with AA standard contrast ratios (4.5:1). To do so, choose colors that support usability by ensuring sufficient color contrast between background and foreground elements so that people with low vision - be it temporary, situational or permanent - can see and use the interface.  
-
+The effects of color on people are neither consistent nor predictable across all people. Color insensitivity can make it difficult to distinguish hues for some people. We are commited to complying with AA standard contrast ratios. To do so, choose colors that support usability by ensuring sufficient color contrast between background and foreground elements so that people with low vision - be it temporary, situational or permanent - can easily use the interface.
 ### Accessible color pairings
-Our color system helps you to choose accessible color pairings. Each color from the color palette has a grade assigned to the name (like `gray-50`), which represents its luminance:  
+Our color system helps you to choose accessible color pairings. Each color from the color palette has a grade assigned to the color family name (like `gray-50`), which represents its luminance:  
   
 ![Color grades](./assets/color-grades.png)
-  
-The grade can be used for calculating color contrast as defined by WCAG guidelines for level AA for any 2 colors in this color system by subtracting their grades from each other:
+
+The grades can be used for calculating color contrast as defined by WCAG guidelines for level AA for any 2 colors in our color system by subtracting their grades from each other:
 - difference of **40+** for **large text* and graphics/UI-components** (contrast ratio at least **3:1**)
 - difference of **50+** for **normal text** (contrast ratio at least **4.5:1**)
 
-*) Large text is defined as (at least) 14 pt (= typically 19px) bold or 18 pt (= typically 24px).  
+\* Large text is defined as (at least) 14 pt (= typically 19px) bold or 18 pt (= typically 24px).  
 
 #### Accessible color combination examples
 ![Color combination examples](./assets/color-combinations.png)
 
 
 ## Color palettes
-We crafted our color palettes based on human perception, following the LCh color space to be perceptually uniform. For designers, all our color palettes are ready to use and available as tokens in Figma [Grape DS Color Palette](https://www.figma.com/file/CmAKUTCCenvjpYuBP6Krlg/Grape-DS-Color-Palette).
-
+We crafted our color palettes based on human perception, following the LCh color space to be perceptually uniform. For designers, all our color palettes are ready to be used in Figma [Grape DS Color Palette](https://www.figma.com/file/CmAKUTCCenvjpYuBP6Krlg/Grape-DS-Color-Palette), and available as color styles from the Figma Team Library.
 ### Monochrome
 #### Black & White
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
 | <Swatch color="#ffffff"></Swatch> | `white` | #ffffff | 255,255,255
 | <Swatch color="#000000"></Swatch> | `black` | #000000 | 0,0,0
-
 #### Gray
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
@@ -175,9 +172,9 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#472a02"></Swatch> | `gold-80` | #472a02 | 71,42,2
 | <Swatch color="#331900"></Swatch> | `gold-90` | #331900 | 51,25,0
 ## Color tokens
-Each color token is drawn from a color palette token. We only use token-based colors in all of our components.
+Each color token is drawn from a color palette token. We only use token-based colors in all of our components. For designers, all our color tokens are ready to be used in Figma [Grape DS Foundation - Colors](https://www.figma.com/file/1H80rWSPzHMnJ66iic8z5q/?node-id=114%3A2), and available as color styles from the Figma Team Library.
 ### Neutrals
-Neutral tokens are divided into `base-bw`, `base` and `base-warm`. Neutrals (except base-bw) have 8 possible lightness grades, from ghost to darkest.  
+Neutral colors are divided into `base-bw`, `base` and `base-warm`. Neutrals (except base-bw) have 8 possible lightness grades, from ghost to darkest.  
 #### Base BW
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
@@ -206,10 +203,8 @@ Neutral tokens are divided into `base-bw`, `base` and `base-warm`. Neutrals (exc
 | <Swatch color="#31302d"></Swatch> | `base-warm-darker` | gray-warm-80 | #31302d | 49,48,45
 | <Swatch color="#1c1c19"></Swatch> | `base-warm-darkest` | gray-warm-90 | #1c1c19 | 28,28,25
 ### Theme
-Theme color tokens are designed to be useful in our product. Theme tokens are divided into `primary`, `secondary`, `personal` and `accent`. Each color family has 7 possible lightness grades, from lightest to darkest. Theme tokens can be used to customize the skin when white-labelling the product.
+Theme color tokens are designed to give our product personality. Theme tokens are divided into `primary`, `secondary`, `personal` and `accent`. Each color family has 7 possible lightness grades, from lightest to darkest. Theme tokens can be used to customize the skin when white-labelling our product.
 #### Primary
-The primary color is used for primary actions and elements. It's used sparingly to underline the importance.
-
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#f8edfe"></Swatch> | `primary-lightest` | purple-5 | #f8edfe | 248,237,254
@@ -220,8 +215,6 @@ The primary color is used for primary actions and elements. It's used sparingly 
 | <Swatch color="#55006b"></Swatch> | `primary-darker` | purple-80 | #55006b | 85,0,107
 | <Swatch color="#39004c"></Swatch> | `primary-darkest` | purple-90 | #39004c | 57,0,76
 #### Secondary
-The secondary color is used for links and states indicating something is active or focused.
-
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#e5f2ff"></Swatch> | `secondary-lightest` | blue-5 | #e5f2ff | 229,242,255
@@ -232,8 +225,6 @@ The secondary color is used for links and states indicating something is active 
 | <Swatch color="#074689"></Swatch> | `secondary-darker` | blue-70 | #074689 | 7,70,137
 | <Swatch color="#002040"></Swatch> | `secondary-darkest` | blue-90 | #002040 | 0,32,64
 #### Personal
-The personal color is used for everything that relates to the person interacting with our product themselves, be it their personal space or their own message.
-
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#feeded"></Swatch> | `personal-lightest` | pink-5 | #feeded | 254,237,237
@@ -254,7 +245,7 @@ The personal color is used for everything that relates to the person interacting
 | <Swatch color="#954a00"></Swatch> | `accent-darker` | orange-60 | #954a00 | 149,74,0
 | <Swatch color="#331100"></Swatch> | `accent-darkest` | orange-90 | #331100 | 51,17,0
 ### States
-State tokens are useful for states and alerts. They are divided into 5 state-roles: `positive`, `negative`, `warning`, `info`, and `disabled`. Each state token group except disabled has seven possible lightness grades, from lightest to darkest.  
+State color tokens are useful for states and alerts. They are divided into 5 state types: `positive`, `negative`, `warning`, `info`, and `disabled`. Each state color token group (except disabled) has 7 possible lightness grades, from lightest to darkest.
 #### Positive
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
