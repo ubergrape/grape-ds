@@ -6,7 +6,7 @@ import clsx from 'clsx'
 
 import { Text } from '../typography'
 import useStyles from './styles'
-import { useFocusStyle } from '../../styles/global'
+import { useFocusStyle } from '../../styles/common'
 import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
 import { genUid } from '../../utils'

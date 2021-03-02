@@ -3,7 +3,7 @@ import clsx from 'clsx'
 
 import { sizes, flexAlignments } from '../../../types'
 import { Text } from '../../typography'
-import { useFocusStyle } from '../../../styles/global'
+import { useFocusStyle } from '../../../styles/common'
 import { getTextSize } from '../../../utils'
 
 import useStyles from './styles'

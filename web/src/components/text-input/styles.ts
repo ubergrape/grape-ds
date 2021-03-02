@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
 import { parseToken } from '../../utils'
-import { getColorHover, getColorDefault } from '../checkbox/styles'
+import { getColorHover, getColorDefault } from '../../styles/common'
 import customScrollbar from '../scrollbar/styles'
 import textAreaStyles from './text-area/styles'
 

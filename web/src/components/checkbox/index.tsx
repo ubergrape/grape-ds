@@ -6,7 +6,7 @@ import { useCheckbox } from '@react-aria/checkbox'
 
 import { genUid } from '../../utils'
 import { useStyles } from './styles'
-import { useFocusStyle } from '../../styles/global'
+import { useFocusStyle } from '../../styles/common'
 import { CheckmarkIcon, IndeterminateIcon } from './icons'
 import { InputLabel } from '../input-label'
 

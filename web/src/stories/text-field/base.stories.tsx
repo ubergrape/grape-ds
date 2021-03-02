@@ -61,7 +61,7 @@ export const Default = (): JSX.Element => (
 
 export const InputTypes = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <TextField label="Email" value="olegaleshkin@gmail.com" type="email" />
+    <TextField label="Email" type="email" />
     <TextField label="Number between 1-10" type="number" min={1} max={10} />
     <TextField label="Password" type="password" />
     <TextField label="Telephone" type="tel" />

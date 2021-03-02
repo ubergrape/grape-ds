@@ -1,7 +1,7 @@
 import { JssStyle } from 'jss'
 
 import tokens from '../../../tokens'
-import { getColorDefault, getColorHover } from '../../checkbox/styles'
+import { getColorDefault, getColorHover } from '../../../styles/common'
 import { textAreaHeight, counterBoxHeight } from '../styles'
 import { TextAreaComponentProps } from '.'
 

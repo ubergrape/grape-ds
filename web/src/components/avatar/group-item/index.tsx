@@ -9,7 +9,7 @@ import { Text } from '../../typography'
 import { Group, GroupProps } from '..'
 
 import { useItemStyle } from '../styles/item'
-import { useFocusStyle } from '../../../styles/global'
+import { useFocusStyle } from '../../../styles/common'
 import useStyles from './styles'
 
 export interface GroupItemProps extends GroupProps {
