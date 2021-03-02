@@ -5,7 +5,7 @@ import { useButton } from '@react-aria/button'
 import { Icon, IconTypes } from '../../icon'
 import { Flex } from '../../layout'
 
-import { useFocusStyle } from '../../../styles/global'
+import { useFocusStyle } from '../../../styles/common'
 import { useAvatarStyle } from '../styles/avatar'
 import useStyles from './styles'
 

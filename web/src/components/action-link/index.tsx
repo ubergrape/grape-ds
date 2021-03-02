@@ -1,11 +1,12 @@
 import clsx from 'clsx'
 import React from 'react'
-import { useFocusStyle } from '../../styles/global'
+import { useFocusStyle } from '../../styles/common'
 
 import { Icon, IconTypes } from '../icon'
 import { Flex } from '../layout'
 import { Text } from '../typography'
 import { useStyles } from './styles'
+import { getTextSize } from '../../utils'
 
 export type ActionLinkProps = {
   variant?: 'primary' | 'basic' | 'danger'
@@ -20,7 +21,7 @@ export type ActionLinkProps = {
 
 export const ActionLink: React.FC<ActionLinkProps> = props => {
   const { href, icon, target, ariaLabel, children, ...rest } = props
-  const { isDisabled } = props
+  const { isDisabled, size } = props
   const style = useStyles(rest)
   const focus = useFocusStyle({ isInvalid: false, isDisabled })
   return (
@@ -42,7 +43,7 @@ export const ActionLink: React.FC<ActionLinkProps> = props => {
             focusable={false}
           />
         </div>
-        <Text as="span" size="base" className={style.label}>
+        <Text as="span" size={getTextSize(size)} className={style.label}>
           {children}
         </Text>
       </Flex>

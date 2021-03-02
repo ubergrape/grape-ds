@@ -7,6 +7,20 @@ export default {
   component: TextField,
   argTypes: {
     onChange: { action: 'typed' },
+    label: {
+      control: {
+        type: 'text',
+      },
+    },
+    'aria-label': {
+      control: {
+        type: 'text',
+      },
+    },
+    isRequired: {
+      description:
+        'Whether user input is required on the input before form submission. Paired with the `isNecessityLabel` prop to add a visual indicator to the input.',
+    },
     min: {
       description: 'Minimum value',
       control: {
@@ -62,15 +76,34 @@ export const WithoutLabel = (): JSX.Element => (
 )
 
 export const Required = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
+  <Flex gap="2x">
+    <TextField isRequired isNecessityLabel label="Label" />
     <TextField isRequired label="Label" />
   </Flex>
 )
 
 export const Optional = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
+  <Flex gap="2x">
+    <TextField isNecessityLabel label="Label" />
     <TextField label="Label" />
-    <TextField isRequired={false} label="Label" />
+  </Flex>
+)
+
+export const customLabels = (): JSX.Element => (
+  <Flex gap="2x">
+    <TextField
+      customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
+      label="Label"
+      isRequired
+      isNecessityLabel
+      defaultValue="Some value"
+    />
+    <TextField
+      customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
+      label="Label"
+      isNecessityLabel
+      defaultValue="Some value"
+    />
   </Flex>
 )
 
@@ -113,21 +146,6 @@ export const ReadOnly = (): JSX.Element => (
 export const Disabled = (): JSX.Element => (
   <Flex gap="2x">
     <TextField isDisabled label="Disabled" value="Some value" />
-  </Flex>
-)
-
-export const CustomLabels = (): JSX.Element => (
-  <Flex gap="2x">
-    <TextField
-      isRequired
-      label="Adresse"
-      customLabels={{ required: 'erforderlich' }}
-    />
-    <TextField
-      isRequired={false}
-      label="Adresse"
-      customLabels={{ optional: 'Not needed' }}
-    />
   </Flex>
 )
 

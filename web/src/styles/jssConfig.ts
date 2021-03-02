@@ -8,7 +8,7 @@ import unit from 'jss-plugin-default-unit'
 import functions from 'jss-plugin-rule-value-function'
 
 import { reset } from './reset'
-import overwrites from './globalStyleOverwrites'
+import overwrites from './global'
 
 export default (isStylesNotReset: boolean): Jss => {
   const jss = create()

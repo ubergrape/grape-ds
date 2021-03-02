@@ -7,7 +7,7 @@ import { Icon, IconTypes } from '../icon'
 import { Text } from '../typography'
 import { getTextSize } from '../../utils'
 
-import { useFocusStyle } from '../../styles/global'
+import { useFocusStyle } from '../../styles/common'
 import useStyles from './styles'
 
 export type ButtonProps = {

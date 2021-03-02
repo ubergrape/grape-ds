@@ -3,7 +3,7 @@ import clsx from 'clsx'
 
 import { sizes, flexAlignments } from '../../../types'
 import { Text } from '../../typography'
-import { useFocusStyle } from '../../../styles/global'
+import { useFocusStyle } from '../../../styles/common'
 import { getTextSize } from '../../../utils'
 
 import useStyles from './styles'
@@ -28,7 +28,6 @@ export const Tab: React.FC<TabProps> = props => {
   const isActive = activeTab === tab
 
   const onKeyDown = e => {
-    e.preventDefault()
     switch (e.which) {
       case 37:
         onChangeTab(activeTab - 1)

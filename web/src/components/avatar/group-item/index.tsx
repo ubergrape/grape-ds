@@ -9,7 +9,7 @@ import { Text } from '../../typography'
 import { Group, GroupProps } from '..'
 
 import { useItemStyle } from '../styles/item'
-import { useFocusStyle } from '../../../styles/global'
+import { useFocusStyle } from '../../../styles/common'
 import useStyles from './styles'
 
 export interface GroupItemProps extends GroupProps {
@@ -56,7 +56,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
             {name}
           </Text>
           <div className={classes.secondary}>
-            {members && size !== 'small' && (
+            {members > 0 && size === 'regular' && (
               <Text size="small">
                 <Flex
                   items="center"
@@ -92,6 +92,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
 }
 
 GroupItem.defaultProps = {
+  size: 'regular',
   name: 'Group name',
   isInactive: false,
 }

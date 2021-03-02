@@ -16,6 +16,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     cursor: ({ isDisabled }: ActionLinkProps) =>
       isDisabled ? 'not-allowed' : 'pointer',
     '&:hover': {
+      textDecoration: 'none',
       backgroundColor: ({ variant, isDisabled }: ActionLinkProps): string => {
         if (isDisabled) return undefined
         switch (variant) {
@@ -51,7 +52,10 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
           return tokens.colorBackgroundActionlinkBasicIconShape
       }
     },
-    marginRight: theme.paddingActionlinkRegularIconshapeLinktext,
+    marginRight: ({ size }: ActionLinkProps) =>
+      size === 'regular'
+        ? theme.paddingActionlinkRegularIconshapeLinktext
+        : theme.paddingActionlinkSmallIconshapeLinktext,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

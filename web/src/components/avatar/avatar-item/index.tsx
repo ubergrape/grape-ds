@@ -7,7 +7,7 @@ import { Text } from '../../typography'
 import { Avatar, AvatarProps } from '..'
 
 import { useItemStyle } from '../styles/item'
-import { useFocusStyle } from '../../../styles/global'
+import { useFocusStyle } from '../../../styles/common'
 import useStyles from './styles'
 
 export interface AvatarItemProps extends AvatarProps {

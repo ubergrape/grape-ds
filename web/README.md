@@ -70,6 +70,14 @@ yarn build:lib
 
 (or run `yarn build:components` in the root directory of this repo)
 
+build the components package on each change:
+
+```bash
+yarn build:lib:watch
+```
+
+(or run `yarn build:components:watch` in the root directory of this repo)
+
 
 ## Adding content
 

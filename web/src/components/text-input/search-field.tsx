@@ -27,11 +27,25 @@ const useStyles = createUseStyles(() => ({
   },
 }))
 
+export interface SearchFieldComponentProps extends InputProps {
+  type: 'search'
+  removeAriaLabel: string
+}
+
+export interface SearchFieldWithLabelProps extends SearchFieldComponentProps {
+  label: string
+}
+
+export interface SearchFieldWithoutLabelProps extends SearchFieldComponentProps {
+  'aria-label': string
+}
+
+export type SearchFieldProps =
+  | SearchFieldWithLabelProps
+  | SearchFieldWithoutLabelProps
+
 export const SearchField: React.FC<
-  InputProps & {
-    icon?: IconTypes
-    removeAriaLabel?: string
-  }
+  SearchFieldProps & { icon?: IconTypes }
 > = props => {
   const classes = useStyles(props)
 
