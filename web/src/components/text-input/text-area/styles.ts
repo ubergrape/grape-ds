@@ -19,7 +19,7 @@ export default ({
   theme,
 }: TextAreaComponentStyles): Record<string, JssStyle | string> => ({
   '& > .os-host-textarea:not(.focus)': {
-    '&:hover': {
+    '&:hover:not(:focus)': {
       borderColor: getColorHover,
     },
     borderColor: getColorDefault,
