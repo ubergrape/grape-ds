@@ -8,8 +8,6 @@ export const Swatch = ({children, color}) => (
     style={{
       backgroundColor: color,
       borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
       width: '32px',
       height: '32px',
     }}>
@@ -17,11 +15,11 @@ export const Swatch = ({children, color}) => (
   </div>
 );
 
-Our colors are light and quiet in the background, but shine bright for important or active elements in the foreground.  
-## Tokens
-We organize our tokens into color palette tokens, theme tokens including neutrals/grays, and state tokens. The color palette tokens are the complete set of colors available. Theme and state tokens are a smaller subset of all available tokens and customized to the main use cases.
+Aurora colors are designed to be vivid and accessible, light and quiet in the background, but shine bright for important or active elements in the foreground. The Aurora theme is constituted of grays, theme colors and semantic colors.  
 ## Color and accessibility
-The effects of color on people are neither consistent nor predictable across all people. Color insensitivity can make it difficult to distinguish hues for some people. We are commited to complying with AA standard contrast ratios. To do so, choose colors that support usability by ensuring sufficient color contrast between background and foreground elements so that people with low vision - be it temporary, situational or permanent - can easily use the interface.
+The effects of color on people are neither consistent nor predictable across all people. Color insensitivity can make it difficult to distinguish hues for some people.  
+
+The Aurora color system is designed in the LCh color space and crafted to be perceptually uniform. We are commited to complying with [WCAG 2.1 AA standard contrast ratios](https://www.w3.org/TR/WCAG/). To do so, choose colors that support usability by ensuring sufficient color contrast between background and foreground elements so that color blind people or people with low vision - be it temporary, situational or permanent - can easily use the interface.
 ### Accessible color pairings
 Our color system helps you to choose accessible color pairings. Each color from the color palette has a grade assigned to the color family name (like `gray-50`), which represents its luminance:  
   
@@ -32,14 +30,12 @@ The grades can be used for calculating color contrast as defined by WCAG guideli
 - difference of **50+** for **normal text** (contrast ratio at least **4.5:1**)
 
 \* Large text is defined as (at least) 14 pt (= typically 19px) bold or 18 pt (= typically 24px).  
-
 #### Accessible color combination examples
 ![Color combination examples](./assets/color-combinations.png)
-
-
+## Tokens
+Color is managed in Aurora using tokens. We organize our tokens into color palette tokens, which we use as aliases to assign them to color tokens for our grays, theme and state colors. The color palette tokens are the complete set of colors available. Grays, theme and state tokens are a smaller subset of all available tokens and customized to the main use cases. Color tokens (e.g. `gray-5`, `base-lightest`) are a way to abstract the actual color value (e.g. `#f1f1f1`) from its role in the interface. A single token can be associated with multiple roles, but only one actual color value is used across those roles.
 ## Color palettes
-We crafted our color palettes based on human perception, following the LCh color space to be perceptually uniform. For designers, all our color palettes are ready to be used in Figma [Grape DS Color Palette](https://www.figma.com/file/CmAKUTCCenvjpYuBP6Krlg/Grape-DS-Color-Palette), and available as color styles from the Figma Team Library.
-### Monochrome
+### Grays
 #### Black & White
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
@@ -79,7 +75,7 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#474744"></Swatch> | `gray-warm-70` | #474744 | 71,71,68
 | <Swatch color="#31302d"></Swatch> | `gray-warm-80` | #31302d | 49,48,45
 | <Swatch color="#1c1c19"></Swatch> | `gray-warm-90` | #1c1c19 | 28,28,25
-### Colors vivid
+### Colors
 #### Purple
 | Color | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- |
@@ -172,9 +168,13 @@ We crafted our color palettes based on human perception, following the LCh color
 | <Swatch color="#472a02"></Swatch> | `gold-80` | #472a02 | 71,42,2
 | <Swatch color="#331900"></Swatch> | `gold-90` | #331900 | 51,25,0
 ## Color tokens
-Each color token is drawn from a color palette token. We only use token-based colors in all of our components. For designers, all our color tokens are ready to be used in Figma [Grape DS Foundation - Colors](https://www.figma.com/file/1H80rWSPzHMnJ66iic8z5q/?node-id=114%3A2), and available as color styles from the Figma Team Library.
-### Neutrals
-Neutral colors are divided into `base-bw`, `base` and `base-warm`. Neutrals (except base-bw) have 8 possible lightness grades, from ghost to darkest.  
+Each color token is drawn from a color palette token. We only use token-based colors in all of our components and interface elements. Every part of the interface in any possible state (hover, focus, disabled, etc.) is mapped to one of our predefined color tokens. Constraining the interface to a predefined set of colors ensures consistency while providing flexibility and context for use of color.  
+
+:::note
+When colored text is used on colored background, adjust for sufficient contrast. Use inverse text color if necessary. In light color mode the background color should be lighter than the text color, and we suggest applying light-dark-contrast to your elements.
+:::.
+### Grays
+Gray colors are divided into `base-bw`, `base` and `base-warm`. Grays (except base-bw) have 8 possible lightness grades, from ghost to darkest. The gray color family is dominant in the default theme, making subtle shifts in value to help organize content into distinct zones.
 #### Base BW
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
@@ -205,6 +205,8 @@ Neutral colors are divided into `base-bw`, `base` and `base-warm`. Neutrals (exc
 ### Theme
 Theme color tokens are designed to give our product personality. Theme tokens are divided into `primary`, `secondary`, `personal` and `accent`. Each color family has 7 possible lightness grades, from lightest to darkest. Theme tokens can be used to customize the skin when white-labelling our product.
 #### Primary
+The primary color family serves as the primary action color across our products and experiences (e.g. primary button, primary action-link). Use it sparingly for important actions.
+
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#f8edfe"></Swatch> | `primary-lightest` | purple-5 | #f8edfe | 248,237,254
@@ -215,6 +217,8 @@ Theme color tokens are designed to give our product personality. Theme tokens ar
 | <Swatch color="#55006b"></Swatch> | `primary-darker` | purple-80 | #55006b | 85,0,107
 | <Swatch color="#39004c"></Swatch> | `primary-darkest` | purple-90 | #39004c | 57,0,76
 #### Secondary
+The secondary color is used for interactive elements like links and active, focus and selected states.
+
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#e5f2ff"></Swatch> | `secondary-lightest` | blue-5 | #e5f2ff | 229,242,255
@@ -225,6 +229,8 @@ Theme color tokens are designed to give our product personality. Theme tokens ar
 | <Swatch color="#074689"></Swatch> | `secondary-darker` | blue-70 | #074689 | 7,70,137
 | <Swatch color="#002040"></Swatch> | `secondary-darkest` | blue-90 | #002040 | 0,32,64
 #### Personal
+The personal color family is reserved for elements and content directly related to the interacting person, be it content or navigational elements or indicators.
+
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
 | <Swatch color="#feeded"></Swatch> | `personal-lightest` | pink-5 | #feeded | 254,237,237
@@ -245,7 +251,7 @@ Theme color tokens are designed to give our product personality. Theme tokens ar
 | <Swatch color="#954a00"></Swatch> | `accent-darker` | orange-60 | #954a00 | 149,74,0
 | <Swatch color="#331100"></Swatch> | `accent-darkest` | orange-90 | #331100 | 51,17,0
 ### States
-State color tokens are useful for states and alerts. They are divided into 5 state types: `positive`, `negative`, `warning`, `info`, and `disabled`. Each state color token group (except disabled) has 7 possible lightness grades, from lightest to darkest.
+State colors are semantic colors. They have assigned meanings and are used consistently throughout Aurora. Color is used sparingly and intentionally to create clear modes of communication. State colors are divided into 5 state color families: `positive`, `negative`, `warning`, `info`, and `disabled`. Each family (except disabled) has 7 possible lightness grades, from lightest to darkest.
 #### Positive
 | Color | Token | Palette token | HEX | RGB
 | :-- | :-- | :-- | :-- | :-- |
@@ -293,3 +299,7 @@ State color tokens are useful for states and alerts. They are divided into 5 sta
 | <Swatch color="#e2e2e2"></Swatch> | `disabled-light` | gray-10 | #e2e2e2 | 226,226,226
 | <Swatch color="#c6c6c6"></Swatch> | `disabled-base` | gray-20 | #c6c6c6 | 198,198,198
 | <Swatch color="#c6c6c6"></Swatch> | `disabled-dark` | gray-30 | #ababab | 171,171,171
+## Resources
+For designers, all our colors are ready to be used in Figma, and available as color styles from the Figma Team Library.
+- [Grape DS Color Palette](https://www.figma.com/file/CmAKUTCCenvjpYuBP6Krlg/Grape-DS-Color-Palette)
+- [Grape DS Foundation - Colors](https://www.figma.com/file/1H80rWSPzHMnJ66iic8z5q/?node-id=114%3A2)
