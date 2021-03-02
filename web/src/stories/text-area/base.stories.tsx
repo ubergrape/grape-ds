@@ -72,13 +72,13 @@ export const customLabels = (): JSX.Element => (
       label="Label"
       isRequired
       isNecessityLabel
-      value="Some value"
+      defaultValue="Some value"
     />
     <TextArea
       customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
       label="Label"
       isNecessityLabel
-      value="Some value"
+      defaultValue="Some value"
     />
   </Flex>
 )

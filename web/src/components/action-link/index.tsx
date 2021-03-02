@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import React from 'react'
-import { useFocusStyle } from '../../styles/global'
+import { useFocusStyle } from '../../styles/common'
 
 import { Icon, IconTypes } from '../icon'
 import { Flex } from '../layout'

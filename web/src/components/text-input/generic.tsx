@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, SyntheticEvent } from 'react'
+import { FocusRing } from '@react-aria/focus'
 import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
 import clsx from 'clsx'
 
 import { Text } from '../typography'
 import useStyles from './styles'
-import { useFocusStyle } from '../../styles/global'
+import { useFocusStyle } from '../../styles/common'
 import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
 import { genUid } from '../../utils'
@@ -27,6 +28,7 @@ import {
 
 export interface InputComponentProps extends AriaTextFieldOptions {
   id?: string
+  name?: string
   isInvalid?: boolean
   isDisabled?: boolean
   isReadOnly?: boolean
@@ -44,8 +46,12 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   }
   // Defines if visual label indicator for isRequired value should be shown
   isNecessityLabel?: boolean
+  autoFocus?: boolean
   value?: string
   defaultValue?: string
+  onChange?: (v: string) => void
+  onBlur?: (e: SyntheticEvent) => void
+  onFocus?: (e: SyntheticEvent) => void
   renderLeft?: () => JSX.Element
   renderRight?: (props: {
     onClear: () => void
@@ -68,6 +74,7 @@ export type GenericFieldProps =
 export const GenericField: React.FC<GenericFieldProps> = props => {
   const {
     label,
+    type,
     isInvalid,
     isDisabled,
     isReadOnly,
@@ -75,6 +82,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     validationHelp,
     isRequired,
     isNecessityLabel,
+    autoFocus,
     maxLength,
     minLength,
     renderLeft,
@@ -101,9 +109,10 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     )
   }
 
+  const isTypeNumber = type === 'number'
   const allowedChars = maxLength - value.length
-  const isMaxLengthReached = allowedChars < 0
-  const isMinLengthReached = value.length < minLength
+  const isMaxLengthReached = allowedChars < 0 && !isTypeNumber
+  const isMinLengthReached = value.length < minLength && !isTypeNumber
 
   const { labelProps, inputProps } = useTextField(
     {
@@ -115,9 +124,13 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         setDirty(v.length > 0)
         props.onChange?.(v)
       },
-      ...(props.component === 'textarea' && {
-        onFocus: e => onTextAreaFocus(e, props),
-      }),
+      onBlur: e => {
+        props.onBlur?.(e)
+      },
+      onFocus: e => {
+        if (props.component === 'textarea') onTextAreaFocus(e, props)
+        props.onFocus?.(e)
+      },
     },
     ref,
   )
@@ -126,7 +139,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const max = 'max' in props ? props.max : undefined
 
   const isNumberValid = useMemo(() => {
-    if (props.type === 'search' || props.type !== 'number') return true
+    if (type === 'search' || type !== 'number') return true
     if (value.length === 0) return true
     const val = Number(value)
     if (min !== undefined && val < min) return false
@@ -187,29 +200,35 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           </Text>
         </Flex>
       )}
-      <div className={clsx(classes.inputWrapper, onFocus)}>
+      <div
+        className={clsx(
+          classes.inputWrapper,
+          props.component === 'textarea' && onFocus,
+        )}
+      >
         {renderLeft?.()}
-
-        <Component
-          className={clsx(
-            classes.textField,
-            classes.customScrollbar,
-            onFocus,
-            'os-text-inherit',
-            'os-textarea',
-          )}
-          {...inputProps}
-          {...(invalid && { 'aria-invalid': true })}
-          {...(min !== undefined && { min })}
-          {...(max !== undefined && { max })}
-          {...(validationHelp && {
-            'aria-describedby': validationHelpId,
-          })}
-          {...(props.component === 'textarea' &&
-            props.rows && { rows: props.rows })}
-          ref={ref}
-        />
-        {maxLength > 0 && !isDisabled && !isReadOnly && (
+        <FocusRing {...(autoFocus && autoFocus)}>
+          <Component
+            className={clsx(
+              classes.textField,
+              classes.customScrollbar,
+              onFocus,
+              'os-text-inherit',
+              'os-textarea',
+            )}
+            {...inputProps}
+            {...(invalid && { 'aria-invalid': true })}
+            {...(min !== undefined && { min })}
+            {...(max !== undefined && { max })}
+            {...(validationHelp && {
+              'aria-describedby': validationHelpId,
+            })}
+            {...(props.component === 'textarea' &&
+              props.rows && { rows: props.rows })}
+            ref={ref}
+          />
+        </FocusRing>
+        {maxLength > 0 && !isDisabled && !isReadOnly && !isTypeNumber && (
           <div className={classes.counterWrapper}>
             <Text
               className={classes.counter}

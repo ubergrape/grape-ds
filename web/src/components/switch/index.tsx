@@ -6,7 +6,7 @@ import { useSwitch } from '@react-aria/switch'
 
 import { genUid } from '../../utils'
 import { useStyles } from './styles'
-import { useFocusStyle } from '../../styles/global'
+import { useFocusStyle } from '../../styles/common'
 import { InputLabel } from '../input-label'
 
 export interface Props {
