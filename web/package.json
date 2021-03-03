@@ -1,6 +1,6 @@
 {
-  "name": "aurora-ui",
-  "version": "1.0.0",
+  "name": "@ubergrape/aurora-ui",
+  "version": "0.0.1",
   "repository": "git@github.com:ubergrape/grape-ds.git",
   "author": "UberGrape Gmbh <support@grape.io>",
   "license": "MIT",
