@@ -82,14 +82,12 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     isNecessityLabel,
     autoFocus,
     maxLength,
-    minLength,
     renderLeft,
     renderRight,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
 
-  const [isInteracted, setInteracted] = useState(false)
   const [isDirty, setDirty] = useState(false)
   const [osInstance, setOsInstance] = useState(null)
   const [value, setValue] = useState(props.value || props.defaultValue || '')
@@ -113,7 +111,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
 
   const allowedChars = maxLength - value.length
   const isMaxLengthReached = allowedChars < 0 && !isTypeNumber
-  const isMinLengthReached = value.length < minLength && !isTypeNumber
 
   const { labelProps, inputProps } = useTextField(
     {
@@ -124,7 +121,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         props.onChange?.(v)
       },
       onBlur: e => {
-        setInteracted(true)
         props.onBlur?.(e)
       },
       onFocus: e => {
@@ -147,11 +143,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     return true
   }, [value, min, max])
 
-  const invalid =
-    isInvalid ||
-    isMaxLengthReached ||
-    (isMinLengthReached && isInteracted) ||
-    !isNumberValid
+  const invalid = isInvalid || isMaxLengthReached || !isNumberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
   const classes = useStyles({ ...customProps, overflowPadding })
@@ -229,7 +221,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             {...(props.component === 'textarea' &&
               props.rows && { rows: props.rows })}
             ref={ref}
-            required
           />
         </FocusRing>
         {maxLength > 0 &&
