@@ -23,6 +23,7 @@ export interface TextAreaComponentProps extends InputComponentProps {
   maxLength?: number
   allowResize?: boolean
   autoExpand?: boolean
+  height?: number | string
 }
 
 export interface TextAreaWithLabelProps extends TextAreaComponentProps {
