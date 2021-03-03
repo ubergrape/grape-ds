@@ -20,7 +20,6 @@ const useStyles = createUseStyles(() => ({
   },
   rightIcon: {
     position: 'absolute',
-    fontSize: tokens.fontSizeBodySmall,
     display: 'flex',
     right: tokens.size1X,
     top: tokens.sizeHalfX,

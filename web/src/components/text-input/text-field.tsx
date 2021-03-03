@@ -6,6 +6,7 @@ export interface TextFieldComponentProps extends InputProps {
   min?: number
   max?: number
   type?: 'email' | 'number' | 'password' | 'tel' | 'text' | 'url'
+  maxLength?: number
 }
 
 export interface TextFieldWithLabelProps extends TextFieldComponentProps {

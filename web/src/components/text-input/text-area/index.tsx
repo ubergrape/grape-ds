@@ -20,6 +20,7 @@ export interface TextAreaComponentProps extends InputComponentProps {
   rows?: number
   minHeight?: number
   maxHeight?: number
+  maxLength?: number
   allowResize?: boolean
   autoExpand?: boolean
 }

@@ -38,7 +38,6 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   validationHelp?: string
   height?: number | string
   width?: number | string
-  maxLength?: number
   minLength?: number
   customLabels?: {
     required?: string
@@ -110,6 +109,8 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   }
 
   const isTypeNumber = type === 'number'
+  const isTypeSearch = type === 'search'
+
   const allowedChars = maxLength - value.length
   const isMaxLengthReached = allowedChars < 0 && !isTypeNumber
   const isMinLengthReached = value.length < minLength && !isTypeNumber
@@ -228,17 +229,21 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             ref={ref}
           />
         </FocusRing>
-        {maxLength > 0 && !isDisabled && !isReadOnly && !isTypeNumber && (
-          <div className={classes.counterWrapper}>
-            <Text
-              className={classes.counter}
-              size="base"
-              color={invalid ? 'danger' : 'formfieldCounter'}
-            >
-              {allowedChars}
-            </Text>
-          </div>
-        )}
+        {maxLength > 0 &&
+          !isDisabled &&
+          !isReadOnly &&
+          !isTypeNumber &&
+          !isTypeSearch && (
+            <div className={classes.counterWrapper}>
+              <Text
+                className={classes.counter}
+                size="base"
+                color={invalid ? 'danger' : 'formfieldCounter'}
+              >
+                {allowedChars}
+              </Text>
+            </div>
+          )}
         {renderRight?.({
           onClear: () => {
             props.onChange?.('')

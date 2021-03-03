@@ -21,6 +21,11 @@ export default {
       description:
         'Whether user input is required on the input before form submission. Paired with the `isNecessityLabel` prop to add a visual indicator to the input.',
     },
+    type: {
+      table: {
+        control: false,
+      },
+    },
   },
   parameters: {
     design: {
@@ -62,8 +67,34 @@ export const WithoutLabel = (): JSX.Element => (
 )
 
 export const Required = (): JSX.Element => (
-  <Flex gap="2x" direction="column" wrap>
-    <SearchField isRequired removeAriaLabel="Remove" label="Label" />
+  <Flex gap="2x">
+    <SearchField isRequired isNecessityLabel label="Label" />
+    <SearchField isRequired label="Label" />
+  </Flex>
+)
+
+export const Optional = (): JSX.Element => (
+  <Flex gap="2x">
+    <SearchField isNecessityLabel label="Label" />
+    <SearchField label="Label" />
+  </Flex>
+)
+
+export const customLabels = (): JSX.Element => (
+  <Flex gap="2x">
+    <SearchField
+      customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
+      label="Label"
+      isRequired
+      isNecessityLabel
+      defaultValue="Some value"
+    />
+    <SearchField
+      customLabels={{ required: 'REQUIRED', optional: 'OPTIONAL' }}
+      label="Label"
+      isNecessityLabel
+      defaultValue="Some value"
+    />
   </Flex>
 )
 
