@@ -17,7 +17,7 @@
     "build:storybook": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
     "build:lib": "rollup -c",
     "build:lib:watch": "rollup -c -w",
-    "prepublishOnly": "yarn test && yarn build:lib"
+    "prepublishOnly": "yarn build:lib"
   },
   "dependencies": {
     "@react-aria/button": "^3.2.1",
