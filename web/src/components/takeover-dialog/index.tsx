@@ -1,7 +1,11 @@
 import React, { ReactElement, useRef } from 'react'
 import { useDialog } from '@react-aria/dialog'
 import { FocusScope } from '@react-aria/focus'
-import { useOverlay, usePreventScroll, useModal } from '@react-aria/overlays'
+import {
+  useOverlay,
+  usePreventScroll,
+  ModalAriaProps,
+} from '@react-aria/overlays'
 
 import Button from '../button'
 import { Scrollbar } from '../scrollbar'
@@ -17,10 +21,19 @@ export type TakeoverDialogProps = {
   ariaLabel?: string
   closeAriaLabel?: string
   onClose: () => void
+  modalProps: ModalAriaProps
 }
 
 export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
-  const { title, onClose, ariaLabel, closeAriaLabel, children, isOpen } = props
+  const {
+    title,
+    onClose,
+    ariaLabel,
+    closeAriaLabel,
+    children,
+    isOpen,
+    modalProps,
+  } = props
 
   if (!isOpen) return null
 
@@ -28,7 +41,6 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
   const classes = useStyles(props)
   usePreventScroll()
 
-  const { modalProps } = useModal()
   const { overlayProps } = useOverlay(props, ref)
   const { titleProps, dialogProps } = useDialog(
     {
