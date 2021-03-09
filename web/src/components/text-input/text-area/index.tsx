@@ -7,6 +7,7 @@ import React, {
 } from 'react'
 import OverlayScrollbars from 'overlayscrollbars'
 
+import { usePrevious } from '../../../utils'
 import { onOverflowChanged } from '../../scrollbar'
 
 import {
@@ -86,7 +87,7 @@ export const useTextAreaEffects = (
   }: {
     osInstance: OverlayScrollbars
     setOsInstance: Dispatch<SetStateAction<OverlayScrollbars>>
-    setOverflowPadding: Dispatch<SetStateAction<string>>
+    setOverflowPadding: Dispatch<SetStateAction<number>>
   },
   ref: MutableRefObject<HTMLInputElement & HTMLTextAreaElement>,
 ): void => {
@@ -99,14 +100,6 @@ export const useTextAreaEffects = (
       }
     }
   }, [])
-
-  const usePrevious = <T extends unknown>(v: T): T | undefined => {
-    const prevRef = React.useRef<T>()
-    useEffect(() => {
-      prevRef.current = v
-    })
-    return prevRef.current
-  }
 
   const {
     width,

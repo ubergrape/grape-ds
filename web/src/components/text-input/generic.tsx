@@ -55,6 +55,7 @@ export interface InputComponentProps extends AriaTextFieldOptions {
     onClear: () => void
     isDirty?: boolean
   }) => JSX.Element
+  className: string
 }
 
 export interface InputProps extends InputComponentProps {
@@ -84,6 +85,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     maxLength,
     renderLeft,
     renderRight,
+    className,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
@@ -91,7 +93,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const [isDirty, setDirty] = useState(false)
   const [osInstance, setOsInstance] = useState(null)
   const [value, setValue] = useState(props.value || props.defaultValue || '')
-  const [overflowPadding, setOverflowPadding] = useState('0px')
+  const [overflowPadding, setOverflowPadding] = useState(0)
 
   // https://github.com/KingSora/OverlayScrollbars/issues/146
   if (props.component === 'textarea') {
@@ -152,7 +154,11 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const validationHelpId = genUid()
 
   return (
-    <Flex className={classes.wrapper} direction="column" gap="0.5x">
+    <Flex
+      className={clsx(classes.wrapper, className)}
+      direction="column"
+      gap="0.5x"
+    >
       {label && (
         <label className={classes.label} {...labelProps}>
           <Text

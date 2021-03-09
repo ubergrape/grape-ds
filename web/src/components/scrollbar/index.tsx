@@ -1,8 +1,12 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import clsx from 'clsx'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
+import {
+  OverlayScrollbarsComponent,
+  OverlayScrollbarsComponentProps,
+} from 'overlayscrollbars-react'
 import { createUseStyles } from 'react-jss'
 
+import { parseToken } from '../../utils'
 import tokens from '../../tokens'
 import scrollBarStyles from './styles'
 
@@ -14,14 +18,14 @@ export const onOverflowChanged = (
   args: {
     yScrollable: boolean
   },
-  setPadding: Dispatch<SetStateAction<string>>,
+  setPadding: Dispatch<SetStateAction<number>>,
 ): void => {
   if (args.yScrollable) {
-    setPadding(tokens.size2X)
+    setPadding(parseToken(tokens.size2X))
     return
   }
 
-  setPadding('0px')
+  setPadding(0)
 }
 
 const useStyles = createUseStyles((theme: typeof tokens) => ({
@@ -29,10 +33,15 @@ const useStyles = createUseStyles((theme: typeof tokens) => ({
     scrollBarStyles({ overflowPadding, theme }),
 }))
 
-export const Scrollbar = (
-  props: OverlayScrollbarsComponent['props'],
-): JSX.Element => {
-  const [overflowPadding, setOverflowPadding] = useState('0px')
+interface ScrollbarProps extends OverlayScrollbarsComponentProps {
+  onOverflowPaddingChanged: (overflowPadding: number) => void
+}
+
+export const Scrollbar = ({
+  onOverflowPaddingChanged,
+  ...props
+}: ScrollbarProps): JSX.Element => {
+  const [overflowPadding, setOverflowPadding] = useState(0)
 
   const styles = useStyles(overflowPadding)
 
@@ -51,6 +60,7 @@ export const Scrollbar = (
         callbacks: {
           onOverflowChanged: args => {
             onOverflowChanged(args, setOverflowPadding)
+            onOverflowChanged(args, onOverflowPaddingChanged)
           },
         },
       }}

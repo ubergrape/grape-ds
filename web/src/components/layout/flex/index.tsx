@@ -6,6 +6,7 @@ import useStyles from './styles'
 
 export interface FlexProps {
   gap?: GapTypes
+  flex?: CSSProperties['flex']
   direction?: CSSProperties['flexDirection']
   wrap?: boolean | CSSProperties['flexWrap']
   items?: CSSProperties['alignItems']

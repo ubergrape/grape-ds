@@ -33,6 +33,7 @@
     "clsx": "^1.1.1",
     "grape-icons": "ubergrape/grape-icons",
     "jss": "^10.3.0",
+    "jss-increase-specificity": "^0.3.5",
     "jss-plugin-camel-case": "^10.3.0",
     "jss-plugin-default-unit": "^10.3.0",
     "jss-plugin-expand": "^10.3.0",

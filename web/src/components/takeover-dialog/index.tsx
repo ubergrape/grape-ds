@@ -20,6 +20,7 @@ export type TakeoverDialogProps = {
   isDismissable?: boolean
   ariaLabel?: string
   closeAriaLabel?: string
+  onOverflowPaddingChanged: (overflowPadding: number) => void
   onClose: () => void
   modalProps: ModalAriaProps
 }
@@ -30,6 +31,7 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
     onClose,
     ariaLabel,
     closeAriaLabel,
+    onOverflowPaddingChanged,
     children,
     isOpen,
     modalProps,
@@ -78,7 +80,9 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
               </Headline>
             )}
             <div className={classes.body}>
-              <Scrollbar>{children}</Scrollbar>
+              <Scrollbar onOverflowPaddingChanged={onOverflowPaddingChanged}>
+                {children}
+              </Scrollbar>
             </div>
           </div>
           <div className={classes.button}>

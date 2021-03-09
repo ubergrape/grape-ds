@@ -13,6 +13,7 @@ export const counterBoxHeight =
 
 export default createUseStyles((theme: typeof tokens) => ({
   wrapper: {
+    padding: [0, theme.outlineWidthFocus],
     width: ({ width }) => {
       if (width) return width
       return '100%'
@@ -30,7 +31,7 @@ export default createUseStyles((theme: typeof tokens) => ({
       })),
     position: 'relative',
   }),
-  customScrollbar: ({ overflowPadding }: { overflowPadding: string }) =>
+  customScrollbar: ({ overflowPadding }: { overflowPadding: number }) =>
     customScrollbar({ overflowPadding, theme }),
   textField: {
     fontFamily: theme.fontFamily,
