@@ -13,6 +13,7 @@ export type ActionLinkProps = {
   size?: 'regular' | 'small'
   href: string
   target?: '_blank' | '_self'
+  className?: string
   icon?: IconTypes
   isDisabled?: boolean
   ariaLabel?: string
@@ -20,7 +21,7 @@ export type ActionLinkProps = {
 }
 
 export const ActionLink: React.FC<ActionLinkProps> = props => {
-  const { href, icon, target, ariaLabel, children, ...rest } = props
+  const { href, icon, target, ariaLabel, children, className, ...rest } = props
   const { isDisabled, size } = props
   const style = useStyles(rest)
   const focus = useFocusStyle({ isInvalid: false, isDisabled })
@@ -29,7 +30,7 @@ export const ActionLink: React.FC<ActionLinkProps> = props => {
       {...(!isDisabled && { href })}
       target={target}
       title={children}
-      className={clsx(style.actionLink, focus.onFocus)}
+      className={clsx(style.actionLink, focus.onFocus, className)}
       {...(isDisabled && { tabIndex: -1 })}
       {...(ariaLabel && { 'aria-label': ariaLabel })}
     >

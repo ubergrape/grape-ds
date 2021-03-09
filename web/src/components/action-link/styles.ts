@@ -31,6 +31,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
         }
       },
     },
+    paddingLeft: theme.outlineWidthFocus,
     paddingRight: ({ size }: ActionLinkProps) =>
       size === 'regular' ? theme.size2X : theme.size1X,
     transition: 'background-color 0.25s ease-in-out',
