@@ -12,6 +12,7 @@ export const useItemStyle = createUseStyles(
       display: 'flex',
       border: 0,
       padding: theme.sizeHalfX,
+      margin: [0, theme.outlineWidthFocus],
       alignItems: 'center',
       backgroundColor: 'transparent',
       cursor: ({ isDisabled }) => (isDisabled ? 'auto' : 'pointer'),

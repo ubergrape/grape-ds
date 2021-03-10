@@ -15,6 +15,7 @@ import useStyles from './styles'
 export interface GroupItemProps extends GroupProps {
   name: string
   description?: string
+  className?: string
   members?: number
   ariaLabel?: string
   isUnclickable?: boolean
@@ -28,7 +29,14 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
   const { onFocus } = useFocusStyle(props)
   const itemClasses = useItemStyle(props)
 
-  const { name, description, members, ariaLabel, ...restGroupProps } = props
+  const {
+    name,
+    description,
+    members,
+    ariaLabel,
+    className,
+    ...restGroupProps
+  } = props
   const { onClick, isDisabled, ...restButtonProps } = props
   const { size } = props
 
@@ -41,7 +49,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
     <FocusRing focusRingClass={onFocus} within>
       <button
         type="button"
-        className={itemClasses.wrapper}
+        className={clsx(itemClasses.wrapper, className)}
         ref={ref}
         aria-label={ariaLabel || name}
         {...buttonProps}
