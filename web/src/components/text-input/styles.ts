@@ -97,10 +97,17 @@ export default createUseStyles((theme: typeof tokens) => ({
     '&:placeholder': {
       color: theme.colorTextFormfieldPlaceholder,
     },
+    borderColor: getColorDefault,
+  },
+  textInput: {
     '&:hover:not(:focus)': {
       borderColor: getColorHover,
     },
-    borderColor: getColorDefault,
+  },
+  textArea: {
+    '&:hover:not(.focus)': {
+      borderColor: getColorHover,
+    },
   },
   validationWrapper: {
     display: 'flex',

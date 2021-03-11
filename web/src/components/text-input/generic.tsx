@@ -212,7 +212,10 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           <Component
             className={clsx(
               classes.textField,
-              classes.customScrollbar,
+              props.component === 'textarea'
+                ? classes.textArea
+                : classes.textInput,
+              props.component === 'textarea' && classes.customScrollbar,
               onFocus,
               'os-text-inherit',
               'os-textarea',

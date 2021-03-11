@@ -60,7 +60,8 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
   const key = useMemo(() => genUid(), [])
 
   return (
-    <Flex direction="column"
+    <Flex
+      direction="column"
       gap="0.5x"
       className={clsx(classes.wrapper, className)}
     >
@@ -87,7 +88,13 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
           )}
         </label>
       )}
-      <div className={clsx(classes.inputWrapper, isFocused && focusWithBorder)}>
+      <div
+        className={clsx(
+          isFocused && focusWithBorder,
+          isFocused && 'focus',
+          classes.inputWrapper,
+        )}
+      >
         {children &&
           children.map(child => <div className={classes.tag}>{child}</div>)}
         <FocusRing {...(autoFocus && autoFocus)}>

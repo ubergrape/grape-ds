@@ -1,7 +1,7 @@
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../tokens'
-
+import { getColorHover, getColorDefault } from '../../styles/common'
 import { parseToken } from '../../utils'
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
@@ -18,8 +18,13 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     borderStyle: 'solid',
     display: 'flex',
     flexWrap: 'wrap',
-    padding: `${theme.paddingFormfieldTextareaInputtextTopbottom}
-      ${parseToken(theme.paddingFormfieldInputtextLeftright) - 4}px`,
+    padding: `0 ${parseToken(theme.paddingFormfieldInputtextLeftright) - 4}px`,
+    '&:hover:not(.focus)': {
+      borderColor: getColorHover,
+    },
+    '&:not(.focus)': {
+      borderColor: getColorDefault,
+    },
   },
   tag: {
     display: 'inline-block',
@@ -33,9 +38,13 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     border: 'none',
     display: 'inline-block',
     flex: '1',
+    height: 24,
     padding: 4,
     '&:focus': {
       outline: 0,
+    },
+    '&:placeholder': {
+      color: theme.colorTextFormfieldPlaceholder,
     },
   },
   label: {},
