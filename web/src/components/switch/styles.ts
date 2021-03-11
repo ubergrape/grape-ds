@@ -31,7 +31,14 @@ const getColorHover = ({ isChecked, isDisabled, isIndeterminate }): string => {
 }
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
-  spacing: { marginRight: theme.size1X },
+  wrapper: {
+    padding: [
+      theme.outlineWidthFocus,
+      theme.size1X,
+      theme.outlineWidthFocus,
+      theme.outlineWidthFocus,
+    ],
+  },
   switch: {
     width: theme.size4X,
     height: theme.size2X,
@@ -41,6 +48,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     position: 'relative',
     alignItems: 'center',
     boxSizing: 'content-box',
+    marginRight: theme.size1X,
     cursor: ({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer'),
     '&:hover:not(:focus)': {
       borderColor: getColorHover,
@@ -58,7 +66,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     backgroundColor: 'currentColor',
     position: 'absolute',
     top: '3px',
-    transition: 'all 0.1s ease-in-out',
+    transition: 'left 0.1s ease-in-out',
     borderRadius: theme.borderRadiusButton,
   },
   dotOff: {

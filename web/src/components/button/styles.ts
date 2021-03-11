@@ -6,6 +6,9 @@ import tokens from '../../tokens'
 
 export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
+    wrapper: {
+      padding: theme.outlineWidthFocus,
+    },
     button: {
       transition: 'all 0.25s ease-in-out',
       cursor: 'pointer',

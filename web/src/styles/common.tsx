@@ -64,10 +64,11 @@ export const getColorHover = ({
 
 export const useFocusStyle = createUseStyles({
   onFocus: {
-    transition: 'all 0.25s ease-in-out',
-    transitionProperty: 'box-shadow, border-color',
+    transition: 'box-shadow, border-color 0.25s ease-in-out',
     '&:focus, & > .focus': {
       outline: 0,
+      // https://stackoverflow.com/a/31355694
+      '-webkit-transform': 'translate3d(0,0,0)',
       boxShadow: focusStyle,
       borderColor: ({ isInvalid }) =>
         isInvalid
@@ -87,6 +88,7 @@ export const useFocusStyle = createUseStyles({
     },
     '&:focus-visible': {
       outline: 0,
+      '-webkit-transform': 'translate3d(0,0,0)',
       boxShadow: focusStyle,
       borderColor: ({ isInvalid }) =>
         isInvalid
@@ -94,10 +96,19 @@ export const useFocusStyle = createUseStyles({
           : tokens.colorBorderFormfieldFocus,
     },
   },
+  focusWithBorder: {
+    '&:focus': {
+      outline: 0,
+    },
+    '-webkit-transform': 'translate3d(0,0,0)',
+    boxShadow: focusStyle,
+    borderColor: tokens.colorBorderFormfieldFocus,
+  },
   focus: {
     '&:focus': {
       outline: 0,
     },
+    '-webkit-transform': 'translate3d(0,0,0)',
     boxShadow: focusStyle,
   },
 })
