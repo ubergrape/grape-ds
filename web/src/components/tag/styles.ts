@@ -25,12 +25,15 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
       onRemove ? theme.paddingTagRemoveSide : null,
   },
   button: {
-    '&:hover': {
+    padding: 0,
+    '& > button': {
+      width: 16,
+      height: 16,
+    },
+    '& > button:hover': {
       backgroundColor: theme.colorBackgroundTagBasicRemoveHover,
     },
-    width: theme.size2X,
-    height: theme.size2X,
-    '& > svg': {
+    '& > button > svg': {
       transform: 'none !important',
     },
   },

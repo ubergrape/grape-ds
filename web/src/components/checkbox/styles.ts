@@ -4,6 +4,9 @@ import tokens from '../../tokens'
 import { getColorHover, getColorDefault } from '../../styles/common'
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
+  wrapper: {
+    padding: theme.outlineWidthFocus,
+  },
   spacing: { marginRight: theme.size1X },
   checkbox: {
     boxSizing: 'content-box',

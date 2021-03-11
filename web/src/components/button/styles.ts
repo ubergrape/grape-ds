@@ -8,6 +8,7 @@ export default createUseStyles(
   (theme: typeof tokens): Record<string, JssStyle> => ({
     wrapper: {
       padding: theme.outlineWidthFocus,
+      display: 'flex',
     },
     button: {
       transition: 'all 0.25s ease-in-out',
