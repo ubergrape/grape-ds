@@ -1,4 +1,4 @@
-import React, { useState, useMemo, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import clsx from 'clsx'
 import { FocusRing } from '@react-aria/focus'
 import { useTextField } from '@react-aria/textfield'
@@ -40,24 +40,29 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
   } = props
 
   const ref = React.useRef<HTMLInputElement>()
+  const inputRef = React.useRef<HTMLInputElement>()
   const classes = useStyles(props)
   const { focusWithBorder } = useFocusStyle(props)
-  const [isFocused, setFocusState] = useState(autoFocus || false)
 
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
+      /* Workaround to display focus frame for a wrapper. Initial was written with useState, to set isFocused.
+      But when onBlur triggered, it updated state and onClick element didn't trigger from the first click.
+      https://stackoverflow.com/q/58106099
+      A possible workaround is to use onMouseDown instead onClick for Button component. But:
+        1) UX will get worse
+        2) react-aria useButton doesn't have onMouseDown property.
+      So, I guess this is the best solution. */
       onFocus: () => {
-        setFocusState(true)
+        ref.current.classList.add(...focusWithBorder.split(' '), 'focus')
       },
       onBlur: () => {
-        setFocusState(false)
+        ref.current.classList.remove(...focusWithBorder.split(' '), 'focus')
       },
     },
     ref,
   )
-
-  const key = useMemo(() => genUid(), [])
 
   return (
     <Flex
@@ -88,22 +93,15 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
           )}
         </label>
       )}
-      <div
-        className={clsx(
-          isFocused && focusWithBorder,
-          isFocused && 'focus',
-          classes.inputWrapper,
-        )}
-      >
+      <div className={clsx(classes.inputWrapper)} ref={ref}>
         {children &&
-          children.map(child => <div className={classes.tag}>{child}</div>)}
+          children.map(child => (
+            <div key={genUid()} className={classes.tag}>
+              {child}
+            </div>
+          ))}
         <FocusRing {...(autoFocus && autoFocus)}>
-          <input
-            {...inputProps}
-            key={key}
-            ref={ref}
-            className={classes.input}
-          />
+          <input {...inputProps} ref={inputRef} className={classes.input} />
         </FocusRing>
       </div>
       {description && (

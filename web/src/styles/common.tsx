@@ -69,6 +69,7 @@ export const useFocusStyle = createUseStyles({
       outline: 0,
       // https://stackoverflow.com/a/31355694
       '-webkit-transform': 'translate3d(0,0,0)',
+      transformStyle: 'preserve-3d',
       boxShadow: focusStyle,
       borderColor: ({ isInvalid }) =>
         isInvalid
@@ -88,7 +89,7 @@ export const useFocusStyle = createUseStyles({
     },
     '&:focus-visible': {
       outline: 0,
-      '-webkit-transform': 'translate3d(0,0,0)',
+      '-webkit-transform': 'translateZ(0px)',
       boxShadow: focusStyle,
       borderColor: ({ isInvalid }) =>
         isInvalid

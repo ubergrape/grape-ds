@@ -14,6 +14,7 @@ export interface Props {
   helpText?: string
   className?: string
   name?: string
+  onChange?: (isSelected: boolean) => void
   isChecked?: boolean
   isDisabled?: boolean
   isRequired?: boolean

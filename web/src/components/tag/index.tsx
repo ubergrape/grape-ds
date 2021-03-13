@@ -28,6 +28,7 @@ export const isAvatarTag = (va: TagProps): va is WithAvatar =>
 export const Tag: React.FC<TagProps> = props => {
   const { children, className, onRemove } = props
   const classes = useStyles(props)
+
   return (
     <Flex className={clsx(classes.tag, className)} items="center">
       {isAvatarTag(props) && (

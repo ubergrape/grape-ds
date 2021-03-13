@@ -122,9 +122,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         setDirty(v.length > 0)
         props.onChange?.(v)
       },
-      onBlur: e => {
-        props.onBlur?.(e)
-      },
       onFocus: e => {
         if (props.component === 'textarea') onTextAreaFocus(e, props)
         props.onFocus?.(e)
@@ -207,7 +204,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           props.component === 'textarea' && onFocus,
         )}
       >
-        {renderLeft?.()}
         <FocusRing {...(autoFocus && autoFocus)}>
           <Component
             className={clsx(
@@ -216,7 +212,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
                 ? classes.textArea
                 : classes.textInput,
               props.component === 'textarea' && classes.customScrollbar,
-              onFocus,
+              props.component === 'input' && onFocus,
               'os-text-inherit',
               'os-textarea',
             )}
@@ -232,6 +228,10 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             ref={ref}
           />
         </FocusRing>
+        {/* Rendering left part of input after input, because applying -webkit-transform: translate3d(0,0,0)
+        makes the left part non-visible. Another solution would be applying z-index to the left part, but as it
+        has position: absolute I think it's easier to just change render order */}
+        {renderLeft?.()}
         {maxLength > 0 &&
           !isDisabled &&
           !isReadOnly &&

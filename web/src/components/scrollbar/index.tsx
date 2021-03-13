@@ -12,8 +12,8 @@ import scrollBarStyles from './styles'
 
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
-// Sets padding from right to size2X if the element has a vertical scrollbar,
-// so text and scrollbar don't overlap each other. Added comment
+/* Sets padding from right to size2X if the element has a vertical scrollbar,
+so text and scrollbar don't overlap each other. */
 export const onOverflowChanged = (
   args: {
     yScrollable: boolean
