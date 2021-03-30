@@ -99,7 +99,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
       ) : (
         <div className={circle} />
       )}
-      {!isInactive && status && size !== 'x-small' && (
+      {!isInactive && status === 'online' && size !== 'x-small' && (
         <div className={classes.status} />
       )}
     </Wrapper>
