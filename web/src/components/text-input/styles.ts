@@ -96,7 +96,7 @@ export default createUseStyles((theme: typeof tokens) => ({
     '&:placeholder': {
       color: theme.colorTextFormfieldPlaceholder,
     },
-    '&:hover': {
+    '&:hover:not(:focus)': {
       borderColor: getColorHover,
     },
     borderColor: getColorDefault,

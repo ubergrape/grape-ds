@@ -36,9 +36,7 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   placeholder?: string
   description?: string
   validationHelp?: string
-  height?: number | string
   width?: number | string
-  maxLength?: number
   minLength?: number
   customLabels?: {
     required?: string
@@ -84,7 +82,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     isNecessityLabel,
     autoFocus,
     maxLength,
-    minLength,
     renderLeft,
     renderRight,
     customLabels = { required: 'required', optional: 'optional' },
@@ -110,15 +107,14 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   }
 
   const isTypeNumber = type === 'number'
+  const isTypeSearch = type === 'search'
+
   const allowedChars = maxLength - value.length
   const isMaxLengthReached = allowedChars < 0 && !isTypeNumber
-  const isMinLengthReached = value.length < minLength && !isTypeNumber
 
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
-      maxLength: undefined,
-      minLength: undefined,
       onChange: v => {
         setValue(v)
         setDirty(v.length > 0)
@@ -147,8 +143,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     return true
   }, [value, min, max])
 
-  const invalid =
-    isInvalid || isMaxLengthReached || isMinLengthReached || !isNumberValid
+  const invalid = isInvalid || isMaxLengthReached || !isNumberValid
   const customProps = { ...props, isInvalid: invalid }
   const { onFocus } = useFocusStyle(customProps)
   const classes = useStyles({ ...customProps, overflowPadding })
@@ -228,17 +223,21 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             ref={ref}
           />
         </FocusRing>
-        {maxLength > 0 && !isDisabled && !isReadOnly && !isTypeNumber && (
-          <div className={classes.counterWrapper}>
-            <Text
-              className={classes.counter}
-              size="base"
-              color={invalid ? 'danger' : 'formfieldCounter'}
-            >
-              {allowedChars}
-            </Text>
-          </div>
-        )}
+        {maxLength > 0 &&
+          !isDisabled &&
+          !isReadOnly &&
+          !isTypeNumber &&
+          !isTypeSearch && (
+            <div className={classes.counterWrapper}>
+              <Text
+                className={classes.counter}
+                size="base"
+                color={invalid ? 'danger' : 'formfieldCounter'}
+              >
+                {allowedChars}
+              </Text>
+            </div>
+          )}
         {renderRight?.({
           onClear: () => {
             props.onChange?.('')
