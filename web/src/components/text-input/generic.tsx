@@ -217,6 +217,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
               'os-textarea',
             )}
             {...inputProps}
+            {...(isRequired && { required: true })}
             {...(invalid && { 'aria-invalid': true })}
             {...(min !== undefined && { min })}
             {...(max !== undefined && { max })}

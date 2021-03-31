@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, SyntheticEvent } from 'react'
 import clsx from 'clsx'
 import { FocusRing } from '@react-aria/focus'
 import { useTextField } from '@react-aria/textfield'
@@ -20,8 +20,8 @@ type TagsInputProps = {
   width?: number | string
   value?: string
   onKeyDown: () => void
-  onFocus: () => void
-  onBlur: () => void
+  onFocus: (e: SyntheticEvent) => void
+  onBlur: (e: SyntheticEvent) => void
   defaultValue?: string
   customLabels?: {
     required?: string
@@ -58,12 +58,12 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         1) UX will get worse
         2) react-aria useButton doesn't have onMouseDown property.
       So, I guess this is the best solution. */
-      onFocus: () => {
-        onFocus()
+      onFocus: e => {
+        onFocus?.(e)
         ref.current.classList.add(...focusWithBorder.split(' '), 'focus')
       },
-      onBlur: () => {
-        onBlur()
+      onBlur: e => {
+        onBlur?.(e)
         ref.current.classList.remove(...focusWithBorder.split(' '), 'focus')
       },
     },
