@@ -20,6 +20,8 @@ type TagsInputProps = {
   width?: number | string
   value?: string
   onKeyDown: () => void
+  onFocus: () => void
+  onBlur: () => void
   defaultValue?: string
   customLabels?: {
     required?: string
@@ -35,6 +37,8 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
     description,
     isRequired,
     autoFocus,
+    onFocus,
+    onBlur,
     isNecessityLabel,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
@@ -55,9 +59,11 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         2) react-aria useButton doesn't have onMouseDown property.
       So, I guess this is the best solution. */
       onFocus: () => {
+        onFocus()
         ref.current.classList.add(...focusWithBorder.split(' '), 'focus')
       },
       onBlur: () => {
+        onBlur()
         ref.current.classList.remove(...focusWithBorder.split(' '), 'focus')
       },
     },
