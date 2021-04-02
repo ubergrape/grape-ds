@@ -35,12 +35,10 @@ const useStyles = createUseStyles((theme: typeof tokens) => ({
 
 interface ScrollbarProps extends OverlayScrollbarsComponentProps {
   onOverflowPaddingChanged?: (overflowPadding: number) => void
-  sizeAutoCapable?: boolean,
 }
 
 export const Scrollbar = ({
   onOverflowPaddingChanged,
-  sizeAutoCapable,
   ...props
 }: ScrollbarProps): JSX.Element => {
   const [overflowPadding, setOverflowPadding] = useState(0)
@@ -50,7 +48,7 @@ export const Scrollbar = ({
   return (
     <OverlayScrollbarsComponent
       ref={ref => {
-        // Accesibility viaolation fix. Elements that have scrollable content should be accessible by keyboard.
+        // Accesibility violation fix. Elements that have scrollable content should be accessible by keyboard.
         if (ref) {
           ref
             .osTarget()
@@ -59,11 +57,12 @@ export const Scrollbar = ({
         }
       }}
       options={{
-        sizeAutoCapable: sizeAutoCapable,
         callbacks: {
           onOverflowChanged: args => {
             onOverflowChanged(args, setOverflowPadding)
-            if (onOverflowPaddingChanged) onOverflowChanged(args, onOverflowPaddingChanged)
+            if (onOverflowPaddingChanged) {
+              onOverflowChanged(args, onOverflowPaddingChanged)
+            }
           },
         },
       }}
