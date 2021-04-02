@@ -14,10 +14,7 @@ export const counterBoxHeight =
 export default createUseStyles((theme: typeof tokens) => ({
   wrapper: {
     padding: [0, theme.outlineWidthFocus],
-    width: ({ width }) => {
-      if (width) return width
-      return '100%'
-    },
+    width: '100%',
   },
   label: {
     // Reset for Docasaurus

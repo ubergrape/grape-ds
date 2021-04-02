@@ -17,7 +17,8 @@ type TagsInputProps = {
   description?: string
   isRequired?: boolean
   autoFocus?: boolean
-  width?: number | string
+  minHeight?: string | number
+  maxHeight?: string | number
   value?: string
   onKeyDown: () => void
   onFocus: (e: SyntheticEvent) => void
@@ -99,16 +100,18 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
           )}
         </label>
       )}
-      <div className={clsx(classes.inputWrapper)} ref={ref}>
-        {children &&
-          children.map(child => (
-            <div key={genUid()} className={classes.tag}>
-              {child}
-            </div>
-          ))}
-        <FocusRing {...(autoFocus && autoFocus)}>
-          <input {...inputProps} ref={inputRef} className={classes.input} />
-        </FocusRing>
+      <div className={classes.inputWrapper} ref={ref}>
+        <div className={classes.scrollbar}>
+          {children &&
+            children.map(child => (
+              <div key={genUid()} className={classes.tag}>
+                {child}
+              </div>
+            ))}
+          <FocusRing {...(autoFocus && autoFocus)}>
+            <input {...inputProps} ref={inputRef} className={classes.input} />
+          </FocusRing>
+        </div>
       </div>
       {description && (
         <Text color="secondary" maxWidth="initial" as="span" size="small">

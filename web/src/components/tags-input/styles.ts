@@ -6,10 +6,7 @@ import { parseToken } from '../../utils'
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   wrapper: {
-    width: ({ width }) => {
-      if (width) return width
-      return '100%'
-    },
+    width: '100%',
     padding: theme.outlineWidthFocus,
   },
   inputWrapper: {
@@ -25,6 +22,11 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     '&:not(.focus)': {
       borderColor: getColorDefault,
     },
+  },
+  scrollbar: {
+    minHeight: ({ minHeight }) => minHeight,
+    maxHeight: ({ maxHeight }) => maxHeight,
+    overflow: 'auto',
   },
   tag: {
     display: 'inline-block',

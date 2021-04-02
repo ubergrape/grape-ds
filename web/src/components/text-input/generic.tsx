@@ -36,7 +36,6 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   placeholder?: string
   description?: string
   validationHelp?: string
-  width?: number | string
   minLength?: number
   customLabels?: {
     required?: string

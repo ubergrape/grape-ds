@@ -48,7 +48,6 @@ export const onTextAreaFocus = (
 const onChangeProps = [
   'allowResize',
   'autoExpand',
-  'width',
   'height',
   'minHeight',
   'maxHeight',
@@ -102,7 +101,6 @@ export const useTextAreaEffects = (
   }, [])
 
   const {
-    width,
     height,
     maxLength,
     allowResize,
@@ -116,7 +114,6 @@ export const useTextAreaEffects = (
   } = props
 
   const prevProps = usePrevious({
-    width,
     height,
     maxLength,
     allowResize,

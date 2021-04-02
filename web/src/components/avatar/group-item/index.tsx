@@ -65,7 +65,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
           </Text>
           <div className={classes.secondary}>
             {members > 0 && size === 'regular' && (
-              <Text size="small">
+              <Text className={classes.membersText} size="small">
                 <Flex
                   items="center"
                   justify="center"
@@ -76,6 +76,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
                     height={11.25}
                     className={classes.icon}
                     name="people"
+                    color="secondary"
                     size="small"
                   />
                   <span className={classes.membersCount}>

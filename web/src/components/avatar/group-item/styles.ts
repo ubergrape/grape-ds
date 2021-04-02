@@ -25,6 +25,9 @@ export default createUseStyles(
       marginLeft: ({ members, size }: GroupItemProps) =>
         members > 0 && size === 'regular' ? theme.spaceMembersSecondary : 0,
     },
+    membersText: {
+      overflow: 'initial',
+    },
     members: {
       flexShrink: 0,
       color: theme.colorTextAvatarItemSecondary,
