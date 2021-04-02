@@ -32,13 +32,16 @@ export const useItemStyle = createUseStyles(
       width: ({ maxWidth, size }) => {
         if (!maxWidth) return 'auto'
 
-        const padding = parseToken(theme.spaceAvatarItem)
-
+        const avatarPadding = parseToken(theme.spaceAvatarItem)
+        const padding = parseToken(theme.outlineWidthFocus)
+        const margin = parseToken(theme.sizeHalfX)
         const avatarSize = parseToken(
           size === 'regular' ? theme.sizeAvatarRegular : theme.sizeAvatarSmall,
         )
 
-        return `calc(${maxWidth}px - ${padding + avatarSize}px)`
+        return `calc(${maxWidth}px - ${
+          margin * 2 + padding * 2 + avatarPadding + avatarSize
+        }px)`
       },
       flexDirection: ({ size }) => (size === 'regular' ? 'column' : 'row'),
     },
