@@ -6,7 +6,7 @@ export default ({
   overflowPadding,
   theme,
 }: {
-  overflowPadding: number
+  overflowPadding: string
   theme: typeof tokens
 }): Record<string, JssStyle | string> => ({
   height: '100%',

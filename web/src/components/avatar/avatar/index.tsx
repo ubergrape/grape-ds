@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import clsx from 'clsx'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
@@ -17,7 +16,6 @@ export type AvatarProps = {
   alt: string
   status?: StatusType
   size?: 'regular' | 'small' | 'x-small'
-  className?: string
   isDisabled?: boolean
   isInactive?: boolean
   isSelected?: boolean
@@ -39,7 +37,6 @@ export const Avatar: React.FC<AvatarProps> = props => {
     src,
     size,
     status,
-    className,
     isDisabled,
     isInactive,
     isSelected,
@@ -53,7 +50,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
 
   if (isUnclickable) {
     Wrapper = ({ children }) => (
-      <div aria-label={ariaLabel || alt} className={clsx(wrapper, className)}>
+      <div aria-label={ariaLabel || alt} className={wrapper}>
         {children}
       </div>
     )
@@ -68,7 +65,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
         <FocusRing focusRingClass={onFocus} within>
           <button
             type="button"
-            className={clsx(wrapper, className)}
+            className={wrapper}
             ref={ref}
             aria-label={ariaLabel || alt}
             {...buttonProps}
@@ -99,7 +96,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
       ) : (
         <div className={circle} />
       )}
-      {!isInactive && status === 'online' && size !== 'x-small' && (
+      {!isInactive && status && size !== 'x-small' && (
         <div className={classes.status} />
       )}
     </Wrapper>

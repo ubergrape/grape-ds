@@ -13,7 +13,6 @@ import { InputLabel } from '../input-label'
 export interface Props {
   id?: string
   name?: string
-  className?: string
   isChecked?: boolean
   isInvalid?: boolean
   isDisabled?: boolean
@@ -35,14 +34,7 @@ const isLabelCheckbox = (va): va is WithLabel =>
   va.label !== undefined && va.label !== ''
 
 export const Checkbox: React.FC<CheckboxProps> = props => {
-  const {
-    isChecked,
-    className,
-    isIndeterminate,
-    isDisabled,
-    isInvalid,
-    id,
-  } = props
+  const { isChecked, isIndeterminate, isDisabled, isInvalid, id } = props
   const state = useToggleState({
     ...props,
     defaultSelected: isChecked,
@@ -61,37 +53,35 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
   const labelId = useMemo(() => genUid(), [id])
 
   return (
-    <div className={clsx(classes.wrapper, className)}>
-      <InputLabel
-        isDisabled={isDisabled}
-        id={_id}
-        labelId={labelId}
-        {...props}
-        renderHiddenInput={() => (
-          <input
-            {...inputProps}
-            {...focusProps}
-            ref={ref}
-            id={_id}
-            {...(isLabelCheckbox(props)
-              ? { 'aria-labelledby': labelId }
-              : { 'aria-label': props.ariaLabel })}
-            {...(isInvalid && { 'aria-invalid': 'true' })}
-          />
-        )}
-        renderInput={() => (
-          <div
-            className={clsx(
-              classes.checkbox,
-              isFocusVisible && focusClass.focus,
-              hasLabel && classes.spacing,
-            )}
-          >
-            {state.isSelected && <CheckmarkIcon />}
-            {isIndeterminate && !state.isSelected && <IndeterminateIcon />}
-          </div>
-        )}
-      />
-    </div>
+    <InputLabel
+      isDisabled={isDisabled}
+      id={_id}
+      labelId={labelId}
+      {...props}
+      renderHiddenInput={() => (
+        <input
+          {...inputProps}
+          {...focusProps}
+          ref={ref}
+          id={_id}
+          {...(isLabelCheckbox(props)
+            ? { 'aria-labelledby': labelId }
+            : { 'aria-label': props.ariaLabel })}
+          {...(isInvalid && { 'aria-invalid': 'true' })}
+        />
+      )}
+      renderInput={() => (
+        <div
+          className={clsx(
+            classes.checkbox,
+            isFocusVisible && focusClass.focus,
+            hasLabel && classes.spacing,
+          )}
+        >
+          {state.isSelected && <CheckmarkIcon />}
+          {isIndeterminate && !state.isSelected && <IndeterminateIcon />}
+        </div>
+      )}
+    />
   )
 }

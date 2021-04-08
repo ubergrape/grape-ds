@@ -24,9 +24,6 @@ const useStyles = createUseStyles(() => ({
     right: tokens.size1X,
     top: tokens.sizeHalfX,
   },
-  button: {
-    padding: 0,
-  },
 }))
 
 export interface SearchFieldComponentProps extends InputProps {
@@ -66,7 +63,6 @@ export const SearchField: React.FC<
           <div className={classes.rightIcon}>
             <Button
               onClick={onClear}
-              className={classes.button}
               ariaLabel={props.removeAriaLabel}
               icon="close"
               size="small"

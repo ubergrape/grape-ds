@@ -1,6 +1,6 @@
 {
   "name": "@ubergrape/aurora-ui",
-  "version": "0.0.5",
+  "version": "0.0.1",
   "repository": "git@github.com:ubergrape/grape-ds.git",
   "author": "UberGrape Gmbh <support@grape.io>",
   "license": "MIT",
@@ -16,8 +16,7 @@
     "svgr": "svgr -d src/icons/ ../node_modules/grape-icons/icons --svgo-config .svgorc.json --typescript --filename-case camel --replace-attr-values \"#000=currentColor\"",
     "build:storybook": "NODE_OPTIONS=--max_old_space_size=4096 yarn build-storybook --quiet -o ../build/storybook",
     "build:lib": "rollup -c",
-    "build:lib:watch": "rollup -c -w",
-    "prepublishOnly": "yarn build:lib"
+    "build:lib:watch": "rollup -c -w"
   },
   "dependencies": {
     "@react-aria/button": "^3.2.1",
@@ -33,7 +32,6 @@
     "clsx": "^1.1.1",
     "grape-icons": "ubergrape/grape-icons",
     "jss": "^10.3.0",
-    "jss-increase-specificity": "^0.3.5",
     "jss-plugin-camel-case": "^10.3.0",
     "jss-plugin-default-unit": "^10.3.0",
     "jss-plugin-expand": "^10.3.0",

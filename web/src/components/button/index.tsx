@@ -62,31 +62,33 @@ export const Button: React.FC<ButtonProps> = props => {
   )
 
   return (
-    <div className={clsx(classes.wrapper, className)}>
-      <FocusRing focusRingClass={focus} within>
-        <button
-          className={clsx(classes.button, isPressed && !isDisabled && 'active')}
-          type="button"
-          ref={ref}
-          disabled={isDisabled}
-          {...(ariaLabel && { 'aria-label': ariaLabel })}
-          {...buttonProps}
-        >
-          {iconPosition === 'left' && iconComponent}
-          {children && (
-            <Text
-              as="span"
-              emphasis
-              className={classes.children}
-              size={getTextSize(size)}
-            >
-              {children}
-            </Text>
-          )}
-          {iconPosition === 'right' && iconComponent}
-        </button>
-      </FocusRing>
-    </div>
+    <FocusRing focusRingClass={focus} within>
+      <button
+        className={clsx(
+          classes.button,
+          isPressed && !isDisabled && 'active',
+          className,
+        )}
+        type="button"
+        ref={ref}
+        disabled={isDisabled}
+        {...(ariaLabel && { 'aria-label': ariaLabel })}
+        {...buttonProps}
+      >
+        {iconPosition === 'left' && iconComponent}
+        {children && (
+          <Text
+            as="span"
+            emphasis
+            className={classes.children}
+            size={getTextSize(size)}
+          >
+            {children}
+          </Text>
+        )}
+        {iconPosition === 'right' && iconComponent}
+      </button>
+    </FocusRing>
   )
 }
 

@@ -13,8 +13,10 @@ export const counterBoxHeight =
 
 export default createUseStyles((theme: typeof tokens) => ({
   wrapper: {
-    padding: [0, theme.outlineWidthFocus],
-    width: '100%',
+    width: ({ width }) => {
+      if (width) return width
+      return '100%'
+    },
   },
   label: {
     // Reset for Docasaurus
@@ -28,7 +30,7 @@ export default createUseStyles((theme: typeof tokens) => ({
       })),
     position: 'relative',
   }),
-  customScrollbar: ({ overflowPadding }: { overflowPadding: number }) =>
+  customScrollbar: ({ overflowPadding }: { overflowPadding: string }) =>
     customScrollbar({ overflowPadding, theme }),
   textField: {
     fontFamily: theme.fontFamily,
@@ -94,17 +96,10 @@ export default createUseStyles((theme: typeof tokens) => ({
     '&:placeholder': {
       color: theme.colorTextFormfieldPlaceholder,
     },
-    borderColor: getColorDefault,
-  },
-  textInput: {
     '&:hover:not(:focus)': {
       borderColor: getColorHover,
     },
-  },
-  textArea: {
-    '&:hover:not(.focus)': {
-      borderColor: getColorHover,
-    },
+    borderColor: getColorDefault,
   },
   validationWrapper: {
     display: 'flex',

@@ -7,9 +7,6 @@ const getSizeFromProp = ({ size }: ActionLinkProps) =>
   size === 'regular' ? tokens.sizeActionlinkRegular : tokens.sizeActionlinkSmall
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
-  wrapper: {
-    padding: theme.outlineWidthFocus,
-  },
   actionLink: {
     display: 'inline-block',
     height: getSizeFromProp,

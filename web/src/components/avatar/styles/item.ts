@@ -12,7 +12,6 @@ export const useItemStyle = createUseStyles(
       display: 'flex',
       border: 0,
       padding: theme.sizeHalfX,
-      margin: [0, theme.outlineWidthFocus],
       alignItems: 'center',
       backgroundColor: 'transparent',
       cursor: ({ isDisabled }) => (isDisabled ? 'auto' : 'pointer'),
@@ -32,16 +31,13 @@ export const useItemStyle = createUseStyles(
       width: ({ maxWidth, size }) => {
         if (!maxWidth) return 'auto'
 
-        const avatarPadding = parseToken(theme.spaceAvatarItem)
-        const padding = parseToken(theme.outlineWidthFocus)
-        const margin = parseToken(theme.sizeHalfX)
+        const padding = parseToken(theme.spaceAvatarItem)
+
         const avatarSize = parseToken(
           size === 'regular' ? theme.sizeAvatarRegular : theme.sizeAvatarSmall,
         )
 
-        return `calc(${maxWidth}px - ${
-          margin * 2 + padding * 2 + avatarPadding + avatarSize
-        }px)`
+        return `calc(${maxWidth}px - ${padding + avatarSize}px)`
       },
       flexDirection: ({ size }) => (size === 'regular' ? 'column' : 'row'),
     },

@@ -36,6 +36,7 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   placeholder?: string
   description?: string
   validationHelp?: string
+  width?: number | string
   minLength?: number
   customLabels?: {
     required?: string
@@ -54,7 +55,6 @@ export interface InputComponentProps extends AriaTextFieldOptions {
     onClear: () => void
     isDirty?: boolean
   }) => JSX.Element
-  className: string
 }
 
 export interface InputProps extends InputComponentProps {
@@ -84,7 +84,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
     maxLength,
     renderLeft,
     renderRight,
-    className,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
   const ref = React.useRef<HTMLInputElement & HTMLTextAreaElement>()
@@ -92,7 +91,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const [isDirty, setDirty] = useState(false)
   const [osInstance, setOsInstance] = useState(null)
   const [value, setValue] = useState(props.value || props.defaultValue || '')
-  const [overflowPadding, setOverflowPadding] = useState(0)
+  const [overflowPadding, setOverflowPadding] = useState('0px')
 
   // https://github.com/KingSora/OverlayScrollbars/issues/146
   if (props.component === 'textarea') {
@@ -120,6 +119,9 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
         setValue(v)
         setDirty(v.length > 0)
         props.onChange?.(v)
+      },
+      onBlur: e => {
+        props.onBlur?.(e)
       },
       onFocus: e => {
         if (props.component === 'textarea') onTextAreaFocus(e, props)
@@ -150,11 +152,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const validationHelpId = genUid()
 
   return (
-    <Flex
-      className={clsx(classes.wrapper, className)}
-      direction="column"
-      gap="0.5x"
-    >
+    <Flex className={classes.wrapper} direction="column" gap="0.5x">
       {label && (
         <label className={classes.label} {...labelProps}>
           <Text
@@ -203,20 +201,17 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
           props.component === 'textarea' && onFocus,
         )}
       >
+        {renderLeft?.()}
         <FocusRing {...(autoFocus && autoFocus)}>
           <Component
             className={clsx(
               classes.textField,
-              props.component === 'textarea'
-                ? classes.textArea
-                : classes.textInput,
-              props.component === 'textarea' && classes.customScrollbar,
-              props.component === 'input' && onFocus,
+              classes.customScrollbar,
+              onFocus,
               'os-text-inherit',
               'os-textarea',
             )}
             {...inputProps}
-            {...(isRequired && { required: true })}
             {...(invalid && { 'aria-invalid': true })}
             {...(min !== undefined && { min })}
             {...(max !== undefined && { max })}
@@ -228,10 +223,6 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             ref={ref}
           />
         </FocusRing>
-        {/* Rendering left part of input after input, because applying -webkit-transform: translate3d(0,0,0)
-        makes the left part non-visible. Another solution would be applying z-index to the left part, but as it
-        has position: absolute I think it's easier to just change render order */}
-        {renderLeft?.()}
         {maxLength > 0 &&
           !isDisabled &&
           !isReadOnly &&

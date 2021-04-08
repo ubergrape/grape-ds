@@ -1,11 +1,11 @@
 import { createUseStyles } from 'react-jss'
-import { isAvatarTag, TagProps } from '.'
+import { isAvatarTag, Props } from '.'
 import tokens from '../../tokens'
 
 export const useStyles = createUseStyles((theme: typeof tokens) => ({
   tag: {
     backgroundColor: theme.colorBackgroundTagBasic,
-    paddingLeft: (props: TagProps) =>
+    paddingLeft: (props: Props) =>
       isAvatarTag(props)
         ? theme.paddingTagAvatarSide
         : theme.paddingTagTextSide,
@@ -19,21 +19,14 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
   },
   text: {
     color: theme.colorTextTagBasic,
-    paddingLeft: (props: TagProps) =>
-      isAvatarTag(props) ? theme.paddingTagAvatarSide : null,
-    paddingRight: ({ onRemove }) =>
-      onRemove ? theme.paddingTagRemoveSide : null,
   },
   button: {
-    padding: 0,
-    '& > button': {
-      width: 16,
-      height: 16,
-    },
-    '& > button:hover': {
+    '&:hover': {
       backgroundColor: theme.colorBackgroundTagBasicRemoveHover,
     },
-    '& > button > svg': {
+    width: theme.size2X,
+    height: theme.size2X,
+    '& > svg': {
       transform: 'none !important',
     },
   },

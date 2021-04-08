@@ -8,29 +8,25 @@ import useStyles from './styles'
 export type TabsProps = {
   size?: sizes
   align?: flexAlignments
-  tab?: number
-  onTabClick?: (tab: number) => void
-  className?: string
   children: Array<ReactElement>
 }
 
 export const Tabs: React.FC<TabsProps> = props => {
   const classes = useStyles(props)
 
-  const { children, size, className, onTabClick, tab, align } = props
+  const { children, size, align } = props
 
-  const [activeTab, setActiveTab] = useState(tab || 0)
+  const [active, setActiveTab] = useState(0)
 
-  const onChangeTab = (_tab: number) => {
-    if (_tab < 0 || _tab > children.length - 1) return
-    onTabClick(_tab)
-    setActiveTab(_tab)
+  const onChangeTab = (tab: number) => {
+    if (tab < 0 || tab > children.length - 1) return
+    setActiveTab(tab)
   }
 
-  const activeTabContent = children[activeTab].props.children
+  const activeTabContent = children[active].props.children
 
   return (
-    <div className={className}>
+    <div>
       <div role="tablist" className={classes.tabs}>
         {children.map((tab, i) => {
           const {
@@ -41,7 +37,7 @@ export const Tabs: React.FC<TabsProps> = props => {
             <Tab
               size={size}
               onChangeTab={onChangeTab}
-              activeTab={activeTab}
+              activeTab={active}
               tab={i}
               align={align}
               key={name}
