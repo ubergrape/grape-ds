@@ -8,10 +8,11 @@ const themes = {
 
 let theme = 'grape'
 
-if (typeof window !== 'undefined') {
+if (
+  typeof window !== 'undefined' &&
+  (window as any).grapeClient !== 'undefined'
+) {
   theme = (window as any).grapeClient?.theme
 }
 
-const tokens = themes[theme]
-
-export default tokens
+export default themes[theme]
