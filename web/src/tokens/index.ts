@@ -7,13 +7,14 @@ const themes = {
     'unicorn': unicornTokens,
 }
 
-const theme = (window as any).grapeClient?.theme;
+let theme = "grape"
+
+if (typeof window !== "undefined") {
+    theme = (window as any).grapeClient?.theme;
+}
 
 console.log("theme", theme)
 
-let tokens = grapeTokens
-if (theme) {
-    tokens = themes[theme]
-}
+let tokens = themes[theme]
 
 export default tokens
