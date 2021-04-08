@@ -1,0 +1,17 @@
+global:
+  category: border-color
+  type: color
+  cssProperties:
+  - 'outline'
+  - 'outline-color'
+
+imports:
+- ./aliases/colors.yml
+
+props:
+  color-outline-focus-default:
+    value: '{!info-light}'
+    comment: 'Outline color for default focus state.'
+  color-outline-focus-invalid:
+    value: '{!negative-light}'
+    comment: 'Outline color for invalid focus state.'

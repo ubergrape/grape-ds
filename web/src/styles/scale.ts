@@ -1,4 +1,4 @@
-import tokens from '../tokens/tokens.json'
+import tokens from '../tokens'
 
 const {
   sizeHalfX,
