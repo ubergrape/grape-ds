@@ -16,6 +16,7 @@ export interface AvatarItemProps extends AvatarProps {
   maxWidth?: number
   ariaLabel?: string
   className?: string
+  excludeFromTabOrder?: boolean
   onClick?: () => void
 }
 
@@ -66,7 +67,7 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
 }
 
 AvatarItem.defaultProps = {
-  name: 'First-name Last-name',
+  excludeFromTabOrder: false,
 }
 
 export default AvatarItem

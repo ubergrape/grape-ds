@@ -29,7 +29,6 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     overflow: 'auto',
   },
   tag: {
-    display: 'inline-block',
     margin: 4,
   },
   input: {
@@ -39,6 +38,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     color: theme.colorTextPrimary,
     border: 'none',
     display: 'inline-block',
+    verticalAlign: 'top',
     flex: '1',
     height: 24,
     padding: 4,

@@ -13,6 +13,7 @@ import useStyles from './styles'
 export type ButtonProps = {
   onClick?: () => void
   isDisabled?: boolean
+  excludeFromTabOrder?: boolean
   variant?: 'primary' | 'basic' | 'danger'
   appearance?: 'filled' | 'minimal'
   size?: 'small' | 'regular' | 'large'
@@ -92,6 +93,7 @@ export const Button: React.FC<ButtonProps> = props => {
 
 Button.defaultProps = {
   isDisabled: false,
+  excludeFromTabOrder: false,
   iconPosition: 'left',
   variant: 'basic',
   size: 'regular',
