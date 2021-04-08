@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, SyntheticEvent } from 'react'
 import clsx from 'clsx'
 import { FocusRing } from '@react-aria/focus'
 import { useTextField } from '@react-aria/textfield'
@@ -17,11 +17,12 @@ type TagsInputProps = {
   description?: string
   isRequired?: boolean
   autoFocus?: boolean
-  width?: number | string
+  minHeight?: string | number
+  maxHeight?: string | number
   value?: string
   onKeyDown: () => void
-  onFocus: () => void
-  onBlur: () => void
+  onFocus: (e: SyntheticEvent) => void
+  onBlur: (e: SyntheticEvent) => void
   defaultValue?: string
   customLabels?: {
     required?: string
@@ -58,12 +59,12 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         1) UX will get worse
         2) react-aria useButton doesn't have onMouseDown property.
       So, I guess this is the best solution. */
-      onFocus: () => {
-        onFocus()
+      onFocus: e => {
+        onFocus?.(e)
         ref.current.classList.add(...focusWithBorder.split(' '), 'focus')
       },
-      onBlur: () => {
-        onBlur()
+      onBlur: e => {
+        onBlur?.(e)
         ref.current.classList.remove(...focusWithBorder.split(' '), 'focus')
       },
     },
@@ -99,16 +100,18 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
           )}
         </label>
       )}
-      <div className={clsx(classes.inputWrapper)} ref={ref}>
-        {children &&
-          children.map(child => (
-            <div key={genUid()} className={classes.tag}>
-              {child}
-            </div>
-          ))}
-        <FocusRing {...(autoFocus && autoFocus)}>
-          <input {...inputProps} ref={inputRef} className={classes.input} />
-        </FocusRing>
+      <div className={classes.inputWrapper} ref={ref}>
+        <div className={classes.scrollbar}>
+          {children &&
+            children.map(child => (
+              <div key={genUid()} className={classes.tag}>
+                {child}
+              </div>
+            ))}
+          <FocusRing {...(autoFocus && autoFocus)}>
+            <input {...inputProps} ref={inputRef} className={classes.input} />
+          </FocusRing>
+        </div>
       </div>
       {description && (
         <Text color="secondary" maxWidth="initial" as="span" size="small">

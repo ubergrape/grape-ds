@@ -19,6 +19,7 @@ export type ActionLinkProps = {
   isDisabled?: boolean
   ariaLabel?: string
   children: string
+  title: string
 }
 
 export const ActionLink: React.FC<ActionLinkProps> = props => {
@@ -28,6 +29,7 @@ export const ActionLink: React.FC<ActionLinkProps> = props => {
     target,
     ariaLabel,
     children,
+    title,
     onClick,
     className,
     ...rest
@@ -40,10 +42,10 @@ export const ActionLink: React.FC<ActionLinkProps> = props => {
       <a
         {...(!isDisabled && { href })}
         target={target}
-        title={children}
         onClick={onClick}
         onKeyPress={onClick}
         className={clsx(classes.actionLink, focus.onFocus)}
+        title={title}
         {...(isDisabled && { tabIndex: -1 })}
         {...(ariaLabel && { 'aria-label': ariaLabel })}
       >
@@ -58,7 +60,7 @@ export const ActionLink: React.FC<ActionLinkProps> = props => {
             />
           </div>
           <Text as="span" size={getTextSize(size)} className={classes.label}>
-            {children}
+            {title}
           </Text>
         </Flex>
       </a>

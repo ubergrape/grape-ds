@@ -25,4 +25,4 @@ export const usePrevious = <T extends unknown>(v: T): T | undefined => {
 }
 
 export const parseToken = (token: string): number =>
-  parseInt(token.split('px')[0], 10)
+  parseFloat(token.split('px')[0])

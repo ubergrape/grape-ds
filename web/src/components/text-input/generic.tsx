@@ -36,7 +36,6 @@ export interface InputComponentProps extends AriaTextFieldOptions {
   placeholder?: string
   description?: string
   validationHelp?: string
-  width?: number | string
   minLength?: number
   customLabels?: {
     required?: string
@@ -217,6 +216,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
               'os-textarea',
             )}
             {...inputProps}
+            {...(isRequired && { required: true })}
             {...(invalid && { 'aria-invalid': true })}
             {...(min !== undefined && { min })}
             {...(max !== undefined && { max })}
