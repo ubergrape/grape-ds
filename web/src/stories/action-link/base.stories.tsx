@@ -27,39 +27,23 @@ Base.args = {
 
 export const Types = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <ActionLink href="#" variant="primary">
-      Primary Link
-    </ActionLink>
-    <ActionLink href="#" variant="basic">
-      Basic Link
-    </ActionLink>
-    <ActionLink href="#" variant="danger">
-      Danger Link
-    </ActionLink>
+    <ActionLink href="#" variant="primary" title="Primary Link"/>
+    <ActionLink href="#" variant="basic" title="Basic Link"/>
+    <ActionLink href="#" variant="danger" title="Danger Link"/>
   </Flex>
 )
 
 export const Sizes = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <ActionLink href="#" size="regular">
-      Regular Sized Link
-    </ActionLink>
-    <ActionLink href="#" size="small">
-      Small Sized Link
-    </ActionLink>
+    <ActionLink href="#" size="regular" title="Regular Sized Link"/>
+    <ActionLink href="#" size="small" title="Small Sized Link"/>
   </Flex>
 )
 
 export const Disabled = (): JSX.Element => (
   <Flex gap="2x" direction="column" wrap>
-    <ActionLink href="#" variant="primary" isDisabled>
-      Primary Link
-    </ActionLink>
-    <ActionLink href="#" variant="basic" isDisabled>
-      Basic Link
-    </ActionLink>
-    <ActionLink href="#" variant="danger" isDisabled>
-      Danger Link
-    </ActionLink>
+    <ActionLink href="#" variant="primary" isDisabled title="Primary Link"/>
+    <ActionLink href="#" variant="basic" isDisabled title="Basic Link"/>
+    <ActionLink href="#" variant="danger" isDisabled title="Danger Link"/>
   </Flex>
 )
