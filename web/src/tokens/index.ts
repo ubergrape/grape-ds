@@ -7,7 +7,7 @@ const themes = {
     'unicorn': unicornTokens,
 }
 
-const theme = (window as any).__THEME__;
+const theme = (window as any).grapeClient.theme;
 
 console.log("theme", theme)
 
