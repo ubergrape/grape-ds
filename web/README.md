@@ -2,7 +2,6 @@
 
 This directory contains our web storybook project. It is built with [Storybook](https://storybook.js.org/) and contains all React components which can be used in the Grape web client, with so called stories to showcase their usage and interactively try them out in the browser.
 
-
 ## Develop and building
 
 ### Develop
@@ -19,13 +18,11 @@ Install all dependencies:
 yarn
 ```
 
-
 Run the development server locally:
 
 ```bash
 yarn start
 ```
-
 
 ### Update icons
 
@@ -78,6 +75,25 @@ yarn build:lib:watch
 
 (or run `yarn build:components:watch` in the root directory of this repo)
 
+### Publishing to npm
+
+create fake `.git` folder in `web` folder.
+https://github.com/npm/npm/issues/9111
+
+bump the version with:
+```
+npm version x.x.x
+```
+
+publish package to NPM:
+```
+npm publish
+```
+
+push changes to GitHub:
+```
+git push && git push --tags
+```
 
 ## Adding content
 

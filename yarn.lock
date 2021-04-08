@@ -10074,6 +10074,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jss-increase-specificity@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/jss-increase-specificity/-/jss-increase-specificity-0.3.5.tgz#694a85acb5218ddcf5bb202e64b3d6b3fa20bdb5"
+  integrity sha512-As4qGZV+VkeBqnnmRSvMgLdAcJQBiR7p4FJB7lmRSRrgnkoLlkvm9T/kIIops7Vxc51YFUVIqGai//yBKNjD3w==
+
 jss-plugin-camel-case@10.4.0, jss-plugin-camel-case@^10.3.0:
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/jss-plugin-camel-case/-/jss-plugin-camel-case-10.4.0.tgz#46c75ff7fd61c304984c21af5817823f0f501ceb"

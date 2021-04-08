@@ -7,6 +7,12 @@ import { TabsProps } from '.'
 export default createUseStyles((theme: typeof tokens) => ({
   tabs: {
     display: 'flex',
+    padding: [
+      theme.outlineWidthFocus,
+      theme.outlineWidthFocus,
+      0,
+      theme.outlineWidthFocus,
+    ],
     height: ({ size }: TabsProps) =>
       size === 'small' ? theme.size3X : theme.size4X,
     justifyContent: ({ align }: TabsProps) => {

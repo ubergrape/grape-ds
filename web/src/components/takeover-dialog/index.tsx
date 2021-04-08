@@ -1,7 +1,11 @@
 import React, { ReactElement, useRef } from 'react'
 import { useDialog } from '@react-aria/dialog'
 import { FocusScope } from '@react-aria/focus'
-import { useOverlay, usePreventScroll, useModal } from '@react-aria/overlays'
+import {
+  useOverlay,
+  usePreventScroll,
+  ModalAriaProps,
+} from '@react-aria/overlays'
 
 import Button from '../button'
 import { Scrollbar } from '../scrollbar'
@@ -16,11 +20,22 @@ export type TakeoverDialogProps = {
   isDismissable?: boolean
   ariaLabel?: string
   closeAriaLabel?: string
+  onOverflowPaddingChanged: (overflowPadding: number) => void
   onClose: () => void
+  modalProps: ModalAriaProps
 }
 
 export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
-  const { title, onClose, ariaLabel, closeAriaLabel, children, isOpen } = props
+  const {
+    title,
+    onClose,
+    ariaLabel,
+    closeAriaLabel,
+    onOverflowPaddingChanged,
+    children,
+    isOpen,
+    modalProps,
+  } = props
 
   if (!isOpen) return null
 
@@ -28,7 +43,6 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
   const classes = useStyles(props)
   usePreventScroll()
 
-  const { modalProps } = useModal()
   const { overlayProps } = useOverlay(props, ref)
   const { titleProps, dialogProps } = useDialog(
     {
@@ -66,7 +80,9 @@ export const TakeoverDialog: React.FC<TakeoverDialogProps> = props => {
               </Headline>
             )}
             <div className={classes.body}>
-              <Scrollbar>{children}</Scrollbar>
+              <Scrollbar onOverflowPaddingChanged={onOverflowPaddingChanged}>
+                {children}
+              </Scrollbar>
             </div>
           </div>
           <div className={classes.button}>

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import clsx from 'clsx'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
@@ -26,6 +27,7 @@ export type GroupProps = {
   groupType?: GroupTypes
   isUnclickable?: boolean
   isDisabled?: boolean
+  className?: string
   color?: groupColorsTypes
   ariaLabel?: string
   onClick?: () => void
@@ -37,14 +39,14 @@ export const Group: React.FC<GroupProps> = props => {
   const { onFocus } = useFocusStyle(props)
   const { wrapper, circle } = useAvatarStyle(props)
 
-  const { groupType, isUnclickable, ariaLabel } = props
+  const { groupType, isUnclickable, ariaLabel, className } = props
   const { onClick, isDisabled, ...rest } = props
 
   let Wrapper = null
 
   if (isUnclickable) {
     Wrapper = ({ children }) => (
-      <div aria-label={ariaLabel} className={wrapper}>
+      <div aria-label={ariaLabel} className={clsx(wrapper, className)}>
         {children}
       </div>
     )
@@ -59,7 +61,7 @@ export const Group: React.FC<GroupProps> = props => {
         <FocusRing focusRingClass={onFocus} within>
           <button
             type="button"
-            className={wrapper}
+            className={clsx(wrapper, className)}
             ref={ref}
             aria-label={ariaLabel}
             {...buttonProps}

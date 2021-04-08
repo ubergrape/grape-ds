@@ -12,7 +12,9 @@ import { InputLabel } from '../input-label'
 export interface Props {
   id?: string
   helpText?: string
+  className?: string
   name?: string
+  onChange?: (isSelected: boolean) => void
   isChecked?: boolean
   isDisabled?: boolean
   isRequired?: boolean
@@ -33,7 +35,7 @@ const isLabelSwitch = (va): va is WithLabel =>
   va.label !== undefined && va.label !== ''
 
 export const Switch: React.FC<SwitchProps> = props => {
-  const { isChecked, isDisabled, id } = props
+  const { isChecked, isDisabled, className, id } = props
   const state = useToggleState({
     ...props,
     defaultSelected: isChecked,
@@ -51,39 +53,37 @@ export const Switch: React.FC<SwitchProps> = props => {
   const labelId = useMemo(() => genUid(), [id])
 
   return (
-    <InputLabel
-      {...props}
-      isDisabled={isDisabled}
-      id={_id}
-      labelId={labelId}
-      helpTextClass={classes.helpText}
-      renderHiddenInput={() => (
-        <input
-          {...inputProps}
-          {...focusProps}
-          ref={ref}
-          id={_id}
-          {...(isLabelSwitch(props)
-            ? { 'aria-labelledby': labelId }
-            : { 'aria-label': props.ariaLabel })}
-        />
-      )}
-      renderInput={() => (
-        <div
-          className={clsx(
-            classes.switch,
-            isFocusVisible && focusClass.focus,
-            classes.spacing,
-          )}
-        >
-          <div
-            className={clsx(
-              classes.dot,
-              state.isSelected ? classes.dotOn : classes.dotOff,
-            )}
+    <div className={clsx(classes.wrapper, className)}>
+      <InputLabel
+        {...props}
+        isDisabled={isDisabled}
+        id={_id}
+        labelId={labelId}
+        helpTextClass={classes.helpText}
+        renderHiddenInput={() => (
+          <input
+            {...inputProps}
+            {...focusProps}
+            ref={ref}
+            id={_id}
+            {...(isLabelSwitch(props)
+              ? { 'aria-labelledby': labelId }
+              : { 'aria-label': props.ariaLabel })}
           />
-        </div>
-      )}
-    />
+        )}
+        renderInput={() => (
+          <div
+            className={clsx(classes.switch, isFocusVisible && focusClass.focus)}
+          >
+            <div
+              className={clsx(
+                classes.dot,
+                state.isSelected ? classes.dotOn : classes.dotOff,
+              )}
+            />
+          </div>
+        )}
+      />
+    </div>
   )
 }

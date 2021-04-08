@@ -1,27 +1,31 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import clsx from 'clsx'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
+import {
+  OverlayScrollbarsComponent,
+  OverlayScrollbarsComponentProps,
+} from 'overlayscrollbars-react'
 import { createUseStyles } from 'react-jss'
 
+import { parseToken } from '../../utils'
 import tokens from '../../tokens'
 import scrollBarStyles from './styles'
 
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
-// Sets padding from right to size2X if the element has a vertical scrollbar,
-// so text and scrollbar don't overlap each other. Added comment
+/* Sets padding from right to size2X if the element has a vertical scrollbar,
+so text and scrollbar don't overlap each other. */
 export const onOverflowChanged = (
   args: {
     yScrollable: boolean
   },
-  setPadding: Dispatch<SetStateAction<string>>,
+  setPadding: Dispatch<SetStateAction<number>>,
 ): void => {
   if (args.yScrollable) {
-    setPadding(tokens.size2X)
+    setPadding(parseToken(tokens.size2X))
     return
   }
 
-  setPadding('0px')
+  setPadding(0)
 }
 
 const useStyles = createUseStyles((theme: typeof tokens) => ({
@@ -29,17 +33,22 @@ const useStyles = createUseStyles((theme: typeof tokens) => ({
     scrollBarStyles({ overflowPadding, theme }),
 }))
 
-export const Scrollbar = (
-  props: OverlayScrollbarsComponent['props'],
-): JSX.Element => {
-  const [overflowPadding, setOverflowPadding] = useState('0px')
+interface ScrollbarProps extends OverlayScrollbarsComponentProps {
+  onOverflowPaddingChanged?: (overflowPadding: number) => void
+}
+
+export const Scrollbar = ({
+  onOverflowPaddingChanged,
+  ...props
+}: ScrollbarProps): JSX.Element => {
+  const [overflowPadding, setOverflowPadding] = useState(0)
 
   const styles = useStyles(overflowPadding)
 
   return (
     <OverlayScrollbarsComponent
       ref={ref => {
-        // Accesibility viaolation fix. Elements that have scrollable content should be accessible by keyboard.
+        // Accesibility violation fix. Elements that have scrollable content should be accessible by keyboard.
         if (ref) {
           ref
             .osTarget()
@@ -51,6 +60,9 @@ export const Scrollbar = (
         callbacks: {
           onOverflowChanged: args => {
             onOverflowChanged(args, setOverflowPadding)
+            if (onOverflowPaddingChanged) {
+              onOverflowChanged(args, onOverflowPaddingChanged)
+            }
           },
         },
       }}
