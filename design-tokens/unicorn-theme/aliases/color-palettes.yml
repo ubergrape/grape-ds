@@ -96,16 +96,16 @@ aliases:
   red-90: "#430b00"
 
   ## Orange
-  orange-5: "#ffeeda"
-  orange-10: "#ffddb2"
-  orange-20: "#ffb777"
-  orange-30: "#ff8e32"
-  orange-40: "#eb6a02"
-  orange-50: "#bf5502"
-  orange-60: "#954a00"
-  orange-70: "#723600"
-  orange-80: "#552100"
-  orange-90: "#331100"
+  orange-5: "#feede6"
+  orange-10: "#ffdbcc"
+  orange-20: "#ffb597"
+  orange-30: "#fe8c60"
+  orange-40: "#ff6033"
+  orange-50: "#d63c11"
+  orange-60: "#b52700"
+  orange-70: "#8d1500"
+  orange-80: "#601300"
+  orange-90: "#3f0f00"
 
   ## Gold
   gold-5: "#fff1b7"
