@@ -1,0 +1,15 @@
+global:
+  category: font
+  cssProperties:
+  - text-transform
+
+props:
+  ## Uppercase and lowercase
+  text-basecase:
+    value: 'none'
+    type: string
+    comment: 'Default value for text-transform.'
+  text-uppercase:
+    value: 'uppercase'
+    type: string
+    comment: 'Uppercase text.'

@@ -1,0 +1,127 @@
+global:
+  category: spacing
+  type: size
+  cssProperties:
+  - 'height'
+  - 'max-height'
+  - 'min-height'
+  - 'width'
+  - 'max-width'
+  - 'min-width'
+  - 'padding'
+  - 'margin'
+
+imports:
+- ./aliases/space.yml
+
+props:
+  ## General sizes
+  size-half-x:
+    value: '{!space-half-x}'
+  size-1-x:
+    value: '{!space-1-x}'
+  size-1-half-x:
+    value: '{!space-1-half-x}'
+  size-2-x:
+    value: '{!space-2-x}'
+  size-2-half-x:
+    value: '{!space-2-half-x}'
+  size-3-x:
+    value: '{!space-3-x}'
+  size-4-x:
+    value: '{!space-4-x}'
+  size-5-x:
+    value: '{!space-5-x}'
+  size-6-x:
+    value: '{!space-6-x}'
+
+  ## Buttons
+  height-button-large:
+    value: '{!space-5-x}'
+    comment: 'Button height for large size.'
+  height-button-regular:
+    value: '{!space-4-x}'
+    comment: 'Button height for regular size.'
+  height-button-small:
+    value: '{!space-3-x}'
+    comment: 'Button height for small size.'
+  space-button-group:
+    value: '{!space-2-x}'
+    comment: 'Space between 2 button elements inside a button group.'
+
+  ## Tabs
+  space-tab-group:
+    value: '{!space-1-x}'
+    comment: 'Space between 2 tab elements inside a tab group.'
+
+  ## Icons
+  size-icon-small:
+    value: '{!space-2-x}'
+    comment: 'Small icon size.'
+  size-icon-medium:
+    value: '{!space-2-half-x}'
+    comment: 'Medium icon size.'
+  size-icon-large:
+    value: '{!space-3-x}'
+    comment: 'Large icon size.'
+
+  ## Form controls
+  space-formcontrol-label:
+      value: '{!space-1-x}'
+      comment: 'Space between a form control and the label/explanation.'
+
+## Avatar
+  size-avatar-x-small:
+    value: '{!space-2-x}'
+    comment: 'Extra small avatar size.'
+  size-avatar-small:
+    value: '{!space-3-x}'
+    comment: 'Small avatar size.'
+  size-avatar-regular:
+    value: '{!space-4-x}'
+    comment: 'Regular avatar size.'
+  size-presence-indicator-small:
+    value: '{!space-1-half-x}'
+    comment: 'Presence indicator size for small avatar size.'
+  size-presence-indicator-regular:
+    value: '{!space-1-half-x}'
+    comment: 'Presence indicator size for regular avatar size.'
+  size-grouptype-indicator-small:
+    value: '{!space-1-half-x}'
+    comment: 'Group-type indicator size for small avatar size.'
+  size-grouptype-indicator-regular:
+    value: '{!space-2-x}'
+    comment: 'Group-type indicator size for regular avatar size.'
+  size-groupcolor-small:
+    value: '{!space-1-half-x}'
+    comment: 'Group color area for small avatar size.'
+  size-groupcolor-regular:
+    value: '{!space-2-x}'
+    comment: 'Group color area for regular avatar size.'
+  space-avatar-item:
+      value: '{!space-1-x}'
+      comment: 'Space between avatar and text in avatar item.'
+  space-members-count:
+      value: '{!space-half-x}'
+      comment: 'Space between members icon and members count text.'
+  space-members-secondary:
+      value: '{!space-1-x}'
+      comment: 'Space between members count and secondary text.'
+
+  ## Form fields
+  size-formfield-input:
+      value: '{!space-4-x}'
+      comment: 'Height of a single line input field.'
+
+## Action-Link
+  size-actionlink-regular:
+      value: '{!space-4-x}'
+      comment: 'Height of an action-link in regular size.'
+  size-actionlink-small:
+      value: '{!space-3-x}'
+      comment: 'Height of an action-link in small size.'
+
+## Tag
+  size-tag:
+      value: '{!space-3-x}'
+      comment: 'Height of a tag.'
