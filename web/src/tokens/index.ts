@@ -4,7 +4,7 @@ import unicornTokens from './unicorn-tokens.json'
 
 const themes = {
     'grape': grapeTokens,
-    'unicon': unicornTokens,
+    'unicorn': unicornTokens,
 }
 
 const theme = (window as any).__THEME__;
