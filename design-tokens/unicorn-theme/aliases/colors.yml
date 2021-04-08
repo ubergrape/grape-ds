@@ -1,0 +1,112 @@
+imports:
+- ./color-palettes.yml
+
+aliases:
+  ### --- THEME COLORS
+
+  ## Transparent
+  transparent: 'transparent'
+
+  ## Base BW
+  base-bw-white: '{!white}'
+  base-bw-black: '{!black}'
+
+  ## Base
+  base-ghost: '{!gray-2}'
+  base-lightest: '{!gray-5}'
+  base-lighter: '{!gray-10}'
+  base-light: '{!gray-20}'
+  base-base: '{!gray-50}'
+  base-dark: '{!gray-60}'
+  base-darker: '{!gray-80}'
+  base-darkest: '{!gray-90}'
+
+  ## Base warm
+  base-warm-ghost: '{!gray-warm-2}'
+  base-warm-lightest: '{!gray-warm-5}'
+  base-warm-lighter: '{!gray-warm-10}'
+  base-warm-light: '{!gray-warm-20}'
+  base-warm-base: '{!gray-warm-50}'
+  base-warm-dark: '{!gray-warm-60}'
+  base-warm-darker: '{!gray-warm-80}'
+  base-warm-darkest: '{!gray-warm-90}'
+
+  ## Primary
+  primary-lightest: '{!orange-5}'
+  primary-lighter: '{!orange-10}'
+  primary-light: '{!orange-30}'
+  primary-base: '{!orange-40}'
+  primary-dark: '{!orange-50}'
+  primary-darker: '{!orange-70}'
+  primary-darkest: '{!orange-90}'
+
+  ## Secondary
+  secondary-lightest: '{!orange-5}'
+  secondary-lighter: '{!orange-10}'
+  secondary-light: '{!orange-30}'
+  secondary-base: '{!orange-40}'
+  secondary-dark: '{!orange-50}'
+  secondary-darker: '{!orange-70}'
+  secondary-darkest: '{!orange-90}'
+
+  ## Personal
+  personal-lightest: '{!orange-5}'
+  personal-lighter: '{!orange-10}'
+  personal-light: '{!orange-30}'
+  personal-base: '{!orange-40}'
+  personal-dark: '{!orange-50}'
+  personal-darker: '{!orange-70}'
+  personal-darkest: '{!orange-90}'
+
+  ## Accent
+  accent-lightest: '{!orange-5}'
+  accent-lighter: '{!orange-10}'
+  accent-light: '{!orange-30}'
+  accent-base: '{!orange-40}'
+  accent-dark: '{!orange-50}'
+  accent-darker: '{!orange-70}'
+  accent-darkest: '{!orange-90}'
+
+  ### --- STATE COLORS
+
+  ## Positive
+  positive-lightest: '{!lime-5}'
+  positive-lighter: '{!lime-10}'
+  positive-light: '{!lime-30}'
+  positive-base: '{!lime-40}'
+  positive-dark: '{!lime-50}'
+  positive-darker: '{!lime-60}'
+  positive-darkest: '{!lime-90}'
+
+  ## Negative
+  negative-lightest: '{!red-5}'
+  negative-lighter: '{!red-10}'
+  negative-light: '{!red-30}'
+  negative-base: '{!red-50}'
+  negative-dark: '{!red-60}'
+  negative-darker: '{!red-70}'
+  negative-darkest: '{!red-90}'
+
+  ## Warning
+  warning-lightest: '{!gold-5}'
+  warning-lighter: '{!gold-10}'
+  warning-light: '{!gold-20}'
+  warning-base: '{!gold-30}'
+  warning-dark: '{!gold-50}'
+  warning-darker: '{!gold-60}'
+  warning-darkest: '{!gold-90}'
+
+  ## Info
+  info-lightest: '{!blue-5}'
+  info-lighter: '{!blue-10}'
+  info-light: '{!blue-20}'
+  info-base: '{!blue-40}'
+  info-dark: '{!blue-50}'
+  info-darker: '{!blue-70}'
+  info-darkest: '{!blue-90}'
+
+  ## Disabled
+  disabled-ghost: '{!gray-2}'
+  disabled-light: '{!gray-10}'
+  disabled-base: '{!gray-20}'
+  disabled-dark: '{!gray-30}'

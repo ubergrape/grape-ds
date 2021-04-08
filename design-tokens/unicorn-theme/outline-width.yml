@@ -1,0 +1,14 @@
+global:
+  category: border-width
+  type: size
+  cssProperties:
+  - 'outline'
+  - 'outline-width'
+
+imports:
+- ./aliases/space.yml
+
+props:
+  outline-width-focus:
+    value: '{!focus-ring}'
+    comment: 'Outline width for focus ring.'
