@@ -20,6 +20,7 @@ export interface GroupItemProps extends GroupProps {
   ariaLabel?: string
   isUnclickable?: boolean
   isInactive?: boolean
+  excludeFromTabOrder?: boolean
   maxWidth?: number
 }
 
@@ -102,8 +103,8 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
 
 GroupItem.defaultProps = {
   size: 'regular',
-  name: 'Group name',
   isInactive: false,
+  excludeFromTabOrder: false,
 }
 
 export default GroupItem

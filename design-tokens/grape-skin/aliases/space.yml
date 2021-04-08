@@ -20,4 +20,4 @@ aliases:
   stroke-thick: '3px'
 
   ## Focus
-  focus-ring: '2.5px'
+  focus-ring: '2px'

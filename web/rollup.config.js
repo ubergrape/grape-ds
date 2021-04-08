@@ -6,7 +6,7 @@ import json from '@rollup/plugin-json'
 import css from 'rollup-plugin-css-only'
 
 export default {
-  input: './src/components/index.ts',
+  input: './src/index.ts',
   output: {
     format: 'cjs',
     dir: 'build',

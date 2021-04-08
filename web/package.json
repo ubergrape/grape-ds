@@ -5,7 +5,7 @@
   "author": "UberGrape Gmbh <support@grape.io>",
   "license": "MIT",
   "main": "./build/index.js",
-  "types": "./build/components/index.d.ts",
+  "types": "./build/index.d.ts",
   "scripts": {
     "storybook": "NODE_ENV=development yarn tokens:import && start-storybook -s ./ --port=55555",
     "start": "yarn storybook",

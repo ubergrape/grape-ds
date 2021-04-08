@@ -27,6 +27,7 @@ export type GroupProps = {
   groupType?: GroupTypes
   isUnclickable?: boolean
   isDisabled?: boolean
+  excludeFromTabOrder?: boolean
   className?: string
   color?: groupColorsTypes
   ariaLabel?: string
@@ -97,6 +98,7 @@ export const Group: React.FC<GroupProps> = props => {
 
 Group.defaultProps = {
   isDisabled: false,
+  excludeFromTabOrder: false,
   size: 'regular',
   ariaLabel: 'Group',
   color: 1,

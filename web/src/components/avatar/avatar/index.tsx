@@ -21,6 +21,7 @@ export type AvatarProps = {
   isDisabled?: boolean
   isInactive?: boolean
   isSelected?: boolean
+  excludeFromTabOrder?: boolean
   ariaLabel?: string
   isUnclickable?: boolean
   onClick?: () => void
@@ -112,6 +113,7 @@ Avatar.defaultProps = {
   isDisabled: false,
   isInactive: false,
   isSelected: false,
+  excludeFromTabOrder: false,
 }
 
 export default Avatar
