@@ -116,6 +116,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
+      maxLength: null,
       onChange: v => {
         setValue(v)
         setDirty(v.length > 0)

@@ -10,7 +10,7 @@ let theme = 'grape'
 
 if (
   typeof window !== 'undefined' &&
-  (window as any).grapeClient !== 'undefined'
+  typeof (window as any).grapeClient !== 'undefined'
 ) {
   theme = (window as any).grapeClient?.theme
 }
