@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import clsx from 'clsx'
 
 import { sizes, flexAlignments } from '../../../types'
 import { Text } from '../../typography'
 import { useFocusStyle } from '../../../styles/common'
-import { getTextSize } from '../../../utils'
+import { getTextSize, usePrevious } from '../../../utils'
 
 import useStyles from './styles'
 
@@ -20,12 +20,16 @@ export type TabProps = {
 export const Tab: React.FC<TabProps> = props => {
   const { children, size, tab, activeTab, onChangeTab } = props
 
-  const tabRef = React.useRef(null)
+  const tabRef = useRef(null)
 
   const { onFocusVisible } = useFocusStyle(props)
   const classes = useStyles(props)
+  const prevProps = usePrevious({ activeTab })
 
   const isActive = activeTab === tab
+  if (isActive && prevProps && prevProps.activeTab !== activeTab) {
+    tabRef.current?.focus()
+  }
 
   const onKeyDown = e => {
     switch (e.which) {
@@ -45,8 +49,6 @@ export const Tab: React.FC<TabProps> = props => {
         break
     }
   }
-
-  if (isActive) tabRef.current?.focus()
 
   return (
     <button

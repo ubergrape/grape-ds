@@ -1,3 +1,18 @@
-import tokens from './tokens.json'
+import grapeTokens from './grape-tokens.json'
+import unicornTokens from './unicorn-tokens.json'
 
-export default tokens
+const themes = {
+  grape: grapeTokens,
+  unicorn: unicornTokens,
+}
+
+let theme = 'grape'
+
+if (
+  typeof window !== 'undefined' &&
+  typeof (window as any).grapeClient !== 'undefined'
+) {
+  theme = (window as any).grapeClient?.theme
+}
+
+export default themes[theme]

@@ -13,6 +13,7 @@ import useStyles from './styles'
 export type ButtonProps = {
   onClick?: () => void
   isDisabled?: boolean
+  excludeFromTabOrder?: boolean
   variant?: 'primary' | 'basic' | 'danger'
   appearance?: 'filled' | 'minimal'
   size?: 'small' | 'regular' | 'large'
@@ -62,38 +63,37 @@ export const Button: React.FC<ButtonProps> = props => {
   )
 
   return (
-    <FocusRing focusRingClass={focus} within>
-      <button
-        className={clsx(
-          classes.button,
-          isPressed && !isDisabled && 'active',
-          className,
-        )}
-        type="button"
-        ref={ref}
-        disabled={isDisabled}
-        {...(ariaLabel && { 'aria-label': ariaLabel })}
-        {...buttonProps}
-      >
-        {iconPosition === 'left' && iconComponent}
-        {children && (
-          <Text
-            as="span"
-            emphasis
-            className={classes.children}
-            size={getTextSize(size)}
-          >
-            {children}
-          </Text>
-        )}
-        {iconPosition === 'right' && iconComponent}
-      </button>
-    </FocusRing>
+    <div className={clsx(classes.wrapper, className)}>
+      <FocusRing focusRingClass={focus} within>
+        <button
+          className={clsx(classes.button, isPressed && !isDisabled && 'active')}
+          type="button"
+          ref={ref}
+          disabled={isDisabled}
+          {...(ariaLabel && { 'aria-label': ariaLabel })}
+          {...buttonProps}
+        >
+          {iconPosition === 'left' && iconComponent}
+          {children && (
+            <Text
+              as="span"
+              emphasis
+              className={classes.children}
+              size={getTextSize(size)}
+            >
+              {children}
+            </Text>
+          )}
+          {iconPosition === 'right' && iconComponent}
+        </button>
+      </FocusRing>
+    </div>
   )
 }
 
 Button.defaultProps = {
   isDisabled: false,
+  excludeFromTabOrder: false,
   iconPosition: 'left',
   variant: 'basic',
   size: 'regular',

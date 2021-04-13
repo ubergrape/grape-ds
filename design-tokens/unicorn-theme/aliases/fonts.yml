@@ -1,0 +1,15 @@
+aliases:
+  font-family-sans: "'Noto Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif"
+  font-family-mono: "'Noto Sans Mono', Consolas, Menlo, Monaco, Courier, monospace"
+  ## Font size
+  font-size-1: "24px"
+  font-size-2: "16px"
+  font-size-3: "14px"
+  font-size-4: "12px"
+  ## Font weight
+  font-weight-regular: "400"
+  font-weight-emphasis: "600"
+  ## Line height
+  line-height-dense: "1"
+  line-height-cozy: "1.4"
+  line-height-base: "1.6"

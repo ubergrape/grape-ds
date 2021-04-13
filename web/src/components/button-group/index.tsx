@@ -1,10 +1,12 @@
 import React, { ReactElement } from 'react'
 import { useTheme } from 'react-jss'
+import clsx from 'clsx'
 
 import useStyles from './styles'
 
 export type ButtonGroupProps = {
   align?: 'left' | 'right'
+  className?: string
   children: Array<ReactElement>
 }
 
@@ -16,9 +18,9 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = props => {
     theme,
   })
 
-  const { children } = props
+  const { children, className } = props
 
-  return <div className={classes.wrapper}>{children}</div>
+  return <div className={clsx(classes.wrapper, className)}>{children}</div>
 }
 
 ButtonGroup.defaultProps = {

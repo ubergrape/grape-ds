@@ -1,0 +1,253 @@
+global:
+  category: background-color
+  type: 'color|string'
+  cssProperties:
+  - 'background*'
+
+imports:
+- ./aliases/colors.yml
+- ./aliases/color-palettes.yml
+
+props:
+  ## Global
+  color-background-none:
+    value: '{!transparent}'
+    comment: 'No background color.'
+  color-background-primary:
+    value: '{!base-bw-white}'
+    comment: 'Primary background color.'
+  color-background-secondary:
+    value: '{!base-ghost}'
+    comment: 'Secondary background color for light theme used to distinguish elements.'
+
+  ## Buttons Filled
+  color-background-button-filled-primary--default:
+    value: '{!primary-base}'
+    comment: 'Filled primary button default.'
+  color-background-button-filled-primary--hover:
+    value: '{!primary-dark}'
+    comment: 'Filled primary button hover.'
+  color-background-button-filled-primary--active:
+    value: '{!primary-darker}'
+    comment: 'Filled primary button active.'
+  color-background-button-filled-basic--default:
+    value: '{!base-lightest}'
+    comment: 'Filled basic button default.'
+  color-background-button-filled-basic--hover:
+    value: '{!base-lighter}'
+    comment: 'Filled basic button hover.'
+  color-background-button-filled-basic--active:
+    value: '{!base-light}'
+    comment: 'Filled basic button active.'
+  color-background-button-filled-danger--default:
+    value: '{!negative-base}'
+    comment: 'Filled danger button default.'
+  color-background-button-filled-danger--hover:
+    value: '{!negative-dark}'
+    comment: 'Filled danger button hover.'
+  color-background-button-filled-danger--active:
+    value: '{!negative-darker}'
+    comment: 'Filled danger button active.'
+  color-background-button-filled-disabled:
+    value: '{!disabled-ghost}'
+    comment: 'Filled disabled button.'
+
+  ## Buttons Minimal
+  color-background-button-minimal-primary--default:
+    value: '{!transparent}'
+    comment: 'Minimal primary button default.'
+  color-background-button-minimal-primary--hover:
+    value: '{!primary-lightest}'
+    comment: 'Minimal primary button hover.'
+  color-background-button-minimal-primary--active:
+    value: '{!primary-lighter}'
+    comment: 'Minimal primary button active.'
+  color-background-button-minimal-basic--default:
+    value: '{!transparent}'
+    comment: 'Minimal basic button default.'
+  color-background-button-minimal-basic--hover:
+    value: '{!base-ghost}'
+    comment: 'Minimal basic button hover.'
+  color-background-button-minimal-basic--active:
+    value: '{!base-lightest}'
+    comment: 'Minimal basic button active.'
+  color-background-button-minimal-danger--default:
+    value: '{!transparent}'
+    comment: 'Minimal danger button default.'
+  color-background-button-minimal-danger--hover:
+    value: '{!negative-lightest}'
+    comment: 'Minimal danger button hover.'
+  color-background-button-minimal-danger--active:
+    value: '{!negative-lighter}'
+    comment: 'Minimal danger button active.'
+  color-background-button-minimal-disabled:
+    value: '{!transparent}'
+    comment: 'Minimal disabled button.'
+
+  ## Form controls
+  color-background-formcontrol--default:
+    value: '{!base-bw-white}'
+    comment: 'Background color of form controls like checkbox, toggle, radio.'
+  color-background-formcontrol--hover:
+    value: '{!base-bw-white}'
+    comment: 'Background color for hover state of form controls.'
+  color-background-formcontrol--focus:
+    value: '{!base-bw-white}'
+    comment: 'Background color for focus state of form controls.'
+  color-background-formcontrol--disabled:
+    value: '{!disabled-ghost}'
+    comment: 'Background color for disabled state of form controls.'
+  color-background-formcontrol-icon:
+    value: '{!secondary-dark}'
+    comment: 'Icon color in form controls in on/selected state.'
+
+  ## Avatar
+  color-background-avatar-user:
+    value: '{!base-lightest}'
+    comment: 'Background color of user avatar.'
+  color-background-avatar-group:
+    value: '{!base-lightest}'
+    comment: 'Background color of group avatar.'
+  color-background-avatar-group-color01:
+    value: '{!gray-50}'
+    comment: 'Avatar group color 01.'
+  color-background-avatar-group-color02:
+    value: '{!gray-warm-30}'
+    comment: 'Avatar group color 02.'
+  color-background-avatar-group-color03:
+    value: '{!gold-20}'
+    comment: 'Avatar group color 03.'
+  color-background-avatar-group-color04:
+    value: '{!orange-40}'
+    comment: 'Avatar group color 04.'
+  color-background-avatar-group-color05:
+    value: '{!pink-60}'
+    comment: 'Avatar group color 05.'
+  color-background-avatar-group-color06:
+    value: '{!purple-70}'
+    comment: 'Avatar group color 06.'
+  color-background-avatar-group-color07:
+    value: '{!blue-60}'
+    comment: 'Avatar group color 07.'
+  color-background-avatar-group-color08:
+    value: '{!blue-30}'
+    comment: 'Avatar group color 08.'
+  color-background-avatar-group-color09:
+    value: '{!lime-50}'
+    comment: 'Avatar group color 09.'
+  color-background-avatar-group-color10:
+    value: '{!lime-30}'
+    comment: 'Avatar group color 10.'
+  color-background-avatar-selected:
+    value: '{!secondary-dark}'
+    comment: 'Background color for selected avatar.'
+  color-background-avatar-selected-icon:
+    value: '{!base-ghost}'
+    comment: 'Icon color in selected avatar.'
+  color-background-avatar-inactive:
+    value: '{!base-bw-white}'
+    comment: 'Overlay for inactive avatar, to be used with transparency.'
+  color-background-presence-indicator--online:
+    value: '{!lime-40}'
+    comment: 'Color for presence online.'
+  color-background-grouptype-indicator:
+    value: '{!base-bw-white}'
+    comment: 'Background color for grouptype indicator.'
+  color-background-grouptype-icon:
+    value: '{!base-darker}'
+    comment: 'Icon color in avatar grouptype.'
+
+  ## Form fields
+  color-background-formfield--default:
+    value: '{!base-bw-white}'
+    comment: 'Background color for form fields.'
+  color-background-formfield--hover:
+    value: '{!base-bw-white}'
+    comment: 'Background color for hover state of form fields.'
+  color-background-formfield--focus:
+    value: '{!base-bw-white}'
+    comment: 'Background color for focus state of form fields.'
+  color-background-formfield--readonly:
+    value: '{!base-lightest}'
+    comment: 'Background color for readonly state of form fields.'
+  color-background-formfield--disabled:
+    value: '{!disabled-ghost}'
+    comment: 'Background color for disabled state of form fields.'
+  color-background-formfield-invalid--default:
+    value: '{!base-bw-white}'
+    comment: 'Background color for form fields in invalid state.'
+  color-background-formfield-invalid--hover:
+    value: '{!base-bw-white}'
+    comment: 'Background color for hover state of form fields in invalid state.'
+  color-background-formfield-invalid--focus:
+    value: '{!base-bw-white}'
+    comment: 'Background color for focus state of form fields in invalid state.'
+  color-background-formfield-icon:
+    value: '{!base-base}'
+    comment: 'Icon color in form fields.'
+  color-background-formfield-icon-validationerror:
+    value: '{!negative-base}'
+    comment: 'Icon color for validation hint error in form fields.'
+
+  ## Action-Link
+  color-background-actionlink-primary-icon:
+    value: '{!primary-base}'
+    comment: 'Icon color in Primary action-link.'
+  color-background-actionlink-basic-icon:
+    value: '{!base-base}'
+    comment: 'Icon color in basic action-link.'
+  color-background-actionlink-danger-icon:
+    value: '{!negative-base}'
+    comment: 'Icon color in danger action-link.'
+  color-background-actionlink-icon--disabled:
+    value: '{!disabled-base}'
+    comment: 'Icon color for disabled state of action-link.'
+  color-background-actionlink-primary-icon-shape:
+    value: '{!primary-lightest}'
+    comment: 'Icon background in primary action-link.'
+  color-background-actionlink-basic-icon-shape:
+    value: '{!base-lightest}'
+    comment: 'Icon background in basic action-link.'
+  color-background-actionlink-danger-icon-shape:
+    value: '{!negative-lightest}'
+    comment: 'Icon background in danger action-link.'
+  color-background-actionlink-icon-shape--disabled:
+    value: '{!disabled-ghost}'
+    comment: 'Icon background for disabled state of action-link.'
+  color-background-actionlink-primary--default:
+    value: '{!transparent}'
+    comment: 'Primary action-link background.'
+  color-background-actionlink-basic--default:
+    value: '{!transparent}'
+    comment: 'Basic action-link background.'
+  color-background-actionlink-danger--default:
+    value: '{!transparent}'
+    comment: 'Danger action-link background.'
+  color-background-actionlink-primary--hover:
+    value: '{!primary-lightest}'
+    comment: 'Primary action-link background on hover.'
+  color-background-actionlink-basic--hover:
+    value: '{!base-lightest}'
+    comment: 'Basic action-link background on hover.'
+  color-background-actionlink-danger--hover:
+    value: '{!negative-lightest}'
+    comment: 'Danger action-link background on hover.'
+
+  ## Tag
+  color-background-tag-basic:
+    value: '{!base-lightest}'
+    comment: 'Background color for tag basic.'
+  color-background-tag-basic-remove-icon:
+    value: '{!base-dark}'
+    comment: 'Icon color for remove button of tag basic.'
+  color-background-tag-basic-remove--hover:
+    value: '{!base-lighter}'
+    comment: 'Background color for remove button in hover state.'
+
+  ## Scrollbar
+  color-background-scrollbar-handle:
+    value: '{!base-light}'
+    comment: 'Base background color for scrollbar handle.'
+  color-background-scrollbar-active:
+    value: '{!base-base}'
+    comment: 'Background color for scrollbar when it active.'
