@@ -32,9 +32,6 @@ export default createUseStyles(
       flexShrink: 0,
       color: theme.colorTextAvatarItemSecondary,
     },
-    icon: {
-      color: theme.colorBackgroundGrouptypeIcon,
-    },
     membersCount: {
       marginLeft: theme.spaceMembersCount,
     },
