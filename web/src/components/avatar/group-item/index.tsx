@@ -75,7 +75,6 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
                   <Icon
                     width={11.25}
                     height={11.25}
-                    className={classes.icon}
                     name="people"
                     color="secondary"
                     size="small"
