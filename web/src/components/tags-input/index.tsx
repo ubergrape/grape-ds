@@ -78,6 +78,12 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
     {
       ...props,
       value,
+      onKeyDown: e => {
+        onKeyDown?.(e)
+        if (e.key === 'Backspace' && !value.length && tags && tags.length) {
+          onRemove(tags[tags.length - 1].id)
+        }
+      },
       /* Workaround to display focus frame for a wrapper. Initial was written with useState, to set isFocused.
       But when onBlur triggered, it updated state and onClick element didn't trigger from the first click.
       https://stackoverflow.com/q/58106099
@@ -85,12 +91,6 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         1) UX will get worse
         2) react-aria useButton doesn't have onMouseDown property.
       So, I guess this is the best solution. */
-      onKeyDown: e => {
-        onKeyDown?.(e)
-        if (!value.length && tags && tags.length) {
-          onRemove(tags[tags.length - 1].id)
-        }
-      },
       onFocus: e => {
         onFocus?.(e)
         ref.current.classList.add(...focusWithBorder.split(' '), 'focus')
