@@ -29,6 +29,7 @@ type TagsInputProps = {
     lastName: string
     displayName: string
   }>
+  onChange: (v: string) => void
   onKeyDown: (e: SyntheticEvent) => void
   onFocus?: (e: SyntheticEvent) => void
   onBlur?: (e: SyntheticEvent) => void
@@ -58,11 +59,14 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
   } = props
 
   const prevProps = usePrevious({ tags })
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(props.value || props.defaultValue || '')
 
   useEffect(() => {
     if (prevProps) {
-      if (prevProps.tags.length < tags.length) {
+      if (
+        prevProps.tags.length < tags.length &&
+        prevProps.tags.length !== tags.length
+      ) {
         setValue('')
       }
     }
@@ -77,12 +81,15 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
   const { labelProps, inputProps } = useTextField(
     {
       ...props,
-      value,
       onKeyDown: e => {
         onKeyDown?.(e)
         if (e.key === 'Backspace' && !value.length && tags && tags.length) {
           onRemove(tags[tags.length - 1].id)
         }
+      },
+      onChange: v => {
+        setValue(v)
+        props.onChange?.(v)
       },
       /* Workaround to display focus frame for a wrapper. Initial was written with useState, to set isFocused.
       But when onBlur triggered, it updated state and onClick element didn't trigger from the first click.
@@ -100,7 +107,7 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         ref.current.classList.remove(...focusWithBorder.split(' '), 'focus')
       },
     },
-    ref,
+    inputRef,
   )
 
   const onInputWrapperClick = () => {
