@@ -8,6 +8,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
   wrapper: {
     width: '100%',
     padding: theme.outlineWidthFocus,
+    cursor: 'text',
   },
   inputWrapper: {
     borderRadius: theme.borderRadiusFormfieldTextarea,
