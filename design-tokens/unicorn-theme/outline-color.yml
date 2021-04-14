@@ -7,10 +7,11 @@ global:
 
 imports:
 - ./aliases/colors.yml
+- ./aliases/color-palettes.yml
 
 props:
   color-outline-focus-default:
-    value: '{!info-light}'
+    value: '{!gray-30}'
     comment: 'Outline color for default focus state.'
   color-outline-focus-invalid:
     value: '{!negative-light}'
