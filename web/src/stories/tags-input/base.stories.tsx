@@ -9,7 +9,7 @@ export default {
 }
 
 export const Base: React.FC<TabsProps> = props => (
-  <TagsInput {...props}>
+  <TagsInput onRemove={() => alert('Remove')} {...props}>
     <Tag
       id={1}
       onRemove={() => alert('Remove')}
@@ -28,7 +28,6 @@ export const Base: React.FC<TabsProps> = props => (
     </Tag>
     <Tag
       id={3}
-      onRemove={() => alert('Remove')}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
