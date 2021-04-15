@@ -54,7 +54,7 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
 
   useEffect(() => {
     setTags(children)
-  }, [])
+  }, [children])
 
   const prevProps = usePrevious({ tags })
 
