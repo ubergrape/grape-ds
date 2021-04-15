@@ -7,8 +7,7 @@ import { Flex } from '../layout'
 import { Text } from '../typography'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/common'
-import { genUid, usePrevious } from '../../utils'
-import { Tag } from '../tag'
+import { usePrevious } from '../../utils'
 
 type TagsInputProps = {
   label?: string
@@ -21,14 +20,6 @@ type TagsInputProps = {
   minHeight?: string | number
   maxHeight?: string | number
   value?: string
-  tags: Array<{
-    id: number
-    name: string
-    firstName: string
-    avatar: string
-    lastName: string
-    displayName: string
-  }>
   onKeyDown: (e: SyntheticEvent) => void
   onFocus?: (e: SyntheticEvent) => void
   onBlur?: (e: SyntheticEvent) => void
@@ -52,17 +43,16 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
     onFocus,
     onRemove,
     onBlur,
-    tags,
     isNecessityLabel,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
 
-  const prevProps = usePrevious({ tags })
+  const prevProps = usePrevious({ children })
   const [value, setValue] = useState('')
 
   useEffect(() => {
     if (prevProps) {
-      if (prevProps.tags.length < tags.length) {
+      if (prevProps.children.length < children.length) {
         setValue('')
       }
     }
@@ -80,8 +70,8 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
       value,
       onKeyDown: e => {
         onKeyDown?.(e)
-        if (e.key === 'Backspace' && !value.length && tags && tags.length) {
-          onRemove(tags[tags.length - 1].id)
+        if (e.key === 'Backspace' && !value.length && children?.length) {
+          onRemove(children[children.length - 1].props.id)
         }
       },
       /* Workaround to display focus frame for a wrapper. Initial was written with useState, to set isFocused.
@@ -143,28 +133,9 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         ref={ref}
       >
         <div className={classes.scrollbar}>
-          {tags.map(tag => {
-            const { id, firstName, avatar, lastName, displayName } = tag
-            const name =
-              !firstName || !lastName ? displayName : `${firstName} ${lastName}`
-
-            return (
-              <Tag
-                key={id}
-                className={classes.tag}
-                avatarSrc={avatar}
-                avatarAlt={name}
-                onRemove={() => {
-                  onRemove(id)
-                }}
-              >
-                {name}
-              </Tag>
-            )
-          })}
           {children &&
             children.map(child => (
-              <div key={genUid()} className={classes.tag}>
+              <div key={child.props.id} className={classes.tag}>
                 {child}
               </div>
             ))}

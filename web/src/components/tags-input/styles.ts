@@ -29,6 +29,7 @@ export const useStyles = createUseStyles((theme: typeof tokens) => ({
     overflow: 'auto',
   },
   tag: {
+    display: 'inline-flex',
     margin: 4,
   },
   input: {
