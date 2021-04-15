@@ -24,7 +24,7 @@ type TagsInputProps = {
   onKeyDown: (e: SyntheticEvent) => void
   onFocus?: (e: SyntheticEvent) => void
   onBlur?: (e: SyntheticEvent) => void
-  onRemove: (id: number) => void
+  onRemove?: (id: number) => void
   defaultValue?: string
   customLabels?: {
     required?: string
@@ -50,6 +50,11 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
 
   const prevProps = usePrevious({ children })
   const [value, setValue] = useState('')
+  const [tags, setTags] = useState([])
+
+  useEffect(() => {
+    setTags(children)
+  }, [])
 
   useEffect(() => {
     if (prevProps) {
@@ -72,7 +77,8 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
       onKeyDown: e => {
         onKeyDown?.(e)
         if (e.key === 'Backspace' && !value.length && children?.length) {
-          onRemove(children[children.length - 1].props.id)
+          setTags(tags.slice(0, -1))
+          onRemove?.(children[children.length - 1].props.id)
         }
       },
       /* Workaround to display focus frame for a wrapper. Initial was written with useState, to set isFocused.
@@ -134,8 +140,8 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         ref={ref}
       >
         <div className={classes.scrollbar}>
-          {children &&
-            children.map(child => (
+          {tags &&
+            tags.map(child => (
               <div key={genUid()} className={classes.tag}>
                 <Tag
                   {...child.props}
