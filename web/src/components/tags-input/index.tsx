@@ -49,14 +49,15 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
     customLabels = { required: 'required', optional: 'optional' },
   } = props
 
-  const [value, setValue] = useState(props.value || props.defaultValue || '')
+  const ref = React.useRef<HTMLInputElement>()
+  const inputRef = React.useRef<HTMLInputElement>()
+
   const [tags, setTags] = useState([])
+  const prevProps = usePrevious({ tags })
 
   useEffect(() => {
     setTags(children)
   }, [children])
-
-  const prevProps = usePrevious({ tags })
 
   useEffect(() => {
     if (prevProps) {
@@ -64,13 +65,10 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         prevProps.tags.length < tags.length &&
         prevProps.tags.length !== tags.length
       ) {
-        setValue('')
+        inputRef.current.value = ''
       }
     }
-  })
-
-  const ref = React.useRef<HTMLInputElement>()
-  const inputRef = React.useRef<HTMLInputElement>()
+  }, [tags])
 
   const classes = useStyles(props)
   const { focusWithBorder } = useFocusStyle(props)
@@ -80,13 +78,16 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
       ...props,
       onKeyDown: e => {
         onKeyDown?.(e)
-        if (e.key === 'Backspace' && !value.length && children?.length) {
+        if (
+          e.key === 'Backspace' &&
+          !inputRef.current.value.length &&
+          children?.length
+        ) {
           setTags(tags.slice(0, -1))
           onRemove?.(children[children.length - 1].props.id)
         }
       },
       onChange: v => {
-        setValue(v)
         props.onChange?.(v)
       },
       /* Workaround to display focus frame for a wrapper. Initial was written with useState, to set isFocused.
