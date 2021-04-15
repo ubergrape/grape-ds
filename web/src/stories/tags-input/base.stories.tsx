@@ -12,7 +12,6 @@ export const Base: React.FC<TabsProps> = props => (
   <TagsInput onRemove={() => alert('Remove')} {...props}>
     <Tag
       id={1}
-      onRemove={() => alert('Remove')}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
@@ -20,7 +19,6 @@ export const Base: React.FC<TabsProps> = props => (
     </Tag>
     <Tag
       id={2}
-      onRemove={() => alert('Remove')}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
@@ -35,7 +33,6 @@ export const Base: React.FC<TabsProps> = props => (
     </Tag>
     <Tag
       id={4}
-      onRemove={() => alert('Remove')}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
@@ -43,7 +40,6 @@ export const Base: React.FC<TabsProps> = props => (
     </Tag>
     <Tag
       id={5}
-      onRemove={() => alert('Remove')}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
@@ -51,7 +47,6 @@ export const Base: React.FC<TabsProps> = props => (
     </Tag>
     <Tag
       id={6}
-      onRemove={() => alert('Remove')}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >

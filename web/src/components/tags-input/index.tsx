@@ -5,6 +5,7 @@ import { useTextField } from '@react-aria/textfield'
 
 import { Flex } from '../layout'
 import { Text } from '../typography'
+import { Tag } from '../tag'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/common'
 import { usePrevious, genUid } from '../../utils'
@@ -136,7 +137,12 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
           {children &&
             children.map(child => (
               <div key={genUid()} className={classes.tag}>
-                {child}
+                <Tag
+                  {...child.props}
+                  onRemove={() => {
+                    onRemove(child.props.id)
+                  }}
+                />
               </div>
             ))}
           <FocusRing {...(autoFocus && autoFocus)}>
