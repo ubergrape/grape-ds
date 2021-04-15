@@ -9,6 +9,7 @@ import { useStyles } from './styles'
 
 type DefaultProps = {
   onRemove?: () => void
+  id?: number
   maxWidth?: number
   className?: string
   children: string

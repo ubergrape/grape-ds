@@ -5,10 +5,10 @@ import { useTextField } from '@react-aria/textfield'
 
 import { Flex } from '../layout'
 import { Text } from '../typography'
+import { Tag } from '../tag'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/common'
-import { genUid, usePrevious } from '../../utils'
-import { Tag } from '../tag'
+import { usePrevious, genUid } from '../../utils'
 
 type TagsInputProps = {
   label?: string
@@ -21,19 +21,11 @@ type TagsInputProps = {
   minHeight?: string | number
   maxHeight?: string | number
   value?: string
-  tags: Array<{
-    id: number
-    name: string
-    firstName: string
-    avatar: string
-    lastName: string
-    displayName: string
-  }>
   onChange: (v: string) => void
   onKeyDown: (e: SyntheticEvent) => void
   onFocus?: (e: SyntheticEvent) => void
   onBlur?: (e: SyntheticEvent) => void
-  onRemove: (id: number) => void
+  onRemove?: (id: number) => void
   defaultValue?: string
   customLabels?: {
     required?: string
@@ -53,13 +45,18 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
     onFocus,
     onRemove,
     onBlur,
-    tags,
     isNecessityLabel,
     customLabels = { required: 'required', optional: 'optional' },
   } = props
 
-  const prevProps = usePrevious({ tags })
   const [value, setValue] = useState(props.value || props.defaultValue || '')
+  const [tags, setTags] = useState([])
+
+  useEffect(() => {
+    setTags(children)
+  }, [])
+
+  const prevProps = usePrevious({ tags })
 
   useEffect(() => {
     if (prevProps) {
@@ -83,8 +80,9 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
       ...props,
       onKeyDown: e => {
         onKeyDown?.(e)
-        if (e.key === 'Backspace' && !value.length && tags && tags.length) {
-          onRemove(tags[tags.length - 1].id)
+        if (e.key === 'Backspace' && !value.length && children?.length) {
+          setTags(tags.slice(0, -1))
+          onRemove?.(children[children.length - 1].props.id)
         }
       },
       onChange: v => {
@@ -150,29 +148,16 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         ref={ref}
       >
         <div className={classes.scrollbar}>
-          {tags.map(tag => {
-            const { id, firstName, avatar, lastName, displayName } = tag
-            const name =
-              !firstName || !lastName ? displayName : `${firstName} ${lastName}`
-
-            return (
-              <Tag
-                key={id}
-                className={classes.tag}
-                avatarSrc={avatar}
-                avatarAlt={name}
-                onRemove={() => {
-                  onRemove(id)
-                }}
-              >
-                {name}
-              </Tag>
-            )
-          })}
-          {children &&
-            children.map(child => (
+          {tags &&
+            tags.map(child => (
               <div key={genUid()} className={classes.tag}>
-                {child}
+                <Tag
+                  {...child.props}
+                  onRemove={() => {
+                    setTags(tags.filter(tag => tag.props.id !== child.props.id))
+                    onRemove?.(child.props.id)
+                  }}
+                />
               </div>
             ))}
           <FocusRing {...(autoFocus && autoFocus)}>

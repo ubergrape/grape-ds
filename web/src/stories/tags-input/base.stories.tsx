@@ -11,46 +11,46 @@ export default {
 export const Base: React.FC<TabsProps> = props => (
   <TagsInput {...props}>
     <Tag
-      onRemove={() => alert('Remove')}
+      id={1}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
       Tag 1
     </Tag>
     <Tag
-      onRemove={() => alert('Remove')}
+      id={2}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
       Tag 2
     </Tag>
     <Tag
-      onRemove={() => alert('Remove')}
+      id={3}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
       Tag 3
     </Tag>
     <Tag
-      onRemove={() => alert('Remove')}
+      id={4}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
-      Tag 1
+      Tag 4
     </Tag>
     <Tag
-      onRemove={() => alert('Remove')}
+      id={5}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
-      Tag 2
+      Tag 5
     </Tag>
     <Tag
-      onRemove={() => alert('Remove')}
+      id={6}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
-      Tag 3
+      Tag 6
     </Tag>
   </TagsInput>
 )
