@@ -7,7 +7,7 @@ import { Flex } from '../layout'
 import { Text } from '../typography'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/common'
-import { usePrevious } from '../../utils'
+import { usePrevious, genUid } from '../../utils'
 
 type TagsInputProps = {
   label?: string
@@ -135,7 +135,7 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
         <div className={classes.scrollbar}>
           {children &&
             children.map(child => (
-              <div key={child.props.id} className={classes.tag}>
+              <div key={genUid()} className={classes.tag}>
                 {child}
               </div>
             ))}
