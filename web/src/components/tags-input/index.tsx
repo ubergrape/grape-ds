@@ -146,7 +146,8 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
                 <Tag
                   {...child.props}
                   onRemove={() => {
-                    onRemove(child.props.id)
+                    setTags(tags.filter(tag => tag.props.id !== child.props.id))
+                    onRemove?.(child.props.id)
                   }}
                 />
               </div>
