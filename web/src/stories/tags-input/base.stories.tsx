@@ -36,21 +36,21 @@ export const Base: React.FC<TabsProps> = props => (
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
-      Tag 1
+      Tag 4
     </Tag>
     <Tag
       id={5}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
-      Tag 2
+      Tag 5
     </Tag>
     <Tag
       id={6}
       avatarSrc="https://thispersondoesnotexist.com/image"
       avatarAlt="Alt text image"
     >
-      Tag 3
+      Tag 6
     </Tag>
   </TagsInput>
 )
