@@ -29,12 +29,6 @@ module.exports = {
         {
           type: "doc",
           position: "left",
-          docId: "inclusive-language",
-          label: "Writing",
-        },
-        {
-          type: "doc",
-          position: "left",
           docId: "components/action-link",
           label: "Components",
         },

@@ -20,18 +20,6 @@ module.exports = {
       ],
     },
   ],
-  writing: [
-    {
-      type: "category",
-      label: "Writing",
-      items: [
-        "inclusive-language",
-        "vocabulary",
-        "language-and-grammar",
-        "writing-style",
-      ],
-    },
-  ],
   components: [
     {
       type: "category",
