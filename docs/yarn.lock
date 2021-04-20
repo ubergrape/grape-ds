@@ -3337,7 +3337,7 @@ atob@^2.1.2:
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
 aurora-ui@../web:
-  version "0.0.1"
+  version "0.0.8"
   dependencies:
     "@react-aria/button" "^3.2.1"
     "@react-aria/checkbox" "^3.2.1"
@@ -3352,6 +3352,7 @@ aurora-ui@../web:
     clsx "^1.1.1"
     grape-icons ubergrape/grape-icons
     jss "^10.3.0"
+    jss-increase-specificity "^0.3.5"
     jss-plugin-camel-case "^10.3.0"
     jss-plugin-default-unit "^10.3.0"
     jss-plugin-expand "^10.3.0"
@@ -7149,6 +7150,11 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jss-increase-specificity@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/jss-increase-specificity/-/jss-increase-specificity-0.3.5.tgz#694a85acb5218ddcf5bb202e64b3d6b3fa20bdb5"
+  integrity sha512-As4qGZV+VkeBqnnmRSvMgLdAcJQBiR7p4FJB7lmRSRrgnkoLlkvm9T/kIIops7Vxc51YFUVIqGai//yBKNjD3w==
+
 jss-plugin-camel-case@10.5.0, jss-plugin-camel-case@^10.3.0:
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/jss-plugin-camel-case/-/jss-plugin-camel-case-10.5.0.tgz#4b0a9c85e65e5eb72cbfba59373686c604d88f72"
@@ -10683,9 +10689,9 @@ sprintf-js@~1.0.2:
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
 ssri@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
-  integrity sha512-3Wge10hNcT1Kur4PDFwEieXSCMCJs/7WvSACcrMYrNp+b8kDL1/0wJch5Ni2WrtwEa2IO8OsVfeKIciKCDx/QA==
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
+  integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
   dependencies:
     figgy-pudding "^3.5.1"
 
