@@ -10,6 +10,7 @@ export interface FlexProps {
   wrap?: boolean | CSSProperties['flexWrap']
   items?: CSSProperties['alignItems']
   justify?: CSSProperties['justifyContent']
+  width?: CSSProperties['width']
   className?: string
   style?: CSSProperties
 }

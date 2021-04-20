@@ -56,8 +56,9 @@ export const Type = (): JSX.Element => (
 )
 
 export const Truncated = (): JSX.Element => (
-  <Flex gap="2x" direction="column" style={{ width: 200 }} wrap>
+  <Flex gap="2x" direction="column" style={{ width: 500 }} width="100%" wrap>
     <GroupItem
+      name="Group X"
       size="regular"
       description="Description Description Description"
       maxWidth={200}

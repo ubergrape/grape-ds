@@ -50,7 +50,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
     <FocusRing focusRingClass={onFocus} within>
       <button
         type="button"
-        className={clsx(itemClasses.wrapper, className)}
+        className={clsx(itemClasses.wrapper, className, classes.button)}
         ref={ref}
         aria-label={ariaLabel || name}
         {...buttonProps}

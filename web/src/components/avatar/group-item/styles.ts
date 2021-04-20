@@ -13,6 +13,9 @@ export default createUseStyles(
           ? theme.colorTextAvatarItemPrimaryInactive
           : theme.colorTextAvatarItemPrimary,
     },
+    button: {
+      width: '100%',
+    },
     secondary: {
       width: '100%',
       display: 'flex',
@@ -24,10 +27,10 @@ export default createUseStyles(
     },
     description: {
       flex: '1 1 auto',
-      width: 0, // flex-grow will try to make it use as much space as available
     },
     textWrapper: {
       width: '100%',
+      overflow: 'hidden',
     },
     membersText: {
       overflow: 'initial',

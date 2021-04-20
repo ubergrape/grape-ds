@@ -10,6 +10,7 @@ export default createUseStyles(() => {
     flex: {
       display: 'flex',
       flex: 1,
+      width: ({ width }) => width,
       flexDirection: ({ direction }) => direction,
       justifyContent: ({ justify }) => justify,
       alignItems: ({ items }) => items,
