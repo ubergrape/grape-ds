@@ -66,7 +66,7 @@ export const Truncated = (): JSX.Element => (
     <GroupItem
       size="regular"
       name="Group Name Group Name Group Name"
-      description="Description Description Description"
+      description="Description Description Description Very Long Description Description Description Description Very Long Description"
       maxWidth={200}
       members={123}
     />
@@ -90,7 +90,7 @@ export const Truncated = (): JSX.Element => (
     <GroupItem
       size="small"
       name="Group Name Group Name Group Name"
-      description="Description Description Description"
+      description="Description Description Description Very Long Description Description Description Description Very Long Description"
       maxWidth={200}
       members={123}
     />

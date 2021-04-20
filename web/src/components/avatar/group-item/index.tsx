@@ -56,7 +56,7 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
         {...buttonProps}
       >
         <Group isUnclickable {...restGroupProps} />
-        <div className={itemClasses.text}>
+        <div className={clsx(itemClasses.text, classes.textWrapper)}>
           <Text
             emphasis
             size="small"

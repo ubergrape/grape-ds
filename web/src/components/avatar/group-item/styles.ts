@@ -14,6 +14,7 @@ export default createUseStyles(
           : theme.colorTextAvatarItemPrimary,
     },
     secondary: {
+      width: '100%',
       display: 'flex',
       whiteSpace: 'nowrap',
       overflow: 'hidden',
@@ -22,8 +23,11 @@ export default createUseStyles(
         size === 'regular' ? 0 : theme.spaceAvatarItem,
     },
     description: {
-      marginLeft: ({ members, size }: GroupItemProps) =>
-        members > 0 && size === 'regular' ? theme.spaceMembersSecondary : 0,
+      flex: '1 1 auto',
+      width: 0, // flex-grow will try to make it use as much space as available
+    },
+    textWrapper: {
+      width: '100%',
     },
     membersText: {
       overflow: 'initial',
@@ -34,6 +38,7 @@ export default createUseStyles(
     },
     membersCount: {
       marginLeft: theme.spaceMembersCount,
+      marginRight: theme.spaceMembersSecondary,
     },
   }),
 )
