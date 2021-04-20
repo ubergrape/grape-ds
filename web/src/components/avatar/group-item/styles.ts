@@ -33,6 +33,7 @@ export default createUseStyles(
       color: theme.colorTextAvatarItemSecondary,
     },
     membersCount: {
+      color: theme.colorTextAvatarItemSecondary,
       marginLeft: theme.spaceMembersCount,
     },
   }),
