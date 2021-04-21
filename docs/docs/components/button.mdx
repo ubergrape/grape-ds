@@ -5,25 +5,83 @@ title: Button
 
 import { Button } from "aurora-ui";
 
-[Storybook](https://aurora.ubergrape.com/storybook/?path=/story/components-button--base)
+[Development documentation](https://aurora.ubergrape.com/storybook/?path=/story/components-button--base)
 
-<Button>Button</Button>{" "}
-<Button appearance="minimal">Button</Button>{" "}
+Buttons are used for actions on a page, like "Create", "Cancel", "Save". They are usually part of larger components, forms or modals. Buttons tell the user what will happen next. For most purposes we use filled buttons. Minimal buttons are only used for less important actions.
 
-### Icon-only
-<Button icon="person" />{" "}
-<Button icon="person" appearance="minimal" />
+Buttons:
+- act as a call to action.
+- can be visually more (filled) or less (minimal) important.
+- are available in 3 sizes (large/regular/small) to adapt to he context they are used in.
+- can include an icon (left/right) to support quick recognition and action or be icon-only.
 
-### Playground
+## Anatomy
+- **Label**: tells the user what will happen when the button is activated (use aria-label when a label is visually missing like for an icon-only button)
+- **Icon**: convey more meaning
 
+A button can be plain text, additionally have an icon (left/right) to convey more meaning, or only convey meaning through an icon alone. Icon-only buttons should only be used if the icon and purpose are crystal clear.
+
+<Button>Plain text</Button>{" "}
+<Button icon="people" iconPosition="left">Icon left</Button>{" "}
+<Button icon="people" iconPosition="right">Icon right</Button>{" "}
+<Button icon="lock" ariaLabel="Lock"></Button>
+
+## Variants
+Buttons are available in 3 variants: basic, primary, danger.
+
+#### Basic
+Basic buttons are used most in the interface - usually with filled appearance. Only use other variants or another appearance when the button needs more or less visual weight or is meant to signify a primary or destructive action.
+<Button icon="people" iconPosition="left">Basic</Button>{" "}
+
+#### Primary
+A primary button is used only once per section to highlight the most important action.
+<Button variant="primary" icon="people" iconPosition="left">Primary</Button>{" "}
+
+#### Danger
+When the action is destructive, like deleting data or performing an action that is hard to recover from, use the danger variant. Destructive buttons should trigger a modal before performing the action.
+<Button variant="danger" icon="people" iconPosition="left">Danger</Button>{" "}
+
+## Minimal appearance
+Our buttons are usually filled, but for less important or not so commonly used actions a **minimal** appearance is used - like "Cancel" in a button group next to a primary action.
+
+Minimal buttons - available in all three variants (basic, primary, danger) - can also be used in parts of the interface where filled buttons would be too prominent.
+<Button appearance="minimal" icon="people" iconPosition="left">Basic minimal</Button>{" "}
+<Button appearance="minimal" variant="primary" icon="people" iconPosition="left">Primary minimal</Button>{" "}
+<Button appearance="minimal" variant="danger" icon="people" iconPosition="left">Danger minimal</Button>{" "}
+
+## Disabled state
+When a button is disabled, it can't be focused anymore, and therefor can't help the user identify the cause of why this action is disabled and what to do. It won't fire any user events. This state should be avoided if possible and only be used if it doesn't harm the usability and the user is totally clear about why the action is disabled.
+
+<Button isDisabled>Disabled</Button>{" "}
+<Button icon="search" iconPosition="left" isDisabled>Disabled</Button>{" "}
+<Button icon="lock" iconPosition="left" isDisabled></Button>{" "}
+<Button appearance="minimal" icon="people" iconPosition="left" isDisabled>Disabled minimal</Button>
+
+## Sizes
+The size used depends on the context and surrounding interface the button is used in. 3 sizes (**large**, **regular**, **small**) are available, usually we use the regular size.
+<Button size="large" icon="people" iconPosition="left">Large button</Button>{" "}
+<Button icon="people" iconPosition="left">Regular button</Button>{" "}
+<Button size="small" icon="people" iconPosition="left">Small button</Button>{" "}
+
+## Best practices
+- Provide clear and concise labels.
+- Always tell the user what will happen next.
+- Lead with a actionable word.
+- Prioritize the most important actions and use only one primary action per section. Too many calls to action per task or section can confuse the user.
+- Position buttons consistently across the interface (like buttons in form should always be positioned on the left).
+- Don't confuse buttons (used for calls to action) with links (used for navigation). Be clear about the purpose.
+
+## Playground
 ```jsx live
 <Button
     variant="primary"
     appearance="filled"
     size="regular"
-    icon="person"
+    icon="checkmark"
     iconPosition="left"
 >
-Basic
+Approve
 </Button>
 ```
+## Related components
+- To combine multiple buttons use the [Button Group](button-group.mdx) component
