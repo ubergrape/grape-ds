@@ -21,7 +21,6 @@ export interface GroupItemProps extends GroupProps {
   isUnclickable?: boolean
   isInactive?: boolean
   excludeFromTabOrder?: boolean
-  maxWidth?: number
 }
 
 export const GroupItem: React.FC<GroupItemProps> = props => {

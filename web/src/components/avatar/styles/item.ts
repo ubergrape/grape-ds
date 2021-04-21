@@ -29,20 +29,6 @@ export const useItemStyle = createUseStyles(
     text: {
       display: 'flex',
       marginLeft: theme.spaceAvatarItem,
-      width: ({ maxWidth, size }) => {
-        if (!maxWidth) return 'auto'
-
-        const avatarPadding = parseToken(theme.spaceAvatarItem)
-        const padding = parseToken(theme.outlineWidthFocus)
-        const margin = parseToken(theme.sizeHalfX)
-        const avatarSize = parseToken(
-          size === 'regular' ? theme.sizeAvatarRegular : theme.sizeAvatarSmall,
-        )
-
-        return `calc(${maxWidth}px - ${
-          margin * 2 + padding * 2 + avatarPadding + avatarSize
-        }px)`
-      },
       flexDirection: ({ size }) => (size === 'regular' ? 'column' : 'row'),
     },
     name: {
@@ -51,17 +37,6 @@ export const useItemStyle = createUseStyles(
       textOverflow: 'ellipsis',
       textAlign: 'left',
       flexShrink: 0,
-      maxWidth: ({ maxWidth, size }) => {
-        if (!maxWidth) return 'auto'
-
-        const padding = parseToken(theme.spaceAvatarItem) * 2
-
-        const avatarSize = parseToken(
-          size === 'regular' ? theme.sizeAvatarRegular : theme.sizeAvatarSmall,
-        )
-
-        return `calc(${maxWidth}px - ${padding + avatarSize}px)`
-      },
     },
     description: {
       color: theme.colorTextAvatarItemSecondary,
