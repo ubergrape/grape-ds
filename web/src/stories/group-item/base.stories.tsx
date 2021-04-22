@@ -56,44 +56,37 @@ export const Type = (): JSX.Element => (
 )
 
 export const Truncated = (): JSX.Element => (
-  <Flex gap="2x" direction="column" style={{ width: 500 }} width="100%" wrap>
-    <GroupItem
-      name="Group X"
-      size="regular"
-      description="Description Description Description"
-      maxWidth={200}
-      members={123}
-    />
-    <GroupItem
-      size="regular"
-      name="Group Name Group Name Group Name"
-      description="Description Description Description Very Long Description Description Description Description Very Long Description"
-      maxWidth={200}
-      members={123}
-    />
-    <GroupItem
-      size="regular"
-      name="Group Name Group Name Group Name"
-      description="Description Description Description"
-      maxWidth={200}
-    />
-    <GroupItem
-      size="regular"
-      name="Group Name Group Name Group Name"
-      maxWidth={200}
-    />
-    <GroupItem
-      size="small"
-      description="Description Description Description"
-      maxWidth={200}
-      members={123}
-    />
-    <GroupItem
-      size="small"
-      name="Group Name Group Name Group Name"
-      description="Description Description Description Very Long Description Description Description Description Very Long Description"
-      maxWidth={200}
-      members={123}
-    />
-  </Flex>
+  <div style={{ width: 200 }}>
+    <Flex gap="2x" direction="column" wrap>
+      <GroupItem
+        name="Group X"
+        size="regular"
+        description="Description Description Description"
+        members={123}
+      />
+      <GroupItem
+        size="regular"
+        name="Group Name Group Name Group Name"
+        description="Description Description Description Very Long Description Description Description Description Very Long Description"
+        members={123}
+      />
+      <GroupItem
+        size="regular"
+        name="Group Name Group Name Group Name"
+        description="Description Description Description"
+      />
+      <GroupItem size="regular" name="Group Name Group Name Group Name" />
+      <GroupItem
+        size="small"
+        description="Description Description Description"
+        members={123}
+      />
+      <GroupItem
+        size="small"
+        name="Group Name Group Name Group Name"
+        description="Description Description Description Very Long Description Description Description Description Very Long Description"
+        members={123}
+      />
+    </Flex>
+  </div>
 )

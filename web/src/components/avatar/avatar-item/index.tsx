@@ -13,7 +13,6 @@ import useStyles from './styles'
 export interface AvatarItemProps extends AvatarProps {
   name: string
   description?: string
-  maxWidth?: number
   ariaLabel?: string
   className?: string
   excludeFromTabOrder?: boolean
