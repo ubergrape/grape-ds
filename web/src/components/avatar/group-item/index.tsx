@@ -50,13 +50,13 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
     <FocusRing focusRingClass={onFocus} within>
       <button
         type="button"
-        className={clsx(itemClasses.wrapper, className, classes.button)}
+        className={clsx(itemClasses.wrapper, className, classes.wrapper)}
         ref={ref}
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
         <Group isUnclickable {...restGroupProps} />
-        <div className={clsx(itemClasses.text, classes.textWrapper)}>
+        <div className={clsx(itemClasses.text, classes.text)}>
           <Text
             emphasis
             size="small"

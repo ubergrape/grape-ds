@@ -13,7 +13,7 @@ export default createUseStyles(
           ? theme.colorTextAvatarItemPrimaryInactive
           : theme.colorTextAvatarItemPrimary,
     },
-    button: {
+    wrapper: {
       width: '100%',
     },
     secondary: {
@@ -28,7 +28,7 @@ export default createUseStyles(
     description: {
       flex: '1 1 auto',
     },
-    textWrapper: {
+    text: {
       width: '100%',
       overflow: 'hidden',
     },
