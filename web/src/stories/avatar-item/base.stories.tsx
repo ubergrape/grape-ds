@@ -58,25 +58,24 @@ export const Selected = (): JSX.Element => (
 )
 
 export const Truncated = (): JSX.Element => (
-  <Flex gap="2x" direction="column" style={{ width: 200 }}>
-    <AvatarItem
-      size="regular"
-      name="First-name Second-name First-name Second-name"
-      description="Description"
-      maxWidth={200}
-    />
-    <AvatarItem
-      size="regular"
-      name="First-name Second-name First-name Second-name"
-      description="Description Description Description"
-      maxWidth={200}
-    />
-    <AvatarItem size="small" description="Description" maxWidth={200} />
-    <AvatarItem
-      size="small"
-      name="First-name Second-name First-name Second-name"
-      description="Description"
-      maxWidth={200}
-    />
-  </Flex>
+  <div style={{ width: 200 }}>
+    <Flex gap="2x" direction="column">
+      <AvatarItem
+        size="regular"
+        name="First-name Second-name First-name Second-name"
+        description="Description"
+      />
+      <AvatarItem
+        size="regular"
+        name="First-name Second-name First-name Second-name"
+        description="Description Description Description"
+      />
+      <AvatarItem size="small" description="Description" />
+      <AvatarItem
+        size="small"
+        name="First-name Second-name First-name Second-name"
+        description="Description"
+      />
+    </Flex>
+  </div>
 )

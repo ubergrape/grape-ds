@@ -13,7 +13,11 @@ export default createUseStyles(
           ? theme.colorTextAvatarItemPrimaryInactive
           : theme.colorTextAvatarItemPrimary,
     },
+    wrapper: {
+      width: '100%',
+    },
     secondary: {
+      width: '100%',
       display: 'flex',
       whiteSpace: 'nowrap',
       overflow: 'hidden',
@@ -22,8 +26,11 @@ export default createUseStyles(
         size === 'regular' ? 0 : theme.spaceAvatarItem,
     },
     description: {
-      marginLeft: ({ members, size }: GroupItemProps) =>
-        members > 0 && size === 'regular' ? theme.spaceMembersSecondary : 0,
+      flex: '1 1 auto',
+    },
+    text: {
+      width: '100%',
+      overflow: 'hidden',
     },
     membersText: {
       overflow: 'initial',
@@ -34,6 +41,7 @@ export default createUseStyles(
     },
     membersCount: {
       marginLeft: theme.spaceMembersCount,
+      marginRight: theme.spaceMembersSecondary,
     },
   }),
 )
