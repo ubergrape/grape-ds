@@ -21,7 +21,6 @@ export interface GroupItemProps extends GroupProps {
   isUnclickable?: boolean
   isInactive?: boolean
   excludeFromTabOrder?: boolean
-  maxWidth?: number
 }
 
 export const GroupItem: React.FC<GroupItemProps> = props => {
@@ -50,13 +49,13 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
     <FocusRing focusRingClass={onFocus} within>
       <button
         type="button"
-        className={clsx(itemClasses.wrapper, className)}
+        className={clsx(itemClasses.wrapper, className, classes.wrapper)}
         ref={ref}
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
         <Group isUnclickable {...restGroupProps} />
-        <div className={itemClasses.text}>
+        <div className={clsx(itemClasses.text, classes.text)}>
           <Text
             emphasis
             size="small"
