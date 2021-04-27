@@ -17,6 +17,7 @@ export type TakeoverDialogProps = {
   title?: string
   children: ReactElement
   isOpen: boolean
+  zIndex: boolean
   isDismissable?: boolean
   ariaLabel?: string
   closeAriaLabel?: string
