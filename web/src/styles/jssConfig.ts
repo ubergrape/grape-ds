@@ -11,12 +11,19 @@ import increaseSpecificity from 'jss-increase-specificity'
 import reset from './reset'
 import overwrites from './global'
 
-export default (
-  isStylesNotReset?: boolean,
-  hasGlobalReset?: boolean,
-  isOverridesNotApplied?: boolean,
-  hasGlobalOverrides?: boolean,
-): Jss => {
+export interface JssConfigProps {
+  isStylesNotReset?: boolean
+  hasGlobalReset?: boolean
+  isOverridesNotApplied?: boolean
+  hasGlobalOverrides?: boolean
+}
+
+export default ({
+  isStylesNotReset,
+  hasGlobalReset,
+  isOverridesNotApplied,
+  hasGlobalOverrides,
+}: JssConfigProps): Jss => {
   const jss = create()
 
   jss.use(functions(), global(), extend(), nested(), camel(), unit(), expand())

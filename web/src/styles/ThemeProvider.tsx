@@ -7,13 +7,26 @@ import jss from './jssConfig'
 export interface ThemeProviderProps {
   children: ReactChild | ReactChildren
   isStylesNotReset?: boolean
+  hasGlobalReset?: boolean
+  isOverridesNotApplied?: boolean
+  hasGlobalOverrides?: boolean
 }
 
 export const ThemeProvider = ({
   children,
   isStylesNotReset,
+  hasGlobalReset,
+  isOverridesNotApplied,
+  hasGlobalOverrides,
 }: ThemeProviderProps): JSX.Element => (
-  <JssProvider jss={jss(isStylesNotReset)}>
+  <JssProvider
+    jss={jss({
+      isStylesNotReset,
+      hasGlobalReset,
+      isOverridesNotApplied,
+      hasGlobalOverrides,
+    })}
+  >
     <JssThemeProvider theme={theme}>{children}</JssThemeProvider>
   </JssProvider>
 )
