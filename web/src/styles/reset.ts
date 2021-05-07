@@ -1,10 +1,10 @@
-import { JssStyle } from 'jss'
+import { Styles } from 'jss'
 
 /**
  * JSS port of http://meyerweb.com/eric/tools/css/reset/
  */
 
-export default (hasGlobalReset: boolean): JssStyle =>
+export default (hasGlobalReset: boolean): Styles =>
   hasGlobalReset
     ? {
         '@global': {

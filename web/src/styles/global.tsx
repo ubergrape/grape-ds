@@ -1,6 +1,6 @@
-import { JssStyle } from 'jss'
+import { Styles } from 'jss'
 
-export default (hasGlobalOverrides: boolean): JssStyle =>
+export default (hasGlobalOverrides: boolean): Styles =>
   hasGlobalOverrides
     ? {
         '@global': {
