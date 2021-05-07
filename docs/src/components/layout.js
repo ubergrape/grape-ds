@@ -5,7 +5,7 @@ import { ThemeProvider } from "aurora-ui";
 
 export default (props) => {
   return (
-    <ThemeProvider isStylesNotReset>
+    <ThemeProvider isStylesNotReset isOverridesNotApplied>
       <DocsPage {...props}></DocsPage>
     </ThemeProvider>
   );
