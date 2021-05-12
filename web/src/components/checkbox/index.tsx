@@ -4,7 +4,7 @@ import { useFocusRing } from '@react-aria/focus'
 import { useToggleState } from '@react-stately/toggle'
 import { useCheckbox } from '@react-aria/checkbox'
 
-import { genUid, classify } from '../../utils'
+import { genUid, testify } from '../../utils'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/common'
 import { CheckmarkIcon, IndeterminateIcon } from './icons'
@@ -85,8 +85,8 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
               classes.checkbox,
               isFocusVisible && focusClass.focus,
               hasLabel && classes.spacing,
-              classify("checkbox", isLabelCheckbox(props) ? props.label : props.ariaLabel)
             )}
+            {...testify("checkbox", isLabelCheckbox(props) ? props.label : props.ariaLabel)}
           >
             {state.isSelected && <CheckmarkIcon />}
             {isIndeterminate && !state.isSelected && <IndeterminateIcon />}

@@ -4,7 +4,7 @@ import { useFocusRing } from '@react-aria/focus'
 import { useToggleState } from '@react-stately/toggle'
 import { useSwitch } from '@react-aria/switch'
 
-import { genUid, classify } from '../../utils'
+import { genUid, testify } from '../../utils'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/common'
 import { InputLabel } from '../input-label'
@@ -73,8 +73,8 @@ export const Switch: React.FC<SwitchProps> = props => {
         )}
         renderInput={() => (
           <div
-            className={clsx(classes.switch, isFocusVisible && focusClass.focus,
-              classify("switch", isLabelSwitch(props) ? props.label: props.ariaLabel ))}
+            className={clsx(classes.switch, isFocusVisible && focusClass.focus)}
+            {...testify("switch", isLabelSwitch(props) ? props.label: props.ariaLabel )}
           >
             <div
               className={clsx(

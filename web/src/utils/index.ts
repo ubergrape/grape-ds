@@ -24,8 +24,16 @@ export const getNodeText = node => {
   return ""
 }
 
+export const testMode = localStorage.testMode
+
 export const classify = (name, nodes) => {
   return name + "-" +slugify(getNodeText(nodes), {'lower': true, 'strict': true})
+}
+
+export const testify = (name, node) => {
+  if (testMode) {
+    return { 'data-test': classify(name, node)}
+  }
 }
 
 export const usePrevious = <T extends unknown>(v: T): T | undefined => {
