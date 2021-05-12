@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, ReactElement } from 'react'
 import slugify from 'slugify'
 import { sizes, textSizes } from '../types'
 
@@ -17,8 +17,9 @@ export const getTextSize = (size: sizes): textSizes => {
   }
 }
 
-export const getNodeText = (node: unknown): string => {
-  if (['string', 'number'].includes(typeof node)) return node
+export const getNodeText = (node: string | number | ReactElement): string => {
+  if (typeof node === 'string') return node
+  if (typeof node === 'number') return node.toString()
   if (node instanceof Array) return node.map(getNodeText).join('')
   if (typeof node === 'object' && node) return getNodeText(node.props.children)
   return ''
@@ -29,15 +30,15 @@ export const getNodeText = (node: unknown): string => {
 export const testMode =
   typeof localStorage !== 'undefined' && localStorage.testMode
 
-export const classify = (name: string, nodes: unknown): string => {
-  return `${name}-${slugify(getNodeText(nodes), { lower: true, strict: true })}`
+export const classify = (name: string, node: string | ReactElement): string => {
+  return `${name}-${slugify(getNodeText(node), { lower: true, strict: true })}`
 }
 
 // creates slugified data-test attributes that can be added to elements
 // to make e2e testing easier
 export const testify = (
   name: string,
-  node: unknown,
+  node: string | ReactElement,
 ): Record<string, string> => {
   if (testMode) {
     return { 'data-test': classify(name, node) }
