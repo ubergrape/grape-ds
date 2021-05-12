@@ -26,7 +26,7 @@ export const getNodeText = node => {
 
 // testMode setting
 // note: docusaurus does not have localStorage, so check if it exists
-export const testMode = localStorage && localStorage.testMode
+export const testMode = (typeof localStorage !== 'undefined') && localStorage.testMode
 
 export const classify = (name, nodes) => {
   return name + "-" +slugify(getNodeText(nodes), {'lower': true, 'strict': true})
