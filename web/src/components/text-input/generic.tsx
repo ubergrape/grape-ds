@@ -216,7 +216,7 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
               'os-text-inherit',
               'os-textarea',
             )}
-            {...testify('input', label.toString())}
+            {...testify('input', label || props['aria-label'] || props.placeholder)}
             {...inputProps}
             {...(isRequired && { required: true })}
             {...(invalid && { 'aria-invalid': true })}
