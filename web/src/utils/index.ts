@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import slugify from 'slugify'
 import { sizes, textSizes } from '../types'
 
 export const genUid = (): string => Math.random().toString(36).substring(7)
@@ -14,6 +15,17 @@ export const getTextSize = (size: sizes): textSizes => {
     default:
       return 'base'
   }
+}
+
+export const getNodeText = node => {
+  if (['string', 'number'].includes(typeof node)) return node
+  if (node instanceof Array) return node.map(getNodeText).join('')
+  if (typeof node === 'object' && node) return getNodeText(node.props.children)
+  return ""
+}
+
+export const classify = (name, nodes) => {
+  return name + "-" +slugify(getNodeText(nodes), {'lower': true, 'strict': true})
 }
 
 export const usePrevious = <T extends unknown>(v: T): T | undefined => {

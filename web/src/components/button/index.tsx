@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 import { Icon, IconTypes } from '../icon'
 import { Text } from '../typography'
-import { getTextSize } from '../../utils'
+import { getTextSize, classify } from '../../utils'
 
 import { useFocusStyle } from '../../styles/common'
 import useStyles from './styles'
@@ -66,7 +66,7 @@ export const Button: React.FC<ButtonProps> = props => {
     <div className={clsx(classes.wrapper, className)}>
       <FocusRing focusRingClass={focus} within>
         <button
-          className={clsx(classes.button, isPressed && !isDisabled && 'active')}
+          className={clsx(classes.button, isPressed && !isDisabled && 'active', classify('button', children))}
           type="button"
           ref={ref}
           disabled={isDisabled}

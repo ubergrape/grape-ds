@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { sizes, flexAlignments } from '../../../types'
 import { Text } from '../../typography'
 import { useFocusStyle } from '../../../styles/common'
-import { getTextSize, usePrevious } from '../../../utils'
+import { getTextSize, usePrevious, classify } from '../../../utils'
 
 import useStyles from './styles'
 
@@ -57,7 +57,7 @@ export const Tab: React.FC<TabProps> = props => {
       ref={tabRef}
       onClick={() => onChangeTab(tab)}
       onKeyDown={e => onKeyDown(e)}
-      className={clsx(classes.button, onFocusVisible)}
+      className={clsx(classes.button, onFocusVisible, classify("tab", children))}
       {...(isActive && { 'aria-selected': true })}
       {...(!isActive && { tabIndex: -1 })}
     >
