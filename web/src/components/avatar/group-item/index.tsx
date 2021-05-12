@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
@@ -18,6 +18,8 @@ export interface GroupItemProps extends GroupProps {
   className?: string
   members?: number
   ariaLabel?: string
+  groupImageRenderDelay?: number
+  isVisible?: boolean
   isUnclickable?: boolean
   isInactive?: boolean
   excludeFromTabOrder?: boolean
@@ -28,17 +30,34 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
   const classes = useStyles(props)
   const { onFocus } = useFocusStyle(props)
   const itemClasses = useItemStyle(props)
-
   const {
+    size,
+    members,
     name,
     description,
-    members,
     ariaLabel,
+    isVisible,
+    groupImageRenderDelay,
     className,
     ...restGroupProps
   } = props
   const { onClick, isDisabled, ...restButtonProps } = props
-  const { size } = props
+
+  const isMembersVisible = members > 0 && size === 'regular'
+
+  const [isGroupImageVisible, toggleGroupImage] = useState(
+    !groupImageRenderDelay,
+  )
+  const [isMembersImageVisible, toggleMembersImage] = useState(
+    !groupImageRenderDelay,
+  )
+
+  if (groupImageRenderDelay && isVisible) {
+    setTimeout(() => {
+      toggleGroupImage(true)
+      if (isMembersVisible) toggleMembersImage(true)
+    }, props.groupImageRenderDelay)
+  }
 
   const { buttonProps } = useButton(
     { ...restButtonProps, isDisabled, onPress: onClick },
@@ -54,8 +73,12 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
         aria-label={ariaLabel || name}
         {...buttonProps}
       >
-        <Group isUnclickable {...restGroupProps} />
-        <div className={clsx(itemClasses.text, classes.text)}>
+        {isGroupImageVisible ? (
+          <Group isUnclickable {...restGroupProps} />
+        ) : (
+          <div className={itemClasses.imageSkeleton} />
+        )}
+        <div className={itemClasses.text}>
           <Text
             emphasis
             size="small"
@@ -64,20 +87,24 @@ export const GroupItem: React.FC<GroupItemProps> = props => {
             {name}
           </Text>
           <div className={classes.secondary}>
-            {members > 0 && size === 'regular' && (
+            {isMembersVisible && (
               <Text className={classes.membersText} size="small">
                 <Flex
                   items="center"
                   justify="center"
                   className={classes.members}
                 >
-                  <Icon
-                    width={11.25}
-                    height={11.25}
-                    name="people"
-                    color="secondary"
-                    size="small"
-                  />
+                  {isMembersImageVisible ? (
+                    <Icon
+                      width={11.25}
+                      height={11.25}
+                      name="people"
+                      color="secondary"
+                      size="small"
+                    />
+                  ) : (
+                    <div className={classes.membersIconSkeleton} />
+                  )}
                   <span className={classes.membersCount}>
                     {members.toString()}
                   </span>
