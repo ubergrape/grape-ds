@@ -1,6 +1,6 @@
 {
   "name": "@ubergrape/aurora-ui",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": "git@github.com:ubergrape/grape-ds.git",
   "author": "UberGrape Gmbh <support@grape.io>",
   "license": "MIT",
@@ -186,7 +186,7 @@
     ]
   },
   "lint-staged": {
-    "*.js": [
+    "*.ts": [
       "eslint --fix"
     ],
     "*.{json,md}": [
