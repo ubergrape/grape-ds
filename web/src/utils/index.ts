@@ -24,12 +24,16 @@ export const getNodeText = node => {
   return ""
 }
 
-export const testMode = localStorage.testMode
+// testMode setting
+// note: docusaurus does not have localStorage, so check if it exists
+export const testMode = localStorage && localStorage.testMode
 
 export const classify = (name, nodes) => {
   return name + "-" +slugify(getNodeText(nodes), {'lower': true, 'strict': true})
 }
 
+// creates slugified data-test attributes that can be added to elements
+// to make e2e testing easier
 export const testify = (name, node) => {
   if (testMode) {
     return { 'data-test': classify(name, node)}
