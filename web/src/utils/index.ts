@@ -17,27 +17,32 @@ export const getTextSize = (size: sizes): textSizes => {
   }
 }
 
-export const getNodeText = node => {
+export const getNodeText = (node: unknown): string => {
   if (['string', 'number'].includes(typeof node)) return node
   if (node instanceof Array) return node.map(getNodeText).join('')
   if (typeof node === 'object' && node) return getNodeText(node.props.children)
-  return ""
+  return ''
 }
 
 // testMode setting
 // note: docusaurus does not have localStorage, so check if it exists
-export const testMode = (typeof localStorage !== 'undefined') && localStorage.testMode
+export const testMode =
+  typeof localStorage !== 'undefined' && localStorage.testMode
 
-export const classify = (name, nodes) => {
-  return name + "-" +slugify(getNodeText(nodes), {'lower': true, 'strict': true})
+export const classify = (name: string, nodes: unknown): string => {
+  return `${name}-${slugify(getNodeText(nodes), { lower: true, strict: true })}`
 }
 
 // creates slugified data-test attributes that can be added to elements
 // to make e2e testing easier
-export const testify = (name, node) => {
+export const testify = (
+  name: string,
+  node: unknown,
+): Record<string, string> => {
   if (testMode) {
-    return { 'data-test': classify(name, node)}
+    return { 'data-test': classify(name, node) }
   }
+  return {}
 }
 
 export const usePrevious = <T extends unknown>(v: T): T | undefined => {

@@ -86,7 +86,10 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
               isFocusVisible && focusClass.focus,
               hasLabel && classes.spacing,
             )}
-            {...testify("checkbox", isLabelCheckbox(props) ? props.label : props.ariaLabel)}
+            {...testify(
+              'checkbox',
+              isLabelCheckbox(props) ? props.label : props.ariaLabel,
+            )}
           >
             {state.isSelected && <CheckmarkIcon />}
             {isIndeterminate && !state.isSelected && <IndeterminateIcon />}

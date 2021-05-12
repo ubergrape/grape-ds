@@ -162,7 +162,12 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
               </div>
             ))}
           <FocusRing {...(autoFocus && autoFocus)}>
-            <input {...inputProps} ref={inputRef} className={classes.input} {...testify('tagsinput', label)}/>
+            <input
+              {...inputProps}
+              ref={inputRef}
+              className={classes.input}
+              {...testify('tagsinput', label)}
+            />
           </FocusRing>
         </div>
       </div>

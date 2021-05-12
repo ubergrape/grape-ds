@@ -58,7 +58,7 @@ export const Tab: React.FC<TabProps> = props => {
       onClick={() => onChangeTab(tab)}
       onKeyDown={e => onKeyDown(e)}
       className={clsx(classes.button, onFocusVisible)}
-      {...testify("tab", children)}
+      {...testify('tab', children)}
       {...(isActive && { 'aria-selected': true })}
       {...(!isActive && { tabIndex: -1 })}
     >

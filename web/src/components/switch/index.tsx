@@ -74,7 +74,10 @@ export const Switch: React.FC<SwitchProps> = props => {
         renderInput={() => (
           <div
             className={clsx(classes.switch, isFocusVisible && focusClass.focus)}
-            {...testify("switch", isLabelSwitch(props) ? props.label: props.ariaLabel )}
+            {...testify(
+              'switch',
+              isLabelSwitch(props) ? props.label : props.ariaLabel,
+            )}
           >
             <div
               className={clsx(
