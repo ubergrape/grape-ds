@@ -28,16 +28,16 @@ export default createUseStyles(
     description: {
       flex: '1 1 auto',
     },
-    text: {
-      width: '100%',
-      overflow: 'hidden',
-    },
     membersText: {
       overflow: 'initial',
     },
     members: {
       flexShrink: 0,
       color: theme.colorTextAvatarItemSecondary,
+    },
+    membersIconSkeleton: {
+      width: 11.25,
+      height: 11.25,
     },
     membersCount: {
       marginLeft: theme.spaceMembersCount,

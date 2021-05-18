@@ -32,6 +32,7 @@ export const useAvatarStyle = createUseStyles(
             return theme.sizeAvatarRegular
         }
       },
+      flex: '1 0 auto',
       display: 'flex',
       position: 'relative',
       padding: 0,

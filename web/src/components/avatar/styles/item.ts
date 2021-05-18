@@ -2,7 +2,6 @@ import { JssStyle } from 'jss'
 import { createUseStyles } from 'react-jss'
 
 import tokens from '../../../tokens'
-import { parseToken } from '../../../utils'
 
 import onHover from './onHover'
 
@@ -27,6 +26,8 @@ export const useItemStyle = createUseStyles(
       },
     },
     text: {
+      width: '100%',
+      overflow: 'hidden',
       display: 'flex',
       marginLeft: theme.spaceAvatarItem,
       flexDirection: ({ size }) => (size === 'regular' ? 'column' : 'row'),
@@ -44,6 +45,33 @@ export const useItemStyle = createUseStyles(
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       textAlign: 'left',
+    },
+    imageSkeleton: {
+      flex: '1 0 auto',
+      width: ({ size }) => {
+        switch (size) {
+          case 'x-small':
+            return theme.sizeAvatarXSmall
+          case 'small':
+            return theme.sizeAvatarSmall
+          case 'regular':
+            return theme.sizeAvatarRegular
+          default:
+            return theme.sizeAvatarRegular
+        }
+      },
+      height: ({ size }) => {
+        switch (size) {
+          case 'x-small':
+            return theme.sizeAvatarXSmall
+          case 'small':
+            return theme.sizeAvatarSmall
+          case 'regular':
+            return theme.sizeAvatarRegular
+          default:
+            return theme.sizeAvatarRegular
+        }
+      },
     },
   }),
 )
