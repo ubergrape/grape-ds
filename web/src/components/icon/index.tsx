@@ -5,6 +5,7 @@ import { createUseStyles } from 'react-jss'
 import * as icons from '../../icons'
 import { TextColorType } from '../typography/helper'
 import { getColorFromProp } from '../typography/styles'
+import { testify } from '../../utils'
 
 type IconSize = 'small' | 'medium' | 'large'
 
@@ -65,6 +66,7 @@ export const Icon: React.FC<IconProps> = ({
     <IconComponent
       className={clsx(classes.icon, className)}
       {...rest}
+      {...testify('icon', name)}
       aria-label={ariaLabel}
       aria-hidden={ariaLabel ? false : ariaHidden}
     />

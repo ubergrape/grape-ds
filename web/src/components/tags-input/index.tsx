@@ -8,7 +8,7 @@ import { Text } from '../typography'
 import { Tag } from '../tag'
 import { useStyles } from './styles'
 import { useFocusStyle } from '../../styles/common'
-import { usePrevious, genUid } from '../../utils'
+import { usePrevious, genUid, testify } from '../../utils'
 
 type TagsInputProps = {
   label?: string
@@ -162,7 +162,12 @@ export const TagsInput: React.FC<TagsInputProps> = props => {
               </div>
             ))}
           <FocusRing {...(autoFocus && autoFocus)}>
-            <input {...inputProps} ref={inputRef} className={classes.input} />
+            <input
+              {...inputProps}
+              ref={inputRef}
+              className={classes.input}
+              {...testify('tagsinput', label)}
+            />
           </FocusRing>
         </div>
       </div>

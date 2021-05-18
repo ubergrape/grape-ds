@@ -4,6 +4,7 @@ import { FocusRing } from '@react-aria/focus'
 import { useButton } from '@react-aria/button'
 
 import { Text } from '../../typography'
+import { testify } from '../../../utils'
 import { Avatar, AvatarProps } from '..'
 
 import { useItemStyle } from '../styles/item'
@@ -57,6 +58,7 @@ export const AvatarItem: React.FC<AvatarItemProps> = props => {
       <button
         type="button"
         className={clsx(itemClasses.wrapper, className)}
+        {...testify('avataritem', name)}
         ref={ref}
         aria-label={ariaLabel || name}
         {...buttonProps}

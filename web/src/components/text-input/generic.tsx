@@ -9,7 +9,7 @@ import useStyles from './styles'
 import { useFocusStyle } from '../../styles/common'
 import { Flex } from '../layout/flex'
 import { Icon } from '../icon'
-import { genUid } from '../../utils'
+import { genUid, testify } from '../../utils'
 
 import {
   onTextAreaFocus,
@@ -215,6 +215,12 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
               props.component === 'input' && onFocus,
               'os-text-inherit',
               'os-textarea',
+            )}
+            {...testify(
+              'input',
+              label.toString() ||
+                props['aria-label'].toString() ||
+                props.placeholder,
             )}
             {...inputProps}
             {...(isRequired && { required: true })}
