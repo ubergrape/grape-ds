@@ -218,9 +218,9 @@ export const GenericField: React.FC<GenericFieldProps> = props => {
             )}
             {...testify(
               'input',
-              label.toString() ||
-                props['aria-label'].toString() ||
-                props.placeholder,
+              label && label.toString() ||
+                'aria-label' in props && props['aria-label'].toString() ||
+                'placeholder' in props && props['placeholder'].toString(),
             )}
             {...inputProps}
             {...(isRequired && { required: true })}
