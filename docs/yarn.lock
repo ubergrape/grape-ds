@@ -4595,7 +4595,7 @@ __metadata:
 
 "aurora-ui@file:../web::locator=docs%40workspace%3A.":
   version: 1.1.1
-  resolution: "aurora-ui@file:../web#../web::hash=98f46a&locator=docs%40workspace%3A."
+  resolution: "aurora-ui@file:../web#../web::hash=804f7d&locator=docs%40workspace%3A."
   dependencies:
     "@react-aria/button": ^3.2.1
     "@react-aria/checkbox": ^3.2.1
@@ -4622,7 +4622,7 @@ __metadata:
     overlayscrollbars-react: ^0.2.2
     react-jss: ^10.3.0
     slugify: ^1.5.2
-  checksum: 6b95598c3d592285ac8bf3e91e2e60863b10eb22459968f9297f1b02938b8f68889f068c6fab3a187d9172f1f28c3c30342d3cfcad49592ecd76e80af5d7c081
+  checksum: e71d27ce6d7ab26ec3aa201fa949b73c93e16cbcd2ad60532981d62adfa808f4fb016eb4eca4c605bd69c38afc26d37f75c60dc4cf9cb49804d1d3ae8e62f828
   languageName: node
   linkType: hard
 

@@ -10,11 +10,11 @@
     "test-aurora"
   ],
   "scripts": {
-    "dev": "yarn --cwd web dev",
-    "build:storybook": "yarn --cwd web build:storybook",
-    "build:components": "yarn --cwd web build:lib",
-    "build:components:watch": "yarn --cwd web build:lib:watch",
-    "build:docs": "yarn --cwd docs build",
+    "dev": "cd web && yarn dev",
+    "build:storybook": "cd web && yarn build:storybook",
+    "build:components": "cd web && yarn build:lib",
+    "build:components:watch": "cd web && yarn build:lib:watch",
+    "build:docs": "cd docs && yarn build",
     "build": "yarn build:storybook && yarn build:components && cd ./docs && yarn &&  cd ..  && yarn build:docs && cp _redirects build/_redirects",
     "clean": "rm -rf build && rm -rf docs/node_modules && rm -rf web/node_modules",
     "postinstall": "./postinstall.sh"
