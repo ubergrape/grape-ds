@@ -31,7 +31,7 @@
     "@react-stately/toggle": "^3.2.1",
     "@react-types/shared": "^3.2.0",
     "clsx": "^1.1.1",
-    "grape-icons": "https://github.com/ubergrape/grape-icons.git#npm",
+    "grape-icons": "https://github.com/ubergrape/grape-icons.git#main",
     "jss": "^10.3.0",
     "jss-increase-specificity": "^0.3.5",
     "jss-plugin-camel-case": "^10.3.0",

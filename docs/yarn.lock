@@ -4594,8 +4594,8 @@ __metadata:
   linkType: hard
 
 "aurora-ui@file:../web::locator=docs%40workspace%3A.":
-  version: 1.1.1
-  resolution: "aurora-ui@file:../web#../web::hash=804f7d&locator=docs%40workspace%3A."
+  version: 1.2.0
+  resolution: "aurora-ui@file:../web#../web::hash=fee2d6&locator=docs%40workspace%3A."
   dependencies:
     "@react-aria/button": ^3.2.1
     "@react-aria/checkbox": ^3.2.1
@@ -4608,7 +4608,7 @@ __metadata:
     "@react-stately/toggle": ^3.2.1
     "@react-types/shared": ^3.2.0
     clsx: ^1.1.1
-    grape-icons: "https://github.com/ubergrape/grape-icons.git#npm"
+    grape-icons: "https://github.com/ubergrape/grape-icons.git#main"
     jss: ^10.3.0
     jss-increase-specificity: ^0.3.5
     jss-plugin-camel-case: ^10.3.0
@@ -4622,7 +4622,7 @@ __metadata:
     overlayscrollbars-react: ^0.2.2
     react-jss: ^10.3.0
     slugify: ^1.5.2
-  checksum: e71d27ce6d7ab26ec3aa201fa949b73c93e16cbcd2ad60532981d62adfa808f4fb016eb4eca4c605bd69c38afc26d37f75c60dc4cf9cb49804d1d3ae8e62f828
+  checksum: b168d56f00388b8676464ddabe47000be4ae1cb139d9e0e31cf7acd2d0a04832b2f74c17c8637b8e159cf8a8855dc1cc894f1c10538a8a9ecd89fdd9e40f3510
   languageName: node
   linkType: hard
 
@@ -8129,9 +8129,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"grape-icons@https://github.com/ubergrape/grape-icons.git#npm":
+"grape-icons@https://github.com/ubergrape/grape-icons.git#main":
   version: 1.0.0
-  resolution: "grape-icons@https://github.com/ubergrape/grape-icons.git#commit=dcaafddd2220703190abf3b9a39c27e6fe9328d4"
+  resolution: "grape-icons@https://github.com/ubergrape/grape-icons.git#commit=45e713a98be2f754da385336b7388f40ade39716"
   checksum: 25c569b85792afec569069a7548841a20326891f241558d5888934d762bc57e78551a363ea479acb79258d6347b27387607569b8065f157daf0230a87358b99b
   languageName: node
   linkType: hard

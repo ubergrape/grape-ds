@@ -5311,7 +5311,7 @@ __metadata:
     eslint-plugin-react: ^7.20.3
     expect: ^26.1.0
     fork-ts-checker-webpack-plugin: ^5.2.0
-    grape-icons: "https://github.com/ubergrape/grape-icons.git#npm"
+    grape-icons: "https://github.com/ubergrape/grape-icons.git#main"
     husky: ^4.2.5
     jest: ^25.5.4
     jss: ^10.3.0
@@ -11114,9 +11114,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"grape-icons@https://github.com/ubergrape/grape-icons.git#npm":
+"grape-icons@https://github.com/ubergrape/grape-icons.git#main":
   version: 1.0.0
-  resolution: "grape-icons@https://github.com/ubergrape/grape-icons.git#commit=dcaafddd2220703190abf3b9a39c27e6fe9328d4"
+  resolution: "grape-icons@https://github.com/ubergrape/grape-icons.git#commit=45e713a98be2f754da385336b7388f40ade39716"
   checksum: 25c569b85792afec569069a7548841a20326891f241558d5888934d762bc57e78551a363ea479acb79258d6347b27387607569b8065f157daf0230a87358b99b
   languageName: node
   linkType: hard
